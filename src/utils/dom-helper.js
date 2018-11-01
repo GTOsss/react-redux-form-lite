@@ -1,9 +1,11 @@
-const isEvent = (candidate) => !!(candidate && candidate.stopPropagation && candidate.preventDefault);
+const isEvent = (candidate) => !!(candidate
+  && candidate.stopPropagation
+  && candidate.preventDefault);
 
-const getSelectedValues = options => {
+const getSelectedValues = (options) => {
   const result = [];
   if (options) {
-    for (let index = 0; index < options.length; index++) {
+    for (let index = 0; index < options.length; index += 1) {
       const option = options[index];
       if (option.selected) {
         result.push(option.value);
@@ -16,19 +18,19 @@ const getSelectedValues = options => {
 export const getValue = (event, isReactNative) => {
   if (isEvent(event)) {
     if (
-      !isReactNative &&
-      event.nativeEvent &&
-      event.nativeEvent.text !== undefined
+      !isReactNative
+      && event.nativeEvent
+      && event.nativeEvent.text !== undefined
     ) {
-      return event.nativeEvent.text
+      return event.nativeEvent.text;
     }
     if (isReactNative && event.nativeEvent !== undefined) {
-      return event.nativeEvent.text
+      return event.nativeEvent.text;
     }
     const detypedEvent = event;
     const {
       target: { type, value, checked, files },
-      dataTransfer
+      dataTransfer,
     } = detypedEvent;
     if (type === 'checkbox') {
       return !!checked;
