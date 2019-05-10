@@ -9,8 +9,8 @@ import ReduxFormContext from '../redux-form/redux-form-context';
 import FieldArrayContext from '../field-array/field-array-context';
 
 class Field extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
   }
 
   componentDidMount() {

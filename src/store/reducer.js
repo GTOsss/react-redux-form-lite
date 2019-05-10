@@ -10,28 +10,31 @@ import {
 
 const initialState = {};
 const initialStateForm = {
-  submitting: false,
-  submitSucceeded: false,
-  anyTouched: false,
-  active: undefined,
+  submitted: false,
+  focused: false,
+  blurred: false,
+  changed: false,
+  activeField: '',
 };
-
-const updateValue = (state, pathValue, pathMeta, value, meta) => {
-  let newState = { ...state };
-  newState = addToObjectByPath(newState, pathValue, value);
-  return addToObjectByPath(newState, pathMeta, meta);
+const initialStateField = {
+  focused: false,
+  active: false,
+  blurred: false,
+  changed: false,
+  warning: '',
+  error: '',
 };
 
 export default (state = initialState, { type, payload, meta }) => {
   const {
-    form, field, fieldArray,
+    form, field,
   } = meta || {};
   const {
     value,
   } = payload || {};
 
-  const pathValue = fieldArray ? `${form}.values.${fieldArray}.${field}` : `${form}.values.${field}`;
-  const pathMeta = fieldArray ? `${form}.meta.${fieldArray}.${field}` : `${form}.meta.${field}`;
+  const pathValue = `${form}.values.${field}`;
+  const pathMeta = `${form}.meta.${field}`;
   const pathForm = `${form}.form`;
 
   let newState = { ...state };
@@ -40,15 +43,23 @@ export default (state = initialState, { type, payload, meta }) => {
     case REGISTER_FORM:
       return addToObjectByPath(newState, pathForm, initialStateForm);
     case REGISTER_FIELD:
-      return updateValue(newState, pathValue, pathMeta, undefined, {});
+      newState = addToObjectByPath(state, pathValue, value);
+      return addToObjectByPath(newState, pathMeta, initialStateField);
     case FOCUS:
-      return addToObjectByPath(newState, `${pathForm}.active`, field);
+      newState = addToObjectByPath(newState, `${pathMeta}.active`, true);
+      newState = addToObjectByPath(newState, `${pathMeta}.focused`, true);
+      newState = addToObjectByPath(newState, `${pathForm}.focused`, true);
+      return addToObjectByPath(newState, `${pathForm}.activeField`, field);
     case BLUR:
-      return addToObjectByPath(newState, `${pathForm}.anyTouched`, true);
+      newState = addToObjectByPath(newState, `${pathMeta}.active`, false);
+      newState = addToObjectByPath(newState, `${pathForm}.focused`, false);
+      return addToObjectByPath(newState, `${pathForm}.blurred`, true);
     case CHANGE:
-      return updateValue(newState, pathValue, pathMeta, value, { changed: true });
+      newState = addToObjectByPath(newState, `${pathForm}.changed`, true);
+      newState = addToObjectByPath(newState, `${pathMeta}.changed`, true);
+      return addToObjectByPath(newState, `${pathValue}`, value);
     case ARRAY_PUSH:
-      return updateValue(newState, pathValue, pathMeta, value, {});
+      // return updateValue(newState, pathValue, pathMeta, value, {});
     default:
       return state;
   }

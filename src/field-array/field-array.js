@@ -8,8 +8,8 @@ import * as actions from '../store/actions';
 import { getIn } from '../utils/object-manager';
 
 class FieldArray extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       fieldArray: [],
     };
