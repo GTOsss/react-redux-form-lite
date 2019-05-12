@@ -1,14 +1,24 @@
 import React from 'react';
 import { Field, reduxForm } from '../../index';
 
-const SimpleForm = (props) => {
+const validationIsRequired = (value) => !value ? 'Field required.' : undefined;
+const validationMinLength =(minLength) => (value) =>
+  value.length < minLength ? `The minimum length of the value must be ${minLength}.` : undefined;
+
+const SyncValidation = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
-          <Field name="firstName" component="input" type="text" placeholder="First Name" />
+          <Field
+            validation={  }
+            name="firstName"
+            component="input"
+            type="text"
+            placeholder="First Name"
+          />
         </div>
       </div>
       <div>
@@ -63,4 +73,4 @@ const SimpleForm = (props) => {
 
 export default reduxForm({
   form: 'simple',
-})(SimpleForm);
+})(SyncValidation);

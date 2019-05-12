@@ -8,11 +8,15 @@ exports[`<SimpleForm /> Blur field: actions history 1`] = `
 exports[`<SimpleForm /> Blur field: store 1`] = `
 Object {
   "form": Object {
-    "activeField": "firstName",
+    "activeField": "",
     "blurred": true,
-    "changed": false,
+    "changed": true,
+    "errors": null,
+    "errorsMap": null,
     "focused": true,
     "submitted": false,
+    "warnings": null,
+    "warningsMap": null,
   },
   "meta": Object {
     "email": Object {
@@ -41,7 +45,11 @@ Object {
     },
     "firstName": Object {
       "active": false,
+      "blurred": true,
       "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
     },
     "lastName": Object {
       "active": false,
@@ -100,9 +108,13 @@ Object {
   "form": Object {
     "activeField": "firstName",
     "blurred": false,
-    "changed": false,
+    "changed": true,
+    "errors": null,
+    "errorsMap": null,
     "focused": true,
     "submitted": false,
+    "warnings": null,
+    "warningsMap": null,
   },
   "meta": Object {
     "email": Object {
@@ -130,7 +142,12 @@ Object {
       "warning": "",
     },
     "firstName": Object {
+      "active": true,
+      "blurred": false,
       "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
     },
     "lastName": Object {
       "active": false,
@@ -184,11 +201,15 @@ Array [
 exports[`<SimpleForm /> Focus field: store 1`] = `
 Object {
   "form": Object {
-    "activeField": "",
+    "activeField": "firstName",
     "blurred": false,
     "changed": false,
-    "focused": false,
+    "errors": null,
+    "errorsMap": null,
+    "focused": true,
     "submitted": false,
+    "warnings": null,
+    "warningsMap": null,
   },
   "meta": Object {
     "email": Object {
@@ -216,11 +237,11 @@ Object {
       "warning": "",
     },
     "firstName": Object {
-      "active": false,
+      "active": true,
       "blurred": false,
       "changed": false,
       "error": "",
-      "focused": false,
+      "focused": true,
       "warning": "",
     },
     "lastName": Object {
@@ -333,8 +354,12 @@ Object {
     "activeField": "",
     "blurred": false,
     "changed": false,
+    "errors": null,
+    "errorsMap": null,
     "focused": false,
     "submitted": false,
+    "warnings": null,
+    "warningsMap": null,
   },
   "meta": Object {
     "email": Object {
@@ -428,6 +453,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           "focus": [Function],
           "registerField": [Function],
           "registerForm": [Function],
+          "setValidateMessage": [Function],
+          "setWarningMessage": [Function],
         }
       }
     >
@@ -440,6 +467,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "setValidateMessage": [Function],
+            "setWarningMessage": [Function],
           }
         }
         formAction={
@@ -450,6 +479,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "setValidateMessage": [Function],
+            "setWarningMessage": [Function],
           }
         }
         formProps={
@@ -495,6 +526,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -509,16 +542,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     type="text"
                   >
                     <input
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       name="firstName"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -562,6 +585,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -576,16 +601,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     type="text"
                   >
                     <input
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       name="lastName"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -629,6 +644,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -643,16 +660,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     type="email"
                   >
                     <input
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       name="email"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -697,6 +704,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
+                          "setValidateMessage": [Function],
+                          "setWarningMessage": [Function],
                         }
                       }
                       component="input"
@@ -711,16 +720,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value="male"
                     >
                       <input
-                        actions={
-                          Object {
-                            "arrayPush": [Function],
-                            "blur": [Function],
-                            "change": [Function],
-                            "focus": [Function],
-                            "registerField": [Function],
-                            "registerForm": [Function],
-                          }
-                        }
                         name="sex"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -760,6 +759,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
+                          "setValidateMessage": [Function],
+                          "setWarningMessage": [Function],
                         }
                       }
                       component="input"
@@ -774,16 +775,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value="female"
                     >
                       <input
-                        actions={
-                          Object {
-                            "arrayPush": [Function],
-                            "blur": [Function],
-                            "change": [Function],
-                            "focus": [Function],
-                            "registerField": [Function],
-                            "registerForm": [Function],
-                          }
-                        }
                         name="sex"
                         onBlur={[Function]}
                         onChange={[Function]}
@@ -825,6 +816,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="select"
@@ -837,16 +830,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     name="favoriteColor"
                   >
                     <select
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       name="favoriteColor"
                       onBlur={[Function]}
                       onChange={[Function]}
@@ -907,6 +890,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -921,16 +906,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     type="checkbox"
                   >
                     <input
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       id="employed"
                       name="employed"
                       onBlur={[Function]}
@@ -970,6 +945,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "setValidateMessage": [Function],
+                        "setWarningMessage": [Function],
                       }
                     }
                     component="textarea"
@@ -982,16 +959,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     name="notes"
                   >
                     <textarea
-                      actions={
-                        Object {
-                          "arrayPush": [Function],
-                          "blur": [Function],
-                          "change": [Function],
-                          "focus": [Function],
-                          "registerField": [Function],
-                          "registerForm": [Function],
-                        }
-                      }
                       name="notes"
                       onBlur={[Function]}
                       onChange={[Function]}

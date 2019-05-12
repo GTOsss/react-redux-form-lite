@@ -1,10 +1,11 @@
-import React, { Component, createElement, createFactory } from 'react';
+import React, {Component, createElement, createFactory} from 'react';
+import Omit from 'lodash.omit';
 import PropTypes from 'prop-types';
 import FieldContext from './field-context';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as actions from '../store/actions';
-import { getValue } from '../utils/dom-helper';
+import {getValue} from '../utils/dom-helper';
 import ReduxFormContext from '../redux-form/redux-form-context';
 import FieldArrayContext from '../field-array/field-array-context';
 
@@ -16,37 +17,71 @@ class Field extends Component {
   componentDidMount() {
     const {
       name,
-      actions: { registerField },
-      formContext: { form },
-      fieldArrayContext: { fieldName: fieldArrayName },
+      actions: {registerField},
+      formContext: {form},
+      fieldArrayContext: {fieldName: fieldArrayName},
     } = this.props;
 
     registerField(form, name);
   }
 
+  validateAndWarning = (value) => {
+    const {
+      validate, warning, actions: {
+        setValidateMessage, setWarningMessage,
+      }
+    } = this.props;
+
+    if (validate && (typeof validate === 'function')) {
+      setValidateMessage(validate(value));
+    } else if (validate && Array.isArray(validate)) {
+      for (let i = 0; i < validate.length; i += 1) {
+        const result = validate(value);
+        if ((result === 0) && result) {
+          setValidateMessage(result);
+          break;
+        }
+      }
+    }
+
+    if (warning && (typeof warning === 'function')) {
+      setWarningMessage(warning(value));
+    } else if (warning && Array.isArray(warning)) {
+      for (let i = 0; i < warning.length; i += 1) {
+        const result = warning(value);
+        if ((result === 0) && result) {
+          setWarningMessage(result);
+          break;
+        }
+      }
+    }
+  };
+
   onChange = (e) => {
-    const { onChange } = this.props;
+    const {onChange} = this.props;
     const value = getValue(e);
     if (onChange) {
       onChange(e);
     }
 
-    const { actions: { change }, formContext: { form }, name } = this.props;
+    this.validateAndWarning(value);
+
+    const {actions: {change}, formContext: {form}, name} = this.props;
     change(form, name, value);
   };
 
   onFocus = () => {
-    const { actions: { focus }, formContext: { form }, name } = this.props;
+    const {actions: {focus}, formContext: {form}, name} = this.props;
     focus(form, name);
   };
 
   onBlur = () => {
-    const { actions: { blur }, formContext: { form }, name } = this.props;
+    const {actions: {blur}, formContext: {form}, name} = this.props;
     blur(form, name);
   };
 
   render() {
-    const { component, formContext, fieldArrayContext, ...props } = this.props;
+    const {component, formContext, fieldArrayContext, ...props} = this.props;
     const meta = {};
     const input = {
       onChange: this.onChange,
@@ -54,9 +89,12 @@ class Field extends Component {
       onBlur: this.onBlur,
     };
 
+    const propsDefaultInput = Omit({ ...props, ...input }, 'actions');
+    const propsCustomInput = { ...props, meta, input };
+
     return typeof component === 'string'
-      ? createElement(component, { ...props, ...input })
-      : createElement(component, { ...props, meta, input });
+      ? createElement(component, propsDefaultInput)
+      : createElement(component, propsCustomInput);
   }
 }
 
@@ -79,7 +117,7 @@ Field.defaultProps = {
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: { ...bindActionCreators(actions, dispatch) },
+  actions: {...bindActionCreators(actions, dispatch)},
 });
 
 const FieldConnected = connect(mapStateToProps, mapDispatchToProps)(Field);

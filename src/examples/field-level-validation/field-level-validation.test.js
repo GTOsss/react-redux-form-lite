@@ -2,7 +2,7 @@ import React from 'react';
 import {mount, shallow} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import SimpleForm from './simple-form';
+import FieldLevelValidation from './field-level-validation';
 import ReduxThunkTester from 'redux-thunk-tester';
 import {reducer} from '../../index';
 import stringifyObject from 'stringify-object';
@@ -15,13 +15,13 @@ const renderComponent = () => {
     applyMiddleware(reduxThunkTester.createReduxThunkHistoryMiddleware()),
   );
 
-  const component = mount(<Provider store={store}><SimpleForm /></Provider>);
+  const component = mount(<Provider store={store}><FieldLevelValidation /></Provider>);
 
   return {reduxThunkTester, store, component};
 };
 
-describe('<SimpleForm />', () => {
-  test('Render simple form.', () => {
+describe('<FieldLevelValidation />', () => {
+  test('Render field-level-validation form.', () => {
     const {component} = renderComponent();
     expect(component).toMatchSnapshot();
   });

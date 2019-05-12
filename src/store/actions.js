@@ -5,8 +5,8 @@ import {
   BLUR,
   FOCUS,
   CHANGE,
-  UPDATE_ERROR,
-  UPDATE_WARNING,
+  UPDATE_VALIDATE_MESSAGE,
+  UPDATE_WARNING_MESSAGE,
 } from './constants';
 
 export const registerForm = (form) => ({
@@ -15,10 +15,6 @@ export const registerForm = (form) => ({
 
 export const registerField = (form, field) => ({
   type: REGISTER_FIELD, meta: { form, field },
-});
-
-export const arrayPush = (form, field, value) => ({
-  type: ARRAY_PUSH, meta: { form, field }, payload: { value },
 });
 
 export const change = (form, field, value) => ({
@@ -31,4 +27,16 @@ export const focus = (form, field) => ({
 
 export const blur = (form, field) => ({
   type: BLUR, meta: { form, field },
+});
+
+export const setValidateMessage = (form, field, value) => ({
+  type: UPDATE_VALIDATE_MESSAGE, meta: { form, field }, payload: { value },
+});
+
+export const setWarningMessage = (form, field, value) => ({
+  type: UPDATE_WARNING_MESSAGE, meta: { form, field }, payload: { value },
+});
+
+export const arrayPush = (form, field, value) => ({
+  type: ARRAY_PUSH, meta: { form, field }, payload: { value },
 });
