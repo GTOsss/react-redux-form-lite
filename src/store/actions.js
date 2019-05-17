@@ -29,11 +29,11 @@ export const blur = (form, field) => ({
   type: BLUR, meta: { form, field },
 });
 
-export const setValidateMessage = (form, field, value) => ({
+export const updateValidateMessage = (form, field, value) => ({
   type: UPDATE_VALIDATE_MESSAGE, meta: { form, field }, payload: { value },
 });
 
-export const setWarningMessage = (form, field, value) => ({
+export const updateWarningMessage = (form, field, value) => ({
   type: UPDATE_WARNING_MESSAGE, meta: { form, field }, payload: { value },
 });
 

@@ -11,11 +11,9 @@ Object {
     "activeField": "",
     "blurred": true,
     "changed": true,
-    "errors": null,
     "errorsMap": null,
     "focused": true,
     "submitted": false,
-    "warnings": null,
     "warningsMap": null,
   },
   "meta": Object {
@@ -109,11 +107,9 @@ Object {
     "activeField": "firstName",
     "blurred": false,
     "changed": true,
-    "errors": null,
     "errorsMap": null,
     "focused": true,
     "submitted": false,
-    "warnings": null,
     "warningsMap": null,
   },
   "meta": Object {
@@ -204,11 +200,9 @@ Object {
     "activeField": "firstName",
     "blurred": false,
     "changed": false,
-    "errors": null,
     "errorsMap": null,
     "focused": true,
     "submitted": false,
-    "warnings": null,
     "warningsMap": null,
   },
   "meta": Object {
@@ -354,11 +348,9 @@ Object {
     "activeField": "",
     "blurred": false,
     "changed": false,
-    "errors": null,
     "errorsMap": null,
     "focused": false,
     "submitted": false,
-    "warnings": null,
     "warningsMap": null,
   },
   "meta": Object {
@@ -453,8 +445,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           "focus": [Function],
           "registerField": [Function],
           "registerForm": [Function],
-          "setValidateMessage": [Function],
-          "setWarningMessage": [Function],
+          "updateValidateMessage": [Function],
+          "updateWarningMessage": [Function],
         }
       }
     >
@@ -467,8 +459,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
-            "setValidateMessage": [Function],
-            "setWarningMessage": [Function],
+            "updateValidateMessage": [Function],
+            "updateWarningMessage": [Function],
           }
         }
         formAction={
@@ -479,8 +471,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
-            "setValidateMessage": [Function],
-            "setWarningMessage": [Function],
+            "updateValidateMessage": [Function],
+            "updateWarningMessage": [Function],
           }
         }
         formProps={
@@ -526,8 +518,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -585,8 +577,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -644,8 +636,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -704,8 +696,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
-                          "setValidateMessage": [Function],
-                          "setWarningMessage": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateWarningMessage": [Function],
                         }
                       }
                       component="input"
@@ -759,8 +751,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
-                          "setValidateMessage": [Function],
-                          "setWarningMessage": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateWarningMessage": [Function],
                         }
                       }
                       component="input"
@@ -816,8 +808,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="select"
@@ -890,8 +882,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="input"
@@ -945,8 +937,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
-                        "setValidateMessage": [Function],
-                        "setWarningMessage": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateWarningMessage": [Function],
                       }
                     }
                     component="textarea"

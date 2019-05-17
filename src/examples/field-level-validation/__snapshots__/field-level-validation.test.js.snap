@@ -1,0 +1,1590 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 1`] = `
+"@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'firstName'}
+ payload: {value: 't'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'firstName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'firstName'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'firstName'}
+ payload: {value: 'Field required.'}"
+`;
+
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 2`] = `
+"@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'Field required.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 't'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'Must be 2 characters or more.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'te'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'tes'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'test'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'tes'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'te'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 't'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'Must be 2 characters or more.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'lastName'}
+ payload: {value: 'Field required.'}"
+`;
+
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 3`] = `
+"@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Field required.'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '1'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Too yang.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '18'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '1'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Too yang.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '19'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '1'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Too yang.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Field required.'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: '0'},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Too yang.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: 'Field required.'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'age'}
+ payload: {value: undefined}"
+`;
+
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 4`] = `
+"@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '1'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '5'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '50'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '500'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: 'Too large.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '50'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '5'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: ''},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: undefined},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '-1'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: 'Too small.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '-11'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: 'Too small.'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: '-11'},
+@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
+ meta: {form: 'simple', field: 'number'}
+ payload: {value: 'Too small.'}"
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning firstName: validate={validateIsRequired}): store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "firstName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "firstName": "Field required.",
+    },
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "Field required.",
+      "focused": true,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": "",
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning firstName: validate={validateIsRequired}): store 2`] = `
+Object {
+  "form": Object {
+    "activeField": "firstName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": "t",
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "age",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": "t",
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 2`] = `
+Object {
+  "form": Object {
+    "activeField": "age",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "age": "Field required.",
+    },
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "Field required.",
+      "focused": true,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": "",
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 3`] = `
+Object {
+  "form": Object {
+    "activeField": "age",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": Object {
+      "age": "Too yang.",
+    },
+  },
+  "meta": Object {
+    "age": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "Too yang.",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": "1",
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 4`] = `
+Object {
+  "form": Object {
+    "activeField": "age",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": "18",
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "number",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": "t",
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 2`] = `
+Object {
+  "form": Object {
+    "activeField": "number",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": "",
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 3`] = `
+Object {
+  "form": Object {
+    "activeField": "number",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": Object {
+      "number": "Too small.",
+    },
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "Too small.",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": "0",
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 4`] = `
+Object {
+  "form": Object {
+    "activeField": "number",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": Object {
+      "number": "Too large.",
+    },
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "Too large.",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": "101",
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warninglastName: validate={[validateIsRequired, validateMinLength(2)]}): store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "lastName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "lastName": "Field required.",
+    },
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "Field required.",
+      "focused": true,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": "",
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warninglastName: validate={[validateIsRequired, validateMinLength(2)]}): store 2`] = `
+Object {
+  "form": Object {
+    "activeField": "lastName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "lastName": "Must be 2 characters or more.",
+    },
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "Must be 2 characters or more.",
+      "focused": true,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": "t",
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Changed field (validate and warninglastName: validate={[validateIsRequired, validateMinLength(2)]}): store 3`] = `
+Object {
+  "form": Object {
+    "activeField": "lastName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": "te",
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Focus field: actions history. 1`] = `
+Array [
+  Object {
+    "meta": Object {
+      "field": "firstName",
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/FOCUS",
+  },
+]
+`;
+
+exports[`<FieldLevelValidation /> Focus field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "firstName",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": null,
+    "focused": true,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": true,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Register form and fields: action history. 1`] = `
+Array [
+  Object {
+    "meta": Object {
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FORM",
+  },
+  Object {
+    "meta": Object {
+      "field": "firstName",
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "lastName",
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "age",
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "number",
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+]
+`;
+
+exports[`<FieldLevelValidation /> Register form and fields: store. 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": null,
+    "focused": false,
+    "submitted": false,
+    "warningsMap": null,
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": undefined,
+    "firstName": undefined,
+    "lastName": undefined,
+    "number": undefined,
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectFunction>
+    <ReduxForm
+      actions={
+        Object {
+          "arrayPush": [Function],
+          "blur": [Function],
+          "change": [Function],
+          "focus": [Function],
+          "registerField": [Function],
+          "registerForm": [Function],
+          "updateValidateMessage": [Function],
+          "updateWarningMessage": [Function],
+        }
+      }
+    >
+      <FieldLevelValidate
+        actions={
+          Object {
+            "arrayPush": [Function],
+            "blur": [Function],
+            "change": [Function],
+            "focus": [Function],
+            "registerField": [Function],
+            "registerForm": [Function],
+            "updateValidateMessage": [Function],
+            "updateWarningMessage": [Function],
+          }
+        }
+        formAction={
+          Object {
+            "arrayPush": [Function],
+            "blur": [Function],
+            "change": [Function],
+            "focus": [Function],
+            "registerField": [Function],
+            "registerForm": [Function],
+            "updateValidateMessage": [Function],
+            "updateWarningMessage": [Function],
+          }
+        }
+        formProps={
+          Object {
+            "destroyOnUnmount": true,
+            "form": "simple",
+          }
+        }
+        handleSubmit={[Function]}
+        onSubmit={[Function]}
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <FieldWithContext
+            component={[Function]}
+            label="First Name"
+            name="firstName"
+            placeholder="First Name"
+            type="text"
+            validate={[Function]}
+          >
+            <ConnectFunction
+              component={[Function]}
+              formContext={
+                Object {
+                  "form": "simple",
+                }
+              }
+              label="First Name"
+              name="firstName"
+              placeholder="First Name"
+              type="text"
+              validate={[Function]}
+            >
+              <Field
+                actions={
+                  Object {
+                    "arrayPush": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "focus": [Function],
+                    "registerField": [Function],
+                    "registerForm": [Function],
+                    "updateValidateMessage": [Function],
+                    "updateWarningMessage": [Function],
+                  }
+                }
+                component={[Function]}
+                fieldArrayContext={Object {}}
+                formContext={
+                  Object {
+                    "form": "simple",
+                  }
+                }
+                label="First Name"
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+                validate={[Function]}
+              >
+                <Input
+                  actions={
+                    Object {
+                      "arrayPush": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "focus": [Function],
+                      "registerField": [Function],
+                      "registerForm": [Function],
+                      "updateValidateMessage": [Function],
+                      "updateWarningMessage": [Function],
+                    }
+                  }
+                  input={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                    }
+                  }
+                  label="First Name"
+                  meta={Object {}}
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                  validate={[Function]}
+                >
+                  <div>
+                    <label>
+                      First Name
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="text"
+                    />
+                  </div>
+                </Input>
+              </Field>
+            </ConnectFunction>
+          </FieldWithContext>
+          <FieldWithContext
+            component={[Function]}
+            label="Last Name"
+            name="lastName"
+            placeholder="Last Name"
+            type="text"
+            validate={
+              Array [
+                [Function],
+                [Function],
+              ]
+            }
+          >
+            <ConnectFunction
+              component={[Function]}
+              formContext={
+                Object {
+                  "form": "simple",
+                }
+              }
+              label="Last Name"
+              name="lastName"
+              placeholder="Last Name"
+              type="text"
+              validate={
+                Array [
+                  [Function],
+                  [Function],
+                ]
+              }
+            >
+              <Field
+                actions={
+                  Object {
+                    "arrayPush": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "focus": [Function],
+                    "registerField": [Function],
+                    "registerForm": [Function],
+                    "updateValidateMessage": [Function],
+                    "updateWarningMessage": [Function],
+                  }
+                }
+                component={[Function]}
+                fieldArrayContext={Object {}}
+                formContext={
+                  Object {
+                    "form": "simple",
+                  }
+                }
+                label="Last Name"
+                name="lastName"
+                placeholder="Last Name"
+                type="text"
+                validate={
+                  Array [
+                    [Function],
+                    [Function],
+                  ]
+                }
+              >
+                <Input
+                  actions={
+                    Object {
+                      "arrayPush": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "focus": [Function],
+                      "registerField": [Function],
+                      "registerForm": [Function],
+                      "updateValidateMessage": [Function],
+                      "updateWarningMessage": [Function],
+                    }
+                  }
+                  input={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                    }
+                  }
+                  label="Last Name"
+                  meta={Object {}}
+                  name="lastName"
+                  placeholder="Last Name"
+                  type="text"
+                  validate={
+                    Array [
+                      [Function],
+                      [Function],
+                    ]
+                  }
+                >
+                  <div>
+                    <label>
+                      Last Name
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="text"
+                    />
+                  </div>
+                </Input>
+              </Field>
+            </ConnectFunction>
+          </FieldWithContext>
+          <FieldWithContext
+            component={[Function]}
+            label="Age"
+            name="age"
+            placeholder="Age"
+            type="text"
+            validate={[Function]}
+            warn={[Function]}
+          >
+            <ConnectFunction
+              component={[Function]}
+              formContext={
+                Object {
+                  "form": "simple",
+                }
+              }
+              label="Age"
+              name="age"
+              placeholder="Age"
+              type="text"
+              validate={[Function]}
+              warn={[Function]}
+            >
+              <Field
+                actions={
+                  Object {
+                    "arrayPush": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "focus": [Function],
+                    "registerField": [Function],
+                    "registerForm": [Function],
+                    "updateValidateMessage": [Function],
+                    "updateWarningMessage": [Function],
+                  }
+                }
+                component={[Function]}
+                fieldArrayContext={Object {}}
+                formContext={
+                  Object {
+                    "form": "simple",
+                  }
+                }
+                label="Age"
+                name="age"
+                placeholder="Age"
+                type="text"
+                validate={[Function]}
+                warn={[Function]}
+              >
+                <Input
+                  actions={
+                    Object {
+                      "arrayPush": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "focus": [Function],
+                      "registerField": [Function],
+                      "registerForm": [Function],
+                      "updateValidateMessage": [Function],
+                      "updateWarningMessage": [Function],
+                    }
+                  }
+                  input={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                    }
+                  }
+                  label="Age"
+                  meta={Object {}}
+                  name="age"
+                  placeholder="Age"
+                  type="text"
+                  validate={[Function]}
+                  warn={[Function]}
+                >
+                  <div>
+                    <label>
+                      Age
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="text"
+                    />
+                  </div>
+                </Input>
+              </Field>
+            </ConnectFunction>
+          </FieldWithContext>
+          <FieldWithContext
+            component={[Function]}
+            label="Number from 0 to 100"
+            name="number"
+            placeholder="Number from 0 to 100"
+            type="text"
+            warn={
+              Array [
+                [Function],
+                [Function],
+              ]
+            }
+          >
+            <ConnectFunction
+              component={[Function]}
+              formContext={
+                Object {
+                  "form": "simple",
+                }
+              }
+              label="Number from 0 to 100"
+              name="number"
+              placeholder="Number from 0 to 100"
+              type="text"
+              warn={
+                Array [
+                  [Function],
+                  [Function],
+                ]
+              }
+            >
+              <Field
+                actions={
+                  Object {
+                    "arrayPush": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "focus": [Function],
+                    "registerField": [Function],
+                    "registerForm": [Function],
+                    "updateValidateMessage": [Function],
+                    "updateWarningMessage": [Function],
+                  }
+                }
+                component={[Function]}
+                fieldArrayContext={Object {}}
+                formContext={
+                  Object {
+                    "form": "simple",
+                  }
+                }
+                label="Number from 0 to 100"
+                name="number"
+                placeholder="Number from 0 to 100"
+                type="text"
+                warn={
+                  Array [
+                    [Function],
+                    [Function],
+                  ]
+                }
+              >
+                <Input
+                  actions={
+                    Object {
+                      "arrayPush": [Function],
+                      "blur": [Function],
+                      "change": [Function],
+                      "focus": [Function],
+                      "registerField": [Function],
+                      "registerForm": [Function],
+                      "updateValidateMessage": [Function],
+                      "updateWarningMessage": [Function],
+                    }
+                  }
+                  input={
+                    Object {
+                      "onBlur": [Function],
+                      "onChange": [Function],
+                      "onFocus": [Function],
+                    }
+                  }
+                  label="Number from 0 to 100"
+                  meta={Object {}}
+                  name="number"
+                  placeholder="Number from 0 to 100"
+                  type="text"
+                  warn={
+                    Array [
+                      [Function],
+                      [Function],
+                    ]
+                  }
+                >
+                  <div>
+                    <label>
+                      Number from 0 to 100
+                    </label>
+                    <input
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      type="text"
+                    />
+                  </div>
+                </Input>
+              </Field>
+            </ConnectFunction>
+          </FieldWithContext>
+          <div>
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+            >
+              Clear Values
+            </button>
+          </div>
+        </form>
+      </FieldLevelValidate>
+    </ReduxForm>
+  </ConnectFunction>
+</Provider>
+`;

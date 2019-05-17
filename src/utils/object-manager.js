@@ -44,22 +44,27 @@ export const addToObjectByPath = (state, path, value, pathIndex = 0) => {
  *
  * @param {object} state Redux state
  * @param {string} field Path to field
+ * @param {*?} defaultValue
  * @returns {object} State
  */
-export const getIn = (state, field) => {
+export const getIn = (state, field, defaultValue) => {
   if (!state) {
-    return state;
+    return defaultValue;
   }
 
   const path = stringToPath(field);
   const { length } = path;
   if (!length) {
-    return undefined;
+    return defaultValue;
   }
 
   let result = state;
   for (let i = 0; i < length && result; i += 1) {
     result = result[path[i]];
+  }
+
+  if (!result) {
+    return defaultValue;
   }
 
   return result;

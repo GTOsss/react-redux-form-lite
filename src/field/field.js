@@ -27,31 +27,39 @@ class Field extends Component {
 
   validateAndWarning = (value) => {
     const {
-      validate, warning, actions: {
-        setValidateMessage, setWarningMessage,
-      }
+      validate, warn, actions: {
+        updateValidateMessage, updateWarningMessage,
+      }, formContext: {form}, name
     } = this.props;
 
     if (validate && (typeof validate === 'function')) {
-      setValidateMessage(validate(value));
+      updateValidateMessage(form, name, validate(value));
     } else if (validate && Array.isArray(validate)) {
       for (let i = 0; i < validate.length; i += 1) {
-        const result = validate(value);
-        if ((result === 0) && result) {
-          setValidateMessage(result);
+        const result = validate[i](value);
+        if ((result === 0) || result) {
+          updateValidateMessage(form, name, result);
           break;
+        }
+
+        if (i === (validate.length - 1)) {
+          updateValidateMessage(form, name, undefined);
         }
       }
     }
 
-    if (warning && (typeof warning === 'function')) {
-      setWarningMessage(warning(value));
-    } else if (warning && Array.isArray(warning)) {
-      for (let i = 0; i < warning.length; i += 1) {
-        const result = warning(value);
-        if ((result === 0) && result) {
-          setWarningMessage(result);
+    if (warn && (typeof warn === 'function')) {
+      updateWarningMessage(form, name, warn(value));
+    } else if (warn && Array.isArray(warn)) {
+      for (let i = 0; i < warn.length; i += 1) {
+        const result = warn[i](value);
+        if ((result === 0) || result) {
+          updateWarningMessage(form, name, result);
           break;
+        }
+
+        if (i === (warn.length - 1)) {
+          updateWarningMessage(form, name, undefined);
         }
       }
     }
@@ -64,10 +72,9 @@ class Field extends Component {
       onChange(e);
     }
 
-    this.validateAndWarning(value);
-
     const {actions: {change}, formContext: {form}, name} = this.props;
     change(form, name, value);
+    this.validateAndWarning(value);
   };
 
   onFocus = () => {
@@ -78,6 +85,7 @@ class Field extends Component {
   onBlur = () => {
     const {actions: {blur}, formContext: {form}, name} = this.props;
     blur(form, name);
+    this.validateAndWarning(value);
   };
 
   render() {
@@ -89,8 +97,8 @@ class Field extends Component {
       onBlur: this.onBlur,
     };
 
-    const propsDefaultInput = Omit({ ...props, ...input }, 'actions');
-    const propsCustomInput = { ...props, meta, input };
+    const propsDefaultInput = Omit({...props, ...input}, 'actions');
+    const propsCustomInput = {...props, meta, input};
 
     return typeof component === 'string'
       ? createElement(component, propsDefaultInput)
@@ -114,7 +122,9 @@ Field.defaultProps = {
   onChange: undefined,
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state, props) => {
+  return {};
+};
 
 const mapDispatchToProps = (dispatch) => ({
   actions: {...bindActionCreators(actions, dispatch)},

@@ -110,6 +110,8 @@ test('getIn', () => {
   expect(getIn(state, 'formTest.values.value[1]')).toBeUndefined();
 
   expect(getIn(state, 'formTest.values.value[0].b')).toBeUndefined();
+
+  expect(getIn(state, 'formTest.none', 'test')).toEqual('test');
 });
 
 test('deleteIn', () => {

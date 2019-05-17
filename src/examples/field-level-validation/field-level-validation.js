@@ -5,14 +5,14 @@ const validateIsRequired = (value) => !value ? 'Field required.' : undefined;
 const validateMinLength = (minLength) => (value) =>
   value.length < minLength ? `Must be ${minLength} characters or more.` : undefined;
 
-const warnTooYang = (value) => Number.parseInt(value) < 18 ? 'Too yang' : undefined;
-const warnTooSmall = (value) => Number.parseInt(value) < 0 ? 'Too small' : undefined;
-const warnTooLarge = (value) => Number.parseInt(value) > 100 ? 'Too too large' : undefined;
+const warnTooYang = (value) => Number.parseInt(value) < 18 ? 'Too yang.' : undefined;
+const warnTooSmall = (value) => Number.parseInt(value) < 1 ? 'Too small.' : undefined;
+const warnTooLarge = (value) => Number.parseInt(value) > 100 ? 'Too large.' : undefined;
 
-const Input = ({label, meta: {error, warning, blurred}}) => (
+const Input = ({label, meta: {error, warning, blurred}, input}) => (
   <div>
     <label>{label}</label>
-    <input type="text" />
+    <input {...input} type="text" />
     {blurred && error ? (
       <div
         className={`message ${error ? 'message_error' : ''} ${error ? 'message_warning' : ''}`}
@@ -39,14 +39,14 @@ class FieldLevelValidate extends Component {
         <Field
           label="Last Name"
           validate={[validateIsRequired, validateMinLength(2)]}
-          name="age"
+          name="lastName"
           component={Input}
           type="text"
           placeholder="Last Name"
         />
         <Field
           label="Age"
-          validate={[validateIsRequired]}
+          validate={validateIsRequired}
           warn={warnTooYang}
           name="age"
           component={Input}
