@@ -1,0 +1,304 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Store utils. updateErrors (update to undefined) 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "warningsMap": Object {},
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "Error for field 2",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrors 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField1": "Error for field 1",
+      },
+      "warningsMap": Object {},
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "Error for field 1",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrors 2`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField2": "Error for field 2",
+      },
+      "warningsMap": Object {},
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "Error for field 2",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrors 3`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField1": "Error for field 1",
+        "testField2": "Error for field 2",
+      },
+      "warningsMap": Object {},
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "Error for field 1",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "Error for field 2",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrorsAndWarnings 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField1": "Error for field 1",
+      },
+      "warningsMap": Object {},
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "Error for field 1",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrorsAndWarnings 2`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrorsAndWarnings 3`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField1": "Error for field 1",
+      },
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "Error for field 1",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateErrorsAndWarnings 4`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {
+        "testField1": "Error for field 1",
+        "testField2": "Error for field 2",
+      },
+      "warningsMap": Object {
+        "testField1": "Warning for field 2",
+        "testField2": "Warning for field 2",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "Error for field 1",
+        "warning": "Warning for field 2",
+      },
+      "testField2": Object {
+        "error": "Error for field 2",
+        "warning": "Warning for field 2",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateWarnings 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateWarnings 2`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "warningsMap": Object {
+        "testField2": "Warning for field 2",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "Warning for field 2",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateWarnings 3`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+        "testField2": "Warning for field 2",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "Warning for field 2",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;

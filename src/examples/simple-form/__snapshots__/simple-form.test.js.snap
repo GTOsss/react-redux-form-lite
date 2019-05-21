@@ -11,10 +11,12 @@ Object {
     "activeField": "",
     "blurred": true,
     "changed": true,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "email": Object {
@@ -107,10 +109,12 @@ Object {
     "activeField": "firstName",
     "blurred": false,
     "changed": true,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "email": Object {
@@ -200,10 +204,12 @@ Object {
     "activeField": "firstName",
     "blurred": false,
     "changed": false,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "email": Object {
@@ -348,10 +354,12 @@ Object {
     "activeField": "",
     "blurred": false,
     "changed": false,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": false,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "email": Object {
@@ -445,8 +453,93 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           "focus": [Function],
           "registerField": [Function],
           "registerForm": [Function],
+          "updateErrorAndWarningMessages": [Function],
           "updateValidateMessage": [Function],
+          "updateValidateMessages": [Function],
           "updateWarningMessage": [Function],
+          "updateWarningMessages": [Function],
+        }
+      }
+      form={
+        Object {
+          "form": Object {
+            "activeField": "",
+            "blurred": false,
+            "changed": false,
+            "errorsMap": Object {},
+            "focused": false,
+            "haveErrors": false,
+            "haveWarnings": false,
+            "submitted": false,
+            "warningsMap": Object {},
+          },
+          "meta": Object {
+            "email": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "employed": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "favoriteColor": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "lastName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "notes": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "sex": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+          "values": Object {
+            "email": undefined,
+            "employed": undefined,
+            "favoriteColor": undefined,
+            "firstName": undefined,
+            "lastName": undefined,
+            "notes": undefined,
+            "sex": undefined,
+          },
         }
       }
     >
@@ -459,8 +552,93 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "updateErrorAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
+          }
+        }
+        form={
+          Object {
+            "form": Object {
+              "activeField": "",
+              "blurred": false,
+              "changed": false,
+              "errorsMap": Object {},
+              "focused": false,
+              "haveErrors": false,
+              "haveWarnings": false,
+              "submitted": false,
+              "warningsMap": Object {},
+            },
+            "meta": Object {
+              "email": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "employed": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "favoriteColor": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "firstName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "lastName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "notes": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "sex": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "values": Object {
+              "email": undefined,
+              "employed": undefined,
+              "favoriteColor": undefined,
+              "firstName": undefined,
+              "lastName": undefined,
+              "notes": undefined,
+              "sex": undefined,
+            },
           }
         }
         formAction={
@@ -471,11 +649,14 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "updateErrorAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
           }
         }
-        formProps={
+        formParams={
           Object {
             "destroyOnUnmount": true,
             "form": "simple",
@@ -503,6 +684,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   name="firstName"
@@ -518,8 +700,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="input"
@@ -527,6 +712,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="firstName"
@@ -562,6 +748,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   name="lastName"
@@ -577,8 +764,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="input"
@@ -586,6 +776,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="lastName"
@@ -621,6 +812,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   name="email"
@@ -636,8 +828,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="input"
@@ -645,6 +840,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="email"
@@ -681,6 +877,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="sex"
@@ -696,8 +893,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
+                          "updateErrorAndWarningMessages": [Function],
                           "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
                           "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
                         }
                       }
                       component="input"
@@ -705,6 +905,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       formContext={
                         Object {
                           "form": "simple",
+                          "updateValidateAndWarningMap": [Function],
                         }
                       }
                       name="sex"
@@ -736,6 +937,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="sex"
@@ -751,8 +953,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "focus": [Function],
                           "registerField": [Function],
                           "registerForm": [Function],
+                          "updateErrorAndWarningMessages": [Function],
                           "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
                           "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
                         }
                       }
                       component="input"
@@ -760,6 +965,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       formContext={
                         Object {
                           "form": "simple",
+                          "updateValidateAndWarningMap": [Function],
                         }
                       }
                       name="sex"
@@ -795,6 +1001,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   name="favoriteColor"
@@ -808,8 +1015,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="select"
@@ -817,6 +1027,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="favoriteColor"
@@ -867,6 +1078,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   id="employed"
@@ -882,8 +1094,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="input"
@@ -891,6 +1106,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     id="employed"
@@ -924,6 +1140,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   formContext={
                     Object {
                       "form": "simple",
+                      "updateValidateAndWarningMap": [Function],
                     }
                   }
                   name="notes"
@@ -937,8 +1154,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "updateErrorAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
                       }
                     }
                     component="textarea"
@@ -946,6 +1166,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     formContext={
                       Object {
                         "form": "simple",
+                        "updateValidateAndWarningMap": [Function],
                       }
                     }
                     name="notes"

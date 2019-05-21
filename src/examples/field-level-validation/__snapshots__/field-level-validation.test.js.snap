@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 1`] = `
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 0). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'firstName'}
  payload: {value: 't'},
@@ -15,7 +15,7 @@ exports[`<FieldLevelValidation /> Change field (validate and warning): actions h
  payload: {value: 'Field required.'}"
 `;
 
-exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 2`] = `
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 1). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: ''},
@@ -72,7 +72,7 @@ exports[`<FieldLevelValidation /> Change field (validate and warning): actions h
  payload: {value: 'Field required.'}"
 `;
 
-exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 3`] = `
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 2). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: ''},
@@ -156,7 +156,7 @@ exports[`<FieldLevelValidation /> Change field (validate and warning): actions h
  payload: {value: undefined}"
 `;
 
-exports[`<FieldLevelValidation /> Change field (validate and warning): actions history. 4`] = `
+exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 3). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: ''},
@@ -241,8 +241,10 @@ Object {
       "firstName": "Field required.",
     },
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "age": Object {
@@ -287,236 +289,18 @@ Object {
 }
 `;
 
-exports[`<FieldLevelValidation /> Changed field (validate and warning firstName: validate={validateIsRequired}): store 2`] = `
-Object {
-  "form": Object {
-    "activeField": "firstName",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": "t",
-    "lastName": undefined,
-    "number": undefined,
-  },
-}
-`;
-
 exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 1`] = `
 Object {
   "form": Object {
     "activeField": "age",
     "blurred": false,
     "changed": true,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": "t",
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": undefined,
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 2`] = `
-Object {
-  "form": Object {
-    "activeField": "age",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": Object {
-      "age": "Field required.",
-    },
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "Field required.",
-      "focused": true,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": "",
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": undefined,
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 3`] = `
-Object {
-  "form": Object {
-    "activeField": "age",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": Object {
-      "age": "Too yang.",
-    },
-  },
-  "meta": Object {
-    "age": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "Too yang.",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": "1",
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": undefined,
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning validate={validateIsRequired} warn={warnTooYang}): store 4`] = `
-Object {
-  "form": Object {
-    "activeField": "age",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "age": Object {
@@ -567,172 +351,10 @@ Object {
     "activeField": "number",
     "blurred": false,
     "changed": true,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": "t",
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 2`] = `
-Object {
-  "form": Object {
-    "activeField": "number",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": "",
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 3`] = `
-Object {
-  "form": Object {
-    "activeField": "number",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": Object {
-      "number": "Too small.",
-    },
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "number": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "Too small.",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": undefined,
-    "lastName": undefined,
-    "number": "0",
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warning warn={[warnTooSmall, warnTooLarge]}): store 4`] = `
-Object {
-  "form": Object {
-    "activeField": "number",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
     "warningsMap": Object {
       "number": "Too large.",
@@ -791,8 +413,10 @@ Object {
       "lastName": "Field required.",
     },
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "age": Object {
@@ -837,116 +461,6 @@ Object {
 }
 `;
 
-exports[`<FieldLevelValidation /> Changed field (validate and warninglastName: validate={[validateIsRequired, validateMinLength(2)]}): store 2`] = `
-Object {
-  "form": Object {
-    "activeField": "lastName",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": Object {
-      "lastName": "Must be 2 characters or more.",
-    },
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "Must be 2 characters or more.",
-      "focused": true,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": undefined,
-    "lastName": "t",
-    "number": undefined,
-  },
-}
-`;
-
-exports[`<FieldLevelValidation /> Changed field (validate and warninglastName: validate={[validateIsRequired, validateMinLength(2)]}): store 3`] = `
-Object {
-  "form": Object {
-    "activeField": "lastName",
-    "blurred": false,
-    "changed": true,
-    "errorsMap": null,
-    "focused": true,
-    "submitted": false,
-    "warningsMap": null,
-  },
-  "meta": Object {
-    "age": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": true,
-      "blurred": false,
-      "changed": true,
-      "error": "",
-      "focused": true,
-      "warning": "",
-    },
-    "number": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "age": undefined,
-    "firstName": undefined,
-    "lastName": "te",
-    "number": undefined,
-  },
-}
-`;
-
 exports[`<FieldLevelValidation /> Focus field: actions history. 1`] = `
 Array [
   Object {
@@ -965,10 +479,12 @@ Object {
     "activeField": "firstName",
     "blurred": false,
     "changed": false,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "age": Object {
@@ -1058,10 +574,12 @@ Object {
     "activeField": "",
     "blurred": false,
     "changed": false,
-    "errorsMap": null,
+    "errorsMap": Object {},
     "focused": false,
+    "haveErrors": false,
+    "haveWarnings": false,
     "submitted": false,
-    "warningsMap": null,
+    "warningsMap": Object {},
   },
   "meta": Object {
     "age": Object {
@@ -1128,8 +646,66 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
           "focus": [Function],
           "registerField": [Function],
           "registerForm": [Function],
+          "updateErrorAndWarningMessages": [Function],
           "updateValidateMessage": [Function],
+          "updateValidateMessages": [Function],
           "updateWarningMessage": [Function],
+          "updateWarningMessages": [Function],
+        }
+      }
+      form={
+        Object {
+          "form": Object {
+            "activeField": "",
+            "blurred": false,
+            "changed": false,
+            "errorsMap": Object {},
+            "focused": false,
+            "haveErrors": false,
+            "haveWarnings": false,
+            "submitted": false,
+            "warningsMap": Object {},
+          },
+          "meta": Object {
+            "age": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "lastName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "number": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+          "values": Object {
+            "age": undefined,
+            "firstName": undefined,
+            "lastName": undefined,
+            "number": undefined,
+          },
         }
       }
     >
@@ -1142,8 +718,66 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "updateErrorAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
+          }
+        }
+        form={
+          Object {
+            "form": Object {
+              "activeField": "",
+              "blurred": false,
+              "changed": false,
+              "errorsMap": Object {},
+              "focused": false,
+              "haveErrors": false,
+              "haveWarnings": false,
+              "submitted": false,
+              "warningsMap": Object {},
+            },
+            "meta": Object {
+              "age": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "firstName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "lastName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "number": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "values": Object {
+              "age": undefined,
+              "firstName": undefined,
+              "lastName": undefined,
+              "number": undefined,
+            },
           }
         }
         formAction={
@@ -1154,11 +788,14 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "updateErrorAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
           }
         }
-        formProps={
+        formParams={
           Object {
             "destroyOnUnmount": true,
             "form": "simple",
@@ -1183,6 +820,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               formContext={
                 Object {
                   "form": "simple",
+                  "updateValidateAndWarningMap": [Function],
                 }
               }
               label="First Name"
@@ -1200,8 +838,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "focus": [Function],
                     "registerField": [Function],
                     "registerForm": [Function],
+                    "updateErrorAndWarningMessages": [Function],
                     "updateValidateMessage": [Function],
+                    "updateValidateMessages": [Function],
                     "updateWarningMessage": [Function],
+                    "updateWarningMessages": [Function],
                   }
                 }
                 component={[Function]}
@@ -1209,6 +850,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                 formContext={
                   Object {
                     "form": "simple",
+                    "updateValidateAndWarningMap": [Function],
                   }
                 }
                 label="First Name"
@@ -1226,8 +868,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "focus": [Function],
                       "registerField": [Function],
                       "registerForm": [Function],
+                      "updateErrorAndWarningMessages": [Function],
                       "updateValidateMessage": [Function],
+                      "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
+                      "updateWarningMessages": [Function],
                     }
                   }
                   input={
@@ -1277,6 +922,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               formContext={
                 Object {
                   "form": "simple",
+                  "updateValidateAndWarningMap": [Function],
                 }
               }
               label="Last Name"
@@ -1299,8 +945,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "focus": [Function],
                     "registerField": [Function],
                     "registerForm": [Function],
+                    "updateErrorAndWarningMessages": [Function],
                     "updateValidateMessage": [Function],
+                    "updateValidateMessages": [Function],
                     "updateWarningMessage": [Function],
+                    "updateWarningMessages": [Function],
                   }
                 }
                 component={[Function]}
@@ -1308,6 +957,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                 formContext={
                   Object {
                     "form": "simple",
+                    "updateValidateAndWarningMap": [Function],
                   }
                 }
                 label="Last Name"
@@ -1330,8 +980,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "focus": [Function],
                       "registerField": [Function],
                       "registerForm": [Function],
+                      "updateErrorAndWarningMessages": [Function],
                       "updateValidateMessage": [Function],
+                      "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
+                      "updateWarningMessages": [Function],
                     }
                   }
                   input={
@@ -1382,6 +1035,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               formContext={
                 Object {
                   "form": "simple",
+                  "updateValidateAndWarningMap": [Function],
                 }
               }
               label="Age"
@@ -1400,8 +1054,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "focus": [Function],
                     "registerField": [Function],
                     "registerForm": [Function],
+                    "updateErrorAndWarningMessages": [Function],
                     "updateValidateMessage": [Function],
+                    "updateValidateMessages": [Function],
                     "updateWarningMessage": [Function],
+                    "updateWarningMessages": [Function],
                   }
                 }
                 component={[Function]}
@@ -1409,6 +1066,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                 formContext={
                   Object {
                     "form": "simple",
+                    "updateValidateAndWarningMap": [Function],
                   }
                 }
                 label="Age"
@@ -1427,8 +1085,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "focus": [Function],
                       "registerField": [Function],
                       "registerForm": [Function],
+                      "updateErrorAndWarningMessages": [Function],
                       "updateValidateMessage": [Function],
+                      "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
+                      "updateWarningMessages": [Function],
                     }
                   }
                   input={
@@ -1479,6 +1140,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               formContext={
                 Object {
                   "form": "simple",
+                  "updateValidateAndWarningMap": [Function],
                 }
               }
               label="Number from 0 to 100"
@@ -1501,8 +1163,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "focus": [Function],
                     "registerField": [Function],
                     "registerForm": [Function],
+                    "updateErrorAndWarningMessages": [Function],
                     "updateValidateMessage": [Function],
+                    "updateValidateMessages": [Function],
                     "updateWarningMessage": [Function],
+                    "updateWarningMessages": [Function],
                   }
                 }
                 component={[Function]}
@@ -1510,6 +1175,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                 formContext={
                   Object {
                     "form": "simple",
+                    "updateValidateAndWarningMap": [Function],
                   }
                 }
                 label="Number from 0 to 100"
@@ -1532,8 +1198,11 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "focus": [Function],
                       "registerField": [Function],
                       "registerForm": [Function],
+                      "updateErrorAndWarningMessages": [Function],
                       "updateValidateMessage": [Function],
+                      "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
+                      "updateWarningMessages": [Function],
                     }
                   }
                   input={
@@ -1576,15 +1245,153 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             >
               Submit
             </button>
-            <button
-              type="button"
-            >
-              Clear Values
-            </button>
           </div>
         </form>
       </FieldLevelValidate>
     </ReduxForm>
   </ConnectFunction>
 </Provider>
+`;
+
+exports[`<FieldLevelValidation /> handleSubmit(onSubmit) inside form-component (not valid): firstArg 1`] = `
+Object {
+  "age": "12",
+  "firstName": "",
+  "lastName": "t",
+  "number": "105",
+}
+`;
+
+exports[`<FieldLevelValidation /> handleSubmit(onSubmit) inside form-component (not valid): secondArg 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": true,
+    "changed": true,
+    "errorsMap": Object {
+      "firstName": "Field required.",
+      "lastName": "Must be 2 characters or more.",
+    },
+    "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {
+      "age": "Too yang.",
+      "number": "Too large.",
+    },
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "Too yang.",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "Field required.",
+      "focused": true,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "Must be 2 characters or more.",
+      "focused": true,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "Too large.",
+    },
+  },
+  "values": Object {
+    "age": "12",
+    "firstName": "",
+    "lastName": "t",
+    "number": "105",
+  },
+}
+`;
+
+exports[`<FieldLevelValidation /> handleSubmit(onSubmit) inside form-component (not valid): thirdArg 1`] = `
+Object {
+  "arrayPush": [Function],
+  "blur": [Function],
+  "change": [Function],
+  "focus": [Function],
+  "registerField": [Function],
+  "registerForm": [Function],
+  "updateErrorAndWarningMessages": [Function],
+  "updateValidateMessage": [Function],
+  "updateValidateMessages": [Function],
+  "updateWarningMessage": [Function],
+  "updateWarningMessages": [Function],
+}
+`;
+
+exports[`<FieldLevelValidation /> handleSubmit(onSubmit) inside form-component (valid) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": true,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": true,
+    "haveErrors": false,
+    "haveWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "age": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+    "number": Object {
+      "active": false,
+      "blurred": true,
+      "changed": true,
+      "error": "",
+      "focused": true,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "age": "18",
+    "firstName": "test",
+    "lastName": "test",
+    "number": "50",
+  },
+}
 `;

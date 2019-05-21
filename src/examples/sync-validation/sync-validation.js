@@ -5,20 +5,16 @@ const validationIsRequired = (value) => !value ? 'Field required.' : undefined;
 const validationMinLength =(minLength) => (value) =>
   value.length < minLength ? `The minimum length of the value must be ${minLength}.` : undefined;
 
+// const onSubmit
+
 const SyncValidation = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label>First Name</label>
         <div>
-          <Field
-            validation={  }
-            name="firstName"
-            component="input"
-            type="text"
-            placeholder="First Name"
-          />
+          <Field name="firstName" component="input" type="text" placeholder="First Name" />
         </div>
       </div>
       <div>

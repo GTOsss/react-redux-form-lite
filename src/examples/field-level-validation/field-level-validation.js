@@ -25,9 +25,9 @@ const Input = ({label, meta: {error, warning, blurred}, input}) => (
 
 class FieldLevelValidate extends Component {
   render() {
-    const {handleSubmit, pristine, reset, submitting} = this.props;
+    const {handleSubmit, pristine, reset, submitting, innerOnSubmit} = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(innerOnSubmit)}>
         <Field
           label="First Name"
           validate={validateIsRequired}
@@ -63,7 +63,6 @@ class FieldLevelValidate extends Component {
         />
         <div>
           <button type="submit" disabled={pristine || submitting}>Submit</button>
-          <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
         </div>
       </form>
     );

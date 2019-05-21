@@ -18,10 +18,13 @@ class Field extends Component {
     const {
       name,
       actions: {registerField},
-      formContext: {form},
+      formContext: {form, updateValidateAndWarningMap},
       fieldArrayContext: {fieldName: fieldArrayName},
+      validate,
+      warn,
     } = this.props;
 
+    updateValidateAndWarningMap(name, validate, warn);
     registerField(form, name);
   }
 
@@ -77,13 +80,20 @@ class Field extends Component {
     this.validateAndWarning(value);
   };
 
-  onFocus = () => {
-    const {actions: {focus}, formContext: {form}, name} = this.props;
+  onFocus = (e) => {
+    const {actions: {focus}, formContext: {form}, name, onFocus} = this.props;
+    if (onFocus) {
+      onFocus(e);
+    }
     focus(form, name);
   };
 
-  onBlur = () => {
-    const {actions: {blur}, formContext: {form}, name} = this.props;
+  onBlur = (e) => {
+    const {actions: {blur}, formContext: {form}, name, onBlur} = this.props;
+    const value = getValue(e);
+    if (onBlur) {
+      onBlur(e);
+    }
     blur(form, name);
     this.validateAndWarning(value);
   };

@@ -1,4 +1,5 @@
 import {getIn, deleteIn, addToObjectByPath} from '../utils/object-manager';
+import {updateErrors, updateWarnings, updateErrorsAndWarnings} from './utils';
 import omit from 'lodash.omit';
 import {
   REGISTER_FORM,
@@ -8,7 +9,10 @@ import {
   BLUR,
   ARRAY_PUSH,
   UPDATE_WARNING_MESSAGE,
+  UPDATE_WARNING_MESSAGES,
   UPDATE_VALIDATE_MESSAGE,
+  UPDATE_VALIDATE_MESSAGES,
+  UPDATE_ERROR_AND_WARNING_MESSAGES,
 } from './constants';
 
 const initialState = {};
@@ -17,8 +21,10 @@ const initialStateForm = {
   focused: false,
   blurred: false,
   changed: false,
-  errorsMap: null,
-  warningsMap: null,
+  errorsMap: {},
+  haveErrors: false,
+  warningsMap: {},
+  haveWarnings: false,
   activeField: '',
 };
 const initialMeta = {
@@ -66,25 +72,15 @@ export default (state = initialState, {type, payload, meta}) => {
       newState = addToObjectByPath(newState, `${pathForm}.activeField`, '');
       return newState;
     case UPDATE_VALIDATE_MESSAGE:
-      if (getIn(state, `${pathForm}.errorsMap`, {})[field] !== value) {
-        let errorsMap = getIn(newState, `${pathForm}.errorsMap`, {});
-        errorsMap = value || (value === 0) ? {...errorsMap, [field]: value} : omit(errorsMap, field);
-        errorsMap = Object.keys(errorsMap).length ? errorsMap : null;
-        newState = addToObjectByPath(newState, `${pathForm}.errorsMap`, errorsMap);
-        newState = addToObjectByPath(newState, `${pathMeta}.error`, value || '');
-        return newState;
-      }
-      return state;
+      return updateErrors(newState, form, {[field]: value});
     case UPDATE_WARNING_MESSAGE:
-      if (getIn(state, `${pathForm}.warningsMap`, {})[field] !== value) {
-        let warningsMap = getIn(newState, `${pathForm}.warningsMap`, {});
-        warningsMap = value || (value === 0) ? {...warningsMap, [field]: value} : omit(warningsMap, field);
-        warningsMap = Object.keys(warningsMap).length ? warningsMap : null;
-        newState = addToObjectByPath(newState, `${pathForm}.warningsMap`, warningsMap);
-        newState = addToObjectByPath(newState, `${pathMeta}.warning`, value || '');
-        return newState;
-      }
-      return state;
+      return updateWarnings(newState, form, {[field]: value});
+    case UPDATE_VALIDATE_MESSAGES:
+      return updateErrors(newState, form, value);
+    case UPDATE_WARNING_MESSAGES:
+      return updateWarnings(newState, form, value);
+    case UPDATE_ERROR_AND_WARNING_MESSAGES:
+      return updateErrorsAndWarnings(newState, form, value);
     case ARRAY_PUSH:
     // return updateValue(newState, pathValue, pathMeta, value, {});
     default:
