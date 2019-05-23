@@ -13,8 +13,8 @@ Object {
     "changed": true,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -111,8 +111,8 @@ Object {
     "changed": true,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -206,8 +206,8 @@ Object {
     "changed": false,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -356,8 +356,8 @@ Object {
     "changed": false,
     "errorsMap": Object {},
     "focused": false,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -468,8 +468,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "changed": false,
             "errorsMap": Object {},
             "focused": false,
-            "haveErrors": false,
-            "haveWarnings": false,
+            "hasErrors": false,
+            "hasWarnings": false,
             "submitted": false,
             "warningsMap": Object {},
           },
@@ -542,23 +542,9 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           },
         }
       }
+      ownProps={Object {}}
     >
       <SimpleForm
-        actions={
-          Object {
-            "arrayPush": [Function],
-            "blur": [Function],
-            "change": [Function],
-            "focus": [Function],
-            "registerField": [Function],
-            "registerForm": [Function],
-            "updateErrorAndWarningMessages": [Function],
-            "updateValidateMessage": [Function],
-            "updateValidateMessages": [Function],
-            "updateWarningMessage": [Function],
-            "updateWarningMessages": [Function],
-          }
-        }
         form={
           Object {
             "form": Object {
@@ -567,8 +553,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
               "changed": false,
               "errorsMap": Object {},
               "focused": false,
-              "haveErrors": false,
-              "haveWarnings": false,
+              "hasErrors": false,
+              "hasWarnings": false,
               "submitted": false,
               "warningsMap": Object {},
             },
@@ -663,7 +649,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           }
         }
         handleSubmit={[Function]}
-        onSubmit={[Function]}
       >
         <form
           onSubmit={[Function]}

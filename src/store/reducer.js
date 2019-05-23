@@ -22,9 +22,9 @@ const initialStateForm = {
   blurred: false,
   changed: false,
   errorsMap: {},
-  haveErrors: false,
+  hasErrors: false,
+  hasWarnings: false,
   warningsMap: {},
-  haveWarnings: false,
   activeField: '',
 };
 const initialMeta = {

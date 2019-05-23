@@ -5,10 +5,8 @@ const validationIsRequired = (value) => !value ? 'Field required.' : undefined;
 const validationMinLength =(minLength) => (value) =>
   value.length < minLength ? `The minimum length of the value must be ${minLength}.` : undefined;
 
-// const onSubmit
-
 const SyncValidation = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit, pristine, reset, submitting, onSubmit} = props;
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
@@ -68,5 +66,5 @@ const SyncValidation = (props) => {
 };
 
 export default reduxForm({
-  form: 'simple',
+  form: 'example',
 })(SyncValidation);

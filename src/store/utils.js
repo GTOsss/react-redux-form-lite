@@ -11,23 +11,32 @@ const updateMessages = (state, form, map, type) => {
   const pathMap = {
     error: {
       meta: (key) => `${form}.meta.${key}.error`,
-      form: `${form}.form.errorsMap`,
+      messagesMap: `${form}.form.errorsMap`,
+      hasMessages: `${form}.form.hasErrors`,
     },
     warning: {
       meta: (key) => `${form}.meta.${key}.warning`,
-      form: `${form}.form.warningsMap`,
+      messagesMap: `${form}.form.warningsMap`,
+      hasMessages: `${form}.form.hasWarnings`,
     }
   };
 
-  let newState = addToObjectByPath(state, pathMap[type].form, map);
-  Object.entries(map).forEach(([key, value]) => {
+  const messagesMapDefault = getIn(state, pathMap[type].messagesMap, {});
+  const currentMessagesMap = {...messagesMapDefault, ...map};
+  let newState = addToObjectByPath(state, pathMap[type].messagesMap, currentMessagesMap);
+
+  Object.entries(currentMessagesMap).forEach(([key, value]) => {
     newState = addToObjectByPath(newState, pathMap[type].meta(key), value || '');
     if (!(value || (value === 0))) {
-      newState = deleteIn(newState, `${pathMap[type].form}.${key}`);
+      newState = deleteIn(newState, `${pathMap[type].messagesMap}.${key}`);
+      newState = addToObjectByPath(newState, `${pathMap[type].meta(key)}`, '');
     }
   });
 
-  return newState;
+  const messagesMap = getIn(newState, pathMap[type].messagesMap);
+  const hasMessages = Object.keys(messagesMap).length !== 0;
+
+  return addToObjectByPath(newState, pathMap[type].hasMessages, hasMessages);
 };
 
 export const updateErrors = (state, form, map) => updateMessages(state, form, map, 'error');

@@ -241,8 +241,8 @@ Object {
       "firstName": "Field required.",
     },
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": true,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -297,8 +297,8 @@ Object {
     "changed": true,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -353,8 +353,8 @@ Object {
     "changed": true,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": true,
     "submitted": false,
     "warningsMap": Object {
       "number": "Too large.",
@@ -413,8 +413,8 @@ Object {
       "lastName": "Field required.",
     },
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": true,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -481,8 +481,8 @@ Object {
     "changed": false,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -576,8 +576,8 @@ Object {
     "changed": false,
     "errorsMap": Object {},
     "focused": false,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },
@@ -661,8 +661,8 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             "changed": false,
             "errorsMap": Object {},
             "focused": false,
-            "haveErrors": false,
-            "haveWarnings": false,
+            "hasErrors": false,
+            "hasWarnings": false,
             "submitted": false,
             "warningsMap": Object {},
           },
@@ -708,23 +708,13 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
           },
         }
       }
+      ownProps={
+        Object {
+          "innerOnSubmit": undefined,
+        }
+      }
     >
       <FieldLevelValidate
-        actions={
-          Object {
-            "arrayPush": [Function],
-            "blur": [Function],
-            "change": [Function],
-            "focus": [Function],
-            "registerField": [Function],
-            "registerForm": [Function],
-            "updateErrorAndWarningMessages": [Function],
-            "updateValidateMessage": [Function],
-            "updateValidateMessages": [Function],
-            "updateWarningMessage": [Function],
-            "updateWarningMessages": [Function],
-          }
-        }
         form={
           Object {
             "form": Object {
@@ -733,8 +723,8 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               "changed": false,
               "errorsMap": Object {},
               "focused": false,
-              "haveErrors": false,
-              "haveWarnings": false,
+              "hasErrors": false,
+              "hasWarnings": false,
               "submitted": false,
               "warningsMap": Object {},
             },
@@ -802,7 +792,6 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
           }
         }
         handleSubmit={[Function]}
-        onSubmit={[Function]}
       >
         <form
           onSubmit={[Function]}
@@ -1273,8 +1262,8 @@ Object {
       "lastName": "Must be 2 characters or more.",
     },
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": true,
+    "hasWarnings": true,
     "submitted": false,
     "warningsMap": Object {
       "age": "Too yang.",
@@ -1348,8 +1337,8 @@ Object {
     "changed": true,
     "errorsMap": Object {},
     "focused": true,
-    "haveErrors": false,
-    "haveWarnings": false,
+    "hasErrors": false,
+    "hasWarnings": false,
     "submitted": false,
     "warningsMap": Object {},
   },

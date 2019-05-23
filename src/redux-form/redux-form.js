@@ -119,7 +119,7 @@ const reduxForm = (params) => (WrappedComponent) => {
         destroyOnUnmount = true,
       } = params;
 
-      const {actions: formActions} = this.props;
+      const {actions: formActions, ownProps} = this.props;
 
       const formContext = {
         ...params,
@@ -129,10 +129,10 @@ const reduxForm = (params) => (WrappedComponent) => {
       return (
         <ReduxFormContext.Provider value={formContext}>
           <WrappedComponent
-            {...this.props}
+            {...ownProps}
             formParams={{form, destroyOnUnmount}}
+            form={this.props.form}
             handleSubmit={this.handleSubmit}
-            onSubmit={this.onSubmit}
             formAction={formActions}
           />
         </ReduxFormContext.Provider>
@@ -156,7 +156,13 @@ const reduxForm = (params) => (WrappedComponent) => {
     actions: {...bindActionCreators(actions, dispatch)},
   });
 
-  return connect(mapStateToProps, mapDispatchToProps)(ReduxForm);
+  const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+    ownProps,
+    ...stateProps,
+    ...dispatchProps,
+  });
+
+  return connect(mapStateToProps, mapDispatchToProps, mergeProps)(ReduxForm);
 };
 
 export default reduxForm;
