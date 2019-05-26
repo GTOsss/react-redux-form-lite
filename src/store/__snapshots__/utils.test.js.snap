@@ -95,8 +95,8 @@ Object {
       "errorsMap": Object {
         "testField1": "Error for field 1",
       },
-      "haveErrors": true,
-      "haveWarnings": false,
+      "hasErrors": true,
+      "hasWarnings": false,
       "warningsMap": Object {},
     },
     "meta": Object {
@@ -124,8 +124,8 @@ Object {
       "errorsMap": Object {
         "testField1": "Error for field 1",
       },
-      "haveErrors": true,
-      "haveWarnings": true,
+      "hasErrors": true,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
@@ -156,8 +156,8 @@ Object {
         "testField1": "Error for field 1",
         "testField2": "Error for field 2",
       },
-      "haveErrors": true,
-      "haveWarnings": true,
+      "hasErrors": true,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField1": "Warning for field 2",
         "testField2": "Warning for field 2",
@@ -186,8 +186,8 @@ Object {
   "testForm": Object {
     "form": Object {
       "errorsMap": Object {},
-      "haveErrors": false,
-      "haveWarnings": true,
+      "hasErrors": false,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
@@ -215,7 +215,8 @@ Object {
   "testForm": Object {
     "form": Object {
       "errorsMap": Object {},
-      "haveWarnings": true,
+      "hasErrors": false,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
         "testField2": "Warning for field 2",
@@ -239,38 +240,13 @@ Object {
 }
 `;
 
-exports[`Store utils. updateWarnings (update to undefined) 1`] = `
-Object {
-  "testForm": Object {
-    "form": Object {
-      "errorsMap": Object {},
-      "haveWarnings": false,
-      "warningsMap": Object {},
-    },
-    "meta": Object {
-      "testField1": Object {
-        "error": "",
-        "warning": "",
-      },
-      "testField2": Object {
-        "error": "",
-        "warning": "Error for field 2",
-      },
-    },
-    "values": Object {
-      "testField1": "",
-      "testField2": "",
-    },
-  },
-}
-`;
-
 exports[`Store utils. updateWarnings field1 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
       "errorsMap": Object {},
-      "haveWarnings": true,
+      "hasErrors": false,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
@@ -298,7 +274,8 @@ Object {
   "testForm": Object {
     "form": Object {
       "errorsMap": Object {},
-      "haveWarnings": true,
+      "hasErrors": false,
+      "hasWarnings": true,
       "warningsMap": Object {
         "testField2": "Warning for field 2",
       },
