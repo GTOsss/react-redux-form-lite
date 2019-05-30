@@ -66,7 +66,6 @@ test('addToObjectByPath', () => {
   });
 });
 
-
 test('getIn', () => {
   const state = {
     formTest: {
