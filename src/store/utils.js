@@ -5,9 +5,10 @@ import {addToObjectByPath, deleteIn, getIn} from '../utils/object-manager';
  * @param state
  * @param form
  * @param map
+ * @param {boolean} submitted
  * @param {'error' | 'warning'} type
  */
-const updateMessages = (state, form, map, type) => {
+const updateMessages = (state, form, map, submitted, type) => {
   const pathMap = {
     error: {
       meta: (key) => `${form}.meta.${key}.error`,
@@ -24,6 +25,9 @@ const updateMessages = (state, form, map, type) => {
   const messagesMapDefault = getIn(state, pathMap[type].messagesMap, {});
   const currentMessagesMap = {...messagesMapDefault, ...map};
   let newState = addToObjectByPath(state, pathMap[type].messagesMap, currentMessagesMap);
+  if (typeof submitted === 'boolean') {
+    newState = addToObjectByPath(newState, `${form}.form.submitted`, submitted);
+  }
 
   Object.entries(currentMessagesMap).forEach(([key, value]) => {
     newState = addToObjectByPath(newState, pathMap[type].meta(key), value || '');
@@ -39,9 +43,11 @@ const updateMessages = (state, form, map, type) => {
   return addToObjectByPath(newState, pathMap[type].hasMessages, hasMessages);
 };
 
-export const updateErrors = (state, form, map) => updateMessages(state, form, map, 'error');
+export const updateErrors = (state, form, map, submitted) =>
+  updateMessages(state, form, map, submitted, 'error');
 
-export const updateWarnings = (state, form, map) => updateMessages(state, form, map, 'warning');
+export const updateWarnings = (state, form, map, submitted) =>
+  updateMessages(state, form, map, submitted, 'warning');
 
 /**
  * @param state
@@ -49,8 +55,9 @@ export const updateWarnings = (state, form, map) => updateMessages(state, form, 
  * @param {object?} map
  * @param {object?} map.errors
  * @param {object?} map.warnings
+ * @param {boolean?} submitted
  */
-export const updateErrorsAndWarnings = (state, form, {errors = {}, warnings = {}}) => {
-  let newState = updateErrors(state, form, errors);
-  return updateWarnings(newState, form, warnings);
+export const updateErrorsAndWarnings = (state, form, {errors = {}, warnings = {}}, submitted) => {
+  let newState = updateErrors(state, form, errors, submitted);
+  return updateWarnings(newState, form, warnings, submitted);
 };

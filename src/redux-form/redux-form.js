@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import omit from 'lodash.omit';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
 import {updateErrorsAndWarnings as updateErrorsAndWarningsUtil} from '../store/utils';
@@ -12,14 +11,17 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
 
 /**
  * HOC reduxForm
- * @param {object} params {
- *   form, // name of form
- *   destroyOnUnmount, // will be unmounted in store
- * }
+ * @param {object} params Redux form params
+ * @param {string} params.form  Name of form
+ * @param {boolean} params.destroyOnOnmount Will be remove in store when call componentWillUnmount
+ * @param {function(values): {}} params.validate Method for validate form, should return errorsMap
+ * @param {function(values): {}} params.warn Method for check warnings form, should return warningsMap
  * @returns {function(component): {}} Component
  */
 const reduxForm = (params) => (WrappedComponent) => {
   class ReduxForm extends Component {
+    displayName = getDisplayName(WrappedComponent);
+
     constructor(props) {
       super(props);
 
@@ -43,7 +45,7 @@ const reduxForm = (params) => (WrappedComponent) => {
       }
 
       const {
-        actions: {updateErrorAndWarningMessages},
+        actions: {updateFormState},
         form: {meta, values},
       } = this.props;
 
@@ -87,11 +89,19 @@ const reduxForm = (params) => (WrappedComponent) => {
         }
       });
 
+      if (typeof params.validate === 'function') {
+        resultErrors = {...resultErrors, ...params.validate(values)}
+      }
+
+      if (typeof params.warn === 'function') {
+        resultWarnings = {...resultWarnings, ...params.warn(values)}
+      }
+
       const result = {errors: resultErrors, warnings: resultWarnings};
-      updateErrorAndWarningMessages(params.form, result);
 
       const storeSection = {[params.form]: this.props.form};
-      const updatedStoreSection = updateErrorsAndWarningsUtil(storeSection, params.form, result);
+      const updatedStoreSection = updateErrorsAndWarningsUtil(storeSection, params.form, result, true);
+      updateFormState(params.form, updatedStoreSection[params.form]);
 
       if (this.customSubmit) {
         this.customSubmit(values, updatedStoreSection[params.form], this.props.actions);
@@ -133,7 +143,7 @@ const reduxForm = (params) => (WrappedComponent) => {
             formParams={{form, destroyOnUnmount}}
             form={this.props.form}
             handleSubmit={this.handleSubmit}
-            formAction={formActions}
+            formActions={formActions}
           />
         </ReduxFormContext.Provider>
       );

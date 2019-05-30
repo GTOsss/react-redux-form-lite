@@ -13,6 +13,8 @@ import {
   UPDATE_VALIDATE_MESSAGE,
   UPDATE_VALIDATE_MESSAGES,
   UPDATE_ERROR_AND_WARNING_MESSAGES,
+  CHANGE_SUBMITTED,
+  UPDATE_FORM_STATE,
 } from './constants';
 
 const initialState = {};
@@ -38,7 +40,7 @@ const initialMeta = {
 
 export default (state = initialState, {type, payload, meta}) => {
   const {form, field} = meta || {};
-  const {value} = payload || {};
+  const {value, submitted} = payload || {};
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
@@ -76,11 +78,15 @@ export default (state = initialState, {type, payload, meta}) => {
     case UPDATE_WARNING_MESSAGE:
       return updateWarnings(newState, form, {[field]: value});
     case UPDATE_VALIDATE_MESSAGES:
-      return updateErrors(newState, form, value);
+      return updateErrors(newState, form, value, submitted);
     case UPDATE_WARNING_MESSAGES:
-      return updateWarnings(newState, form, value);
+      return updateWarnings(newState, form, value, submitted);
     case UPDATE_ERROR_AND_WARNING_MESSAGES:
-      return updateErrorsAndWarnings(newState, form, value);
+      return updateErrorsAndWarnings(newState, form, value, submitted);
+    case CHANGE_SUBMITTED:
+      return addToObjectByPath(newState, `${pathForm}.submitted`, value);
+    case UPDATE_FORM_STATE:
+      return addToObjectByPath(newState, form, value);
     case ARRAY_PUSH:
     // return updateValue(newState, pathValue, pathMeta, value, {});
     default:
