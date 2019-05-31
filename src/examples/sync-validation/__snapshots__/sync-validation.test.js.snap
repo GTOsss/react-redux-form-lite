@@ -25,6 +25,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
           "focus": [Function],
           "registerField": [Function],
           "registerForm": [Function],
+          "removeField": [Function],
           "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
           "updateValidateMessage": [Function],
@@ -123,6 +124,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
             "focus": [Function],
             "registerField": [Function],
             "registerForm": [Function],
+            "removeField": [Function],
             "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
             "updateValidateMessage": [Function],
@@ -158,6 +160,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                   component="input"
                   formContext={
                     Object {
+                      "destroyOnUnmount": true,
                       "form": "example",
                       "updateValidateAndWarningMap": [Function],
                       "validate": [Function],
@@ -178,6 +181,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "removeField": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -190,6 +194,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                     fieldArrayContext={Object {}}
                     formContext={
                       Object {
+                        "destroyOnUnmount": true,
                         "form": "example",
                         "updateValidateAndWarningMap": [Function],
                         "validate": [Function],
@@ -228,6 +233,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                   component="input"
                   formContext={
                     Object {
+                      "destroyOnUnmount": true,
                       "form": "example",
                       "updateValidateAndWarningMap": [Function],
                       "validate": [Function],
@@ -248,6 +254,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "focus": [Function],
                         "registerField": [Function],
                         "registerForm": [Function],
+                        "removeField": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -260,6 +267,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                     fieldArrayContext={Object {}}
                     formContext={
                       Object {
+                        "destroyOnUnmount": true,
                         "form": "example",
                         "updateValidateAndWarningMap": [Function],
                         "validate": [Function],

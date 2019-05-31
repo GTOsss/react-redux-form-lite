@@ -12,6 +12,7 @@ import {
   UPDATE_ERROR_AND_WARNING_MESSAGES,
   CHANGE_SUBMITTED,
   UPDATE_FORM_STATE,
+  REMOVE_FIELD,
 } from './constants';
 
 export const registerForm = (form) => ({
@@ -66,10 +67,14 @@ export const changeSubmitted = (form, value) => ({
   type: CHANGE_SUBMITTED, meta: {form}, payload: {value}
 });
 
-export const arrayPush = (form, field, value) => ({
-  type: ARRAY_PUSH, meta: {form, field}, payload: {value},
-});
-
 export const updateFormState = (form, state) => ({
   type: UPDATE_FORM_STATE, meta: {form}, payload: {value: state},
+});
+
+export const removeField = (form, field) => ({
+  type: REMOVE_FIELD, meta: {form, field},
+});
+
+export const arrayPush = (form, field, value) => ({
+  type: ARRAY_PUSH, meta: {form, field}, payload: {value},
 });

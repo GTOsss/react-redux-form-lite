@@ -11,14 +11,19 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
 
 /**
  * HOC reduxForm
- * @param {object} params Redux form params
- * @param {string} params.form  Name of form
- * @param {boolean} params.destroyOnOnmount Will be remove in store when call componentWillUnmount
- * @param {function(values): {}} params.validate Method for validate form, should return errorsMap
- * @param {function(values): {}} params.warn Method for check warnings form, should return warningsMap
+ * @param {object} paramsArg Redux form params
+ * @param {string} paramsArg.form  Name of form
+ * @param {boolean?} paramsArg.destroyOnUnmount Will be remove in store when call componentWillUnmount
+ * @param {function(values): {}} paramsArg.validate Method for validate form, should return errorsMap
+ * @param {function(values): {}} paramsArg.warn Method for check warnings form, should return warningsMap
  * @returns {function(component): {}} Component
  */
-const reduxForm = (params) => (WrappedComponent) => {
+const reduxForm = (paramsArg) => (WrappedComponent) => {
+  const defaultParams = {
+    destroyOnUnmount: true,
+  };
+  const params = {...defaultParams, ...paramsArg};
+
   class ReduxForm extends Component {
     displayName = getDisplayName(WrappedComponent);
 
@@ -124,11 +129,7 @@ const reduxForm = (params) => (WrappedComponent) => {
     }
 
     render() {
-      const {
-        form,
-        destroyOnUnmount = true,
-      } = params;
-
+      const {form, destroyOnUnmount} = params;
       const {actions: formActions, ownProps} = this.props;
 
       const formContext = {

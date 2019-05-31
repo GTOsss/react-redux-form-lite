@@ -14,7 +14,7 @@ import {
   UPDATE_VALIDATE_MESSAGES,
   UPDATE_ERROR_AND_WARNING_MESSAGES,
   CHANGE_SUBMITTED,
-  UPDATE_FORM_STATE,
+  UPDATE_FORM_STATE, REMOVE_FIELD,
 } from './constants';
 
 const initialState = {};
@@ -87,6 +87,25 @@ export default (state = initialState, {type, payload, meta}) => {
       return addToObjectByPath(newState, `${pathForm}.submitted`, value);
     case UPDATE_FORM_STATE:
       return addToObjectByPath(newState, form, value);
+    case REMOVE_FIELD:
+      const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
+      const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
+      if (getIn(errorsMap, field) !== undefined) {
+        newState = deleteIn(newState, `${pathForm}.errorsMap.${field}`);
+        const hasErrors = Object.keys(getIn(newState, `${pathForm}.errorsMap`)).length !== 0;
+        newState = addToObjectByPath(newState, `${pathForm}.hasErrors`, hasErrors);
+      }
+      if (getIn(warningsMap, field) !== undefined) {
+        newState = deleteIn(newState, `${pathForm}.warningsMap.${field}`);
+        const hasWarnings = Object.keys(getIn(newState, `${pathForm}.warningsMap`)).length !== 0;
+        newState = addToObjectByPath(newState, `${pathForm}.hasWarnings`, hasWarnings);
+      }
+      if (getIn(newState, `${pathForm}.activeField`) === field) {
+        addToObjectByPath(newState, `${pathForm}.activeField`, '');
+      }
+      newState = deleteIn(newState, `${form}.meta.${field}`);
+      newState = deleteIn(newState, `${form}.values.${field}`);
+      return newState;
     case ARRAY_PUSH:
     // return updateValue(newState, pathValue, pathMeta, value, {});
     default:

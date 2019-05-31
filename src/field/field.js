@@ -28,6 +28,17 @@ class Field extends Component {
     registerField(form, name);
   }
 
+  componentWillUnmount() {
+    const {
+      name,
+      actions: {removeField},
+      formContext: {form, destroyOnUnmount},
+    } = this.props;
+    if (destroyOnUnmount) {
+      removeField(form, name);
+    }
+  }
+
   validateAndWarning = (value) => {
     const {
       validate, warn, actions: {
