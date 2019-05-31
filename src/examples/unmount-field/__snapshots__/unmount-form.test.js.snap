@@ -1,0 +1,565 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UnmountField /> Render UnmountField 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectFunction
+    showLastName={false}
+  >
+    <ReduxForm
+      actions={
+        Object {
+          "arrayPush": [Function],
+          "blur": [Function],
+          "change": [Function],
+          "changeSubmitted": [Function],
+          "focus": [Function],
+          "registerField": [Function],
+          "registerForm": [Function],
+          "removeField": [Function],
+          "updateErrorAndWarningMessages": [Function],
+          "updateFormState": [Function],
+          "updateValidateMessage": [Function],
+          "updateValidateMessages": [Function],
+          "updateWarningMessage": [Function],
+          "updateWarningMessages": [Function],
+        }
+      }
+      form={
+        Object {
+          "form": Object {
+            "activeField": "",
+            "blurred": false,
+            "changed": false,
+            "errorsMap": Object {},
+            "focused": false,
+            "hasErrors": false,
+            "hasWarnings": false,
+            "submitted": false,
+            "warningsMap": Object {},
+          },
+          "meta": Object {
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "withLastName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+          "values": Object {
+            "firstName": undefined,
+            "withLastName": undefined,
+          },
+        }
+      }
+      ownProps={
+        Object {
+          "showLastName": false,
+        }
+      }
+    >
+      <UnmountForm
+        form={
+          Object {
+            "form": Object {
+              "activeField": "",
+              "blurred": false,
+              "changed": false,
+              "errorsMap": Object {},
+              "focused": false,
+              "hasErrors": false,
+              "hasWarnings": false,
+              "submitted": false,
+              "warningsMap": Object {},
+            },
+            "meta": Object {
+              "firstName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+              "withLastName": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "values": Object {
+              "firstName": undefined,
+              "withLastName": undefined,
+            },
+          }
+        }
+        formActions={
+          Object {
+            "arrayPush": [Function],
+            "blur": [Function],
+            "change": [Function],
+            "changeSubmitted": [Function],
+            "focus": [Function],
+            "registerField": [Function],
+            "registerForm": [Function],
+            "removeField": [Function],
+            "updateErrorAndWarningMessages": [Function],
+            "updateFormState": [Function],
+            "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
+            "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
+          }
+        }
+        formParams={
+          Object {
+            "destroyOnUnmount": true,
+            "form": "example",
+          }
+        }
+        handleSubmit={[Function]}
+        showLastName={false}
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div>
+            <label>
+              First Name
+            </label>
+            <div>
+              <FieldWithContext
+                component="input"
+                name="firstName"
+                placeholder="First Name"
+                type="text"
+              >
+                <ConnectFunction
+                  component="input"
+                  formContext={
+                    Object {
+                      "destroyOnUnmount": true,
+                      "form": "example",
+                      "updateValidateAndWarningMap": [Function],
+                      "validate": [Function],
+                      "warn": [Function],
+                    }
+                  }
+                  name="firstName"
+                  placeholder="First Name"
+                  type="text"
+                >
+                  <Field
+                    actions={
+                      Object {
+                        "arrayPush": [Function],
+                        "blur": [Function],
+                        "change": [Function],
+                        "changeSubmitted": [Function],
+                        "focus": [Function],
+                        "registerField": [Function],
+                        "registerForm": [Function],
+                        "removeField": [Function],
+                        "updateErrorAndWarningMessages": [Function],
+                        "updateFormState": [Function],
+                        "updateValidateMessage": [Function],
+                        "updateValidateMessages": [Function],
+                        "updateWarningMessage": [Function],
+                        "updateWarningMessages": [Function],
+                      }
+                    }
+                    component="input"
+                    fieldArrayContext={Object {}}
+                    formContext={
+                      Object {
+                        "destroyOnUnmount": true,
+                        "form": "example",
+                        "updateValidateAndWarningMap": [Function],
+                        "validate": [Function],
+                        "warn": [Function],
+                      }
+                    }
+                    name="firstName"
+                    placeholder="First Name"
+                    type="text"
+                  >
+                    <input
+                      name="firstName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      placeholder="First Name"
+                      type="text"
+                    />
+                  </Field>
+                </ConnectFunction>
+              </FieldWithContext>
+            </div>
+          </div>
+          <FieldWithContext
+            component="input"
+            name="withLastName"
+            onChange={[Function]}
+            type="checkbox"
+          >
+            <ConnectFunction
+              component="input"
+              formContext={
+                Object {
+                  "destroyOnUnmount": true,
+                  "form": "example",
+                  "updateValidateAndWarningMap": [Function],
+                  "validate": [Function],
+                  "warn": [Function],
+                }
+              }
+              name="withLastName"
+              onChange={[Function]}
+              type="checkbox"
+            >
+              <Field
+                actions={
+                  Object {
+                    "arrayPush": [Function],
+                    "blur": [Function],
+                    "change": [Function],
+                    "changeSubmitted": [Function],
+                    "focus": [Function],
+                    "registerField": [Function],
+                    "registerForm": [Function],
+                    "removeField": [Function],
+                    "updateErrorAndWarningMessages": [Function],
+                    "updateFormState": [Function],
+                    "updateValidateMessage": [Function],
+                    "updateValidateMessages": [Function],
+                    "updateWarningMessage": [Function],
+                    "updateWarningMessages": [Function],
+                  }
+                }
+                component="input"
+                fieldArrayContext={Object {}}
+                formContext={
+                  Object {
+                    "destroyOnUnmount": true,
+                    "form": "example",
+                    "updateValidateAndWarningMap": [Function],
+                    "validate": [Function],
+                    "warn": [Function],
+                  }
+                }
+                name="withLastName"
+                onChange={[Function]}
+                type="checkbox"
+              >
+                <input
+                  name="withLastName"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  type="checkbox"
+                />
+              </Field>
+            </ConnectFunction>
+          </FieldWithContext>
+          <div>
+            <button
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </UnmountForm>
+    </ReduxForm>
+  </ConnectFunction>
+</Provider>
+`;
+
+exports[`<UnmountField /> Render UnmountField: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "withLastName": undefined,
+  },
+}
+`;
+
+exports[`<UnmountField /> UnmountField: mount field (action history) 1`] = `
+"@@react-redux-form-lite/REGISTER_FORM
+ meta: {form: 'example'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'firstName'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'withLastName'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'example', field: 'withLastName'}
+ payload: {value: true},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'lastName'}"
+`;
+
+exports[`<UnmountField /> UnmountField: mount field (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "lastName": undefined,
+    "withLastName": true,
+  },
+}
+`;
+
+exports[`<UnmountField /> UnmountField: render with field and remove then it (action history) 1`] = `
+"@@react-redux-form-lite/REGISTER_FORM
+ meta: {form: 'example'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'firstName'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'withLastName'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {form: 'example', field: 'lastName'},
+@@react-redux-form-lite/CHANGE
+ meta: {form: 'example', field: 'withLastName'}
+ payload: {value: false},
+@@react-redux-form-lite/REMOVE_FIELD
+ meta: {form: 'example', field: 'lastName'}"
+`;
+
+exports[`<UnmountField /> UnmountField: render with field and remove then it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "withLastName": false,
+  },
+}
+`;
+
+exports[`<UnmountField /> UnmountField: render with field and remove then it (store) 2`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "withLastName": false,
+  },
+}
+`;
+
+exports[`<UnmountField /> UnmountField: render with field, add error and remove then it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "withLastName": false,
+  },
+}
+`;
+
+exports[`<UnmountField /> UnmountField: render with field, add warning and remove then it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "withLastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": undefined,
+    "withLastName": false,
+  },
+}
+`;
