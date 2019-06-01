@@ -2,11 +2,11 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import UnmountForm from './unmount-form';
 import ReduxThunkTester from 'redux-thunk-tester';
+import UnmountForm from './unmount-form';
 import {reducer} from '../../index';
 
-const renderComponent = (showLastName = false) => {
+const renderComponent = () => {
   const reduxThunkTester = new ReduxThunkTester();
 
   const store = createStore(
@@ -14,7 +14,9 @@ const renderComponent = (showLastName = false) => {
     applyMiddleware(reduxThunkTester.createReduxThunkHistoryMiddleware()),
   );
 
-  const component = mount(<Provider store={store}><UnmountForm showLastName={showLastName} /></Provider>);
+  const component = mount(
+    <Provider store={store}><UnmountForm /></Provider>,
+  );
 
   return {reduxThunkTester, store, component};
 };
@@ -25,16 +27,26 @@ describe('<UnmountField />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  test('Render UnmountField: inputs', () => {
+    const {component} = renderComponent();
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
   test('Render UnmountField: store', () => {
     const {store} = renderComponent();
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
-  
+
+  test('Render UnmountField: inputs after change', () => {
+    const {component} = renderComponent();
+    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
   test('UnmountField: mount field (action history)', () => {
     const {component, reduxThunkTester} = renderComponent();
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
-    console.log(reduxThunkTester.getActionHistoryStringify({withColor: true}));
   });
 
   test('UnmountField: mount field (store)', () => {
@@ -43,29 +55,32 @@ describe('<UnmountField />', () => {
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
-  test('UnmountField: render with field and remove then it (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent(true);
+  test('UnmountField: render with field and then remove it (action history)', () => {
+    const {component, reduxThunkTester} = renderComponent();
+    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
     expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
-  test('UnmountField: render with field and remove then it (store)', () => {
-    const {component, store} = renderComponent(true);
+  test('UnmountField: render with field and then remove it (store)', () => {
+    const {component, store} = renderComponent();
+    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
-  test('UnmountField: render with field, add error and remove then it (store)', () => {
-    const {component, store} = renderComponent(true);
+  test('UnmountField: mount field, add error and then remove it (store)', () => {
+    const {component, store} = renderComponent();
+    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     component.find('input').at(2).simulate('change', {target: {value: ''}});
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
-  test('UnmountField: render with field, add warning and remove then it (store)', () => {
-    const {component, store} = renderComponent(true);
+  test('UnmountField: mount field, add warning and then remove it (store)', () => {
+    const {component, store} = renderComponent();
+    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     component.find('input').at(2).simulate('change', {target: {value: 't'}});
-    console.log(store.getState().reduxForm.example);
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });

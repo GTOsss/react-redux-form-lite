@@ -34,7 +34,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
           "updateWarningMessages": [Function],
         }
       }
-      form={
+      formState={
         Object {
           "form": Object {
             "activeField": "",
@@ -78,7 +78,31 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
       }
     >
       <InnerSyncValidation
-        form={
+        formActions={
+          Object {
+            "arrayPush": [Function],
+            "blur": [Function],
+            "change": [Function],
+            "changeSubmitted": [Function],
+            "focus": [Function],
+            "registerField": [Function],
+            "registerForm": [Function],
+            "removeField": [Function],
+            "updateErrorAndWarningMessages": [Function],
+            "updateFormState": [Function],
+            "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
+            "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
+          }
+        }
+        formParams={
+          Object {
+            "destroyOnUnmount": true,
+            "form": "example",
+          }
+        }
+        formState={
           Object {
             "form": Object {
               "activeField": "",
@@ -113,30 +137,6 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
               "firstName": undefined,
               "lastName": undefined,
             },
-          }
-        }
-        formActions={
-          Object {
-            "arrayPush": [Function],
-            "blur": [Function],
-            "change": [Function],
-            "changeSubmitted": [Function],
-            "focus": [Function],
-            "registerField": [Function],
-            "registerForm": [Function],
-            "removeField": [Function],
-            "updateErrorAndWarningMessages": [Function],
-            "updateFormState": [Function],
-            "updateValidateMessage": [Function],
-            "updateValidateMessages": [Function],
-            "updateWarningMessage": [Function],
-            "updateWarningMessages": [Function],
-          }
-        }
-        formParams={
-          Object {
-            "destroyOnUnmount": true,
-            "form": "example",
           }
         }
         handleSubmit={[Function]}
@@ -201,9 +201,51 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "warn": [Function],
                       }
                     }
+                    formState={
+                      Object {
+                        "form": Object {
+                          "activeField": "",
+                          "blurred": false,
+                          "changed": false,
+                          "errorsMap": Object {},
+                          "focused": false,
+                          "hasErrors": false,
+                          "hasWarnings": false,
+                          "submitted": false,
+                          "warningsMap": Object {},
+                        },
+                        "meta": Object {
+                          "firstName": Object {
+                            "active": false,
+                            "blurred": false,
+                            "changed": false,
+                            "error": "",
+                            "focused": false,
+                            "warning": "",
+                          },
+                          "lastName": Object {
+                            "active": false,
+                            "blurred": false,
+                            "changed": false,
+                            "error": "",
+                            "focused": false,
+                            "warning": "",
+                          },
+                        },
+                        "values": Object {
+                          "firstName": undefined,
+                          "lastName": undefined,
+                        },
+                      }
+                    }
                     name="firstName"
-                    placeholder="First Name"
-                    type="text"
+                    ownProps={
+                      Object {
+                        "name": "firstName",
+                        "placeholder": "First Name",
+                        "type": "text",
+                      }
+                    }
                   >
                     <input
                       name="firstName"
@@ -212,6 +254,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       onFocus={[Function]}
                       placeholder="First Name"
                       type="text"
+                      value=""
                     />
                   </Field>
                 </ConnectFunction>
@@ -274,9 +317,51 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "warn": [Function],
                       }
                     }
+                    formState={
+                      Object {
+                        "form": Object {
+                          "activeField": "",
+                          "blurred": false,
+                          "changed": false,
+                          "errorsMap": Object {},
+                          "focused": false,
+                          "hasErrors": false,
+                          "hasWarnings": false,
+                          "submitted": false,
+                          "warningsMap": Object {},
+                        },
+                        "meta": Object {
+                          "firstName": Object {
+                            "active": false,
+                            "blurred": false,
+                            "changed": false,
+                            "error": "",
+                            "focused": false,
+                            "warning": "",
+                          },
+                          "lastName": Object {
+                            "active": false,
+                            "blurred": false,
+                            "changed": false,
+                            "error": "",
+                            "focused": false,
+                            "warning": "",
+                          },
+                        },
+                        "values": Object {
+                          "firstName": undefined,
+                          "lastName": undefined,
+                        },
+                      }
+                    }
                     name="lastName"
-                    placeholder="Last Name"
-                    type="text"
+                    ownProps={
+                      Object {
+                        "name": "lastName",
+                        "placeholder": "Last Name",
+                        "type": "text",
+                      }
+                    }
                   >
                     <input
                       name="lastName"
@@ -285,6 +370,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       onFocus={[Function]}
                       placeholder="Last Name"
                       type="text"
+                      value=""
                     />
                   </Field>
                 </ConnectFunction>
@@ -318,6 +404,46 @@ Object {
     "hasErrors": true,
     "hasWarnings": false,
     "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "Field required.",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": "test",
+    "lastName": undefined,
+  },
+}
+`;
+
+exports[`<SyncValidation /> validate only change 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "lastName": "Field required.",
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": false,
     "warningsMap": Object {},
   },
   "meta": Object {
@@ -434,6 +560,46 @@ Object {
     "hasErrors": false,
     "hasWarnings": true,
     "submitted": true,
+    "warningsMap": Object {
+      "firstName": "The minimum length of the value must be 2.",
+    },
+  },
+  "meta": Object {
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "The minimum length of the value must be 2.",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": true,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "firstName": "t",
+    "lastName": "test",
+  },
+}
+`;
+
+exports[`<SyncValidation /> warn only change 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": true,
+    "submitted": false,
     "warningsMap": Object {
       "firstName": "The minimum length of the value must be 2.",
     },

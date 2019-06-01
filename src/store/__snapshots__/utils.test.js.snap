@@ -269,6 +269,65 @@ Object {
 }
 `;
 
+exports[`Store utils. updateWarnings field1 and then field2 = undefined 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "hasErrors": false,
+      "hasWarnings": true,
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
+exports[`Store utils. updateWarnings field1 and then field2 1`] = `
+Object {
+  "testForm": Object {
+    "form": Object {
+      "errorsMap": Object {},
+      "hasErrors": false,
+      "hasWarnings": true,
+      "warningsMap": Object {
+        "testField1": "Warning for field 1",
+        "testField2": "Warning for field 2",
+      },
+    },
+    "meta": Object {
+      "testField1": Object {
+        "error": "",
+        "warning": "Warning for field 1",
+      },
+      "testField2": Object {
+        "error": "",
+        "warning": "Warning for field 2",
+      },
+    },
+    "values": Object {
+      "testField1": "",
+      "testField2": "",
+    },
+  },
+}
+`;
+
 exports[`Store utils. updateWarnings field2 1`] = `
 Object {
   "testForm": Object {

@@ -273,4 +273,26 @@ describe('Store utils.', () => {
     };
     expect(updateErrorsAndWarnings(mockState, form, map4)).toMatchSnapshot();
   });
+
+  test('updateWarnings field1 and then field2', () => {
+    const form = 'testForm';
+    let mockState = getMockState();
+
+    const map1 = {testField1: 'Warning for field 1'};
+    const map2 = {testField2: 'Warning for field 2'};
+    mockState = updateWarnings(mockState, form, map1);
+    console.log(mockState);
+    expect(updateWarnings(mockState, form, map2)).toMatchSnapshot();
+  });
+
+  test('updateWarnings field1 and then field2 = undefined', () => {
+    const form = 'testForm';
+    let mockState = getMockState();
+
+    const map1 = {testField1: 'Warning for field 1'};
+    const map2 = {testField2: undefined};
+    mockState = updateWarnings(mockState, form, map1);
+    console.log(mockState);
+    expect(updateWarnings(mockState, form, map2)).toMatchSnapshot();
+  });
 });

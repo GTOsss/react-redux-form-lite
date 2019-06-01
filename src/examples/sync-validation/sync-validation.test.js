@@ -2,8 +2,8 @@ import React from 'react';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import SyncValidation from './sync-validation';
 import ReduxThunkTester from 'redux-thunk-tester';
+import SyncValidation from './sync-validation';
 import {reducer} from '../../index';
 
 const renderComponent = (onSubmit) => {
@@ -14,23 +14,34 @@ const renderComponent = (onSubmit) => {
     applyMiddleware(reduxThunkTester.createReduxThunkHistoryMiddleware()),
   );
 
-  const component = mount(<Provider store={store}><SyncValidation onSubmit={onSubmit}/></Provider>);
+  const component = mount(
+    <Provider store={store}><SyncValidation onSubmit={onSubmit} /></Provider>,
+  );
 
   return {reduxThunkTester, store, component};
 };
 
 describe('<SyncValidation />', () => {
   test('render sync validation form', () => {
-    const {component} = renderComponent(() => {});
+    const {component} = renderComponent(() => {
+    });
     expect(component).toMatchSnapshot();
   });
 
+  test('validate only change', () => {
+    const {component, store} = renderComponent(() => {
+    });
+
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    expect(store.getState().reduxForm.example).toMatchSnapshot();
+  });
+
   test('validate', () => {
-    const {component, store} = renderComponent(() => {});
+    const {component, store} = renderComponent(() => {
+    });
 
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
-
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
@@ -48,7 +59,7 @@ describe('<SyncValidation />', () => {
     expect(onSubmit.mock.calls[0][1].form.warningsMap).toEqual({});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
-  
+
   test('validate: onSubmit after failed and success', () => {
     const onSubmit = jest.fn();
     const {component, store} = renderComponent(onSubmit);
@@ -66,8 +77,19 @@ describe('<SyncValidation />', () => {
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
+  test('warn only change', () => {
+    const {component, store} = renderComponent(() => {
+    });
+
+    component.find('input').at(0).simulate('change', {target: {value: 't'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+
+    expect(store.getState().reduxForm.example).toMatchSnapshot();
+  });
+
   test('warn', () => {
-    const {component, store} = renderComponent(() => {});
+    const {component, store} = renderComponent(() => {
+    });
 
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});

@@ -9,18 +9,19 @@ import {
   UPDATE_VALIDATE_MESSAGES,
   UPDATE_WARNING_MESSAGE,
   UPDATE_WARNING_MESSAGES,
-  UPDATE_ERROR_AND_WARNING_MESSAGES,
+  UPDATE_VALIDATE_AND_WARNING_MESSAGES,
   CHANGE_SUBMITTED,
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
+  REMOVE_FORM,
 } from './constants';
 
 export const registerForm = (form) => ({
   type: REGISTER_FORM, meta: {form},
 });
 
-export const registerField = (form, field) => ({
-  type: REGISTER_FIELD, meta: {form, field},
+export const registerField = (form, field, value) => ({
+  type: REGISTER_FIELD, meta: {form, field}, payload: {value},
 });
 
 export const change = (form, field, value) => ({
@@ -56,15 +57,15 @@ export const updateWarningMessages = (form, warningMap, submitted) => ({
  * @param {object} map Object with 2 fields
  * @param {object} map.errors errorsMap
  * @param {object} map.warnings warningsMap
- * @param {boolean?} submitted
- * @returns {{}}
+ * @param {boolean?} submitted Submitted
+ * @returns {{}} Action
  */
 export const updateErrorAndWarningMessages = (form, map, submitted) => ({
-  type: UPDATE_ERROR_AND_WARNING_MESSAGES, meta: {form}, payload: {value: map, submitted},
+  type: UPDATE_VALIDATE_AND_WARNING_MESSAGES, meta: {form}, payload: {value: map, submitted},
 });
 
 export const changeSubmitted = (form, value) => ({
-  type: CHANGE_SUBMITTED, meta: {form}, payload: {value}
+  type: CHANGE_SUBMITTED, meta: {form}, payload: {value},
 });
 
 export const updateFormState = (form, state) => ({
@@ -73,6 +74,10 @@ export const updateFormState = (form, state) => ({
 
 export const removeField = (form, field) => ({
   type: REMOVE_FIELD, meta: {form, field},
+});
+
+export const removeForm = (form) => ({
+  type: REMOVE_FORM, meta: {form},
 });
 
 export const arrayPush = (form, field, value) => ({

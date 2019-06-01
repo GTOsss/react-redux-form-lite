@@ -1,6 +1,5 @@
 import {getIn, deleteIn, addToObjectByPath} from '../utils/object-manager';
 import {updateErrors, updateWarnings, updateErrorsAndWarnings} from './utils';
-import omit from 'lodash.omit';
 import {
   REGISTER_FORM,
   REGISTER_FIELD,
@@ -12,9 +11,11 @@ import {
   UPDATE_WARNING_MESSAGES,
   UPDATE_VALIDATE_MESSAGE,
   UPDATE_VALIDATE_MESSAGES,
-  UPDATE_ERROR_AND_WARNING_MESSAGES,
+  UPDATE_VALIDATE_AND_WARNING_MESSAGES,
   CHANGE_SUBMITTED,
-  UPDATE_FORM_STATE, REMOVE_FIELD,
+  UPDATE_FORM_STATE,
+  REMOVE_FIELD,
+  REMOVE_FORM,
 } from './constants';
 
 const initialState = {};
@@ -81,13 +82,13 @@ export default (state = initialState, {type, payload, meta}) => {
       return updateErrors(newState, form, value, submitted);
     case UPDATE_WARNING_MESSAGES:
       return updateWarnings(newState, form, value, submitted);
-    case UPDATE_ERROR_AND_WARNING_MESSAGES:
+    case UPDATE_VALIDATE_AND_WARNING_MESSAGES:
       return updateErrorsAndWarnings(newState, form, value, submitted);
     case CHANGE_SUBMITTED:
       return addToObjectByPath(newState, `${pathForm}.submitted`, value);
     case UPDATE_FORM_STATE:
       return addToObjectByPath(newState, form, value);
-    case REMOVE_FIELD:
+    case REMOVE_FIELD: {
       const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
       const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
       if (getIn(errorsMap, field) !== undefined) {
@@ -106,7 +107,10 @@ export default (state = initialState, {type, payload, meta}) => {
       newState = deleteIn(newState, `${form}.meta.${field}`);
       newState = deleteIn(newState, `${form}.values.${field}`);
       return newState;
-    case ARRAY_PUSH:
+    }
+    case REMOVE_FORM:
+      return addToObjectByPath(newState, `${form}`, {});
+    // case ARRAY_PUSH:
     // return updateValue(newState, pathValue, pathMeta, value, {});
     default:
       return state;

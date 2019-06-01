@@ -1,11 +1,10 @@
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import SimpleForm from './simple-form';
 import ReduxThunkTester from 'redux-thunk-tester';
+import SimpleForm from './simple-form';
 import {reducer} from '../../index';
-import stringifyObject from 'stringify-object';
 
 const renderComponent = () => {
   const reduxThunkTester = new ReduxThunkTester();
@@ -27,9 +26,8 @@ describe('<SimpleForm />', () => {
   });
 
   test('Register form and fields: action history.', () => {
-    const {reduxThunkTester: {getActionHistory, getActionHistoryStringify}} = renderComponent();
+    const {reduxThunkTester: {getActionHistory}} = renderComponent();
 
-    console.log(getActionHistoryStringify({withColor: true}));
     expect(getActionHistory()).toMatchSnapshot();
   });
 
@@ -37,19 +35,17 @@ describe('<SimpleForm />', () => {
     const {store} = renderComponent();
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
 
   test('Focus field: actions history.', () => {
     const {
-      reduxThunkTester: {getActionHistoryStringify, getActionHistory, clearActionHistory}, component
+      reduxThunkTester: {getActionHistory, clearActionHistory}, component,
     } = renderComponent();
 
     clearActionHistory();
     component.find('input').at(0).simulate('focus');
 
     expect(getActionHistory()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Focus field: store', () => {
@@ -58,11 +54,12 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('focus');
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
 
   test('Change field: actions history.', () => {
-    const {reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component} = renderComponent();
+    const {
+      reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component,
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     clearActionHistory();
@@ -72,7 +69,6 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
 
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Changed field: store', () => {
@@ -85,11 +81,12 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
 
   test('Blur field: actions history', () => {
-    const {component, reduxThunkTester: {getActionHistoryStringify, clearActionHistory}} = renderComponent();
+    const {
+      component, reduxThunkTester: {getActionHistoryStringify, clearActionHistory},
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -100,7 +97,6 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('blur');
 
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Blur field: store', () => {
@@ -114,6 +110,5 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('blur');
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
 });

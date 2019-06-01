@@ -1,11 +1,10 @@
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import FieldLevelValidation from './field-level-validation';
 import ReduxThunkTester from 'redux-thunk-tester';
+import FieldLevelValidation from './field-level-validation';
 import {reducer} from '../../index';
-import stringifyObject from 'stringify-object';
 
 const renderComponent = (innerOnSubmit) => {
   const reduxThunkTester = new ReduxThunkTester();
@@ -18,7 +17,7 @@ const renderComponent = (innerOnSubmit) => {
   const component = mount(
     <Provider store={store}>
       <FieldLevelValidation innerOnSubmit={innerOnSubmit} />
-    </Provider>
+    </Provider>,
   );
 
   return {reduxThunkTester, store, component};
@@ -31,9 +30,7 @@ describe('<FieldLevelValidation />', () => {
   });
 
   test('Register form and fields: action history.', () => {
-    const {reduxThunkTester: {getActionHistory, getActionHistoryStringify}} = renderComponent();
-
-    console.log(getActionHistoryStringify({withColor: true}));
+    const {reduxThunkTester: {getActionHistory}} = renderComponent();
     expect(getActionHistory()).toMatchSnapshot();
   });
 
@@ -41,18 +38,16 @@ describe('<FieldLevelValidation />', () => {
     const {store} = renderComponent();
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
 
   test('Focus field: actions history.', () => {
     const {
-      reduxThunkTester: {getActionHistoryStringify, getActionHistory, clearActionHistory}, component
+      reduxThunkTester: {getActionHistory, clearActionHistory}, component,
     } = renderComponent();
 
     clearActionHistory();
     component.find('input').at(0).simulate('focus');
     expect(getActionHistory()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Focus field: store', () => {
@@ -60,22 +55,24 @@ describe('<FieldLevelValidation />', () => {
 
     component.find('input').at(0).simulate('focus');
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    console.log(stringifyObject(store.getState().reduxForm.simple));
   });
-  
+
   test('Change field (validate and warning): actions history (input 0).', () => {
-    const {reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component} = renderComponent();
+    const {
+      reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component,
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     clearActionHistory();
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
     component.find('input').at(0).simulate('change', {target: {value: ''}});
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Change field (validate and warning): actions history (input 1).', () => {
-    const {reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component} = renderComponent();
+    const {
+      reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component,
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -92,11 +89,12 @@ describe('<FieldLevelValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 't'}});
     component.find('input').at(1).simulate('change', {target: {value: ''}});
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
-  
+
   test('Change field (validate and warning): actions history (input 2).', () => {
-    const {reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component} = renderComponent();
+    const {
+      reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component,
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -124,11 +122,12 @@ describe('<FieldLevelValidation />', () => {
     component.find('input').at(2).simulate('change', {target: {value: '0'}});
     component.find('input').at(2).simulate('change', {target: {value: ''}});
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
-  
+
   test('Change field (validate and warning): actions history (input 3).', () => {
-    const {reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component} = renderComponent();
+    const {
+      reduxThunkTester: {clearActionHistory, getActionHistoryStringify}, component,
+    } = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -168,7 +167,6 @@ describe('<FieldLevelValidation />', () => {
     component.find('input').at(3).simulate('change', {target: {value: '-11'}});
     component.find('input').at(3).simulate('change', {target: {value: '-11'}});
     expect(getActionHistoryStringify()).toMatchSnapshot();
-    console.log(getActionHistoryStringify({withColor: true}));
   });
 
   test('Changed field (validate and warning firstName: validate={validateIsRequired}): store', () => {
@@ -190,9 +188,8 @@ describe('<FieldLevelValidation />', () => {
     expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
   });
 
-  test('Changed field (validate and warning' +
-    'lastName: validate={[validateIsRequired, validateMinLength(2)]}): store', () => {
-
+  test('Changed field (validate and warning'
+    + 'lastName: validate={[validateIsRequired, validateMinLength(2)]}): store', () => {
     const {component, store} = renderComponent();
 
     component.find('input').at(1).simulate('focus');
@@ -220,9 +217,8 @@ describe('<FieldLevelValidation />', () => {
     expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
   });
 
-  test('Changed field (validate and warning ' +
-    'validate={validateIsRequired} warn={warnTooYang}): store', () => {
-
+  test('Changed field (validate and warning '
+    + 'validate={validateIsRequired} warn={warnTooYang}): store', () => {
     const {component, store} = renderComponent();
 
     component.find('input').at(2).simulate('focus');
@@ -252,9 +248,8 @@ describe('<FieldLevelValidation />', () => {
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
   });
 
-  test('Changed field (validate and warning ' +
-    'warn={[warnTooSmall, warnTooLarge]}): store', () => {
-
+  test('Changed field (validate and warning '
+    + 'warn={[warnTooSmall, warnTooLarge]}): store', () => {
     const {component, store} = renderComponent();
 
     component.find('input').at(3).simulate('focus');
@@ -303,7 +298,7 @@ describe('<FieldLevelValidation />', () => {
   test('handleSubmit(onSubmit) inside form-component (valid)', () => {
     const innerOnSubmit = jest.fn();
 
-    const {component, store} = renderComponent(innerOnSubmit);
+    const {component} = renderComponent(innerOnSubmit);
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -348,7 +343,7 @@ describe('<FieldLevelValidation />', () => {
   test('handleSubmit(onSubmit) inside form-component (not valid): firstArg', () => {
     const innerOnSubmit = jest.fn();
 
-    const {component, store} = renderComponent(innerOnSubmit);
+    const {component} = renderComponent(innerOnSubmit);
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -381,7 +376,7 @@ describe('<FieldLevelValidation />', () => {
   test('handleSubmit(onSubmit) inside form-component (not valid): secondArg', () => {
     const innerOnSubmit = jest.fn();
 
-    const {component, store} = renderComponent(innerOnSubmit);
+    const {component} = renderComponent(innerOnSubmit);
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -414,7 +409,7 @@ describe('<FieldLevelValidation />', () => {
   test('handleSubmit(onSubmit) inside form-component (not valid): thirdArg', () => {
     const innerOnSubmit = jest.fn();
 
-    const {component, store} = renderComponent(innerOnSubmit);
+    const {component} = renderComponent(innerOnSubmit);
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});

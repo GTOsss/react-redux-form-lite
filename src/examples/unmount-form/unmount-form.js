@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Field, reduxForm} from '../../index';
-import {getIn} from '../../utils/object-manager';
 
 const validate = (values) => {
   const errors = {};
@@ -22,9 +21,8 @@ const warn = (values) => {
   return warnigns;
 };
 
-
-const UnmountForm = (props) => {
-  const {formState, handleSubmit} = props;
+const FormComponent = (props) => {
+  const {handleSubmit} = props;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -34,19 +32,12 @@ const UnmountForm = (props) => {
           <Field name="firstName" component="input" type="text" placeholder="First Name" />
         </div>
       </div>
-      <Field
-        name="withLastName"
-        component="input"
-        type="checkbox"
-      />
-      {getIn(formState, 'values.withLastName', false) ? (
+      <div>
+        <label>Last Name</label>
         <div>
-          <label>Last Name</label>
-          <div>
-            <Field name="lastName" component="input" type="text" placeholder="Last Name" />
-          </div>
+          <Field name="lastName" component="input" type="text" placeholder="Last Name" />
         </div>
-      ) : null}
+      </div>
       <div>
         <button type="submit">Submit</button>
       </div>
@@ -54,8 +45,25 @@ const UnmountForm = (props) => {
   );
 };
 
-export default reduxForm({
+const Form = reduxForm({
   form: 'example',
   validate,
   warn,
-})(UnmountForm);
+})(FormComponent);
+
+const UnmountForm = () => {
+  const [showForm, setShowForm] = useState(true);
+
+  return (
+    <div>
+      {showForm ? (
+        <Form />
+      ) : null}
+      <button type="button" onClick={() => setShowForm(!showForm)}>
+        Toggle show form
+      </button>
+    </div>
+  );
+};
+
+export default UnmountForm;

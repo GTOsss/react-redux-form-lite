@@ -13,9 +13,12 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
  * HOC reduxForm
  * @param {object} paramsArg Redux form params
  * @param {string} paramsArg.form  Name of form
- * @param {boolean?} paramsArg.destroyOnUnmount Will be remove in store when call componentWillUnmount
- * @param {function(values): {}} paramsArg.validate Method for validate form, should return errorsMap
- * @param {function(values): {}} paramsArg.warn Method for check warnings form, should return warningsMap
+ * @param {boolean?} paramsArg.destroyOnUnmount Will be remove in store when call
+ * componentWillUnmount
+ * @param {function(values): {}} paramsArg.validate Method for validate form, should
+ * return errorsMap
+ * @param {function(values): {}} paramsArg.warn Method for check warnings form, should
+ * return warningsMap
  * @returns {function(component): {}} Component
  */
 const reduxForm = (paramsArg) => (WrappedComponent) => {
@@ -32,6 +35,17 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
 
       this.validateMap = {};
       this.warningMap = {};
+    }
+
+    componentWillMount() {
+      const {actions: {registerForm}} = this.props;
+      registerForm(params.form);
+    }
+
+    componentWillUnmount() {
+      const {actions: {removeForm}} = this.props;
+
+      removeForm(params.form);
     }
 
     updateValidateAndWarningMap = (field, validate, warning) => {
@@ -51,7 +65,7 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
 
       const {
         actions: {updateFormState},
-        form: {meta, values},
+        formState: {values},
       } = this.props;
 
       let resultErrors = {};
@@ -95,21 +109,23 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       });
 
       if (typeof params.validate === 'function') {
-        resultErrors = {...resultErrors, ...params.validate(values)}
+        resultErrors = {...resultErrors, ...params.validate(values)};
       }
 
       if (typeof params.warn === 'function') {
-        resultWarnings = {...resultWarnings, ...params.warn(values)}
+        resultWarnings = {...resultWarnings, ...params.warn(values)};
       }
 
       const result = {errors: resultErrors, warnings: resultWarnings};
 
-      const storeSection = {[params.form]: this.props.form};
-      const updatedStoreSection = updateErrorsAndWarningsUtil(storeSection, params.form, result, true);
+      const storeSection = {[params.form]: this.props.formState}; // eslint-disable-line
+      const updatedStoreSection = updateErrorsAndWarningsUtil(
+        storeSection, params.form, result, true,
+      );
       updateFormState(params.form, updatedStoreSection[params.form]);
 
       if (this.customSubmit) {
-        this.customSubmit(values, updatedStoreSection[params.form], this.props.actions);
+        this.customSubmit(values, updatedStoreSection[params.form], this.props.actions); // eslint-disable-line
       }
     };
 
@@ -123,14 +139,9 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       return this.onSubmit;
     };
 
-    componentWillMount() {
-      const {actions: {registerForm}} = this.props;
-      registerForm(params.form);
-    }
-
     render() {
       const {form, destroyOnUnmount} = params;
-      const {actions: formActions, ownProps} = this.props;
+      const {actions: formActions, ownProps, formState} = this.props;
 
       const formContext = {
         ...params,
@@ -142,9 +153,9 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
           <WrappedComponent
             {...ownProps}
             formParams={{form, destroyOnUnmount}}
-            form={this.props.form}
-            handleSubmit={this.handleSubmit}
             formActions={formActions}
+            formState={formState}
+            handleSubmit={this.handleSubmit}
           />
         </ReduxFormContext.Provider>
       );
@@ -153,14 +164,26 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
 
   ReduxForm.propTypes = {
     actions: PropTypes.objectOf(PropTypes.func),
+    ownProps: PropTypes.objectOf(PropTypes.any),
+    formState: PropTypes.shape({
+      form: PropTypes.object,
+      meta: PropTypes.object,
+      values: PropTypes.object,
+    }),
   };
 
   ReduxForm.defaultProps = {
     actions: {},
+    ownProps: {},
+    formState: {
+      form: {},
+      meta: {},
+      values: {},
+    },
   };
 
   const mapStateToProps = (state) => ({
-    form: state.reduxForm[params.form],
+    formState: state.reduxForm[params.form],
   });
 
   const mapDispatchToProps = (dispatch) => ({

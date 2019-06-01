@@ -4,231 +4,342 @@ exports[`<FieldLevelValidation /> Change field (validate and warning): actions h
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'firstName'}
  payload: {value: 't'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'firstName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {firstName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'firstName'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'firstName'}
- payload: {value: 'Field required.'}"
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {firstName: 'Field required.'},
+		warnings: {}
+	},
+	submitted: undefined
+}"
 `;
 
 exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 1). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: 'Field required.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {lastName: 'Field required.'},
+		warnings: {}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 't'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: 'Must be 2 characters or more.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {lastName: 'Must be 2 characters or more.'},
+		warnings: {}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 'te'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {lastName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 'tes'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {lastName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 'test'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {lastName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 'tes'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {lastName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 'te'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {lastName: undefined}, warnings: {}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: 't'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: 'Must be 2 characters or more.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {lastName: 'Must be 2 characters or more.'},
+		warnings: {}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'lastName'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'lastName'}
- payload: {value: 'Field required.'}"
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {lastName: 'Field required.'},
+		warnings: {}
+	},
+	submitted: undefined
+}"
 `;
 
 exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 2). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Field required.'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: 'Field required.'},
+		warnings: {age: undefined}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '1'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Too yang.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: 'Too yang.'}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '18'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: undefined}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '1'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Too yang.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: 'Too yang.'}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '19'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: undefined}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '1'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Too yang.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: 'Too yang.'}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Field required.'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: 'Field required.'},
+		warnings: {age: undefined}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: '0'},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Too yang.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: undefined},
+		warnings: {age: 'Too yang.'}
+	},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'age'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_VALIDATE_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: 'Field required.'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'age'}
- payload: {value: undefined}"
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {
+		errors: {age: 'Field required.'},
+		warnings: {age: undefined}
+	},
+	submitted: undefined
+}"
 `;
 
 exports[`<FieldLevelValidation /> Change field (validate and warning): actions history (input 3). 1`] = `
 "@@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '1'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '5'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '50'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '500'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: 'Too large.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: 'Too large.'}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '50'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '5'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: ''},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: undefined},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: undefined}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '-1'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: 'Too small.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: 'Too small.'}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '-11'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: 'Too small.'},
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: 'Too small.'}},
+	submitted: undefined
+},
 @@react-redux-form-lite/CHANGE
  meta: {form: 'simple', field: 'number'}
  payload: {value: '-11'},
-@@react-redux-form-lite/UPDATE_WARNING_MESSAGE
- meta: {form: 'simple', field: 'number'}
- payload: {value: 'Too small.'}"
+@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
+ meta: {form: 'simple'}
+ payload: {
+	value: {errors: {}, warnings: {number: 'Too small.'}},
+	submitted: undefined
+}"
 `;
 
 exports[`<FieldLevelValidation /> Changed field (validate and warning firstName: validate={validateIsRequired}): store 1`] = `
@@ -542,12 +653,18 @@ Array [
       "field": "firstName",
       "form": "simple",
     },
+    "payload": Object {
+      "value": undefined,
+    },
     "type": "@@react-redux-form-lite/REGISTER_FIELD",
   },
   Object {
     "meta": Object {
       "field": "lastName",
       "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
     },
     "type": "@@react-redux-form-lite/REGISTER_FIELD",
   },
@@ -556,12 +673,18 @@ Array [
       "field": "age",
       "form": "simple",
     },
+    "payload": Object {
+      "value": undefined,
+    },
     "type": "@@react-redux-form-lite/REGISTER_FIELD",
   },
   Object {
     "meta": Object {
       "field": "number",
       "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
     },
     "type": "@@react-redux-form-lite/REGISTER_FIELD",
   },
@@ -656,7 +779,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
           "updateWarningMessages": [Function],
         }
       }
-      form={
+      formState={
         Object {
           "form": Object {
             "activeField": "",
@@ -718,7 +841,31 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
       }
     >
       <FieldLevelValidate
-        form={
+        formActions={
+          Object {
+            "arrayPush": [Function],
+            "blur": [Function],
+            "change": [Function],
+            "changeSubmitted": [Function],
+            "focus": [Function],
+            "registerField": [Function],
+            "registerForm": [Function],
+            "removeField": [Function],
+            "updateErrorAndWarningMessages": [Function],
+            "updateFormState": [Function],
+            "updateValidateMessage": [Function],
+            "updateValidateMessages": [Function],
+            "updateWarningMessage": [Function],
+            "updateWarningMessages": [Function],
+          }
+        }
+        formParams={
+          Object {
+            "destroyOnUnmount": true,
+            "form": "simple",
+          }
+        }
+        formState={
           Object {
             "form": Object {
               "activeField": "",
@@ -771,30 +918,6 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               "lastName": undefined,
               "number": undefined,
             },
-          }
-        }
-        formActions={
-          Object {
-            "arrayPush": [Function],
-            "blur": [Function],
-            "change": [Function],
-            "changeSubmitted": [Function],
-            "focus": [Function],
-            "registerField": [Function],
-            "registerForm": [Function],
-            "removeField": [Function],
-            "updateErrorAndWarningMessages": [Function],
-            "updateFormState": [Function],
-            "updateValidateMessage": [Function],
-            "updateValidateMessages": [Function],
-            "updateWarningMessage": [Function],
-            "updateWarningMessages": [Function],
-          }
-        }
-        formParams={
-          Object {
-            "destroyOnUnmount": true,
-            "form": "simple",
           }
         }
         handleSubmit={[Function]}
@@ -853,10 +976,70 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "updateValidateAndWarningMap": [Function],
                   }
                 }
-                label="First Name"
+                formState={
+                  Object {
+                    "form": Object {
+                      "activeField": "",
+                      "blurred": false,
+                      "changed": false,
+                      "errorsMap": Object {},
+                      "focused": false,
+                      "hasErrors": false,
+                      "hasWarnings": false,
+                      "submitted": false,
+                      "warningsMap": Object {},
+                    },
+                    "meta": Object {
+                      "age": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "firstName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "lastName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "number": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                    },
+                    "values": Object {
+                      "age": undefined,
+                      "firstName": undefined,
+                      "lastName": undefined,
+                      "number": undefined,
+                    },
+                  }
+                }
                 name="firstName"
-                placeholder="First Name"
-                type="text"
+                ownProps={
+                  Object {
+                    "label": "First Name",
+                    "name": "firstName",
+                    "placeholder": "First Name",
+                    "type": "text",
+                  }
+                }
                 validate={[Function]}
               >
                 <Input
@@ -883,10 +1066,20 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "onBlur": [Function],
                       "onChange": [Function],
                       "onFocus": [Function],
+                      "value": "",
                     }
                   }
                   label="First Name"
-                  meta={Object {}}
+                  meta={
+                    Object {
+                      "active": false,
+                      "blurred": false,
+                      "changed": false,
+                      "error": "",
+                      "focused": false,
+                      "warning": "",
+                    }
+                  }
                   name="firstName"
                   placeholder="First Name"
                   type="text"
@@ -901,6 +1094,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
+                      value=""
                     />
                   </div>
                 </Input>
@@ -968,10 +1162,70 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "updateValidateAndWarningMap": [Function],
                   }
                 }
-                label="Last Name"
+                formState={
+                  Object {
+                    "form": Object {
+                      "activeField": "",
+                      "blurred": false,
+                      "changed": false,
+                      "errorsMap": Object {},
+                      "focused": false,
+                      "hasErrors": false,
+                      "hasWarnings": false,
+                      "submitted": false,
+                      "warningsMap": Object {},
+                    },
+                    "meta": Object {
+                      "age": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "firstName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "lastName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "number": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                    },
+                    "values": Object {
+                      "age": undefined,
+                      "firstName": undefined,
+                      "lastName": undefined,
+                      "number": undefined,
+                    },
+                  }
+                }
                 name="lastName"
-                placeholder="Last Name"
-                type="text"
+                ownProps={
+                  Object {
+                    "label": "Last Name",
+                    "name": "lastName",
+                    "placeholder": "Last Name",
+                    "type": "text",
+                  }
+                }
                 validate={
                   Array [
                     [Function],
@@ -1003,10 +1257,20 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "onBlur": [Function],
                       "onChange": [Function],
                       "onFocus": [Function],
+                      "value": "",
                     }
                   }
                   label="Last Name"
-                  meta={Object {}}
+                  meta={
+                    Object {
+                      "active": false,
+                      "blurred": false,
+                      "changed": false,
+                      "error": "",
+                      "focused": false,
+                      "warning": "",
+                    }
+                  }
                   name="lastName"
                   placeholder="Last Name"
                   type="text"
@@ -1026,6 +1290,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
+                      value=""
                     />
                   </div>
                 </Input>
@@ -1085,10 +1350,70 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "updateValidateAndWarningMap": [Function],
                   }
                 }
-                label="Age"
+                formState={
+                  Object {
+                    "form": Object {
+                      "activeField": "",
+                      "blurred": false,
+                      "changed": false,
+                      "errorsMap": Object {},
+                      "focused": false,
+                      "hasErrors": false,
+                      "hasWarnings": false,
+                      "submitted": false,
+                      "warningsMap": Object {},
+                    },
+                    "meta": Object {
+                      "age": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "firstName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "lastName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "number": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                    },
+                    "values": Object {
+                      "age": undefined,
+                      "firstName": undefined,
+                      "lastName": undefined,
+                      "number": undefined,
+                    },
+                  }
+                }
                 name="age"
-                placeholder="Age"
-                type="text"
+                ownProps={
+                  Object {
+                    "label": "Age",
+                    "name": "age",
+                    "placeholder": "Age",
+                    "type": "text",
+                  }
+                }
                 validate={[Function]}
                 warn={[Function]}
               >
@@ -1116,10 +1441,20 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "onBlur": [Function],
                       "onChange": [Function],
                       "onFocus": [Function],
+                      "value": "",
                     }
                   }
                   label="Age"
-                  meta={Object {}}
+                  meta={
+                    Object {
+                      "active": false,
+                      "blurred": false,
+                      "changed": false,
+                      "error": "",
+                      "focused": false,
+                      "warning": "",
+                    }
+                  }
                   name="age"
                   placeholder="Age"
                   type="text"
@@ -1135,6 +1470,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
+                      value=""
                     />
                   </div>
                 </Input>
@@ -1202,10 +1538,70 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                     "updateValidateAndWarningMap": [Function],
                   }
                 }
-                label="Number from 0 to 100"
+                formState={
+                  Object {
+                    "form": Object {
+                      "activeField": "",
+                      "blurred": false,
+                      "changed": false,
+                      "errorsMap": Object {},
+                      "focused": false,
+                      "hasErrors": false,
+                      "hasWarnings": false,
+                      "submitted": false,
+                      "warningsMap": Object {},
+                    },
+                    "meta": Object {
+                      "age": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "firstName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "lastName": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                      "number": Object {
+                        "active": false,
+                        "blurred": false,
+                        "changed": false,
+                        "error": "",
+                        "focused": false,
+                        "warning": "",
+                      },
+                    },
+                    "values": Object {
+                      "age": undefined,
+                      "firstName": undefined,
+                      "lastName": undefined,
+                      "number": undefined,
+                    },
+                  }
+                }
                 name="number"
-                placeholder="Number from 0 to 100"
-                type="text"
+                ownProps={
+                  Object {
+                    "label": "Number from 0 to 100",
+                    "name": "number",
+                    "placeholder": "Number from 0 to 100",
+                    "type": "text",
+                  }
+                }
                 warn={
                   Array [
                     [Function],
@@ -1237,10 +1633,20 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "onBlur": [Function],
                       "onChange": [Function],
                       "onFocus": [Function],
+                      "value": "",
                     }
                   }
                   label="Number from 0 to 100"
-                  meta={Object {}}
+                  meta={
+                    Object {
+                      "active": false,
+                      "blurred": false,
+                      "changed": false,
+                      "error": "",
+                      "focused": false,
+                      "warning": "",
+                    }
+                  }
                   name="number"
                   placeholder="Number from 0 to 100"
                   type="text"
@@ -1260,6 +1666,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       onChange={[Function]}
                       onFocus={[Function]}
                       type="text"
+                      value=""
                     />
                   </div>
                 </Input>
