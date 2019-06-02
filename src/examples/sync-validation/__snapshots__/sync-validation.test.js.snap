@@ -26,6 +26,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
           "registerField": [Function],
           "registerForm": [Function],
           "removeField": [Function],
+          "removeForm": [Function],
           "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
           "updateValidateMessage": [Function],
@@ -88,6 +89,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
             "registerField": [Function],
             "registerForm": [Function],
             "removeField": [Function],
+            "removeForm": [Function],
             "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
             "updateValidateMessage": [Function],
@@ -140,7 +142,6 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
           }
         }
         handleSubmit={[Function]}
-        onSubmit={[Function]}
       >
         <form
           onSubmit={[Function]}
@@ -182,6 +183,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -298,6 +300,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],

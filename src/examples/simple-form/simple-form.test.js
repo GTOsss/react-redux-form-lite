@@ -6,7 +6,7 @@ import ReduxThunkTester from 'redux-thunk-tester';
 import SimpleForm from './simple-form';
 import {reducer} from '../../index';
 
-const renderComponent = () => {
+const renderComponent = (onSubmit) => {
   const reduxThunkTester = new ReduxThunkTester();
 
   const store = createStore(
@@ -14,7 +14,11 @@ const renderComponent = () => {
     applyMiddleware(reduxThunkTester.createReduxThunkHistoryMiddleware()),
   );
 
-  const component = mount(<Provider store={store}><SimpleForm /></Provider>);
+  const component = mount(
+    <Provider store={store}>
+      <SimpleForm onSubmit={onSubmit} />
+    </Provider>,
+  );
 
   return {reduxThunkTester, store, component};
 };
@@ -110,5 +114,14 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('blur');
 
     expect(store.getState().reduxForm.simple).toMatchSnapshot();
+  });
+
+  test('onSubmit', () => {
+    const onSubmit = jest.fn();
+    const {component} = renderComponent(onSubmit);
+
+    component.find('form').simulate('submit');
+    expect(onSubmit.mock.calls.length).toBe(1);
+    expect(onSubmit.mock.calls).toMatchSnapshot();
   });
 });

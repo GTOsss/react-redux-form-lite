@@ -15,9 +15,9 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
  * @param {string} paramsArg.form  Name of form
  * @param {boolean?} paramsArg.destroyOnUnmount Will be remove in store when call
  * componentWillUnmount
- * @param {function(values): {}} paramsArg.validate Method for validate form, should
+ * @param {function(values): {}?} paramsArg.validate Method for validate form, should
  * return errorsMap
- * @param {function(values): {}} paramsArg.warn Method for check warnings form, should
+ * @param {function(values): {}?} paramsArg.warn Method for check warnings form, should
  * return warningsMap
  * @returns {function(component): {}} Component
  */
@@ -35,6 +35,7 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
 
       this.validateMap = {};
       this.warningMap = {};
+      this.customSubmit = null;
     }
 
     componentWillMount() {
@@ -45,7 +46,9 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
     componentWillUnmount() {
       const {actions: {removeForm}} = this.props;
 
-      removeForm(params.form);
+      if (params.destroyOnUnmount) {
+        removeForm(params.form);
+      }
     }
 
     updateValidateAndWarningMap = (field, validate, warning) => {
@@ -132,21 +135,31 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
     handleSubmit = (e) => {
       if (typeof e === 'function') {
         this.customSubmit = e;
-      } else if (e && e.preventDefault) {
+        return this.onSubmit;
+      }
+
+      if (e && e.preventDefault) {
         this.onSubmit(e);
       }
 
-      return this.onSubmit;
+      return undefined;
     };
 
     render() {
       const {form, destroyOnUnmount} = params;
-      const {actions: formActions, ownProps, formState} = this.props;
+      const {
+        actions: formActions, formState,
+        ownProps: {onSubmit, ...ownProps},
+      } = this.props;
 
       const formContext = {
         ...params,
         updateValidateAndWarningMap: this.updateValidateAndWarningMap,
       };
+
+      if (typeof onSubmit === 'function') {
+        this.handleSubmit(onSubmit);
+      }
 
       return (
         <ReduxFormContext.Provider value={formContext}>

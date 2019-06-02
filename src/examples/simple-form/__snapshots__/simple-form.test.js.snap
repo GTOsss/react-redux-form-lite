@@ -479,6 +479,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           "registerField": [Function],
           "registerForm": [Function],
           "removeField": [Function],
+          "removeForm": [Function],
           "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
           "updateValidateMessage": [Function],
@@ -569,7 +570,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           },
         }
       }
-      ownProps={Object {}}
+      ownProps={
+        Object {
+          "onSubmit": undefined,
+        }
+      }
     >
       <SimpleForm
         formActions={
@@ -582,6 +587,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "registerField": [Function],
             "registerForm": [Function],
             "removeField": [Function],
+            "removeForm": [Function],
             "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
             "updateValidateMessage": [Function],
@@ -718,6 +724,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -875,6 +882,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -1032,6 +1040,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -1190,6 +1199,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "registerField": [Function],
                           "registerForm": [Function],
                           "removeField": [Function],
+                          "removeForm": [Function],
                           "updateErrorAndWarningMessages": [Function],
                           "updateFormState": [Function],
                           "updateValidateMessage": [Function],
@@ -1342,6 +1352,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "registerField": [Function],
                           "registerForm": [Function],
                           "removeField": [Function],
+                          "removeForm": [Function],
                           "updateErrorAndWarningMessages": [Function],
                           "updateFormState": [Function],
                           "updateValidateMessage": [Function],
@@ -1496,6 +1507,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -1686,6 +1698,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -1839,6 +1852,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerField": [Function],
                         "registerForm": [Function],
                         "removeField": [Function],
+                        "removeForm": [Function],
                         "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
                         "updateValidateMessage": [Function],
@@ -1963,15 +1977,123 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             >
               Submit
             </button>
-            <button
-              type="button"
-            >
-              Clear Values
-            </button>
           </div>
         </form>
       </SimpleForm>
     </ReduxForm>
   </ConnectFunction>
 </Provider>
+`;
+
+exports[`<SimpleForm /> onSubmit 1`] = `
+Array [
+  Array [
+    Object {
+      "email": undefined,
+      "employed": undefined,
+      "favoriteColor": undefined,
+      "firstName": undefined,
+      "lastName": undefined,
+      "notes": undefined,
+      "sex": undefined,
+    },
+    Object {
+      "form": Object {
+        "activeField": "",
+        "blurred": false,
+        "changed": false,
+        "errorsMap": Object {},
+        "focused": false,
+        "hasErrors": false,
+        "hasWarnings": false,
+        "submitted": true,
+        "warningsMap": Object {},
+      },
+      "meta": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "employed": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "favoriteColor": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "lastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "notes": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "sex": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "values": Object {
+        "email": undefined,
+        "employed": undefined,
+        "favoriteColor": undefined,
+        "firstName": undefined,
+        "lastName": undefined,
+        "notes": undefined,
+        "sex": undefined,
+      },
+    },
+    Object {
+      "arrayPush": [Function],
+      "blur": [Function],
+      "change": [Function],
+      "changeSubmitted": [Function],
+      "focus": [Function],
+      "registerField": [Function],
+      "registerForm": [Function],
+      "removeField": [Function],
+      "removeForm": [Function],
+      "updateErrorAndWarningMessages": [Function],
+      "updateFormState": [Function],
+      "updateValidateMessage": [Function],
+      "updateValidateMessages": [Function],
+      "updateWarningMessage": [Function],
+      "updateWarningMessages": [Function],
+    },
+  ],
+]
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from '../../index';
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -54,8 +54,7 @@ const SimpleForm = (props) => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );

@@ -24,9 +24,9 @@ const warn = (values) => {
 };
 
 const SyncValidation = (props) => {
-  const { handleSubmit, pristine, reset, submitting, onSubmit} = props;
+  const { handleSubmit} = props;
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
         <div>
@@ -40,7 +40,7 @@ const SyncValidation = (props) => {
         </div>
       </div>
       <div>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
+        <button type="submit">Submit</button>
       </div>
     </form>
   );
