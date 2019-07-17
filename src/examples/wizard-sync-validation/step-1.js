@@ -22,7 +22,7 @@ const warn = (values) => {
   return warnings;
 };
 
-const FormComponent1 = (props) => {
+const Step1Component = (props) => {
   const {handleSubmit} = props;
 
   return (
@@ -35,12 +35,12 @@ const FormComponent1 = (props) => {
   );
 };
 
-const Form1 = reduxForm({
+const Step1 = reduxForm({
   form: 'step1',
   wizard: 'wizard',
   destroyOnUnmount: false,
   validate,
   warn,
-})(FormComponent1);
+})(Step1Component);
 
-export default Form1;
+export default Step1;

@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": ["dom", "es2015", "es2016"],
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["./app/api/*"],
+      "@assets/*": ["./app/assets/*"],
+      "@components/*": ["./app/components/*"],
+      "@containers/*": ["./app/containers/*"],
+      "@hoc-components/*": ["./app/hoc-components/*"],
+      "@interfaces/*": ["./app/interfaces/*"],
+      "@pages/*": ["./app/pages/*"],
+      "@services/*": ["./app/services/*"],
+      "@stores/*": ["./app/stores/*"],
+      "@styles/*": ["./app/styles/*"],
+      "@typings/*": ["./app/typings/*"],
+      "@utils/*": ["./app/utils/*"],
+      "@misc/*": ["./app/misc/*"]
+    },
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true
+  }
+}

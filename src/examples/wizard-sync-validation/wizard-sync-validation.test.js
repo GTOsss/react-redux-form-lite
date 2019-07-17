@@ -35,6 +35,12 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
+  test('Render WizardSyncValidation: store of wizard', () => {
+    const {store} = renderComponent();
+
+    expect(store.getState().wizard).toMatchSnapshot();
+  });
+
   test('submit failed on page 1 (render inputs)', () => {
     const {component} = renderComponent();
     component.find('form').simulate('submit');
@@ -44,7 +50,7 @@ describe('<WizardSyncValidation />', () => {
   test('submit failed on page 1 (store)', () => {
     const {component, store} = renderComponent();
     component.find('form').simulate('submit');
-    expect(store.getState().reduxForm.example).toMatchSnapshot();
+    expect(store.getState().reduxForm.step1).toMatchSnapshot();
   });
 
   test('submit success on page 1 (render inputs)', () => {
@@ -63,12 +69,24 @@ describe('<WizardSyncValidation />', () => {
     expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
-  test('submit success on page 1 (store)', () => {
+  test('submit success on page 1 (store of step1)', () => {
     const {component, store} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
-    expect(store.getState().reduxForm.example).toMatchSnapshot();
+    expect(store.getState().reduxForm.step1).toMatchSnapshot();
+  });
+
+  test('submit success on page 1 (store of step2)', () => {
+    const {component, store} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    expect(store.getState().reduxForm.step2).toMatchSnapshot();
+  });
+
+  test('submit success on page 1 (store of wizard)', () => {
+
   });
 
   test('submit success on 1, failed on 2 (render inputs)', () => {

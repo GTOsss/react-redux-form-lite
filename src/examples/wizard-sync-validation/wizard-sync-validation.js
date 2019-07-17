@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Form1 from './form-1';
-import Form2 from './form-2';
-import Form3 from './form-3';
+import Step1 from './step-1';
+import Step2 from './step-2';
+import Step3 from './step-3';
 
 const WizardSyncValidation = ({onSubmit}) => {
   const [page, setPage] = useState(1);
@@ -17,9 +17,9 @@ const WizardSyncValidation = ({onSubmit}) => {
   };
 
   const formsMap = {
-    1: <Form1 onSubmit={nextPage} />,
-    2: <Form2 onSubmit={nextPage} prevPage={prevPage} />,
-    3: <Form3 onSubmit={onSubmit} prevPage={prevPage} />,
+    1: <Step1 onSubmit={nextPage} />,
+    2: <Step2 onSubmit={nextPage} prevPage={prevPage} />,
+    3: <Step3 onSubmit={onSubmit} prevPage={prevPage} />,
   };
 
   return (
