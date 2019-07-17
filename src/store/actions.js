@@ -14,6 +14,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  VALIDATE_FORM,
 } from './constants';
 
 export const registerForm = (form) => ({
@@ -60,9 +61,31 @@ export const updateWarningMessages = (form, warningMap, submitted) => ({
  * @param {boolean?} submitted Submitted
  * @returns {{}} Action
  */
-export const updateErrorAndWarningMessages = (form, map, submitted) => ({
+export const updateValidateAndWarningMessages = (form, map, submitted) => ({
   type: UPDATE_VALIDATE_AND_WARNING_MESSAGES, meta: {form}, payload: {value: map, submitted},
 });
+
+// /**
+//  * @param {string} form Name of form
+//  * @param {object} validateMap Validate map from form instance.
+//  * @param {object} submitValidateMap Object with validate and warning method in form params
+//  * @param {function} submitValidateMap.validate Warning method in form params
+//  * @param {function} submitValidateMap.warn Validate method in form params
+//  * @param {boolean?} submitted Submitted
+//  * @param {function?} resultValidateCallback Callback call when validated
+//  * @returns {{payload: {submitted: *, value: *}, meta: {form: *}, type: string}} Action
+//  */
+// export const validateForm = (
+//   form,
+//   validateMap,
+//   submitValidateMap,
+//   submitted,
+//   resultValidateCallback,
+// ) => ({
+//   type: VALIDATE_FORM,
+//   meta: {form, callback: resultValidateCallback},
+//   payload: {validateMap, submitValidateMap, submitted},
+// });
 
 export const changeSubmitted = (form, value) => ({
   type: CHANGE_SUBMITTED, meta: {form}, payload: {value},

@@ -438,4 +438,11 @@ describe('<FieldLevelValidation />', () => {
     expect(innerOnSubmit.mock.calls.length).toEqual(1);
     expect(innerOnSubmit.mock.calls[0][2]).toMatchSnapshot();
   });
+
+  test('Submit without touch inputs (not valid): store', () => {
+    const {component, store} = renderComponent();
+
+    component.find('form').at(0).simulate('submit');
+    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+  });
 });

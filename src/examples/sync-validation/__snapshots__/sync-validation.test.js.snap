@@ -27,8 +27,8 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
           "registerForm": [Function],
           "removeField": [Function],
           "removeForm": [Function],
-          "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
+          "updateValidateAndWarningMessages": [Function],
           "updateValidateMessage": [Function],
           "updateValidateMessages": [Function],
           "updateWarningMessage": [Function],
@@ -90,8 +90,8 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
             "registerForm": [Function],
             "removeField": [Function],
             "removeForm": [Function],
-            "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
+            "updateValidateAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
             "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
@@ -163,7 +163,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "example",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                       "validate": [Function],
                       "warn": [Function],
                     }
@@ -184,8 +184,8 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -198,7 +198,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "example",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                         "validate": [Function],
                         "warn": [Function],
                       }
@@ -280,7 +280,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "example",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                       "validate": [Function],
                       "warn": [Function],
                     }
@@ -301,8 +301,8 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -315,7 +315,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "example",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                         "validate": [Function],
                         "warn": [Function],
                       }

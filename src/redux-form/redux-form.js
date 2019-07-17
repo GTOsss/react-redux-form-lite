@@ -4,7 +4,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
-import {updateErrorsAndWarnings as updateErrorsAndWarningsUtil} from '../store/utils';
+import {
+  updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
+  validateFormByState as validateFormByStateUtil,
+} from '../store/utils';
 
 const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
   || WrappedComponent.name || 'Component';
@@ -34,7 +37,7 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       super(props);
 
       this.validateMap = {};
-      this.warningMap = {};
+      this.warnMap = {};
       this.customSubmit = null;
     }
 
@@ -51,14 +54,27 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       }
     }
 
-    updateValidateAndWarningMap = (field, validate, warning) => {
+    updateValidateAndWarnMap = (field, validate, warning) => {
       if (validate) {
-        this.validateMap = {...this.validateMap, [field]: validate};
+        this.validateMap[field] = validate;
       }
 
       if (warning) {
-        this.warningMap = {...this.warningMap, [field]: warning};
+        this.warnMap[field] = warning;
       }
+    };
+
+    validateForm = (submitted) => {
+      const {formState, actions: {updateFormState}} = this.props;
+      const {validate, warn, form} = params;
+      const validateMap = {validate: this.validateMap, warn: this.warnMap};
+      const submitValidateMap = {validate, warn};
+      const state = {[form]: formState};
+      const result = validateFormByStateUtil({
+        state, form, validateMap, submitValidateMap, submitted,
+      });
+      updateFormState(form, result[form]);
+      return result[form];
     };
 
     onSubmit = (e) => {
@@ -66,69 +82,11 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
         e.preventDefault();
       }
 
-      const {
-        actions: {updateFormState},
-        formState: {values},
-      } = this.props;
-
-      let resultErrors = {};
-      let resultWarnings = {};
-
-      Object.entries(values).forEach(([key, value]) => {
-        const validate = this.validateMap[key];
-        const warn = this.warningMap[key];
-
-        if (validate && (typeof validate === 'function')) {
-          resultErrors = {...resultErrors, [key]: this.validateMap[key](value)};
-        } else if (validate && Array.isArray(validate)) {
-          for (let i = 0; i < validate.length; i += 1) {
-            const result = validate[i](value);
-            if ((result === 0) || result) {
-              resultErrors = {...resultErrors, [key]: result};
-              break;
-            }
-
-            if (i === (validate.length - 1)) {
-              resultErrors = {...resultErrors, [key]: undefined};
-            }
-          }
-        }
-
-        if (warn && (typeof warn === 'function')) {
-          resultWarnings = {...resultWarnings, [key]: this.warningMap[key](value)};
-        } else if (warn && Array.isArray(warn)) {
-          for (let i = 0; i < warn.length; i += 1) {
-            const result = warn[i](value);
-            if ((result === 0) || result) {
-              resultWarnings = {...resultWarnings, [key]: result};
-              break;
-            }
-
-            if (i === (warn.length - 1)) {
-              resultWarnings = {...resultWarnings, [key]: undefined};
-            }
-          }
-        }
-      });
-
-      if (typeof params.validate === 'function') {
-        resultErrors = {...resultErrors, ...params.validate(values)};
-      }
-
-      if (typeof params.warn === 'function') {
-        resultWarnings = {...resultWarnings, ...params.warn(values)};
-      }
-
-      const result = {errors: resultErrors, warnings: resultWarnings};
-
-      const storeSection = {[params.form]: this.props.formState}; // eslint-disable-line
-      const updatedStoreSection = updateErrorsAndWarningsUtil(
-        storeSection, params.form, result, true,
-      );
-      updateFormState(params.form, updatedStoreSection[params.form]);
+      const {actions: formActions} = this.props;
+      const resultValidate = this.validateForm(true);
 
       if (this.customSubmit) {
-        this.customSubmit(values, updatedStoreSection[params.form], this.props.actions); // eslint-disable-line
+        this.customSubmit(resultValidate.values, resultValidate, formActions);
       }
     };
 
@@ -154,7 +112,7 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
 
       const formContext = {
         ...params,
-        updateValidateAndWarningMap: this.updateValidateAndWarningMap,
+        updateValidateAndWarnMap: this.updateValidateAndWarnMap,
       };
 
       if (typeof onSubmit === 'function') {

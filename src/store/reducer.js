@@ -1,5 +1,5 @@
 import {getIn, deleteIn, addToObjectByPath} from '../utils/object-manager';
-import {updateErrors, updateWarnings, updateErrorsAndWarnings} from './utils';
+import {updateErrors, updateWarnings, updateErrorsAndWarnings, validateForm} from './utils';
 import {
   REGISTER_FORM,
   REGISTER_FIELD,
@@ -16,6 +16,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  VALIDATE_FORM,
 } from './constants';
 
 const initialState = {};
@@ -40,12 +41,13 @@ const initialMeta = {
 };
 
 export default (state = initialState, {type, payload, meta}) => {
-  const {form, field} = meta || {};
+  const {form, field, callback} = meta || {};
   const {value, submitted} = payload || {};
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
   const pathForm = `${form}.form`;
+
 
   let newState = {...state};
 
@@ -110,6 +112,20 @@ export default (state = initialState, {type, payload, meta}) => {
     }
     case REMOVE_FORM:
       return addToObjectByPath(newState, `${form}`, {});
+    // case VALIDATE_FORM:
+    //   newState = validateForm({
+    //     form,
+    //     state: newState,
+    //     validateMap: payload.validateMap,
+    //     submitValidateMap: payload.submitValidateMap,
+    //     submitted,
+    //   });
+    //
+    //   if (typeof meta.callback === 'function') {
+    //     meta.callback(newState[form]);
+    //   }
+    //
+    //   return newState;
     // case ARRAY_PUSH:
     // return updateValue(newState, pathValue, pathMeta, value, {});
     default:

@@ -480,8 +480,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           "registerForm": [Function],
           "removeField": [Function],
           "removeForm": [Function],
-          "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
+          "updateValidateAndWarningMessages": [Function],
           "updateValidateMessage": [Function],
           "updateValidateMessages": [Function],
           "updateWarningMessage": [Function],
@@ -588,8 +588,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "registerForm": [Function],
             "removeField": [Function],
             "removeForm": [Function],
-            "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
+            "updateValidateAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
             "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
@@ -706,7 +706,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   name="firstName"
@@ -725,8 +725,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -739,7 +739,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -864,7 +864,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   name="lastName"
@@ -883,8 +883,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -897,7 +897,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -1022,7 +1022,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   name="email"
@@ -1041,8 +1041,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -1055,7 +1055,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -1181,7 +1181,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     name="sex"
@@ -1200,8 +1200,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "registerForm": [Function],
                           "removeField": [Function],
                           "removeForm": [Function],
-                          "updateErrorAndWarningMessages": [Function],
                           "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
                           "updateValidateMessage": [Function],
                           "updateValidateMessages": [Function],
                           "updateWarningMessage": [Function],
@@ -1214,7 +1214,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         Object {
                           "destroyOnUnmount": true,
                           "form": "simple",
-                          "updateValidateAndWarningMap": [Function],
+                          "updateValidateAndWarnMap": [Function],
                         }
                       }
                       formState={
@@ -1334,7 +1334,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     name="sex"
@@ -1353,8 +1353,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "registerForm": [Function],
                           "removeField": [Function],
                           "removeForm": [Function],
-                          "updateErrorAndWarningMessages": [Function],
                           "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
                           "updateValidateMessage": [Function],
                           "updateValidateMessages": [Function],
                           "updateWarningMessage": [Function],
@@ -1367,7 +1367,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         Object {
                           "destroyOnUnmount": true,
                           "form": "simple",
-                          "updateValidateAndWarningMap": [Function],
+                          "updateValidateAndWarnMap": [Function],
                         }
                       }
                       formState={
@@ -1491,7 +1491,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   name="favoriteColor"
@@ -1508,8 +1508,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -1522,7 +1522,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -1680,7 +1680,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   id="employed"
@@ -1699,8 +1699,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -1713,7 +1713,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -1836,7 +1836,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "simple",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                     }
                   }
                   name="notes"
@@ -1853,8 +1853,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -1867,7 +1867,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                       }
                     }
                     formState={
@@ -2087,8 +2087,8 @@ Array [
       "registerForm": [Function],
       "removeField": [Function],
       "removeForm": [Function],
-      "updateErrorAndWarningMessages": [Function],
       "updateFormState": [Function],
+      "updateValidateAndWarningMessages": [Function],
       "updateValidateMessage": [Function],
       "updateValidateMessages": [Function],
       "updateWarningMessage": [Function],

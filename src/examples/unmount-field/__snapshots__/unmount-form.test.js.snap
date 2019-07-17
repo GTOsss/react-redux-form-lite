@@ -25,8 +25,8 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
           "registerForm": [Function],
           "removeField": [Function],
           "removeForm": [Function],
-          "updateErrorAndWarningMessages": [Function],
           "updateFormState": [Function],
+          "updateValidateAndWarningMessages": [Function],
           "updateValidateMessage": [Function],
           "updateValidateMessages": [Function],
           "updateWarningMessage": [Function],
@@ -84,8 +84,8 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
             "registerForm": [Function],
             "removeField": [Function],
             "removeForm": [Function],
-            "updateErrorAndWarningMessages": [Function],
             "updateFormState": [Function],
+            "updateValidateAndWarningMessages": [Function],
             "updateValidateMessage": [Function],
             "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
@@ -157,7 +157,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                     Object {
                       "destroyOnUnmount": true,
                       "form": "example",
-                      "updateValidateAndWarningMap": [Function],
+                      "updateValidateAndWarnMap": [Function],
                       "validate": [Function],
                       "warn": [Function],
                     }
@@ -178,8 +178,8 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                         "registerForm": [Function],
                         "removeField": [Function],
                         "removeForm": [Function],
-                        "updateErrorAndWarningMessages": [Function],
                         "updateFormState": [Function],
+                        "updateValidateAndWarningMessages": [Function],
                         "updateValidateMessage": [Function],
                         "updateValidateMessages": [Function],
                         "updateWarningMessage": [Function],
@@ -192,7 +192,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                       Object {
                         "destroyOnUnmount": true,
                         "form": "example",
-                        "updateValidateAndWarningMap": [Function],
+                        "updateValidateAndWarnMap": [Function],
                         "validate": [Function],
                         "warn": [Function],
                       }
@@ -268,7 +268,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                 Object {
                   "destroyOnUnmount": true,
                   "form": "example",
-                  "updateValidateAndWarningMap": [Function],
+                  "updateValidateAndWarnMap": [Function],
                   "validate": [Function],
                   "warn": [Function],
                 }
@@ -288,8 +288,8 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                     "registerForm": [Function],
                     "removeField": [Function],
                     "removeForm": [Function],
-                    "updateErrorAndWarningMessages": [Function],
                     "updateFormState": [Function],
+                    "updateValidateAndWarningMessages": [Function],
                     "updateValidateMessage": [Function],
                     "updateValidateMessages": [Function],
                     "updateWarningMessage": [Function],
@@ -302,7 +302,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                   Object {
                     "destroyOnUnmount": true,
                     "form": "example",
-                    "updateValidateAndWarningMap": [Function],
+                    "updateValidateAndWarnMap": [Function],
                     "validate": [Function],
                     "warn": [Function],
                   }

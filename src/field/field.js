@@ -8,22 +8,25 @@ import {getValue} from '../utils/dom-helper';
 import ReduxFormContext from '../redux-form/redux-form-context';
 import FieldArrayContext from '../field-array/field-array-context';
 import {getIn} from '../utils/object-manager';
+import {
+  validateFormByValues as validateFormByValuesUtil,
+} from '../store/utils';
 
 class Field extends Component {
   componentDidMount() {
     const {
       name,
       actions: {registerField},
-      formContext: {form, updateValidateAndWarningMap},
+      formContext: {form, updateValidateAndWarnMap},
       fieldArrayContext: {fieldName: fieldArrayName},
       validate,
       warn,
       ownProps,
+      formState: {values},
     } = this.props;
 
-    updateValidateAndWarningMap(name, validate, warn);
-
-    registerField(form, name);
+    updateValidateAndWarnMap(name, validate, warn);
+    registerField(form, name, getIn(values, name));
   }
 
   componentWillUnmount() {
@@ -39,68 +42,36 @@ class Field extends Component {
 
   validateAndWarning = (value) => {
     const {
-      validate, warn, actions: {
-        updateErrorAndWarningMessages,
-      },
+      validate, warn, name, actions: {updateValidateAndWarningMessages},
       formContext: {
         form,
-        validate: validateFromContext,
-        warn: warnFromContext,
+        validate: validateSubmit,
+        warn: warnSubmit,
       },
-      name,
-      formState,
+      formState: {values},
     } = this.props;
 
-    const resultMap = {
-      errors: {},
-      warnings: {},
+    const submitValidateMap = {validate: validateSubmit, warn: warnSubmit};
+    const validateMap = {validate: {}, warn: {}};
+
+    if (validate) {
+      validateMap.validate[name] = validate;
+    }
+
+    if (warn) {
+      validateMap.warn[name] = warn;
+    }
+
+    const currentValues = {
+      ...values,
+      [name]: value,
     };
 
-    if (validate && (typeof validate === 'function')) {
-      resultMap.errors = {...resultMap.errors, [name]: validate(value)};
-    } else if (validate && Array.isArray(validate)) {
-      for (let i = 0; i < validate.length; i += 1) {
-        const result = validate[i](value);
-        if ((result === 0) || result) {
-          resultMap.errors = {...resultMap.errors, [name]: result};
-          break;
-        }
-
-        if (i === (validate.length - 1)) {
-          resultMap.errors = {...resultMap.errors, [name]: undefined};
-        }
-      }
-    }
-
-    if (warn && (typeof warn === 'function')) {
-      resultMap.warnings = {...resultMap.warnings, [name]: warn(value)};
-    } else if (warn && Array.isArray(warn)) {
-      for (let i = 0; i < warn.length; i += 1) {
-        const result = warn[i](value);
-        if ((result === 0) || result) {
-          resultMap.warnings = {...resultMap.warnings, [name]: result};
-          break;
-        }
-
-        if (i === (warn.length - 1)) {
-          resultMap.warnings = {...resultMap.warnings, [name]: undefined};
-        }
-      }
-    }
-
-    const currentValues = {...formState.values, [name]: value};
-
-    if (typeof validateFromContext === 'function') {
-      resultMap.errors = {...resultMap.errors, ...validateFromContext(currentValues)};
-    }
-
-    if (typeof warnFromContext === 'function') {
-      resultMap.warnings = {...resultMap.warnings, ...warnFromContext(currentValues)};
-    }
+    const resultMap = validateFormByValuesUtil(currentValues, validateMap, submitValidateMap);
 
     if (Object.keys(resultMap.errors).length !== 0
       || Object.keys(resultMap.warnings).length !== 0) {
-      updateErrorAndWarningMessages(form, resultMap);
+      updateValidateAndWarningMessages(form, resultMap);
     }
   };
 
