@@ -759,7 +759,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <Connect(ReduxForm)>
     <ReduxForm
       actions={
         Object {
@@ -935,7 +935,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             type="text"
             validate={[Function]}
           >
-            <ConnectFunction
+            <Connect(Field)
               component={[Function]}
               formContext={
                 Object {
@@ -1103,7 +1103,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                   </div>
                 </Input>
               </Field>
-            </ConnectFunction>
+            </Connect(Field)>
           </FieldWithContext>
           <FieldWithContext
             component={[Function]}
@@ -1118,7 +1118,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               ]
             }
           >
-            <ConnectFunction
+            <Connect(Field)
               component={[Function]}
               formContext={
                 Object {
@@ -1301,7 +1301,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                   </div>
                 </Input>
               </Field>
-            </ConnectFunction>
+            </Connect(Field)>
           </FieldWithContext>
           <FieldWithContext
             component={[Function]}
@@ -1312,7 +1312,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
             validate={[Function]}
             warn={[Function]}
           >
-            <ConnectFunction
+            <Connect(Field)
               component={[Function]}
               formContext={
                 Object {
@@ -1483,7 +1483,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                   </div>
                 </Input>
               </Field>
-            </ConnectFunction>
+            </Connect(Field)>
           </FieldWithContext>
           <FieldWithContext
             component={[Function]}
@@ -1498,7 +1498,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
               ]
             }
           >
-            <ConnectFunction
+            <Connect(Field)
               component={[Function]}
               formContext={
                 Object {
@@ -1681,7 +1681,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                   </div>
                 </Input>
               </Field>
-            </ConnectFunction>
+            </Connect(Field)>
           </FieldWithContext>
           <div>
             <button
@@ -1693,7 +1693,7 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
         </form>
       </FieldLevelValidate>
     </ReduxForm>
-  </ConnectFunction>
+  </Connect(ReduxForm)>
 </Provider>
 `;
 

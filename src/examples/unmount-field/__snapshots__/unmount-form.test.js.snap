@@ -12,7 +12,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <Connect(ReduxForm)>
     <ReduxForm
       actions={
         Object {
@@ -151,7 +151,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                 placeholder="First Name"
                 type="text"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -253,7 +253,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -262,7 +262,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
             name="withLastName"
             type="checkbox"
           >
-            <ConnectFunction
+            <Connect(Field)
               component="input"
               formContext={
                 Object {
@@ -361,7 +361,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
                   value=""
                 />
               </Field>
-            </ConnectFunction>
+            </Connect(Field)>
           </FieldWithContext>
           <div>
             <button
@@ -373,7 +373,7 @@ exports[`<UnmountField /> Render UnmountField 1`] = `
         </form>
       </UnmountForm>
     </ReduxForm>
-  </ConnectFunction>
+  </Connect(ReduxForm)>
 </Provider>
 `;
 

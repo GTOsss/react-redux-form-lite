@@ -1,34 +1,28 @@
-export type MapFieldsString<Values> = {
-  [key in keyof Values]?: Values[key] extends object ? MapFieldsString<Values[key]> : string;
-};
-
-export interface IFieldMeta {
-  focused: boolean;
-  active: boolean;
-  blurred: boolean;
-  changed: boolean;
-  warning: string;
-  error: string;
+export interface IMapErrorsAndWarningsMessages<Values> {
+  errors?: MapMessages<Values>;
+  warnings?: MapMessages<Values>;
 }
 
-export type MapFieldsMeta<Values> = {
-  [key in keyof Values]?: Values[key] extends object ? MapFieldsMeta<Values[key]> : IFieldMeta;
-};
+export type validateMethod = (value?: any) => string | undefined | null;
 
-export interface IFormInState<Values> {
-  submitted: boolean;
-  focused: boolean;
-  blurred: boolean;
-  changed: boolean;
-  errorsMap: MapFieldsString<Values>;
-  hasErrors: boolean;
-  warningsMap: MapFieldsString<Values>;
-  hasWarnings: boolean;
-  activeField: string;
+export type validateProps = Array<validateMethod> | validateMethod;
+
+export interface IMapValidate {
+  [key: string]: validateProps;
 }
 
-export interface IFormState<Values> {
-  form: IFormInState<Values>;
-  meta: MapFieldsMeta<Values>;
-  values: Values;
+export interface IMapValidateErrorsAndWarnings {
+  validate?: IMapValidate;
+  warn?: IMapValidate;
+}
+
+export interface IValues {
+  [key: string]: any;
+}
+
+export type submitValidate = (values) => MapMessages<typeof values>;
+
+export interface IMapSubmitValidate {
+  validate?: submitValidate;
+  warn?: submitValidate;
 }

@@ -467,7 +467,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
     }
   }
 >
-  <ConnectFunction>
+  <Connect(ReduxForm)>
     <ReduxForm
       actions={
         Object {
@@ -700,7 +700,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 placeholder="First Name"
                 type="text"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -843,7 +843,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -858,7 +858,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 placeholder="Last Name"
                 type="text"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -1001,7 +1001,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -1016,7 +1016,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 placeholder="Email"
                 type="email"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -1159,7 +1159,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -1175,7 +1175,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   type="radio"
                   value="male"
                 >
-                  <ConnectFunction
+                  <Connect(Field)
                     component="input"
                     formContext={
                       Object {
@@ -1317,7 +1317,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         value=""
                       />
                     </Field>
-                  </ConnectFunction>
+                  </Connect(Field)>
                 </FieldWithContext>
                  Male
               </label>
@@ -1328,7 +1328,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   type="radio"
                   value="female"
                 >
-                  <ConnectFunction
+                  <Connect(Field)
                     component="input"
                     formContext={
                       Object {
@@ -1470,7 +1470,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         value=""
                       />
                     </Field>
-                  </ConnectFunction>
+                  </Connect(Field)>
                 </FieldWithContext>
                  Female
               </label>
@@ -1485,7 +1485,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 component="select"
                 name="favoriteColor"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="select"
                   formContext={
                     Object {
@@ -1657,7 +1657,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       </option>
                     </select>
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -1674,7 +1674,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 name="employed"
                 type="checkbox"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -1817,7 +1817,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -1830,7 +1830,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 component="textarea"
                 name="notes"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="textarea"
                   formContext={
                     Object {
@@ -1967,7 +1967,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -1981,7 +1981,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
         </form>
       </SimpleForm>
     </ReduxForm>
-  </ConnectFunction>
+  </Connect(ReduxForm)>
 </Provider>
 `;
 

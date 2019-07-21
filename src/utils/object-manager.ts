@@ -24,11 +24,13 @@ export const addToObjectByPath = (state, path, value, pathIndex = 0) => {
       return { [first]: next };
     }
     const initialized = [];
+    // @ts-ignore
     initialized[parseInt(first, 10)] = next;
     return initialized;
   }
 
   if (Array.isArray(state)) {
+    // @ts-ignore
     const copy = [].concat(state);
     copy[parseInt(first, 10)] = next;
     return copy;
@@ -47,7 +49,7 @@ export const addToObjectByPath = (state, path, value, pathIndex = 0) => {
  * @param {*?} defaultValue
  * @returns {object} State
  */
-export const getIn = (state, field, defaultValue) => {
+export const getIn = (state, field, defaultValue?) => {
   if (!state) {
     return defaultValue;
   }
@@ -70,7 +72,7 @@ export const getIn = (state, field, defaultValue) => {
   return result;
 };
 
-const deleteInWithPath = (state, first, ...rest) => {
+const deleteInWithPath = (state, first, ...rest: Array<any>) => {
   if (state === undefined || state === null || first === undefined || first === null) {
     return state;
   }
@@ -84,6 +86,7 @@ const deleteInWithPath = (state, first, ...rest) => {
       }
       const firstIndex = Number(first);
       if (firstIndex < state.length) {
+        // @ts-ignore
         const result = deleteInWithPath(state && state[firstIndex], ...rest);
         if (result !== state[firstIndex]) {
           const copy = [...state];
@@ -94,6 +97,7 @@ const deleteInWithPath = (state, first, ...rest) => {
       return state;
     }
     if (first in state) {
+      // @ts-ignore
       const result = deleteInWithPath(state && state[first], ...rest);
       return state[first] === result
         ? state
@@ -123,6 +127,7 @@ const deleteInWithPath = (state, first, ...rest) => {
   }
   if (first in state) {
     const copy = { ...state };
+    // tslint:disable-next-line:no-dynamic-delete
     delete copy[first];
     return copy;
   }
@@ -136,5 +141,6 @@ const deleteInWithPath = (state, first, ...rest) => {
  */
 export const deleteIn = (state, field) => {
   const path = stringToPath(field);
+  // @ts-ignore
   return deleteInWithPath(state, ...path);
 };

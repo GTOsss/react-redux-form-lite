@@ -1,21 +1,42 @@
 import {updateWarnings, updateErrors, updateErrorsAndWarnings} from './utils';
 
-const getMockState = () => ({
+interface IMockTwoFieldsValues {
+  testField1: string;
+  testField2: string;
+}
+
+const defaultFormState = {
+  errorsMap: {},
+  warningsMap: {},
+  hasErrors: false,
+  hasWarnings: false,
+  activeField: '',
+  blurred: false,
+  changed: false,
+  focused: false,
+  submitted: false,
+};
+
+const defaultFieldMetaState = {
+  warning: '',
+  error: '',
+  active: false,
+  blurred: false,
+  changed: false,
+  focused: false,
+};
+
+const getMockState = (): IFullReduxFormState<IMockTwoFieldsValues> => ({
   testForm: {
     form: {
-      errorsMap: {},
-      warningsMap: {},
-      hasErrors: false,
-      hasWarnings: false,
+      ...defaultFormState,
     },
     meta: {
       testField1: {
-        warning: '',
-        error: '',
+        ...defaultFieldMetaState,
       },
       testField2: {
-        warning: '',
-        error: '',
+        ...defaultFieldMetaState,
       },
     },
     values: {
@@ -65,21 +86,19 @@ describe('Store utils.', () => {
 
     // remove testField1
     let resultUndefined = updateErrors(result, form, {testField1: undefined});
-    expect(resultUndefined).toEqual({
+    let expectState: IFullReduxFormState<IMockTwoFieldsValues> = {
       testForm: {
         form: {
+          ...defaultFormState,
           errorsMap: {testField2: 'Error2'},
-          warningsMap: {},
           hasErrors: true,
-          hasWarnings: false,
         },
         meta: {
           testField1: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
           testField2: {
-            warning: '',
+            ...defaultFieldMetaState,
             error: 'Error2',
           },
         },
@@ -88,7 +107,8 @@ describe('Store utils.', () => {
           testField2: '',
         },
       },
-    });
+    };
+    expect(resultUndefined).toEqual(expectState);
 
     let resultNull = updateErrors(result, form, {testField1: null});
     let resultEmptyString = updateErrors(result, form, {testField1: ''});
@@ -98,22 +118,17 @@ describe('Store utils.', () => {
     // remove testField2
     resultUndefined = updateErrors(resultUndefined, form, {testField2: undefined});
     result = resultUndefined;
-    expect(resultUndefined).toEqual({
+    expectState = {
       testForm: {
         form: {
-          errorsMap: {},
-          warningsMap: {},
-          hasErrors: false,
-          hasWarnings: false,
+          ...defaultFormState,
         },
         meta: {
           testField1: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
           testField2: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
         },
         values: {
@@ -121,7 +136,8 @@ describe('Store utils.', () => {
           testField2: '',
         },
       },
-    });
+    };
+    expect(resultUndefined).toEqual(expectState);
 
     resultNull = updateErrors(result, form, {testField2: null});
     resultEmptyString = updateErrors(result, form, {testField2: ''});
@@ -141,22 +157,20 @@ describe('Store utils.', () => {
 
     // remove testField1
     let resultUndefined = updateWarnings(result, form, {testField1: undefined});
-    expect(resultUndefined).toEqual({
+    let expectState: IFullReduxFormState<IMockTwoFieldsValues> = {
       testForm: {
         form: {
-          errorsMap: {},
+          ...defaultFormState,
           warningsMap: {testField2: 'Warning2'},
-          hasErrors: false,
           hasWarnings: true,
         },
         meta: {
           testField1: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
           testField2: {
+            ...defaultFieldMetaState,
             warning: 'Warning2',
-            error: '',
           },
         },
         values: {
@@ -164,7 +178,9 @@ describe('Store utils.', () => {
           testField2: '',
         },
       },
-    });
+    };
+
+    expect(resultUndefined).toEqual(expectState);
 
     let resultNull = updateWarnings(result, form, {testField1: null});
     let resultEmptyString = updateWarnings(result, form, {testField1: ''});
@@ -174,22 +190,17 @@ describe('Store utils.', () => {
     // remove testField2
     resultUndefined = updateWarnings(resultUndefined, form, {testField2: undefined});
     result = resultUndefined;
-    expect(resultUndefined).toEqual({
+    expectState = {
       testForm: {
         form: {
-          errorsMap: {},
-          warningsMap: {},
-          hasErrors: false,
-          hasWarnings: false,
+          ...defaultFormState,
         },
         meta: {
           testField1: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
           testField2: {
-            warning: '',
-            error: '',
+            ...defaultFieldMetaState,
           },
         },
         values: {
@@ -197,7 +208,8 @@ describe('Store utils.', () => {
           testField2: '',
         },
       },
-    });
+    };
+    expect(resultUndefined).toEqual(expectState);
 
     resultNull = updateErrors(result, form, {testField2: null});
     resultEmptyString = updateErrors(result, form, {testField2: ''});
@@ -236,10 +248,10 @@ describe('Store utils.', () => {
     const form = 'testForm';
     const mockState = getMockState();
 
-    const map1 = {
+    const map = {
       errors: {testField1: 'Error for field 1'},
     };
-    expect(updateErrorsAndWarnings(mockState, form, map1)).toMatchSnapshot();
+    expect(updateErrorsAndWarnings(mockState, form, map)).toMatchSnapshot();
   });
 
   test('updateErrorsAndWarnings field1(warning)', () => {
@@ -247,7 +259,7 @@ describe('Store utils.', () => {
     const mockState = getMockState();
 
     const map = {
-      warnings: {testField1: 'Warning for field 1'}
+      warnings: {testField1: 'Warning for field 1'},
     };
     expect(updateErrorsAndWarnings(mockState, form, map)).toMatchSnapshot();
   });
@@ -258,7 +270,7 @@ describe('Store utils.', () => {
 
     const map3 = {
       errors: {testField1: 'Error for field 1'},
-      warnings: {testField1: 'Warning for field 1'}
+      warnings: {testField1: 'Warning for field 1'},
     };
     expect(updateErrorsAndWarnings(mockState, form, map3)).toMatchSnapshot();
   });
@@ -269,7 +281,7 @@ describe('Store utils.', () => {
 
     const map4 = {
       errors: {testField1: 'Error for field 1', testField2: 'Error for field 2'},
-      warnings: {testField1: 'Warning for field 2', testField2: 'Warning for field 2'}
+      warnings: {testField1: 'Warning for field 2', testField2: 'Warning for field 2'},
     };
     expect(updateErrorsAndWarnings(mockState, form, map4)).toMatchSnapshot();
   });
@@ -281,6 +293,7 @@ describe('Store utils.', () => {
     const map1 = {testField1: 'Warning for field 1'};
     const map2 = {testField2: 'Warning for field 2'};
     mockState = updateWarnings(mockState, form, map1);
+    // tslint:disable-next-line:no-console
     console.log(mockState);
     expect(updateWarnings(mockState, form, map2)).toMatchSnapshot();
   });
@@ -292,6 +305,7 @@ describe('Store utils.', () => {
     const map1 = {testField1: 'Warning for field 1'};
     const map2 = {testField2: undefined};
     mockState = updateWarnings(mockState, form, map1);
+    // tslint:disable-next-line:no-console
     console.log(mockState);
     expect(updateWarnings(mockState, form, map2)).toMatchSnapshot();
   });

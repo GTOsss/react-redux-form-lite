@@ -11,7 +11,7 @@
     "no-var-requires": true,
     "prefer-for-of": true,
     "typedef": [
-      true,
+      false,
       "call-signature",
       "arrow-call-signature",
       "parameter",
@@ -37,7 +37,7 @@
     "no-switch-case-fall-through": false,
     "space-before-function-paren": false,
     "no-string-throw": true,
-    "no-any": true,
+    "no-any": false,
     "interface-name": true,
     "interface-over-type-literal": true,
     "#no-inferrable-types": true,

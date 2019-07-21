@@ -4,20 +4,33 @@ exports[`Store utils. updateErrors field1 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField1": "Error for field 1",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": false,
+      "submitted": false,
       "warningsMap": Object {},
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 1",
+        "focused": false,
         "warning": "",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -33,21 +46,34 @@ exports[`Store utils. updateErrors field1, field2 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField1": "Error for field 1",
         "testField2": "Error for field 2",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": false,
+      "submitted": false,
       "warningsMap": Object {},
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 1",
+        "focused": false,
         "warning": "",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 2",
+        "focused": false,
         "warning": "",
       },
     },
@@ -63,20 +89,33 @@ exports[`Store utils. updateErrors field2 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField2": "Error for field 2",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": false,
+      "submitted": false,
       "warningsMap": Object {},
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 2",
+        "focused": false,
         "warning": "",
       },
     },
@@ -92,20 +131,33 @@ exports[`Store utils. updateErrorsAndWarnings field1(error) 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField1": "Error for field 1",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": false,
+      "submitted": false,
       "warningsMap": Object {},
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 1",
+        "focused": false,
         "warning": "",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -121,22 +173,35 @@ exports[`Store utils. updateErrorsAndWarnings field1(error), field1(warning) 1`]
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField1": "Error for field 1",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 1",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -152,12 +217,17 @@ exports[`Store utils. updateErrorsAndWarnings field1(error, warning) field2(erro
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {
         "testField1": "Error for field 1",
         "testField2": "Error for field 2",
       },
+      "focused": false,
       "hasErrors": true,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 2",
         "testField2": "Warning for field 2",
@@ -165,11 +235,19 @@ Object {
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 1",
+        "focused": false,
         "warning": "Warning for field 2",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "Error for field 2",
+        "focused": false,
         "warning": "Warning for field 2",
       },
     },
@@ -185,20 +263,33 @@ exports[`Store utils. updateErrorsAndWarnings field1(warning) 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -214,9 +305,14 @@ exports[`Store utils. updateWarning field1, field2 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
         "testField2": "Warning for field 2",
@@ -224,11 +320,19 @@ Object {
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 2",
       },
     },
@@ -244,20 +348,33 @@ exports[`Store utils. updateWarnings field1 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -273,20 +390,33 @@ exports[`Store utils. updateWarnings field1 and then field2 = undefined 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
       },
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
     },
@@ -302,9 +432,14 @@ exports[`Store utils. updateWarnings field1 and then field2 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField1": "Warning for field 1",
         "testField2": "Warning for field 2",
@@ -312,11 +447,19 @@ Object {
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 1",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 2",
       },
     },
@@ -332,20 +475,33 @@ exports[`Store utils. updateWarnings field2 1`] = `
 Object {
   "testForm": Object {
     "form": Object {
+      "activeField": "",
+      "blurred": false,
+      "changed": false,
       "errorsMap": Object {},
+      "focused": false,
       "hasErrors": false,
       "hasWarnings": true,
+      "submitted": false,
       "warningsMap": Object {
         "testField2": "Warning for field 2",
       },
     },
     "meta": Object {
       "testField1": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "",
       },
       "testField2": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
         "error": "",
+        "focused": false,
         "warning": "Warning for field 2",
       },
     },

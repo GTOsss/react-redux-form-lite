@@ -12,7 +12,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
     }
   }
 >
-  <ConnectFunction
+  <Connect(ReduxForm)
     onSubmit={[Function]}
   >
     <ReduxForm
@@ -157,7 +157,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                 placeholder="First Name"
                 type="text"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -259,7 +259,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -274,7 +274,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                 placeholder="Last Name"
                 type="text"
               >
-                <ConnectFunction
+                <Connect(Field)
                   component="input"
                   formContext={
                     Object {
@@ -376,7 +376,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                       value=""
                     />
                   </Field>
-                </ConnectFunction>
+                </Connect(Field)>
               </FieldWithContext>
             </div>
           </div>
@@ -390,7 +390,7 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
         </form>
       </InnerSyncValidation>
     </ReduxForm>
-  </ConnectFunction>
+  </Connect(ReduxForm)>
 </Provider>
 `;
 

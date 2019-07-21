@@ -1,12 +1,20 @@
-import {getIn, deleteIn, addToObjectByPath} from '../utils/object-manager';
-import {updateErrors, updateWarnings, updateErrorsAndWarnings, validateForm} from './utils';
+import {
+  getIn,
+  deleteIn,
+  addToObjectByPath,
+} from '../../utils/object-manager';
+import {
+  updateErrors,
+  updateWarnings,
+  updateErrorsAndWarnings,
+} from '../utils';
 import {
   REGISTER_FORM,
   REGISTER_FIELD,
   CHANGE,
   FOCUS,
   BLUR,
-  ARRAY_PUSH,
+  // ARRAY_PUSH,
   UPDATE_WARNING_MESSAGE,
   UPDATE_WARNING_MESSAGES,
   UPDATE_VALIDATE_MESSAGE,
@@ -16,11 +24,10 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
-  VALIDATE_FORM,
-} from './constants';
+} from '../constants';
 
 const initialState = {};
-const initialStateForm = {
+const initialStateForm: IFormState<any> = {
   submitted: false,
   focused: false,
   blurred: false,
@@ -31,7 +38,7 @@ const initialStateForm = {
   warningsMap: {},
   activeField: '',
 };
-const initialMeta = {
+const initialMeta: IFieldMeta = {
   focused: false,
   active: false,
   blurred: false,
@@ -40,16 +47,15 @@ const initialMeta = {
   error: '',
 };
 
-export default (state = initialState, {type, payload, meta}) => {
-  const {form, field, callback} = meta || {};
-  const {value, submitted} = payload || {};
+export default (state = initialState, {type, payload, meta}): IFullReduxFormState<any> => {
+  const {form, field} = meta || {} as any;
+  const {value, submitted} = payload || {} as any;
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
   const pathForm = `${form}.form`;
 
-
-  let newState = {...state};
+  let newState: IFullReduxFormState<any> = {...state};
 
   switch (type) {
     case REGISTER_FORM:
@@ -112,22 +118,6 @@ export default (state = initialState, {type, payload, meta}) => {
     }
     case REMOVE_FORM:
       return addToObjectByPath(newState, `${form}`, {});
-    // case VALIDATE_FORM:
-    //   newState = validateForm({
-    //     form,
-    //     state: newState,
-    //     validateMap: payload.validateMap,
-    //     submitValidateMap: payload.submitValidateMap,
-    //     submitted,
-    //   });
-    //
-    //   if (typeof meta.callback === 'function') {
-    //     meta.callback(newState[form]);
-    //   }
-    //
-    //   return newState;
-    // case ARRAY_PUSH:
-    // return updateValue(newState, pathValue, pathMeta, value, {});
     default:
       return state;
   }

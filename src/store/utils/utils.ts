@@ -1,4 +1,11 @@
-import {addToObjectByPath, deleteIn, getIn} from '../utils/object-manager';
+import {addToObjectByPath, deleteIn, getIn} from '../../utils/object-manager';
+import {
+  IMapErrorsAndWarningsMessages,
+  IMapValidateErrorsAndWarnings,
+  validateProps,
+  IValues,
+  IMapSubmitValidate,
+} from '../types';
 
 /**
  *
@@ -9,7 +16,13 @@ import {addToObjectByPath, deleteIn, getIn} from '../utils/object-manager';
  * @param {'error' | 'warning'} type Type of messages
  * @return {object} Updated state
  */
-const updateMessages = (state, form, map, submitted, type) => {
+const updateMessages = (
+  state: IFullReduxFormState<any>,
+  form: string,
+  map: MapMessages<any>,
+  type: 'error' | 'warning',
+  submitted?: boolean,
+): IFullReduxFormState<any> => {
   const pathMap = {
     error: {
       meta: (key) => `${form}.meta.${key}.error`,
@@ -50,11 +63,21 @@ const updateMessages = (state, form, map, submitted, type) => {
   return addToObjectByPath(newState, pathMap[type].hasMessages, hasMessages);
 };
 
-export const updateErrors = (state, form, map, submitted) =>
-  updateMessages(state, form, map, submitted, 'error');
+export const updateErrors = (
+  state: IFullReduxFormState<any>,
+  form: string,
+  map: MapMessages<any>,
+  submitted?: boolean,
+): IFullReduxFormState<any> =>
+  updateMessages(state, form, map, 'error', submitted);
 
-export const updateWarnings = (state, form, map, submitted) =>
-  updateMessages(state, form, map, submitted, 'warning');
+export const updateWarnings = (
+  state: IFullReduxFormState<any>,
+  form: string,
+  map: MapMessages<any>,
+  submitted?: boolean,
+): IFullReduxFormState<any> =>
+  updateMessages(state, form, map, 'warning', submitted);
 
 /**
  * @param {object} state State
@@ -65,39 +88,57 @@ export const updateWarnings = (state, form, map, submitted) =>
  * @param {boolean?} submitted Submitted
  * @return {object} Updated state
  */
-export const updateErrorsAndWarnings = (state, form, {errors = {}, warnings = {}}, submitted) => {
+export const updateErrorsAndWarnings = (
+  state: IFullReduxFormState<any>,
+  form: string,
+  {
+    errors = {},
+    warnings = {},
+  }: IMapErrorsAndWarningsMessages<any>,
+  submitted?: boolean,
+): IFullReduxFormState<any> => {
   const newState = updateErrors(state, form, errors, submitted);
   return updateWarnings(newState, form, warnings, submitted);
 };
 
-const getMessageMap = (key, value, validate, targetMap) => {
+const getMessageMap = (
+  key: string,
+  value: any,
+  validate: validateProps,
+  targetMap: MapMessages<any>,
+): void => {
   if (validate && (typeof validate === 'function')) {
-    // eslint-disable-next-line no-param-reassign
     targetMap[key] = validate(value);
   } else if (validate && Array.isArray(validate)) {
     for (let i = 0; i < validate.length; i += 1) {
       const result = validate[i](value);
-      if ((result === 0) || result) {
-        // eslint-disable-next-line no-param-reassign
+      if (result) {
         targetMap[key] = result;
         break;
       }
 
       if (i === (validate.length - 1)) {
-        // eslint-disable-next-line no-param-reassign
         targetMap[key] = undefined;
       }
     }
   }
 };
 
-export const validateFormByValues = (values, validateMap, submitValidateMap = {}) => {
+export const validateFormByValues = (
+  values: IValues,
+  validateMap: IMapValidateErrorsAndWarnings = {},
+  submitValidateMap: IMapSubmitValidate = {},
+) => {
   let resultErrors = {};
   let resultWarnings = {};
 
   Object.entries(values).forEach(([key, value]) => {
-    getMessageMap(key, value, validateMap.validate[key], resultErrors);
-    getMessageMap(key, value, validateMap.warn[key], resultWarnings);
+    if (validateMap.validate) {
+      getMessageMap(key, value, validateMap.validate[key], resultErrors);
+    }
+    if (validateMap.warn) {
+      getMessageMap(key, value, validateMap.warn[key], resultWarnings);
+    }
   });
 
   if (submitValidateMap && typeof submitValidateMap.validate === 'function') {
@@ -111,6 +152,14 @@ export const validateFormByValues = (values, validateMap, submitValidateMap = {}
   return {errors: resultErrors, warnings: resultWarnings};
 };
 
+interface IValidateFormByStateParams {
+  state: IFullReduxFormState<any>;
+  form: string;
+  validateMap: IMapValidateErrorsAndWarnings;
+  submitValidateMap: IMapSubmitValidate;
+  submitted?: boolean;
+}
+
 /**
  * @param {object} param params
  * @param {object} param.state state
@@ -121,10 +170,14 @@ export const validateFormByValues = (values, validateMap, submitValidateMap = {}
  * @returns {*|{}|Object} state or errorAndWarningMap
  */
 export const validateFormByState = ({
-  state, form, validateMap, submitValidateMap, submitted,
-}) => {
+  state,
+  form,
+  validateMap,
+  submitValidateMap,
+  submitted,
+}: IValidateFormByStateParams) => {
   const formState = state[form];
-  const {values} = formState;
+  const {values = {}} = formState || {};
   const result = validateFormByValues(values, validateMap, submitValidateMap);
   return updateErrorsAndWarnings(state, form, result, submitted);
 };
