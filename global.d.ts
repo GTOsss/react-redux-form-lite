@@ -33,6 +33,52 @@ interface IReduxFormState<Values> {
   values: Values;
 }
 
+type validateMethod = (value?: any) => string | undefined | null;
+type validateProps = Array<validateMethod> | validateMethod;
+
 interface IFullReduxFormState<Values> {
   [key: string]: IReduxFormState<Values> | undefined;
 }
+
+interface IMapValidate {
+  [key: string]: validateProps;
+}
+
+interface IMapErrorsAndWarningsMessages<Values> {
+  errors?: MapMessages<Values>;
+  warnings?: MapMessages<Values>;
+}
+
+interface IReduxFormActions<Values> {
+  registerForm(form: string): any;
+
+  registerField(form: string, field: string, value: any): any;
+
+  change(form: string, field: string, value: any): any;
+
+  focus(form: string, field: string): any;
+
+  blur(form: string, field: string): any;
+
+  updateValidateMessage(form: string, field: string, value: any): any;
+
+  updateValidateMessages(form: string, errorsMap: MapMessages<any>, submitted?: boolean): any;
+
+  updateWarningMessage(form: string, field: string, value?: string): any;
+
+  updateWarningMessages(form: string, warningMap: MapMessages<Values>, submitted?: string): any;
+
+  updateValidateAndWarningMessages(form: string, map: IMapErrorsAndWarningsMessages<Values>, submitted?: boolean): any;
+
+  changeSubmitted(form: string, value: boolean): any;
+
+  updateFormState(form: string, state: IReduxFormState<any>): any;
+
+  removeField(form: string, field: string): any;
+
+  removeForm(form: string): any;
+
+  arrayPush(form: string, field: string, value: any): any;
+}
+
+type submitValidate = (values) => MapMessages<typeof values>;

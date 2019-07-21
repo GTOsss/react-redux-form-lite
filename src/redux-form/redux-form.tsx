@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import {
+  IWrappedComponentProps,
+  IReduxFormParams,
+} from './types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
 import {
-  updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
+  // updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
   validateFormByState as validateFormByStateUtil,
 } from '../store/utils';
 
@@ -22,16 +25,45 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
  * return errorsMap
  * @param {function(values): {}?} paramsArg.warn Method for check warnings form, should
  * return warningsMap
- * @returns {function(component): {}} Component
+ * @returns {function(Component<IWrappedComponentProps<any>>): React.ReactElement} Component
  */
-const reduxForm = (paramsArg) => (WrappedComponent) => {
+const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
   const defaultParams = {
     destroyOnUnmount: true,
   };
   const params = {...defaultParams, ...paramsArg};
 
-  class ReduxForm extends Component {
+  interface IProps {
+
+  }
+
+  interface IState {
+
+  }
+
+  interface IInjected {
+    actions: IReduxFormActions<any>;
+    formState: IReduxFormState<any>;
+    ownProps: {
+      onSubmit(event: any): void;
+    };
+  }
+
+  class ReduxForm extends Component<IProps, IState> {
     displayName = getDisplayName(WrappedComponent);
+    validateMap: IMapValidate;
+    warnMap: IMapValidate;
+    customSubmit: ((values: any, state: IReduxFormState<any>, actions: IReduxFormActions<any>) => void) | null;
+
+    static defaultProps = {
+      actions: {},
+      ownProps: {},
+      formState: {
+        form: {},
+        meta: {},
+        values: {},
+      },
+    };
 
     constructor(props) {
       super(props);
@@ -41,13 +73,17 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       this.customSubmit = null;
     }
 
+    get injected(): IInjected {
+      return this.props as IInjected;
+    }
+
     componentWillMount() {
-      const {actions: {registerForm}} = this.props;
+      const {actions: {registerForm}} = this.injected;
       registerForm(params.form);
     }
 
     componentWillUnmount() {
-      const {actions: {removeForm}} = this.props;
+      const {actions: {removeForm}} = this.injected;
 
       if (params.destroyOnUnmount) {
         removeForm(params.form);
@@ -64,8 +100,8 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       }
     };
 
-    validateForm = (submitted) => {
-      const {formState, actions: {updateFormState}} = this.props;
+    validateForm = (submitted?: boolean): IReduxFormState<any> | undefined => {
+      const {formState, actions: {updateFormState}} = this.injected;
       const {validate, warn, form} = params;
       const validateMap = {validate: this.validateMap, warn: this.warnMap};
       const submitValidateMap = {validate, warn};
@@ -73,7 +109,10 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       const result = validateFormByStateUtil({
         state, form, validateMap, submitValidateMap, submitted,
       });
-      updateFormState(form, result[form]);
+      const currentFormState = result[form];
+      if (currentFormState) {
+        updateFormState(form, currentFormState);
+      }
       return result[form];
     };
 
@@ -82,11 +121,12 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
         e.preventDefault();
       }
 
-      const {actions: formActions} = this.props;
-      const resultValidate = this.validateForm(true);
+      const {actions: formActions} = this.injected;
+      const validateState = this.validateForm(true);
 
-      if (this.customSubmit) {
-        this.customSubmit(resultValidate.values, resultValidate, formActions);
+      if (this.customSubmit && validateState) {
+        const values = validateState.values || null;
+        this.customSubmit(values, validateState, formActions);
       }
     };
 
@@ -106,9 +146,10 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
     render() {
       const {form, destroyOnUnmount} = params;
       const {
-        actions: formActions, formState,
+        actions: formActions,
+        formState,
         ownProps: {onSubmit, ...ownProps},
-      } = this.props;
+      } = this.injected;
 
       const formContext = {
         ...params,
@@ -132,26 +173,6 @@ const reduxForm = (paramsArg) => (WrappedComponent) => {
       );
     }
   }
-
-  ReduxForm.propTypes = {
-    actions: PropTypes.objectOf(PropTypes.func),
-    ownProps: PropTypes.objectOf(PropTypes.any),
-    formState: PropTypes.shape({
-      form: PropTypes.object,
-      meta: PropTypes.object,
-      values: PropTypes.object,
-    }),
-  };
-
-  ReduxForm.defaultProps = {
-    actions: {},
-    ownProps: {},
-    formState: {
-      form: {},
-      meta: {},
-      values: {},
-    },
-  };
 
   const mapStateToProps = (state) => ({
     formState: state.reduxForm[params.form],

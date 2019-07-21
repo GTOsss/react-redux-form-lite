@@ -1,8 +1,6 @@
 import {addToObjectByPath, deleteIn, getIn} from '../../utils/object-manager';
 import {
-  IMapErrorsAndWarningsMessages,
   IMapValidateErrorsAndWarnings,
-  validateProps,
   IValues,
   IMapSubmitValidate,
 } from '../types';
@@ -175,7 +173,7 @@ export const validateFormByState = ({
   validateMap,
   submitValidateMap,
   submitted,
-}: IValidateFormByStateParams) => {
+}: IValidateFormByStateParams): IFullReduxFormState<any> => {
   const formState = state[form];
   const {values = {}} = formState || {};
   const result = validateFormByValues(values, validateMap, submitValidateMap);

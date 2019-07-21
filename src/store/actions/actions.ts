@@ -87,6 +87,6 @@ export const removeForm = (form: string) => ({
   type: REMOVE_FORM, meta: {form},
 });
 
-export const arrayPush = (form: string, field: string, value: any) => ({
+  export const arrayPush = (form: string, field: string, value: any) => ({
   type: ARRAY_PUSH, meta: {form, field}, payload: {value},
 });
