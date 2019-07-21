@@ -69,7 +69,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
 >
   <UnmountForm>
     <div>
-      <ConnectFunction>
+      <Connect(ReduxForm)>
         <ReduxForm
           actions={
             Object {
@@ -208,7 +208,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
                     placeholder="First Name"
                     type="text"
                   >
-                    <ConnectFunction
+                    <Connect(Field)
                       component="input"
                       formContext={
                         Object {
@@ -310,7 +310,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
                           value=""
                         />
                       </Field>
-                    </ConnectFunction>
+                    </Connect(Field)>
                   </FieldWithContext>
                 </div>
               </div>
@@ -325,7 +325,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
                     placeholder="Last Name"
                     type="text"
                   >
-                    <ConnectFunction
+                    <Connect(Field)
                       component="input"
                       formContext={
                         Object {
@@ -427,7 +427,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
                           value=""
                         />
                       </Field>
-                    </ConnectFunction>
+                    </Connect(Field)>
                   </FieldWithContext>
                 </div>
               </div>
@@ -441,7 +441,7 @@ exports[`<UnmountForm /> Render UnmountForm 1`] = `
             </form>
           </FormComponent>
         </ReduxForm>
-      </ConnectFunction>
+      </Connect(ReduxForm)>
       <button
         onClick={[Function]}
         type="button"

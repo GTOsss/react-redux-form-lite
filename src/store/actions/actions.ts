@@ -15,9 +15,6 @@ import {
   REMOVE_FIELD,
   REMOVE_FORM,
 } from '../constants';
-import {
-  IMapErrorsAndWarningsMessages,
-} from '../types';
 
 export const registerForm = (form: string) => ({
   type: REGISTER_FORM, meta: {form},
