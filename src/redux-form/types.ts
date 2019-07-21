@@ -10,6 +10,12 @@ export interface IReduxFormParams {
   form: string;
   wizard: string;
   destroyOnUnmount: boolean;
-  validate: submitValidate;
-  warn: submitValidate;
+  validate: submitValidate<any>;
+  warn: submitValidate<any>;
+}
+
+export type updateValidateAndWarnMap = (field: string, validate: validateProps, warning: validateProps) => void;
+
+export interface IFormContext extends IReduxFormParams {
+  updateValidateAndWarnMap: updateValidateAndWarnMap;
 }

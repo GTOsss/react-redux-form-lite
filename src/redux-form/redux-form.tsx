@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {
   IWrappedComponentProps,
   IReduxFormParams,
+  updateValidateAndWarnMap,
+  IFormContext,
 } from './types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -34,11 +36,9 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
   const params = {...defaultParams, ...paramsArg};
 
   interface IProps {
-
   }
 
   interface IState {
-
   }
 
   interface IInjected {
@@ -90,7 +90,7 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
       }
     }
 
-    updateValidateAndWarnMap = (field, validate, warning) => {
+    updateValidateAndWarnMap: updateValidateAndWarnMap = (field, validate, warning) => {
       if (validate) {
         this.validateMap[field] = validate;
       }
@@ -151,7 +151,7 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
         ownProps: {onSubmit, ...ownProps},
       } = this.injected;
 
-      const formContext = {
+      const formContext: IFormContext = {
         ...params,
         updateValidateAndWarnMap: this.updateValidateAndWarnMap,
       };

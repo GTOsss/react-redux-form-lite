@@ -81,4 +81,4 @@ interface IReduxFormActions<Values> {
   arrayPush(form: string, field: string, value: any): any;
 }
 
-type submitValidate = (values) => MapMessages<typeof values>;
+type submitValidate<Values> = (values: Values) => MapMessages<Values>;

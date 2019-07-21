@@ -8,6 +8,6 @@ export interface IValues {
 }
 
 export interface IMapSubmitValidate {
-  validate?: submitValidate;
-  warn?: submitValidate;
+  validate?: submitValidate<any>;
+  warn?: submitValidate<any>;
 }

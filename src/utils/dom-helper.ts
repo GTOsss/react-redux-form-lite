@@ -15,7 +15,7 @@ const getSelectedValues = (options) => {
   return result;
 };
 
-export const getValue = (event, isReactNative) => {
+export const getValue = (event, isReactNative?) => {
   if (isEvent(event)) {
     if (
       !isReactNative

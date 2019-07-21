@@ -1,6 +1,5 @@
-import React, {Component, createElement} from 'react';
+import React, {Component, FunctionComponent, ComponentClass, createElement} from 'react';
 import omit from 'lodash.omit';
-import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../store/actions';
@@ -11,18 +10,65 @@ import {getIn} from '../utils/object-manager';
 import {
   validateFormByValues as validateFormByValuesUtil,
 } from '../store/utils';
+import {
+  IFormContext,
+} from '../redux-form/types';
 
-class Field extends Component {
+interface IProps {
+  name: string;
+  component: FunctionComponent | ComponentClass | string;
+  formContext: IFormContext;
+  fieldArrayContext: object;
+  warn: validateProps;
+  validate: validateProps;
+
+  onChange(event: any): void;
+
+  onBlur(event: any): void;
+
+  onFocus(event: any): void;
+}
+
+interface IState {
+}
+
+interface IInjected {
+  actions: IReduxFormActions<any>;
+  formState: IReduxFormState<any>;
+  ownProps: any;
+}
+
+class Field extends Component<IProps, IState> {
+  static defaultProps = {
+    actions: {},
+    formContext: {},
+    fieldArrayContext: {},
+    onChange: undefined,
+    onBlur: undefined,
+    onFocus: undefined,
+    warn: undefined,
+    validate: undefined,
+    formState: {},
+    ownProps: {},
+  };
+
+  get injected(): IInjected {
+    // @ts-ignore
+    return this.props as IInjected;
+  }
+
   componentDidMount() {
     const {
-      name,
       actions: {registerField},
+      formState: {values},
+    } = this.injected;
+
+    const {
+      name,
       formContext: {form, updateValidateAndWarnMap},
-      fieldArrayContext: {fieldName: fieldArrayName},
+      // fieldArrayContext: {fieldName: fieldArrayName},
       validate,
       warn,
-      ownProps,
-      formState: {values},
     } = this.props;
 
     updateValidateAndWarnMap(name, validate, warn);
@@ -31,8 +77,10 @@ class Field extends Component {
 
   componentWillUnmount() {
     const {
-      name,
       actions: {removeField},
+    } = this.injected;
+    const {
+      name,
       formContext: {form, destroyOnUnmount},
     } = this.props;
     if (destroyOnUnmount) {
@@ -42,13 +90,18 @@ class Field extends Component {
 
   validateAndWarning = (value) => {
     const {
-      validate, warn, name, actions: {updateValidateAndWarningMessages},
+      actions: {updateValidateAndWarningMessages},
+      formState: {values},
+    } = this.injected;
+    const {
+      validate,
+      warn,
+      name,
       formContext: {
         form,
         validate: validateSubmit,
         warn: warnSubmit,
       },
-      formState: {values},
     } = this.props;
 
     const submitValidateMap = {validate: validateSubmit, warn: warnSubmit};
@@ -76,37 +129,61 @@ class Field extends Component {
   };
 
   onChange = (e) => {
-    const {onChange} = this.props;
     const value = getValue(e);
+    const {
+      actions: {change},
+    } = this.injected;
+    const {
+      formContext: {form},
+      name,
+      onChange,
+    } = this.props;
+
     if (onChange) {
       onChange(e);
     }
 
-    const {actions: {change}, formContext: {form}, name} = this.props;
     change(form, name, value);
     this.validateAndWarning(value);
   };
 
   onFocus = (e) => {
-    const {actions: {focus}, formContext: {form}, name, onFocus} = this.props;
+    const {
+      actions: {focus},
+    } = this.injected;
+    const {
+      formContext: {form}, name, onFocus,
+    } = this.props;
+
     if (onFocus) {
       onFocus(e);
     }
+
     focus(form, name);
   };
 
   onBlur = (e) => {
-    const {actions: {blur}, formContext: {form}, name, onBlur} = this.props;
+    const {
+      actions: {blur},
+    } = this.injected;
+    const {
+      formContext: {form}, name, onBlur,
+    } = this.props;
+
     const value = getValue(e);
+
     if (onBlur) {
       onBlur(e);
     }
+
     blur(form, name);
     this.validateAndWarning(value);
   };
 
   render() {
-    const {component, formContext, fieldArrayContext, formState, ...props} = this.props;
+    const {formState, ownProps} = this.injected;
+    const {component, formContext, fieldArrayContext, ...props} = this.props;
+
     const meta = getIn(formState, `meta.${props.name}`, {});
     const input = {
       value: getIn(formState, `values.${props.name}`, ''),
@@ -115,10 +192,10 @@ class Field extends Component {
       onBlur: this.onBlur,
     };
 
-    const propsDefaultInput = {...props.ownProps, ...input};
+    const propsDefaultInput = {...ownProps, ...input};
     const propsCustomInput = {
       ...omit(props, 'ownProps'),
-      ...props.ownProps,
+      ...ownProps,
       meta,
       input,
     };
@@ -128,38 +205,6 @@ class Field extends Component {
       : createElement(component, propsCustomInput);
   }
 }
-
-Field.propTypes = {
-  actions: PropTypes.objectOf(PropTypes.func),
-  name: PropTypes.string.isRequired,
-  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element, PropTypes.string]).isRequired,
-  formContext: PropTypes.objectOf(PropTypes.any),
-  fieldArrayContext: PropTypes.objectOf(PropTypes.any),
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  warn: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.func)]),
-  validate: PropTypes.oneOfType([PropTypes.func, PropTypes.arrayOf(PropTypes.func)]),
-  formState: PropTypes.shape({
-    form: PropTypes.object,
-    meta: PropTypes.object,
-    values: PropTypes.object,
-  }),
-  ownProps: PropTypes.objectOf(PropTypes.any),
-};
-
-Field.defaultProps = {
-  actions: {},
-  formContext: {},
-  fieldArrayContext: {},
-  onChange: undefined,
-  onBlur: undefined,
-  onFocus: undefined,
-  warn: undefined,
-  validate: undefined,
-  formState: {},
-  ownProps: {},
-};
 
 const mapStateToProps = (state, props) => ({
   formState: state.reduxForm[props.formContext.form],
