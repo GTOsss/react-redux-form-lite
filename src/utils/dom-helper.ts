@@ -5,9 +5,9 @@ const isEvent = (candidate) => !!(candidate
 const getSelectedValues = (options) => {
   const result = [];
   if (options) {
-    for (let index = 0; index < options.length; index += 1) {
-      const option = options[index];
+    for (const option of options) {
       if (option.selected) {
+        // @ts-ignore
         result.push(option.value);
       }
     }
