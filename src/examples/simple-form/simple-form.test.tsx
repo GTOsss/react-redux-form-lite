@@ -6,7 +6,17 @@ import ReduxThunkTester from 'redux-thunk-tester';
 import SimpleForm from './simple-form';
 import {reducer} from '../../index';
 
-const renderComponent = (onSubmit) => {
+interface IValues {
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  sex?: string;
+  favoriteColor?: string;
+  employed?: string;
+  notes?: string;
+}
+
+const renderComponent = (onSubmit?) => {
   const reduxThunkTester = new ReduxThunkTester();
 
   const store = createStore(
@@ -20,7 +30,11 @@ const renderComponent = (onSubmit) => {
     </Provider>,
   );
 
-  return {reduxThunkTester, store, component};
+  return {
+    reduxThunkTester,
+    getFormState: () => store.getState().reduxForm.simple as IReduxFormState<IValues>,
+    component,
+  };
 };
 
 describe('<SimpleForm />', () => {
@@ -36,9 +50,9 @@ describe('<SimpleForm />', () => {
   });
 
   test('Register form and fields: store.', () => {
-    const {store} = renderComponent();
+    const {getFormState} = renderComponent();
 
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Focus field: actions history.', () => {
@@ -53,11 +67,11 @@ describe('<SimpleForm />', () => {
   });
 
   test('Focus field: store', () => {
-    const {store, component} = renderComponent();
+    const {getFormState, component} = renderComponent();
 
     component.find('input').at(0).simulate('focus');
 
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Change field: actions history.', () => {
@@ -76,7 +90,7 @@ describe('<SimpleForm />', () => {
   });
 
   test('Changed field: store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -84,7 +98,7 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('change', {target: {value: 'tes'}});
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
 
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Blur field: actions history', () => {
@@ -104,7 +118,7 @@ describe('<SimpleForm />', () => {
   });
 
   test('Blur field: store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
@@ -113,7 +127,7 @@ describe('<SimpleForm />', () => {
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(0).simulate('blur');
 
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('onSubmit', () => {

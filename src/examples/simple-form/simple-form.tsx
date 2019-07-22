@@ -1,8 +1,8 @@
 import React from 'react';
-import { Field, reduxForm } from '../../index';
+import {Field, reduxForm} from '../../index';
 
 const SimpleForm = (props) => {
-  const { handleSubmit } = props;
+  const {handleSubmit} = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
