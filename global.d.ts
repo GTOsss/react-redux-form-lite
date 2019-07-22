@@ -82,3 +82,11 @@ interface IReduxFormActions<Values> {
 }
 
 type submitValidate<Values> = (values: Values) => MapMessages<Values>;
+
+interface IReduxFormParams {
+  form: string;
+  wizard?: string;
+  destroyOnUnmount?: boolean;
+  validate?: submitValidate<any>;
+  warn?: submitValidate<any>;
+}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
   IWrappedComponentProps,
-  IReduxFormParams,
   updateValidateAndWarnMap,
   IFormContext,
 } from './types';

@@ -6,7 +6,14 @@ import ReduxThunkTester from 'redux-thunk-tester';
 import FieldLevelValidation from './field-level-validation';
 import {reducer} from '../../index';
 
-const renderComponent = (innerOnSubmit) => {
+interface IValues {
+  firstName?: string;
+  lastName?: string;
+  age?: string;
+  number?: string;
+}
+
+const renderComponent = (innerOnSubmit?) => {
   const reduxThunkTester = new ReduxThunkTester();
 
   const store = createStore(
@@ -20,7 +27,11 @@ const renderComponent = (innerOnSubmit) => {
     </Provider>,
   );
 
-  return {reduxThunkTester, store, component};
+  return {
+    reduxThunkTester,
+    getFormState: () => store.getState().reduxForm.simple as IReduxFormState<IValues>,
+    component,
+  };
 };
 
 describe('<FieldLevelValidation />', () => {
@@ -35,9 +46,9 @@ describe('<FieldLevelValidation />', () => {
   });
 
   test('Register form and fields: store.', () => {
-    const {store} = renderComponent();
+    const {getFormState} = renderComponent();
 
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Focus field: actions history.', () => {
@@ -51,10 +62,10 @@ describe('<FieldLevelValidation />', () => {
   });
 
   test('Focus field: store', () => {
-    const {store, component} = renderComponent();
+    const {getFormState, component} = renderComponent();
 
     component.find('input').at(0).simulate('focus');
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Change field (validate and warning): actions history (input 0).', () => {
@@ -170,129 +181,135 @@ describe('<FieldLevelValidation />', () => {
   });
 
   test('Changed field (validate and warning firstName: validate={validateIsRequired}): store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(0).simulate('focus');
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
     component.find('input').at(0).simulate('change', {target: {value: ''}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({firstName: 'Field required.'});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(true);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
-
+    expect(getFormState().form.errorsMap).toEqual({firstName: 'Field required.'});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(true);
+    expect(getFormState().form.hasWarnings).toEqual(false);
+    expect(getFormState()).toMatchSnapshot();
     component.find('input').at(0).simulate('change', {target: {value: 't'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
   });
 
   test('Changed field (validate and warning'
     + 'lastName: validate={[validateIsRequired, validateMinLength(2)]}): store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(1).simulate('focus');
     component.find('input').at(1).simulate('change', {target: {value: 't'}});
     component.find('input').at(1).simulate('change', {target: {value: ''}});
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({lastName: 'Field required.'});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(true);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState()).toMatchSnapshot();
+    expect(getFormState().form.errorsMap).toEqual({lastName: 'Field required.'});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(true);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(1).simulate('change', {target: {value: 't'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual(
+    expect(getFormState().form.errorsMap).toEqual(
       {lastName: 'Must be 2 characters or more.'},
     );
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(true);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(true);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(1).simulate('change', {target: {value: 'te'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.meta.lastName.error).toEqual('');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    // @ts-ignore
+    expect(getFormState().meta.lastName.error).toEqual('');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
   });
 
   test('Changed field (validate and warning '
     + 'validate={validateIsRequired} warn={warnTooYang}): store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(2).simulate('focus');
     component.find('input').at(2).simulate('change', {target: {value: 't'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
 
     component.find('input').at(2).simulate('change', {target: {value: ''}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({age: 'Field required.'});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(true);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({age: 'Field required.'});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(true);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(2).simulate('change', {target: {value: '1'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({age: 'Too yang.'});
-    expect(store.getState().reduxForm.simple.meta.age.warning).toEqual('Too yang.');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(true);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({age: 'Too yang.'});
+    // @ts-ignore
+    expect(getFormState().meta.age.warning).toEqual('Too yang.');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(true);
 
     component.find('input').at(2).simulate('change', {target: {value: '18'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.meta.age.warning).toEqual('');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    // @ts-ignore
+    expect(getFormState().meta.age.warning).toEqual('');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('Changed field (validate and warning '
     + 'warn={[warnTooSmall, warnTooLarge]}): store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('input').at(3).simulate('focus');
     component.find('input').at(3).simulate('change', {target: {value: 't'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(3).simulate('change', {target: {value: ''}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(3).simulate('change', {target: {value: '0'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({number: 'Too small.'});
-    expect(store.getState().reduxForm.simple.meta.number.warning).toEqual('Too small.');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(true);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({number: 'Too small.'});
+    // @ts-ignore
+    expect(getFormState().meta.number.warning).toEqual('Too small.');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(true);
 
     component.find('input').at(3).simulate('change', {target: {value: '1'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.meta.number.warning).toEqual('');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    // @ts-ignore
+    expect(getFormState().meta.number.warning).toEqual('');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(3).simulate('change', {target: {value: '10'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.meta.number.warning).toEqual('');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(false);
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({});
+    // @ts-ignore
+    expect(getFormState().meta.number.warning).toEqual('');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(false);
 
     component.find('input').at(3).simulate('change', {target: {value: '101'}});
-    expect(store.getState().reduxForm.simple.form.errorsMap).toEqual({});
-    expect(store.getState().reduxForm.simple.form.warningsMap).toEqual({number: 'Too large.'});
-    expect(store.getState().reduxForm.simple.meta.number.warning).toEqual('Too large.');
-    expect(store.getState().reduxForm.simple.form.hasErrors).toEqual(false);
-    expect(store.getState().reduxForm.simple.form.hasWarnings).toEqual(true);
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState().form.errorsMap).toEqual({});
+    expect(getFormState().form.warningsMap).toEqual({number: 'Too large.'});
+    // @ts-ignore
+    expect(getFormState().meta.number.warning).toEqual('Too large.');
+    expect(getFormState().form.hasErrors).toEqual(false);
+    expect(getFormState().form.hasWarnings).toEqual(true);
+    expect(getFormState()).toMatchSnapshot();
   });
 
   test('handleSubmit(onSubmit) inside form-component (valid)', () => {
@@ -440,9 +457,9 @@ describe('<FieldLevelValidation />', () => {
   });
 
   test('Submit without touch inputs (not valid): store', () => {
-    const {component, store} = renderComponent();
+    const {component, getFormState} = renderComponent();
 
     component.find('form').at(0).simulate('submit');
-    expect(store.getState().reduxForm.simple).toMatchSnapshot();
+    expect(getFormState()).toMatchSnapshot();
   });
 });

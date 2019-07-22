@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, FormEvent} from 'react';
 import {Field, reduxForm} from '../../index';
 
 const validateIsRequired = (value) => !value ? 'Field required.' : undefined;
@@ -23,7 +23,13 @@ const Input = ({label, meta: {error, warning, blurred}, input}) => (
   </div>
 );
 
-class FieldLevelValidate extends Component {
+interface IProps {
+  handleSubmit(event: FormEvent<HTMLFormElement> | ((event: FormEvent<HTMLFormElement>) => void));
+
+  innerOnSubmit(event: FormEvent<HTMLFormElement>): void;
+}
+
+class FieldLevelValidate extends Component<IProps> {
   render() {
     const {handleSubmit, innerOnSubmit} = this.props;
     return (

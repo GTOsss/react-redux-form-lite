@@ -1065,6 +1065,61 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "updateWarningMessages": [Function],
                     }
                   }
+                  formState={
+                    Object {
+                      "form": Object {
+                        "activeField": "",
+                        "blurred": false,
+                        "changed": false,
+                        "errorsMap": Object {},
+                        "focused": false,
+                        "hasErrors": false,
+                        "hasWarnings": false,
+                        "submitted": false,
+                        "warningsMap": Object {},
+                      },
+                      "meta": Object {
+                        "age": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "firstName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "lastName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "number": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                      },
+                      "values": Object {
+                        "age": undefined,
+                        "firstName": undefined,
+                        "lastName": undefined,
+                        "number": undefined,
+                      },
+                    }
+                  }
                   input={
                     Object {
                       "onBlur": [Function],
@@ -1258,6 +1313,61 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "updateWarningMessages": [Function],
                     }
                   }
+                  formState={
+                    Object {
+                      "form": Object {
+                        "activeField": "",
+                        "blurred": false,
+                        "changed": false,
+                        "errorsMap": Object {},
+                        "focused": false,
+                        "hasErrors": false,
+                        "hasWarnings": false,
+                        "submitted": false,
+                        "warningsMap": Object {},
+                      },
+                      "meta": Object {
+                        "age": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "firstName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "lastName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "number": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                      },
+                      "values": Object {
+                        "age": undefined,
+                        "firstName": undefined,
+                        "lastName": undefined,
+                        "number": undefined,
+                      },
+                    }
+                  }
                   input={
                     Object {
                       "onBlur": [Function],
@@ -1442,6 +1552,61 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
                       "updateWarningMessages": [Function],
+                    }
+                  }
+                  formState={
+                    Object {
+                      "form": Object {
+                        "activeField": "",
+                        "blurred": false,
+                        "changed": false,
+                        "errorsMap": Object {},
+                        "focused": false,
+                        "hasErrors": false,
+                        "hasWarnings": false,
+                        "submitted": false,
+                        "warningsMap": Object {},
+                      },
+                      "meta": Object {
+                        "age": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "firstName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "lastName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "number": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                      },
+                      "values": Object {
+                        "age": undefined,
+                        "firstName": undefined,
+                        "lastName": undefined,
+                        "number": undefined,
+                      },
                     }
                   }
                   input={
@@ -1636,6 +1801,61 @@ exports[`<FieldLevelValidation /> Render field-level-validation form. 1`] = `
                       "updateValidateMessages": [Function],
                       "updateWarningMessage": [Function],
                       "updateWarningMessages": [Function],
+                    }
+                  }
+                  formState={
+                    Object {
+                      "form": Object {
+                        "activeField": "",
+                        "blurred": false,
+                        "changed": false,
+                        "errorsMap": Object {},
+                        "focused": false,
+                        "hasErrors": false,
+                        "hasWarnings": false,
+                        "submitted": false,
+                        "warningsMap": Object {},
+                      },
+                      "meta": Object {
+                        "age": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "firstName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "lastName": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                        "number": Object {
+                          "active": false,
+                          "blurred": false,
+                          "changed": false,
+                          "error": "",
+                          "focused": false,
+                          "warning": "",
+                        },
+                      },
+                      "values": Object {
+                        "age": undefined,
+                        "firstName": undefined,
+                        "lastName": undefined,
+                        "number": undefined,
+                      },
                     }
                   }
                   input={
