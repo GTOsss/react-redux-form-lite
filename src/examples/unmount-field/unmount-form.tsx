@@ -3,7 +3,7 @@ import {Field, reduxForm} from '../../index';
 import {getIn} from '../../utils/object-manager';
 
 const validate = (values) => {
-  const errors = {};
+  const errors: MapMessages<any> = {};
 
   if (!values.lastName) {
     errors.lastName = 'Field required.';
@@ -13,15 +13,14 @@ const validate = (values) => {
 };
 
 const warn = (values) => {
-  const warnigns = {};
+  const warnings: MapMessages<any> = {};
 
   if (values.lastName && values.lastName.length <= 2) {
-    warnigns.lastName = 'The minimum length of the value must be 2.';
+    warnings.lastName = 'The minimum length of the value must be 2.';
   }
 
-  return warnigns;
+  return warnings;
 };
-
 
 const UnmountForm = (props) => {
   const {formState, handleSubmit} = props;
