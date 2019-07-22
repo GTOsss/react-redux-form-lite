@@ -7,7 +7,7 @@ import Field from '../../field';
 import WizardSyncValidation from './wizard-sync-validation';
 import {reducer} from '../../index';
 
-const renderComponent = (onSubmit) => {
+const renderComponent = (onSubmit?) => {
   const reduxThunkTester = new ReduxThunkTester();
 
   const store = createStore(
@@ -38,6 +38,7 @@ describe('<WizardSyncValidation />', () => {
   test('Render WizardSyncValidation: store of wizard', () => {
     const {store} = renderComponent();
 
+    // @ts-ignore
     expect(store.getState().wizard).toMatchSnapshot();
   });
 
@@ -184,7 +185,6 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find(Field)).toMatchSnapshot();
   });
 
-
   test('submit success on page 1, 2, 3 (store)', () => {
     const {component, store} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
@@ -201,7 +201,7 @@ describe('<WizardSyncValidation />', () => {
 
   test('submit success on page 1, 2, 3 (onSubmit)', () => {
     const onSubmit = jest.fn();
-    const {component, store} = renderComponent(onSubmit);
+    const {component} = renderComponent(onSubmit);
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');

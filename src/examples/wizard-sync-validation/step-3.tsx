@@ -6,41 +6,41 @@ const validationMinLength = (value) =>
   value && (value.length < 2) ? 'The minimum length of the value must be 2.' : undefined;
 
 const validate = (values) => {
-  const errors = {};
+  const errors: MapMessages<any> = {};
 
-  errors.phone = validationIsRequired(values.phone);
-  errors.email = validationIsRequired(values.email);
+  errors.dob = validationIsRequired(values.dob);
+  errors.hoddy = validationIsRequired(values.hoddy);
 
   return errors;
 };
 
 const warn = (values) => {
-  const warnings = {};
+  const warnings: MapMessages<any> = {};
 
-  warnings.email = validationMinLength(values.email);
+  warnings.hoddy = validationMinLength(values.hoddy);
 
   return warnings;
 };
 
-const Step2Component = (props) => {
+const Step3Component = (props) => {
   const {handleSubmit, prevPage} = props;
 
   return (
     <form onSubmit={handleSubmit}>
-      <Field name="phone" component="input" type="text" placeholder="Phone" />
-      <Field name="email" component="input" type="text" placeholder="Email" />
+      <Field name="dob" component="input" type="text" placeholder="Date of birthday" />
+      <Field name="hobby" component="input" type="text" placeholder="Hobby" />
       <button type="button" onClick={prevPage}>Previous</button>
-      <button type="submit">Next</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
 
-const Step2 = reduxForm({
-  form: 'step2',
+const Step3 = reduxForm({
+  form: 'step3',
   wizard: 'wizard',
   destroyOnUnmount: false,
   validate,
   warn,
-})(Step2Component);
+})(Step3Component);
 
-export default Step2;
+export default Step3;
