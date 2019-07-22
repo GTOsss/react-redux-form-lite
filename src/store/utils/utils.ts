@@ -102,7 +102,7 @@ export const updateErrorsAndWarnings = (
 const getMessageMap = (
   key: string,
   value: any,
-  validate: validateProps,
+  validate: ValidateProps,
   targetMap: MapMessages<any>,
 ): void => {
   if (validate && (typeof validate === 'function')) {

@@ -6,7 +6,7 @@ const validationMinLength = (minLength) => (value) =>
   value && (value.length < minLength) ? `The minimum length of the value must be ${minLength}.` : undefined;
 
 const validate = (values) => {
-  const errors = {};
+  const errors: MapMessages<any> = {};
 
   errors.firstName = validationIsRequired(values.firstName);
   errors.lastName = validationIsRequired(values.lastName);
@@ -15,7 +15,7 @@ const validate = (values) => {
 };
 
 const warn = (values) => {
-  const warnings = {};
+  const warnings: MapMessages<any> = {};
 
   warnings.firstName = validationMinLength(2)(values.firstName);
   warnings.lastName = validationMinLength(2)(values.lastName);

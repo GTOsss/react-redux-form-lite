@@ -6,7 +6,7 @@ export interface IWrappedComponentProps<Values> {
   onSubmit(values: any, state: IReduxFormState<Values>, actions: IReduxFormActions<Values>): void;
 }
 
-export type updateValidateAndWarnMap = (field: string, validate: validateProps, warning: validateProps) => void;
+export type updateValidateAndWarnMap = (field: string, validate: ValidateProps, warning: ValidateProps) => void;
 
 export interface IFormContext extends IReduxFormParams {
   updateValidateAndWarnMap: updateValidateAndWarnMap;

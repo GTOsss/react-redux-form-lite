@@ -7,8 +7,8 @@ interface IFieldMeta {
   error: string;
 }
 
-type IMetaState<Values> = {
-  [key in keyof Values]?: Values[key] extends object ? IMetaState<Values[key]> : IFieldMeta;
+type MetaState<Values> = {
+  [key in keyof Values]?: Values[key] extends object ? MetaState<Values[key]> : IFieldMeta;
 };
 
 type MapMessages<Values> = {
@@ -29,19 +29,19 @@ interface IFormState<Values> {
 
 interface IReduxFormState<Values> {
   form: IFormState<Values>;
-  meta: IMetaState<Values>;
+  meta: MetaState<Values>;
   values: Values;
 }
 
-type validateMethod = (value?: any) => string | undefined | null;
-type validateProps = Array<validateMethod> | validateMethod;
+type ValidateMethod = (value?: any) => string | undefined | null;
+type ValidateProps = Array<ValidateMethod> | ValidateMethod;
 
 interface IFullReduxFormState<Values> {
   [key: string]: IReduxFormState<Values> | undefined;
 }
 
 interface IMapValidate {
-  [key: string]: validateProps;
+  [key: string]: ValidateProps;
 }
 
 interface IMapErrorsAndWarningsMessages<Values> {
@@ -81,12 +81,12 @@ interface IReduxFormActions<Values> {
   arrayPush(form: string, field: string, value: any): any;
 }
 
-type submitValidate<Values> = (values: Values) => MapMessages<Values>;
+type SubmitValidate<Values> = (values: Values) => MapMessages<Values>;
 
 interface IReduxFormParams {
   form: string;
   wizard?: string;
   destroyOnUnmount?: boolean;
-  validate?: submitValidate<any>;
-  warn?: submitValidate<any>;
+  validate?: SubmitValidate<any>;
+  warn?: SubmitValidate<any>;
 }

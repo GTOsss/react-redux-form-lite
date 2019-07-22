@@ -19,8 +19,8 @@ interface IProps {
   component: FunctionComponent | ComponentClass | string;
   formContext: IFormContext;
   fieldArrayContext: object;
-  warn: validateProps;
-  validate: validateProps;
+  warn: ValidateProps;
+  validate: ValidateProps;
 
   onChange(event: any): void;
 
