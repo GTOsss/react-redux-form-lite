@@ -65,14 +65,14 @@ class Field extends Component<IProps, IState> {
 
     const {
       name,
-      formContext: {form, updateValidateAndWarnMap},
+      formContext: {form, updateValidateAndWarnMap, wizard},
       // fieldArrayContext: {fieldName: fieldArrayName},
       validate,
       warn,
     } = this.props;
 
     updateValidateAndWarnMap(name, validate, warn);
-    registerField(form, name, getIn(values, name));
+    registerField(form, name, getIn(values, name), wizard);
   }
 
   componentWillUnmount() {
@@ -101,6 +101,7 @@ class Field extends Component<IProps, IState> {
         form,
         validate: validateSubmit,
         warn: warnSubmit,
+        wizard,
       },
     } = this.props;
 
@@ -124,7 +125,7 @@ class Field extends Component<IProps, IState> {
 
     if (Object.keys(resultMap.errors).length !== 0
       || Object.keys(resultMap.warnings).length !== 0) {
-      updateValidateAndWarningMessages(form, resultMap);
+      updateValidateAndWarningMessages(form, resultMap, undefined, wizard);
     }
   };
 
@@ -134,7 +135,7 @@ class Field extends Component<IProps, IState> {
       actions: {change},
     } = this.injected;
     const {
-      formContext: {form},
+      formContext: {form, wizard},
       name,
       onChange,
     } = this.props;
@@ -143,7 +144,7 @@ class Field extends Component<IProps, IState> {
       onChange(e);
     }
 
-    change(form, name, value);
+    change(form, name, value, wizard);
     this.validateAndWarning(value);
   };
 

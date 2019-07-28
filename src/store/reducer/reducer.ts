@@ -1,7 +1,7 @@
 import {
   getIn,
   deleteIn,
-  addToObjectByPath,
+  setIn,
 } from '../../utils/object-manager';
 import {
   updateErrors,
@@ -38,6 +38,15 @@ const initialStateForm: IFormState<any> = {
   warningsMap: {},
   activeField: '',
 };
+const initialStateWizard: IReduxFormWizard<any> = {
+  wizard: {
+    errorsMap: {},
+    hasErrors: false,
+    warningsMap: {},
+    hasWarnings: false,
+  },
+  values: {},
+};
 const initialMeta: IFieldMeta = {
   focused: false,
   active: false,
@@ -48,76 +57,82 @@ const initialMeta: IFieldMeta = {
 };
 
 export default (state = initialState, {type, payload, meta}): IFullReduxFormState<any> => {
-  const {form, field} = meta || {} as any;
+  const {form, field, wizard} = meta || {} as any;
   const {value, submitted} = payload || {} as any;
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
   const pathForm = `${form}.form`;
+  const pathWizardState = `${wizard}.wizard`;
+  const pathWizardValues = `${wizard}.values`;
 
   let newState: IFullReduxFormState<any> = {...state};
 
   switch (type) {
     case REGISTER_FORM:
-      newState = addToObjectByPath(newState, pathForm, initialStateForm);
+      newState = setIn(newState, pathForm, initialStateForm);
+      newState = wizard ? setIn(newState, wizard, initialStateWizard) : newState;
+      newState = setIn(newState, pathForm, initialStateForm);
       return newState;
     case REGISTER_FIELD:
-      newState = addToObjectByPath(state, pathValue, value);
-      newState = addToObjectByPath(newState, pathMeta, initialMeta);
+      newState = setIn(newState, pathValue, value);
+      newState = setIn(newState, pathMeta, initialMeta);
+      newState = wizard ? setIn(newState, `${pathWizardValues}.${field}`, value) : newState;
       return newState;
     case FOCUS:
-      newState = addToObjectByPath(newState, `${pathMeta}.active`, true);
-      newState = addToObjectByPath(newState, `${pathMeta}.focused`, true);
-      newState = addToObjectByPath(newState, `${pathForm}.focused`, true);
-      newState = addToObjectByPath(newState, `${pathForm}.activeField`, field);
+      newState = setIn(newState, `${pathMeta}.active`, true);
+      newState = setIn(newState, `${pathMeta}.focused`, true);
+      newState = setIn(newState, `${pathForm}.focused`, true);
+      newState = setIn(newState, `${pathForm}.activeField`, field);
       return newState;
     case CHANGE:
-      newState = addToObjectByPath(newState, `${pathForm}.changed`, true);
-      newState = addToObjectByPath(newState, `${pathMeta}.changed`, true);
-      newState = addToObjectByPath(newState, `${pathValue}`, value);
+      newState = setIn(newState, `${pathForm}.changed`, true);
+      newState = setIn(newState, `${pathMeta}.changed`, true);
+      newState = setIn(newState, `${pathValue}`, value);
       return newState;
     case BLUR:
-      newState = addToObjectByPath(newState, `${pathMeta}.active`, false);
-      newState = addToObjectByPath(newState, `${pathMeta}.blurred`, true);
-      newState = addToObjectByPath(newState, `${pathForm}.blurred`, true);
-      newState = addToObjectByPath(newState, `${pathForm}.activeField`, '');
+      newState = setIn(newState, `${pathMeta}.active`, false);
+      newState = setIn(newState, `${pathMeta}.blurred`, true);
+      newState = setIn(newState, `${pathForm}.blurred`, true);
+      newState = setIn(newState, `${pathForm}.activeField`, '');
       return newState;
     case UPDATE_VALIDATE_MESSAGE:
-      return updateErrors(newState, form, {[field]: value});
+      return updateErrors(newState, form, {[field]: value}, undefined, wizard);
     case UPDATE_WARNING_MESSAGE:
-      return updateWarnings(newState, form, {[field]: value});
+      return updateWarnings(newState, form, {[field]: value}, undefined, wizard);
     case UPDATE_VALIDATE_MESSAGES:
-      return updateErrors(newState, form, value, submitted);
+      return updateErrors(newState, form, value, submitted, wizard);
     case UPDATE_WARNING_MESSAGES:
-      return updateWarnings(newState, form, value, submitted);
+      return updateWarnings(newState, form, value, submitted, wizard);
     case UPDATE_VALIDATE_AND_WARNING_MESSAGES:
-      return updateErrorsAndWarnings(newState, form, value, submitted);
+      return updateErrorsAndWarnings(newState, form, value, submitted, wizard);
     case CHANGE_SUBMITTED:
-      return addToObjectByPath(newState, `${pathForm}.submitted`, value);
+      return setIn(newState, `${pathForm}.submitted`, value);
     case UPDATE_FORM_STATE:
-      return addToObjectByPath(newState, form, value);
+      newState = wizard && payload.wizardState ? setIn(newState, wizard, payload.wizardState) : newState;
+      return setIn(newState, form, value);
     case REMOVE_FIELD: {
       const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
       const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
       if (getIn(errorsMap, field) !== undefined) {
         newState = deleteIn(newState, `${pathForm}.errorsMap.${field}`);
         const hasErrors = Object.keys(getIn(newState, `${pathForm}.errorsMap`)).length !== 0;
-        newState = addToObjectByPath(newState, `${pathForm}.hasErrors`, hasErrors);
+        newState = setIn(newState, `${pathForm}.hasErrors`, hasErrors);
       }
       if (getIn(warningsMap, field) !== undefined) {
         newState = deleteIn(newState, `${pathForm}.warningsMap.${field}`);
         const hasWarnings = Object.keys(getIn(newState, `${pathForm}.warningsMap`)).length !== 0;
-        newState = addToObjectByPath(newState, `${pathForm}.hasWarnings`, hasWarnings);
+        newState = setIn(newState, `${pathForm}.hasWarnings`, hasWarnings);
       }
       if (getIn(newState, `${pathForm}.activeField`) === field) {
-        addToObjectByPath(newState, `${pathForm}.activeField`, '');
+        setIn(newState, `${pathForm}.activeField`, '');
       }
       newState = deleteIn(newState, `${form}.meta.${field}`);
       newState = deleteIn(newState, `${form}.values.${field}`);
       return newState;
     }
     case REMOVE_FORM:
-      return addToObjectByPath(newState, `${form}`, {});
+      return setIn(newState, `${form}`, {});
     default:
       return state;
   }

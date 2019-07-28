@@ -37,7 +37,7 @@ type ValidateMethod = (value?: any) => string | undefined | null;
 type ValidateProps = Array<ValidateMethod> | ValidateMethod;
 
 interface IFullReduxFormState<Values> {
-  [key: string]: IReduxFormState<Values> | undefined;
+  [key: string]: IReduxFormState<Values> | IReduxFormWizard<Values> | undefined;
 }
 
 interface IMapValidate {
@@ -50,29 +50,39 @@ interface IMapErrorsAndWarningsMessages<Values> {
 }
 
 interface IReduxFormActions<Values> {
-  registerForm(form: string): any;
+  registerForm(form: string, wizard?: string): any;
 
-  registerField(form: string, field: string, value: any): any;
+  registerField(form: string, field: string, value: any, wizard?: string): any;
 
-  change(form: string, field: string, value: any): any;
+  change(form: string, field: string, value: any, wizard?: string): any;
 
   focus(form: string, field: string): any;
 
   blur(form: string, field: string): any;
 
-  updateValidateMessage(form: string, field: string, value: any): any;
+  updateValidateMessage(form: string, field: string, value: any, wizard?: string): any;
 
-  updateValidateMessages(form: string, errorsMap: MapMessages<any>, submitted?: boolean): any;
+  updateValidateMessages(form: string, errorsMap: MapMessages<any>, submitted?: boolean, wizard?: string): any;
 
-  updateWarningMessage(form: string, field: string, value?: string): any;
+  updateWarningMessage(form: string, field: string, value?: string, wizard?: string): any;
 
-  updateWarningMessages(form: string, warningMap: MapMessages<Values>, submitted?: string): any;
+  updateWarningMessages(form: string, warningMap: MapMessages<Values>, submitted?: string, wizard?: string): any;
 
-  updateValidateAndWarningMessages(form: string, map: IMapErrorsAndWarningsMessages<Values>, submitted?: boolean): any;
+  updateValidateAndWarningMessages(
+    form: string,
+    map: IMapErrorsAndWarningsMessages<Values>,
+    submitted?: boolean,
+    wizard?: string,
+  ): any;
 
   changeSubmitted(form: string, value: boolean): any;
 
-  updateFormState(form: string, state: IReduxFormState<any>): any;
+  updateFormState(
+    form: string,
+    state: IReduxFormState<any>,
+    wizard?: string,
+    wizardState?: IReduxFormWizard<any>,
+  ): any;
 
   removeField(form: string, field: string): any;
 
@@ -89,4 +99,16 @@ interface IReduxFormParams {
   destroyOnUnmount?: boolean;
   validate?: SubmitValidate<any>;
   warn?: SubmitValidate<any>;
+}
+
+interface IWizardState<Values> {
+  errorsMap: MapMessages<Values>;
+  hasErrors: boolean;
+  warningsMap: MapMessages<Values>;
+  hasWarnings: boolean;
+}
+
+interface IReduxFormWizard<Values> {
+  wizard: IWizardState<Values>;
+  values: Values;
 }

@@ -12,6 +12,9 @@ import {
   // updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
   validateFormByState as validateFormByStateUtil,
 } from '../store/utils';
+import ReduxFormException, {
+  INVALIDE_WIZARD_FORM_PARAMS,
+} from '../utils/redux-form-exception';
 
 const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
   || WrappedComponent.name || 'Component';
@@ -33,6 +36,10 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
     destroyOnUnmount: true,
   };
   const params = {...defaultParams, ...paramsArg};
+
+  if ((params.destroyOnUnmount === false) && params.wizard) {
+    throw new ReduxFormException(INVALIDE_WIZARD_FORM_PARAMS);
+  }
 
   interface IProps {
   }
@@ -78,7 +85,8 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
 
     componentWillMount() {
       const {actions: {registerForm}} = this.injected;
-      registerForm(params.form);
+      const {wizard} = params;
+      registerForm(params.form, wizard);
     }
 
     componentWillUnmount() {
@@ -99,33 +107,41 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
       }
     };
 
-    validateForm = (submitted?: boolean): IReduxFormState<any> | undefined => {
+    validateForm = (submitted?: boolean): IFullReduxFormState<any> => {
       const {formState, actions: {updateFormState}} = this.injected;
-      const {validate, warn, form} = params;
+      const {validate, warn, form, wizard} = params;
       const validateMap = {validate: this.validateMap, warn: this.warnMap};
       const submitValidateMap = {validate, warn};
       const state = {[form]: formState};
       const result = validateFormByStateUtil({
-        state, form, validateMap, submitValidateMap, submitted,
+        state, form, validateMap, submitValidateMap, submitted, wizard,
       });
-      const currentFormState = result[form];
+      const currentFormState: IReduxFormState<any> = result[form] as IReduxFormState<any>;
+      const currentWizardState: IReduxFormWizard<any> | undefined = wizard
+        ? result[wizard] as IReduxFormWizard<any>
+        : undefined;
+
       if (currentFormState) {
-        updateFormState(form, currentFormState);
+        updateFormState(form, currentFormState, wizard, currentWizardState);
       }
-      return result[form];
+
+      return result;
     };
 
     onSubmit = (e) => {
+      const {form} = params;
+
       if (e && e.preventDefault) {
         e.preventDefault();
       }
 
       const {actions: formActions} = this.injected;
       const validateState = this.validateForm(true);
+      const validateFormState: IReduxFormState<any> = validateState[form] as IReduxFormState<any>;
 
       if (this.customSubmit && validateState) {
-        const values = validateState.values || null;
-        this.customSubmit(values, validateState, formActions);
+        const values = validateFormState.values || null;
+        this.customSubmit(values, validateFormState, formActions);
       }
     };
 

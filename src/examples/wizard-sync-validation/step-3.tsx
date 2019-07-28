@@ -37,8 +37,7 @@ const Step3Component = (props) => {
 
 const Step3 = reduxForm({
   form: 'step3',
-  wizard: 'wizard',
-  destroyOnUnmount: false,
+  wizard: 'wizardExample',
   validate,
   warn,
 })(Step3Component);

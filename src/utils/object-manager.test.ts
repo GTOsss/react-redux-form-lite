@@ -1,6 +1,6 @@
-import { addToObjectByPath, getIn, deleteIn } from './object-manager';
+import { setIn, getIn, deleteIn } from './object-manager';
 
-test('addToObjectByPath', () => {
+test('setIn', () => {
   let result;
   const state = {
     testForm: {
@@ -9,7 +9,7 @@ test('addToObjectByPath', () => {
     },
   };
 
-  result = addToObjectByPath(state, 'testForm.meta.testField', 'test value');
+  result = setIn(state, 'testForm.meta.testField', 'test value');
   expect(result).toEqual({
     testForm: {
       meta: { testField: 'test value' },
@@ -17,7 +17,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  result = addToObjectByPath(state, 'testForm.meta.testField', 0);
+  result = setIn(state, 'testForm.meta.testField', 0);
   expect(result).toEqual({
     testForm: {
       meta: { testField: 0 },
@@ -25,7 +25,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  result = addToObjectByPath(state, 'testForm.meta.testField', '');
+  result = setIn(state, 'testForm.meta.testField', '');
   expect(result).toEqual({
     testForm: {
       meta: { testField: '' },
@@ -33,7 +33,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  result = addToObjectByPath(state, 'testForm.meta.testField', false);
+  result = setIn(state, 'testForm.meta.testField', false);
   expect(result).toEqual({
     testForm: {
       meta: { testField: false },
@@ -41,7 +41,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  let resultWithArray = addToObjectByPath(state, 'testForm.meta.testArray[0]', 'first');
+  let resultWithArray = setIn(state, 'testForm.meta.testArray[0]', 'first');
   expect(resultWithArray).toEqual({
     testForm: {
       meta: { testArray: ['first'] },
@@ -49,7 +49,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  resultWithArray = addToObjectByPath(resultWithArray, 'testForm.meta.testArray[1]', 'second');
+  resultWithArray = setIn(resultWithArray, 'testForm.meta.testArray[1]', 'second');
   expect(resultWithArray).toEqual({
     testForm: {
       meta: { testArray: ['first', 'second'] },
@@ -57,7 +57,7 @@ test('addToObjectByPath', () => {
     },
   });
 
-  resultWithArray = addToObjectByPath(resultWithArray, 'testForm.meta.testArray[3]', 'fourth');
+  resultWithArray = setIn(resultWithArray, 'testForm.meta.testArray[3]', 'fourth');
   expect(resultWithArray).toEqual({
     testForm: {
       meta: { testArray: ['first', 'second', undefined, 'fourth'] },

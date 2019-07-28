@@ -102,7 +102,7 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
             }
             formParams={
               Object {
-                "destroyOnUnmount": false,
+                "destroyOnUnmount": true,
                 "form": "step1",
               }
             }
@@ -158,12 +158,12 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                   component="input"
                   formContext={
                     Object {
-                      "destroyOnUnmount": false,
+                      "destroyOnUnmount": true,
                       "form": "step1",
                       "updateValidateAndWarnMap": [Function],
                       "validate": [Function],
                       "warn": [Function],
-                      "wizard": "wizard",
+                      "wizard": "wizardExample",
                     }
                   }
                   name="firstName"
@@ -194,12 +194,12 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                     fieldArrayContext={Object {}}
                     formContext={
                       Object {
-                        "destroyOnUnmount": false,
+                        "destroyOnUnmount": true,
                         "form": "step1",
                         "updateValidateAndWarnMap": [Function],
                         "validate": [Function],
                         "warn": [Function],
-                        "wizard": "wizard",
+                        "wizard": "wizardExample",
                       }
                     }
                     formState={
@@ -270,12 +270,12 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                   component="input"
                   formContext={
                     Object {
-                      "destroyOnUnmount": false,
+                      "destroyOnUnmount": true,
                       "form": "step1",
                       "updateValidateAndWarnMap": [Function],
                       "validate": [Function],
                       "warn": [Function],
-                      "wizard": "wizard",
+                      "wizard": "wizardExample",
                     }
                   }
                   name="lastName"
@@ -306,12 +306,12 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                     fieldArrayContext={Object {}}
                     formContext={
                       Object {
-                        "destroyOnUnmount": false,
+                        "destroyOnUnmount": true,
                         "form": "step1",
                         "updateValidateAndWarnMap": [Function],
                         "validate": [Function],
                         "warn": [Function],
-                        "wizard": "wizard",
+                        "wizard": "wizardExample",
                       }
                     }
                     formState={
@@ -391,6 +391,25 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
 </Provider>
 `;
 
+exports[`<WizardSyncValidation /> Render WizardSyncValidation: action history 1`] = `
+"@@react-redux-form-lite/REGISTER_FORM
+ meta: {form: 'step1', wizard: 'wizardExample'},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {
+	form: 'step1',
+	field: 'firstName',
+	wizard: 'wizardExample'
+}
+ payload: {value: undefined},
+@@react-redux-form-lite/REGISTER_FIELD
+ meta: {
+	form: 'step1',
+	field: 'lastName',
+	wizard: 'wizardExample'
+}
+ payload: {value: undefined}"
+`;
+
 exports[`<WizardSyncValidation /> Render WizardSyncValidation: inputs 1`] = `
 Array [
   <input
@@ -414,7 +433,20 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: store of wizard 1`] = `undefined`;
+exports[`<WizardSyncValidation /> Render WizardSyncValidation: store of wizard 1`] = `
+Object {
+  "values": Object {
+    "firstName": undefined,
+    "lastName": undefined,
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
 
 exports[`<WizardSyncValidation /> submit failed on page 1 (render inputs) 1`] = `
 Array [
@@ -439,46 +471,21 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit failed on page 1 (store) 1`] = `
+exports[`<WizardSyncValidation /> submit failed on page 1 (store of wizard) 1`] = `
 Object {
-  "form": Object {
-    "activeField": "",
-    "blurred": false,
-    "changed": false,
+  "wizard": Object {
     "errorsMap": Object {
       "firstName": "Field required.",
       "lastName": "Field required.",
     },
-    "focused": false,
     "hasErrors": true,
     "hasWarnings": false,
-    "submitted": true,
     "warningsMap": Object {},
-  },
-  "meta": Object {
-    "firstName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "Field required.",
-      "focused": false,
-      "warning": "",
-    },
-    "lastName": Object {
-      "active": false,
-      "blurred": false,
-      "changed": false,
-      "error": "Field required.",
-      "focused": false,
-      "warning": "",
-    },
-  },
-  "values": Object {
-    "firstName": undefined,
-    "lastName": undefined,
   },
 }
 `;
+
+exports[`<WizardSyncValidation /> submit failed on page 1 (store) 1`] = `undefined`;
 
 exports[`<WizardSyncValidation /> submit failed on page 1, 2 (store) 1`] = `
 Object {

@@ -1,4 +1,4 @@
-import {addToObjectByPath, deleteIn, getIn} from '../../utils/object-manager';
+import {setIn, deleteIn, getIn} from '../../utils/object-manager';
 import {
   IMapValidateErrorsAndWarnings,
   IValues,
@@ -12,6 +12,7 @@ import {
  * @param {object} map Map with errors or warnings
  * @param {boolean} submitted Submitted
  * @param {'error' | 'warning'} type Type of messages
+ * @param {string?} wizard Wizard key
  * @return {object} Updated state
  */
 const updateMessages = (
@@ -20,35 +21,40 @@ const updateMessages = (
   map: MapMessages<any>,
   type: 'error' | 'warning',
   submitted?: boolean,
+  wizard?: string,
 ): IFullReduxFormState<any> => {
   const pathMap = {
     error: {
       meta: (key) => `${form}.meta.${key}.error`,
       messagesMap: `${form}.form.errorsMap`,
       hasMessages: `${form}.form.hasErrors`,
+      wizardHasMessages: `${wizard}.wizard.hasErrors`,
+      wizardMessagesMap: `${wizard}.wizard.errorsMap`,
     },
     warning: {
       meta: (key) => `${form}.meta.${key}.warning`,
       messagesMap: `${form}.form.warningsMap`,
       hasMessages: `${form}.form.hasWarnings`,
+      wizardHasMessages: `${wizard}.wizard.hasWarnings`,
+      wizardMessagesMap: `${wizard}.wizard.warningsMap`,
     },
   };
 
   const messagesMapDefault = getIn(state, pathMap[type].messagesMap, {});
   const currentMessagesMap = {...messagesMapDefault, ...map};
-  let newState = addToObjectByPath(state, pathMap[type].messagesMap, currentMessagesMap);
+  let newState = setIn(state, pathMap[type].messagesMap, currentMessagesMap);
   if (typeof submitted === 'boolean') {
-    newState = addToObjectByPath(newState, `${form}.form.submitted`, submitted);
+    newState = setIn(newState, `${form}.form.submitted`, submitted);
   }
 
   Object.entries(currentMessagesMap).forEach(([key, value]) => {
     const isRegisteredField = Boolean(getIn(state, `${form}.meta.${key}`));
     if (isRegisteredField) {
-      newState = addToObjectByPath(newState, pathMap[type].meta(key), value || '');
+      newState = setIn(newState, pathMap[type].meta(key), value || '');
     }
     if (isRegisteredField && !(value || (value === 0))) {
       newState = deleteIn(newState, `${pathMap[type].messagesMap}.${key}`);
-      newState = addToObjectByPath(newState, `${pathMap[type].meta(key)}`, '');
+      newState = setIn(newState, `${pathMap[type].meta(key)}`, '');
     }
     if (!isRegisteredField) {
       newState = deleteIn(state, `${pathMap[type].messagesMap}.${key}`);
@@ -58,7 +64,12 @@ const updateMessages = (
   const messagesMap = getIn(newState, pathMap[type].messagesMap);
   const hasMessages = Object.keys(messagesMap).length !== 0;
 
-  return addToObjectByPath(newState, pathMap[type].hasMessages, hasMessages);
+  if (wizard) {
+    newState = setIn(newState, pathMap[type].wizardHasMessages, hasMessages);
+    newState = setIn(newState, pathMap[type].wizardMessagesMap, messagesMap);
+  }
+
+  return setIn(newState, pathMap[type].hasMessages, hasMessages);
 };
 
 export const updateErrors = (
@@ -66,16 +77,18 @@ export const updateErrors = (
   form: string,
   map: MapMessages<any>,
   submitted?: boolean,
+  wizard?: string,
 ): IFullReduxFormState<any> =>
-  updateMessages(state, form, map, 'error', submitted);
+  updateMessages(state, form, map, 'error', submitted, wizard);
 
 export const updateWarnings = (
   state: IFullReduxFormState<any>,
   form: string,
   map: MapMessages<any>,
   submitted?: boolean,
+  wizard?: string,
 ): IFullReduxFormState<any> =>
-  updateMessages(state, form, map, 'warning', submitted);
+  updateMessages(state, form, map, 'warning', submitted, wizard);
 
 /**
  * @param {object} state State
@@ -84,6 +97,7 @@ export const updateWarnings = (
  * @param {object?} map.errors Map errors
  * @param {object?} map.warnings Map warnings
  * @param {boolean?} submitted Submitted
+ * @param {string?} wizard Key of wizard
  * @return {object} Updated state
  */
 export const updateErrorsAndWarnings = (
@@ -94,9 +108,10 @@ export const updateErrorsAndWarnings = (
     warnings = {},
   }: IMapErrorsAndWarningsMessages<any>,
   submitted?: boolean,
+  wizard?: string,
 ): IFullReduxFormState<any> => {
-  const newState = updateErrors(state, form, errors, submitted);
-  return updateWarnings(newState, form, warnings, submitted);
+  const newState = updateErrors(state, form, errors, submitted, wizard);
+  return updateWarnings(newState, form, warnings, submitted, wizard);
 };
 
 const getMessageMap = (
@@ -156,6 +171,7 @@ interface IValidateFormByStateParams {
   validateMap: IMapValidateErrorsAndWarnings;
   submitValidateMap: IMapSubmitValidate;
   submitted?: boolean;
+  wizard?: string;
 }
 
 /**
@@ -173,9 +189,10 @@ export const validateFormByState = ({
   validateMap,
   submitValidateMap,
   submitted,
+  wizard,
 }: IValidateFormByStateParams): IFullReduxFormState<any> => {
   const formState = state[form];
   const {values = {}} = formState || {};
   const result = validateFormByValues(values, validateMap, submitValidateMap);
-  return updateErrorsAndWarnings(state, form, result, submitted);
+  return updateErrorsAndWarnings(state, form, result, submitted, wizard);
 };

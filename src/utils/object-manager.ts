@@ -8,7 +8,7 @@ import stringToPath from 'lodash.topath';
  * @param {number} pathIndex Not require
  * @returns {object} State
  */
-export const addToObjectByPath = (state, path, value, pathIndex = 0) => {
+export const setIn = (state, path, value, pathIndex = 0) => {
   const pathArray = pathIndex === 0 ? stringToPath(path) : path;
 
   if (pathIndex >= pathArray.length) {
@@ -17,7 +17,7 @@ export const addToObjectByPath = (state, path, value, pathIndex = 0) => {
 
   const first = pathArray[pathIndex];
   const firstState = state && (Array.isArray(state) ? state[Number(first)] : state[first]);
-  const next = addToObjectByPath(firstState, pathArray, value, pathIndex + 1);
+  const next = setIn(firstState, pathArray, value, pathIndex + 1);
 
   if (!state) {
     if (isNaN(first)) {
