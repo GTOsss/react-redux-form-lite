@@ -57,7 +57,7 @@ const updateMessages = (
       newState = setIn(newState, `${pathMap[type].meta(key)}`, '');
     }
     if (!isRegisteredField) {
-      newState = deleteIn(state, `${pathMap[type].messagesMap}.${key}`);
+      newState = deleteIn(newState, `${pathMap[type].messagesMap}.${key}`);
     }
   });
 

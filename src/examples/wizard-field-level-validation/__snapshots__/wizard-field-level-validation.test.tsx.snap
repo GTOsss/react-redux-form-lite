@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
+exports[`<WizardFieldLevelValidation /> Render WizardFieldLevelValidation 1`] = `
 <Provider
   store={
     Object {
@@ -12,7 +12,7 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
     }
   }
 >
-  <WizardSyncValidation>
+  <WizardFieldLevelValidation>
     <div>
       <Connect(ReduxForm)
         onSubmit={[Function]}
@@ -253,6 +253,7 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                   name="firstName"
                   placeholder="First Name"
                   type="text"
+                  validate={[Function]}
                 >
                   <Connect(Field)
                     component="input"
@@ -261,14 +262,13 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                         "destroyOnUnmount": false,
                         "form": "step1",
                         "updateValidateAndWarnMap": [Function],
-                        "validate": [Function],
-                        "warn": [Function],
                         "wizard": "wizardExample",
                       }
                     }
                     name="firstName"
                     placeholder="First Name"
                     type="text"
+                    validate={[Function]}
                   >
                     <Field
                       actions={
@@ -297,8 +297,6 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                           "destroyOnUnmount": false,
                           "form": "step1",
                           "updateValidateAndWarnMap": [Function],
-                          "validate": [Function],
-                          "warn": [Function],
                           "wizard": "wizardExample",
                         }
                       }
@@ -347,6 +345,7 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                           "type": "text",
                         }
                       }
+                      validate={[Function]}
                     >
                       <input
                         name="firstName"
@@ -365,6 +364,8 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                   name="lastName"
                   placeholder="Last Name"
                   type="text"
+                  validate={[Function]}
+                  warn={[Function]}
                 >
                   <Connect(Field)
                     component="input"
@@ -373,14 +374,14 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                         "destroyOnUnmount": false,
                         "form": "step1",
                         "updateValidateAndWarnMap": [Function],
-                        "validate": [Function],
-                        "warn": [Function],
                         "wizard": "wizardExample",
                       }
                     }
                     name="lastName"
                     placeholder="Last Name"
                     type="text"
+                    validate={[Function]}
+                    warn={[Function]}
                   >
                     <Field
                       actions={
@@ -409,8 +410,6 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                           "destroyOnUnmount": false,
                           "form": "step1",
                           "updateValidateAndWarnMap": [Function],
-                          "validate": [Function],
-                          "warn": [Function],
                           "wizard": "wizardExample",
                         }
                       }
@@ -459,6 +458,8 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
                           "type": "text",
                         }
                       }
+                      validate={[Function]}
+                      warn={[Function]}
                     >
                       <input
                         name="lastName"
@@ -488,11 +489,11 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation 1`] = `
         </ReduxForm>
       </Connect(ReduxForm)>
     </div>
-  </WizardSyncValidation>
+  </WizardFieldLevelValidation>
 </Provider>
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: action history 1`] = `
+exports[`<WizardFieldLevelValidation /> Render WizardSyncValidation: action history 1`] = `
 "@@react-redux-form-lite/REGISTER_FORM
  meta: {form: 'step1', wizard: 'wizardExample'},
 @@react-redux-form-lite/REGISTER_FIELD
@@ -511,7 +512,7 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation: action history 1`
  payload: {value: undefined}"
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: inputs 1`] = `
+exports[`<WizardFieldLevelValidation /> Render WizardSyncValidation: inputs 1`] = `
 Array [
   <input
     name="firstName"
@@ -534,7 +535,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: store of wizard 1`] = `
+exports[`<WizardFieldLevelValidation /> Render WizardSyncValidation: store of wizard 1`] = `
 Object {
   "values": Object {
     "firstName": undefined,
@@ -549,7 +550,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit failed on page 1 (errors in wizard === errors in step1) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit failed on page 1 (errors in wizard === errors in step1) 1`] = `
 Object {
   "values": Object {
     "firstName": undefined,
@@ -567,7 +568,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit failed on page 1 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit failed on page 1 (render inputs) 1`] = `
 Array [
   <input
     name="firstName"
@@ -590,7 +591,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit failed on page 1 (store) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit failed on page 1 (store) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -631,7 +632,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, 2 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, 2 (render inputs) 1`] = `
 Array [
   <input
     name="dob"
@@ -654,7 +655,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, 2 (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, 2 (store of wizard) 1`] = `
 Object {
   "values": Object {
     "dob": undefined,
@@ -673,7 +674,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, 2, 3 (store 3) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, 2, 3 (store 3) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -711,7 +712,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, 2, 3 (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, 2, 3 (store of wizard) 1`] = `
 Object {
   "values": Object {
     "dob": "test",
@@ -730,7 +731,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2 (render inputs) 1`] = `
 Array [
   <input
     name="phone"
@@ -753,7 +754,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2 (store 2) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2 (store 2) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -794,7 +795,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2 (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2 (store of wizard) 1`] = `
 Object {
   "values": Object {
     "email": undefined,
@@ -814,7 +815,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent (render inputs) 1`] = `
 Array [
   <input
     name="firstName"
@@ -837,7 +838,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent (store of wizard) 1`] = `
 Object {
   "values": Object {
     "email": undefined,
@@ -846,17 +847,15 @@ Object {
     "phone": "test",
   },
   "wizard": Object {
-    "errorsMap": Object {
-      "email": "Field required.",
-    },
-    "hasErrors": true,
+    "errorsMap": Object {},
+    "hasErrors": false,
     "hasWarnings": false,
     "warningsMap": Object {},
   },
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent page (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent page (render inputs) 1`] = `
 Array [
   <input
     name="firstName"
@@ -879,7 +878,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent page (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent page (store of wizard) 1`] = `
 Object {
   "values": Object {
     "email": undefined,
@@ -899,7 +898,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent page, submit success on 1 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent page, submit success on 1 (render inputs) 1`] = `
 Array [
   <input
     name="phone"
@@ -922,7 +921,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent page, submit success on 1 (store 2) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent page, submit success on 1 (store 2) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -960,13 +959,14 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent, success on 1 (render Fields) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent, success on 1 (render Fields) 1`] = `
 Array [
   <FieldWithContext
     component="input"
     name="phone"
     placeholder="Phone"
     type="text"
+    validate={[Function]}
   >
     <Connect(Field)
       component="input"
@@ -975,14 +975,13 @@ Array [
           "destroyOnUnmount": false,
           "form": "step2",
           "updateValidateAndWarnMap": [Function],
-          "validate": [Function],
-          "warn": [Function],
           "wizard": "wizardExample",
         }
       }
       name="phone"
       placeholder="Phone"
       type="text"
+      validate={[Function]}
     >
       <Field
         actions={
@@ -1011,8 +1010,6 @@ Array [
             "destroyOnUnmount": false,
             "form": "step2",
             "updateValidateAndWarnMap": [Function],
-            "validate": [Function],
-            "warn": [Function],
             "wizard": "wizardExample",
           }
         }
@@ -1061,6 +1058,7 @@ Array [
             "type": "text",
           }
         }
+        validate={[Function]}
       >
         <input
           name="phone"
@@ -1079,6 +1077,8 @@ Array [
     name="email"
     placeholder="Email"
     type="text"
+    validate={[Function]}
+    warn={[Function]}
   >
     <Connect(Field)
       component="input"
@@ -1087,14 +1087,14 @@ Array [
           "destroyOnUnmount": false,
           "form": "step2",
           "updateValidateAndWarnMap": [Function],
-          "validate": [Function],
-          "warn": [Function],
           "wizard": "wizardExample",
         }
       }
       name="email"
       placeholder="Email"
       type="text"
+      validate={[Function]}
+      warn={[Function]}
     >
       <Field
         actions={
@@ -1123,8 +1123,6 @@ Array [
             "destroyOnUnmount": false,
             "form": "step2",
             "updateValidateAndWarnMap": [Function],
-            "validate": [Function],
-            "warn": [Function],
             "wizard": "wizardExample",
           }
         }
@@ -1173,6 +1171,8 @@ Array [
             "type": "text",
           }
         }
+        validate={[Function]}
+        warn={[Function]}
       >
         <input
           name="email"
@@ -1189,7 +1189,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on 1, failed on 2, click prevent, success on 1 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on 1, failed on 2, click prevent, success on 1 (render inputs) 1`] = `
 Array [
   <input
     name="phone"
@@ -1212,7 +1212,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (action history) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1 (action history) 1`] = `
 "@@react-redux-form-lite/REGISTER_FORM
  meta: {form: 'step1', wizard: 'wizardExample'},
 @@react-redux-form-lite/REGISTER_FIELD
@@ -1239,13 +1239,7 @@ exports[`<WizardSyncValidation /> submit success on page 1 (action history) 1`] 
 @@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
  meta: {form: 'step1', wizard: 'wizardExample'}
  payload: {
-	value: {
-		errors: {
-			firstName: undefined,
-			lastName: 'Field required.'
-		},
-		warnings: {lastName: undefined}
-	},
+	value: {errors: {firstName: undefined}, warnings: {}},
 	submitted: undefined
 },
 @@react-redux-form-lite/CHANGE
@@ -1259,7 +1253,7 @@ exports[`<WizardSyncValidation /> submit success on page 1 (action history) 1`] 
  meta: {form: 'step1', wizard: 'wizardExample'}
  payload: {
 	value: {
-		errors: {firstName: undefined, lastName: undefined},
+		errors: {lastName: undefined},
 		warnings: {lastName: undefined}
 	},
 	submitted: undefined
@@ -1327,7 +1321,7 @@ exports[`<WizardSyncValidation /> submit success on page 1 (action history) 1`] 
  payload: {value: undefined}"
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (render inputs) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1 (render inputs) 1`] = `
 Array [
   <input
     name="phone"
@@ -1350,7 +1344,7 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (store of step1) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1 (store of step1) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -1388,7 +1382,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (store of step2) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1 (store of step2) 1`] = `
 Object {
   "form": Object {
     "activeField": "",
@@ -1426,7 +1420,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (store of wizard) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1 (store of wizard) 1`] = `
 Object {
   "values": Object {
     "email": undefined,
@@ -1443,7 +1437,7 @@ Object {
 }
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1, 2, 3 (onSubmit) 1`] = `
+exports[`<WizardFieldLevelValidation /> submit success on page 1, 2, 3 (onSubmit) 1`] = `
 Array [
   Array [
     Object {

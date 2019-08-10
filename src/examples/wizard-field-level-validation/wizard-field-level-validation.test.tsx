@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import ReduxThunkTester from 'redux-thunk-tester';
 import Field from '../../field';
-import WizardSyncValidation from './wizard-sync-validation';
+import WizardFieldLevelValidation from './wizard-field-level-validation';
 import {reducer} from '../../index';
 
 interface IValuesForm1 {
@@ -31,7 +31,7 @@ const renderComponent = (onSubmit?) => {
   );
 
   const component = mount(
-    <Provider store={store}><WizardSyncValidation onSubmit={onSubmit} /></Provider>,
+    <Provider store={store}><WizardFieldLevelValidation onSubmit={onSubmit} /></Provider>,
   );
 
   return {
@@ -45,8 +45,8 @@ const renderComponent = (onSubmit?) => {
   };
 };
 
-describe('<WizardSyncValidation />', () => {
-  test('Render WizardSyncValidation', () => {
+describe('<WizardFieldLevelValidation />', () => {
+  test('Render WizardFieldLevelValidation', () => {
     const {component} = renderComponent();
 
     expect(component).toMatchSnapshot();
@@ -192,7 +192,7 @@ describe('<WizardSyncValidation />', () => {
   });
 
   test('submit success on 1, failed on 2, click prevent (store of wizard)', () => {
-    const {component, getWizardExample} = renderComponent();
+    const {component, getWizardExample, reduxThunkTester} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
