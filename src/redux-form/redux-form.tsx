@@ -4,17 +4,17 @@ import {
   updateValidateAndWarnMap,
   IFormContext,
 } from './types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import {connect, ReactReduxContext} from 'react-redux';
+import {bindActionCreators, Store} from 'redux';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
 import {
   // updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
   validateFormByState as validateFormByStateUtil,
 } from '../store/utils';
-import ReduxFormException, {
-  INVALIDE_WIZARD_FORM_PARAMS,
-} from '../utils/redux-form-exception';
+// import ReduxFormException, {
+//   INVALIDE_WIZARD_FORM_PARAMS,
+// } from '../utils/redux-form-exception';
 
 const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
   || WrappedComponent.name || 'Component';
@@ -37,29 +37,31 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
   };
   const params = {...defaultParams, ...paramsArg};
 
-  if ((params.destroyOnUnmount === false) && params.wizard) {
-    throw new ReduxFormException(INVALIDE_WIZARD_FORM_PARAMS);
-  }
+  // if ((params.destroyOnUnmount === false) && params.wizard) {
+  //   throw new ReduxFormException(INVALIDE_WIZARD_FORM_PARAMS);
+  // }
 
   interface IProps {
+    store: Store;
   }
 
   interface IState {
   }
 
-  interface IInjected {
-    actions: IReduxFormActions<any>;
-    formState: IReduxFormState<any>;
+  interface IInjected<Values> extends IProps {
+    actions: IReduxFormActions<Values>;
+    formState: IReduxFormState<Values>;
+    wizardState: IReduxFormWizard<Values> | undefined;
     ownProps: {
       onSubmit(event: any): void;
     };
   }
 
-  class ReduxForm extends Component<IProps, IState> {
+  class ReduxFormClass<Values> extends Component<IProps, IState> {
     displayName = getDisplayName(WrappedComponent);
     validateMap: IMapValidate;
     warnMap: IMapValidate;
-    customSubmit: ((values: any, state: IReduxFormState<any>, actions: IReduxFormActions<any>) => void) | null;
+    customSubmit: ((reduxFormEvent: IReduxFormSubmitEvent<Values>) => void) | null;
 
     static defaultProps = {
       actions: {},
@@ -79,8 +81,8 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
       this.customSubmit = null;
     }
 
-    get injected(): IInjected {
-      return this.props as IInjected;
+    get injected(): IInjected<Values> {
+      return this.props as IInjected<Values>;
     }
 
     componentWillMount() {
@@ -108,17 +110,18 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
     };
 
     validateForm = (submitted?: boolean): IFullReduxFormState<any> => {
-      const {formState, actions: {updateFormState}} = this.injected;
+      const {actions: {updateFormState}} = this.injected;
+      const {store} = this.props;
       const {validate, warn, form, wizard} = params;
       const validateMap = {validate: this.validateMap, warn: this.warnMap};
       const submitValidateMap = {validate, warn};
-      const state = {[form]: formState};
+      const state = store.getState().reduxForm;
       const result = validateFormByStateUtil({
         state, form, validateMap, submitValidateMap, submitted, wizard,
       });
-      const currentFormState: IReduxFormState<any> = result[form] as IReduxFormState<any>;
-      const currentWizardState: IReduxFormWizard<any> | undefined = wizard
-        ? result[wizard] as IReduxFormWizard<any>
+      const currentFormState: IReduxFormState<Values> = result[form] as IReduxFormState<Values>;
+      const currentWizardState: IReduxFormWizard<Values> | undefined = wizard
+        ? result[wizard] as IReduxFormWizard<Values>
         : undefined;
 
       if (currentFormState) {
@@ -129,7 +132,7 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
     };
 
     onSubmit = (e) => {
-      const {form} = params;
+      const {form, wizard} = params;
 
       if (e && e.preventDefault) {
         e.preventDefault();
@@ -137,11 +140,13 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
 
       const {actions: formActions} = this.injected;
       const validateState = this.validateForm(true);
-      const validateFormState: IReduxFormState<any> = validateState[form] as IReduxFormState<any>;
+      const validateFormState: IReduxFormState<Values> = validateState[form] as IReduxFormState<Values>;
+      const validateWizardState: IReduxFormWizard<Values> | undefined = wizard
+        ? validateState[wizard] as IReduxFormWizard<Values> : undefined;
 
       if (this.customSubmit && validateState) {
-        const values = validateFormState.values || null;
-        this.customSubmit(values, validateFormState, formActions);
+        const values = validateFormState.values || ({} as Values);
+        this.customSubmit({values, state: validateFormState, actions: formActions, wizard: validateWizardState});
       }
     };
 
@@ -191,6 +196,7 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
 
   const mapStateToProps = (state) => ({
     formState: state.reduxForm[params.form],
+    wizardState: params.wizard ? state.reduxForm[params.wizard] : undefined,
   });
 
   const mapDispatchToProps = (dispatch) => ({
@@ -202,6 +208,14 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
     ...stateProps,
     ...dispatchProps,
   });
+
+  const ReduxForm = (props) => (
+    <ReactReduxContext.Consumer>
+      {(reduxContext) => (
+        <ReduxFormClass {...props} store={reduxContext.store} />
+      )}
+    </ReactReduxContext.Consumer>
+  );
 
   return connect(mapStateToProps, mapDispatchToProps, mergeProps)(ReduxForm);
 };

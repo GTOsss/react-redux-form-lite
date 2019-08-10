@@ -49,6 +49,13 @@ interface IMapErrorsAndWarningsMessages<Values> {
   warnings?: MapMessages<Values>;
 }
 
+interface IReduxFormSubmitEvent<Values> {
+  values: Values;
+  actions: IReduxFormActions<Values>;
+  state: IReduxFormState<Values>;
+  wizard?: IReduxFormWizard<Values>;
+}
+
 interface IReduxFormActions<Values> {
   registerForm(form: string, wizard?: string): any;
 

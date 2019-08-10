@@ -352,9 +352,9 @@ describe('<FieldLevelValidation />', () => {
       age: '18',
       number: '50',
     };
-    expect(innerOnSubmit.mock.calls[0][0]).toEqual(values);
+    expect(innerOnSubmit.mock.calls[0][0].values).toEqual(values);
 
-    expect(innerOnSubmit.mock.calls[0][1]).toMatchSnapshot();
+    expect(innerOnSubmit.mock.calls[0][0].state).toMatchSnapshot();
   });
 
   test('handleSubmit(onSubmit) inside form-component (not valid): firstArg', () => {
@@ -387,7 +387,7 @@ describe('<FieldLevelValidation />', () => {
 
     component.find('form').at(0).simulate('submit');
     expect(innerOnSubmit.mock.calls.length).toEqual(1);
-    expect(innerOnSubmit.mock.calls[0][0]).toMatchSnapshot();
+    expect(innerOnSubmit.mock.calls[0][0].values).toMatchSnapshot();
   });
 
   test('handleSubmit(onSubmit) inside form-component (not valid): secondArg', () => {
@@ -420,7 +420,7 @@ describe('<FieldLevelValidation />', () => {
 
     component.find('form').at(0).simulate('submit');
     expect(innerOnSubmit.mock.calls.length).toEqual(1);
-    expect(innerOnSubmit.mock.calls[0][1]).toMatchSnapshot();
+    expect(innerOnSubmit.mock.calls[0][0].state).toMatchSnapshot();
   });
 
   test('handleSubmit(onSubmit) inside form-component (not valid): thirdArg', () => {
@@ -453,7 +453,7 @@ describe('<FieldLevelValidation />', () => {
 
     component.find('form').at(0).simulate('submit');
     expect(innerOnSubmit.mock.calls.length).toEqual(1);
-    expect(innerOnSubmit.mock.calls[0][2]).toMatchSnapshot();
+    expect(innerOnSubmit.mock.calls[0][0].actions).toMatchSnapshot();
   });
 
   test('Submit without touch inputs (not valid): store', () => {

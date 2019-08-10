@@ -6,7 +6,7 @@ import Step3 from './step-3';
 const WizardSyncValidation = ({onSubmit}) => {
   const [page, setPage] = useState(1);
 
-  const nextPage = (values, formState) => {
+  const nextPage = ({state: formState}: IReduxFormSubmitEvent<any>) => {
     if (!formState.form.hasErrors && !formState.form.hasWarnings) {
       setPage(page + 1);
     }

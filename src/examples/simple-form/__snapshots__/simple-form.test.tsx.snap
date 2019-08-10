@@ -576,8 +576,8 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
         }
       }
     >
-      <SimpleForm
-        formActions={
+      <ReduxFormClass
+        actions={
           Object {
             "arrayPush": [Function],
             "blur": [Function],
@@ -594,12 +594,6 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
             "updateWarningMessages": [Function],
-          }
-        }
-        formParams={
-          Object {
-            "destroyOnUnmount": true,
-            "form": "simple",
           }
         }
         formState={
@@ -684,57 +678,147 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
             },
           }
         }
-        handleSubmit={[Function]}
+        ownProps={
+          Object {
+            "onSubmit": undefined,
+          }
+        }
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+        }
       >
-        <form
-          onSubmit={[Function]}
+        <SimpleForm
+          formActions={
+            Object {
+              "arrayPush": [Function],
+              "blur": [Function],
+              "change": [Function],
+              "changeSubmitted": [Function],
+              "focus": [Function],
+              "registerField": [Function],
+              "registerForm": [Function],
+              "removeField": [Function],
+              "removeForm": [Function],
+              "updateFormState": [Function],
+              "updateValidateAndWarningMessages": [Function],
+              "updateValidateMessage": [Function],
+              "updateValidateMessages": [Function],
+              "updateWarningMessage": [Function],
+              "updateWarningMessages": [Function],
+            }
+          }
+          formParams={
+            Object {
+              "destroyOnUnmount": true,
+              "form": "simple",
+            }
+          }
+          formState={
+            Object {
+              "form": Object {
+                "activeField": "",
+                "blurred": false,
+                "changed": false,
+                "errorsMap": Object {},
+                "focused": false,
+                "hasErrors": false,
+                "hasWarnings": false,
+                "submitted": false,
+                "warningsMap": Object {},
+              },
+              "meta": Object {
+                "email": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "employed": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "favoriteColor": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "firstName": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "lastName": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "notes": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "sex": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+              },
+              "values": Object {
+                "email": undefined,
+                "employed": undefined,
+                "favoriteColor": undefined,
+                "firstName": undefined,
+                "lastName": undefined,
+                "notes": undefined,
+                "sex": undefined,
+              },
+            }
+          }
+          handleSubmit={[Function]}
         >
-          <div>
-            <label>
-              First Name
-            </label>
+          <form
+            onSubmit={[Function]}
+          >
             <div>
-              <FieldWithContext
-                component="input"
-                name="firstName"
-                placeholder="First Name"
-                type="text"
-              >
-                <Connect(Field)
+              <label>
+                First Name
+              </label>
+              <div>
+                <FieldWithContext
                   component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
                   name="firstName"
                   placeholder="First Name"
                   type="text"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
+                  <Connect(Field)
                     component="input"
-                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -742,157 +826,157 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
-                      }
-                    }
                     name="firstName"
-                    ownProps={
-                      Object {
-                        "name": "firstName",
-                        "placeholder": "First Name",
-                        "type": "text",
-                      }
-                    }
+                    placeholder="First Name"
+                    type="text"
                   >
-                    <input
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="input"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "email": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "employed": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "favoriteColor": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "notes": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "sex": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "email": undefined,
+                            "employed": undefined,
+                            "favoriteColor": undefined,
+                            "firstName": undefined,
+                            "lastName": undefined,
+                            "notes": undefined,
+                            "sex": undefined,
+                          },
+                        }
+                      }
                       name="firstName"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="First Name"
-                      type="text"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
+                      ownProps={
+                        Object {
+                          "name": "firstName",
+                          "placeholder": "First Name",
+                          "type": "text",
+                        }
+                      }
+                    >
+                      <input
+                        name="firstName"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="First Name"
+                        type="text"
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
             </div>
-          </div>
-          <div>
-            <label>
-              Last Name
-            </label>
             <div>
-              <FieldWithContext
-                component="input"
-                name="lastName"
-                placeholder="Last Name"
-                type="text"
-              >
-                <Connect(Field)
+              <label>
+                Last Name
+              </label>
+              <div>
+                <FieldWithContext
                   component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
                   name="lastName"
                   placeholder="Last Name"
                   type="text"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
+                  <Connect(Field)
                     component="input"
-                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -900,281 +984,155 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
-                      }
-                    }
                     name="lastName"
-                    ownProps={
-                      Object {
-                        "name": "lastName",
-                        "placeholder": "Last Name",
-                        "type": "text",
-                      }
-                    }
+                    placeholder="Last Name"
+                    type="text"
                   >
-                    <input
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="input"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "email": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "employed": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "favoriteColor": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "notes": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "sex": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "email": undefined,
+                            "employed": undefined,
+                            "favoriteColor": undefined,
+                            "firstName": undefined,
+                            "lastName": undefined,
+                            "notes": undefined,
+                            "sex": undefined,
+                          },
+                        }
+                      }
                       name="lastName"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Last Name"
-                      type="text"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
+                      ownProps={
+                        Object {
+                          "name": "lastName",
+                          "placeholder": "Last Name",
+                          "type": "text",
+                        }
+                      }
+                    >
+                      <input
+                        name="lastName"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Last Name"
+                        type="text"
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
             </div>
-          </div>
-          <div>
-            <label>
-              Email
-            </label>
             <div>
-              <FieldWithContext
-                component="input"
-                name="email"
-                placeholder="Email"
-                type="email"
-              >
-                <Connect(Field)
+              <label>
+                Email
+              </label>
+              <div>
+                <FieldWithContext
                   component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
                   name="email"
                   placeholder="Email"
                   type="email"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
-                    component="input"
-                    fieldArrayContext={Object {}}
-                    formContext={
-                      Object {
-                        "destroyOnUnmount": true,
-                        "form": "simple",
-                        "updateValidateAndWarnMap": [Function],
-                      }
-                    }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
-                      }
-                    }
-                    name="email"
-                    ownProps={
-                      Object {
-                        "name": "email",
-                        "placeholder": "Email",
-                        "type": "email",
-                      }
-                    }
-                  >
-                    <input
-                      name="email"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Email"
-                      type="email"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
-            </div>
-          </div>
-          <div>
-            <label>
-              Sex
-            </label>
-            <div>
-              <label>
-                <FieldWithContext
-                  component="input"
-                  name="sex"
-                  type="radio"
-                  value="male"
-                >
                   <Connect(Field)
                     component="input"
                     formContext={
@@ -1184,10 +1142,477 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    name="email"
+                    placeholder="Email"
+                    type="email"
+                  >
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="input"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "email": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "employed": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "favoriteColor": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "notes": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "sex": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "email": undefined,
+                            "employed": undefined,
+                            "favoriteColor": undefined,
+                            "firstName": undefined,
+                            "lastName": undefined,
+                            "notes": undefined,
+                            "sex": undefined,
+                          },
+                        }
+                      }
+                      name="email"
+                      ownProps={
+                        Object {
+                          "name": "email",
+                          "placeholder": "Email",
+                          "type": "email",
+                        }
+                      }
+                    >
+                      <input
+                        name="email"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Email"
+                        type="email"
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
+            </div>
+            <div>
+              <label>
+                Sex
+              </label>
+              <div>
+                <label>
+                  <FieldWithContext
+                    component="input"
                     name="sex"
                     type="radio"
                     value="male"
                   >
+                    <Connect(Field)
+                      component="input"
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      name="sex"
+                      type="radio"
+                      value="male"
+                    >
+                      <Field
+                        actions={
+                          Object {
+                            "arrayPush": [Function],
+                            "blur": [Function],
+                            "change": [Function],
+                            "changeSubmitted": [Function],
+                            "focus": [Function],
+                            "registerField": [Function],
+                            "registerForm": [Function],
+                            "removeField": [Function],
+                            "removeForm": [Function],
+                            "updateFormState": [Function],
+                            "updateValidateAndWarningMessages": [Function],
+                            "updateValidateMessage": [Function],
+                            "updateValidateMessages": [Function],
+                            "updateWarningMessage": [Function],
+                            "updateWarningMessages": [Function],
+                          }
+                        }
+                        component="input"
+                        fieldArrayContext={Object {}}
+                        formContext={
+                          Object {
+                            "destroyOnUnmount": true,
+                            "form": "simple",
+                            "updateValidateAndWarnMap": [Function],
+                          }
+                        }
+                        formState={
+                          Object {
+                            "form": Object {
+                              "activeField": "",
+                              "blurred": false,
+                              "changed": false,
+                              "errorsMap": Object {},
+                              "focused": false,
+                              "hasErrors": false,
+                              "hasWarnings": false,
+                              "submitted": false,
+                              "warningsMap": Object {},
+                            },
+                            "meta": Object {
+                              "email": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "employed": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "favoriteColor": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "firstName": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "lastName": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "notes": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "sex": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                            },
+                            "values": Object {
+                              "email": undefined,
+                              "employed": undefined,
+                              "favoriteColor": undefined,
+                              "firstName": undefined,
+                              "lastName": undefined,
+                              "notes": undefined,
+                              "sex": undefined,
+                            },
+                          }
+                        }
+                        name="sex"
+                        ownProps={
+                          Object {
+                            "name": "sex",
+                            "type": "radio",
+                            "value": "male",
+                          }
+                        }
+                      >
+                        <input
+                          name="sex"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="radio"
+                          value=""
+                        />
+                      </Field>
+                    </Connect(Field)>
+                  </FieldWithContext>
+                   Male
+                </label>
+                <label>
+                  <FieldWithContext
+                    component="input"
+                    name="sex"
+                    type="radio"
+                    value="female"
+                  >
+                    <Connect(Field)
+                      component="input"
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      name="sex"
+                      type="radio"
+                      value="female"
+                    >
+                      <Field
+                        actions={
+                          Object {
+                            "arrayPush": [Function],
+                            "blur": [Function],
+                            "change": [Function],
+                            "changeSubmitted": [Function],
+                            "focus": [Function],
+                            "registerField": [Function],
+                            "registerForm": [Function],
+                            "removeField": [Function],
+                            "removeForm": [Function],
+                            "updateFormState": [Function],
+                            "updateValidateAndWarningMessages": [Function],
+                            "updateValidateMessage": [Function],
+                            "updateValidateMessages": [Function],
+                            "updateWarningMessage": [Function],
+                            "updateWarningMessages": [Function],
+                          }
+                        }
+                        component="input"
+                        fieldArrayContext={Object {}}
+                        formContext={
+                          Object {
+                            "destroyOnUnmount": true,
+                            "form": "simple",
+                            "updateValidateAndWarnMap": [Function],
+                          }
+                        }
+                        formState={
+                          Object {
+                            "form": Object {
+                              "activeField": "",
+                              "blurred": false,
+                              "changed": false,
+                              "errorsMap": Object {},
+                              "focused": false,
+                              "hasErrors": false,
+                              "hasWarnings": false,
+                              "submitted": false,
+                              "warningsMap": Object {},
+                            },
+                            "meta": Object {
+                              "email": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "employed": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "favoriteColor": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "firstName": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "lastName": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "notes": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                              "sex": Object {
+                                "active": false,
+                                "blurred": false,
+                                "changed": false,
+                                "error": "",
+                                "focused": false,
+                                "warning": "",
+                              },
+                            },
+                            "values": Object {
+                              "email": undefined,
+                              "employed": undefined,
+                              "favoriteColor": undefined,
+                              "firstName": undefined,
+                              "lastName": undefined,
+                              "notes": undefined,
+                              "sex": undefined,
+                            },
+                          }
+                        }
+                        name="sex"
+                        ownProps={
+                          Object {
+                            "name": "sex",
+                            "type": "radio",
+                            "value": "female",
+                          }
+                        }
+                      >
+                        <input
+                          name="sex"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          type="radio"
+                          value=""
+                        />
+                      </Field>
+                    </Connect(Field)>
+                  </FieldWithContext>
+                   Female
+                </label>
+              </div>
+            </div>
+            <div>
+              <label>
+                Favorite Color
+              </label>
+              <div>
+                <FieldWithContext
+                  component="select"
+                  name="favoriteColor"
+                >
+                  <Connect(Field)
+                    component="select"
+                    formContext={
+                      Object {
+                        "destroyOnUnmount": true,
+                        "form": "simple",
+                        "updateValidateAndWarnMap": [Function],
+                      }
+                    }
+                    name="favoriteColor"
+                  >
                     <Field
                       actions={
                         Object {
@@ -1208,7 +1633,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "updateWarningMessages": [Function],
                         }
                       }
-                      component="input"
+                      component="select"
                       fieldArrayContext={Object {}}
                       formContext={
                         Object {
@@ -1299,34 +1724,72 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           },
                         }
                       }
-                      name="sex"
+                      name="favoriteColor"
                       ownProps={
                         Object {
-                          "name": "sex",
-                          "type": "radio",
-                          "value": "male",
+                          "children": Array [
+                            <option />,
+                            <option
+                              value="ff0000"
+                            >
+                              Red
+                            </option>,
+                            <option
+                              value="00ff00"
+                            >
+                              Green
+                            </option>,
+                            <option
+                              value="0000ff"
+                            >
+                              Blue
+                            </option>,
+                          ],
+                          "name": "favoriteColor",
                         }
                       }
                     >
-                      <input
-                        name="sex"
+                      <select
+                        name="favoriteColor"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        type="radio"
                         value=""
-                      />
+                      >
+                        <option />
+                        <option
+                          value="ff0000"
+                        >
+                          Red
+                        </option>
+                        <option
+                          value="00ff00"
+                        >
+                          Green
+                        </option>
+                        <option
+                          value="0000ff"
+                        >
+                          Blue
+                        </option>
+                      </select>
                     </Field>
                   </Connect(Field)>
                 </FieldWithContext>
-                 Male
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="employed"
+              >
+                Employed
               </label>
-              <label>
+              <div>
                 <FieldWithContext
                   component="input"
-                  name="sex"
-                  type="radio"
-                  value="female"
+                  id="employed"
+                  name="employed"
+                  type="checkbox"
                 >
                   <Connect(Field)
                     component="input"
@@ -1337,9 +1800,9 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
-                    name="sex"
-                    type="radio"
-                    value="female"
+                    id="employed"
+                    name="employed"
+                    type="checkbox"
                   >
                     <Field
                       actions={
@@ -1452,534 +1915,189 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           },
                         }
                       }
-                      name="sex"
+                      name="employed"
                       ownProps={
                         Object {
-                          "name": "sex",
-                          "type": "radio",
-                          "value": "female",
+                          "id": "employed",
+                          "name": "employed",
+                          "type": "checkbox",
                         }
                       }
                     >
                       <input
-                        name="sex"
+                        id="employed"
+                        name="employed"
                         onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
-                        type="radio"
+                        type="checkbox"
                         value=""
                       />
                     </Field>
                   </Connect(Field)>
                 </FieldWithContext>
-                 Female
+              </div>
+            </div>
+            <div>
+              <label>
+                Notes
               </label>
-            </div>
-          </div>
-          <div>
-            <label>
-              Favorite Color
-            </label>
-            <div>
-              <FieldWithContext
-                component="select"
-                name="favoriteColor"
-              >
-                <Connect(Field)
-                  component="select"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
-                  name="favoriteColor"
-                >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
-                    component="select"
-                    fieldArrayContext={Object {}}
-                    formContext={
-                      Object {
-                        "destroyOnUnmount": true,
-                        "form": "simple",
-                        "updateValidateAndWarnMap": [Function],
-                      }
-                    }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
-                      }
-                    }
-                    name="favoriteColor"
-                    ownProps={
-                      Object {
-                        "children": Array [
-                          <option />,
-                          <option
-                            value="ff0000"
-                          >
-                            Red
-                          </option>,
-                          <option
-                            value="00ff00"
-                          >
-                            Green
-                          </option>,
-                          <option
-                            value="0000ff"
-                          >
-                            Blue
-                          </option>,
-                        ],
-                        "name": "favoriteColor",
-                      }
-                    }
-                  >
-                    <select
-                      name="favoriteColor"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value=""
-                    >
-                      <option />
-                      <option
-                        value="ff0000"
-                      >
-                        Red
-                      </option>
-                      <option
-                        value="00ff00"
-                      >
-                        Green
-                      </option>
-                      <option
-                        value="0000ff"
-                      >
-                        Blue
-                      </option>
-                    </select>
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
-            </div>
-          </div>
-          <div>
-            <label
-              htmlFor="employed"
-            >
-              Employed
-            </label>
-            <div>
-              <FieldWithContext
-                component="input"
-                id="employed"
-                name="employed"
-                type="checkbox"
-              >
-                <Connect(Field)
-                  component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
-                  id="employed"
-                  name="employed"
-                  type="checkbox"
-                >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
-                    component="input"
-                    fieldArrayContext={Object {}}
-                    formContext={
-                      Object {
-                        "destroyOnUnmount": true,
-                        "form": "simple",
-                        "updateValidateAndWarnMap": [Function],
-                      }
-                    }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
-                      }
-                    }
-                    name="employed"
-                    ownProps={
-                      Object {
-                        "id": "employed",
-                        "name": "employed",
-                        "type": "checkbox",
-                      }
-                    }
-                  >
-                    <input
-                      id="employed"
-                      name="employed"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      type="checkbox"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
-            </div>
-          </div>
-          <div>
-            <label>
-              Notes
-            </label>
-            <div>
-              <FieldWithContext
-                component="textarea"
-                name="notes"
-              >
-                <Connect(Field)
+              <div>
+                <FieldWithContext
                   component="textarea"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "simple",
-                      "updateValidateAndWarnMap": [Function],
-                    }
-                  }
                   name="notes"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
+                  <Connect(Field)
                     component="textarea"
-                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
                         "form": "simple",
                         "updateValidateAndWarnMap": [Function],
-                      }
-                    }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "email": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "employed": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "favoriteColor": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "notes": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "sex": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "email": undefined,
-                          "employed": undefined,
-                          "favoriteColor": undefined,
-                          "firstName": undefined,
-                          "lastName": undefined,
-                          "notes": undefined,
-                          "sex": undefined,
-                        },
                       }
                     }
                     name="notes"
-                    ownProps={
-                      Object {
-                        "name": "notes",
-                      }
-                    }
                   >
-                    <textarea
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="textarea"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "simple",
+                          "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "email": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "employed": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "favoriteColor": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "notes": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "sex": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "email": undefined,
+                            "employed": undefined,
+                            "favoriteColor": undefined,
+                            "firstName": undefined,
+                            "lastName": undefined,
+                            "notes": undefined,
+                            "sex": undefined,
+                          },
+                        }
+                      }
                       name="notes"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
+                      ownProps={
+                        Object {
+                          "name": "notes",
+                        }
+                      }
+                    >
+                      <textarea
+                        name="notes"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
             </div>
-          </div>
-          <div>
-            <button
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </SimpleForm>
+            <div>
+              <button
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </SimpleForm>
+      </ReduxFormClass>
     </ReduxForm>
   </Connect(ReduxForm)>
 </Provider>
@@ -1989,82 +2107,101 @@ exports[`<SimpleForm /> onSubmit 1`] = `
 Array [
   Array [
     Object {
-      "email": undefined,
-      "employed": undefined,
-      "favoriteColor": undefined,
-      "firstName": undefined,
-      "lastName": undefined,
-      "notes": undefined,
-      "sex": undefined,
-    },
-    Object {
-      "form": Object {
-        "activeField": "",
-        "blurred": false,
-        "changed": false,
-        "errorsMap": Object {},
-        "focused": false,
-        "hasErrors": false,
-        "hasWarnings": false,
-        "submitted": true,
-        "warningsMap": Object {},
+      "actions": Object {
+        "arrayPush": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "changeSubmitted": [Function],
+        "focus": [Function],
+        "registerField": [Function],
+        "registerForm": [Function],
+        "removeField": [Function],
+        "removeForm": [Function],
+        "updateFormState": [Function],
+        "updateValidateAndWarningMessages": [Function],
+        "updateValidateMessage": [Function],
+        "updateValidateMessages": [Function],
+        "updateWarningMessage": [Function],
+        "updateWarningMessages": [Function],
       },
-      "meta": Object {
-        "email": Object {
-          "active": false,
+      "state": Object {
+        "form": Object {
+          "activeField": "",
           "blurred": false,
           "changed": false,
-          "error": "",
+          "errorsMap": Object {},
           "focused": false,
-          "warning": "",
+          "hasErrors": false,
+          "hasWarnings": false,
+          "submitted": true,
+          "warningsMap": Object {},
         },
-        "employed": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
+        "meta": Object {
+          "email": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "employed": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "favoriteColor": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "firstName": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "lastName": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "notes": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+          "sex": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
         },
-        "favoriteColor": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
-        },
-        "firstName": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
-        },
-        "lastName": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
-        },
-        "notes": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
-        },
-        "sex": Object {
-          "active": false,
-          "blurred": false,
-          "changed": false,
-          "error": "",
-          "focused": false,
-          "warning": "",
+        "values": Object {
+          "email": undefined,
+          "employed": undefined,
+          "favoriteColor": undefined,
+          "firstName": undefined,
+          "lastName": undefined,
+          "notes": undefined,
+          "sex": undefined,
         },
       },
       "values": Object {
@@ -2076,23 +2213,7 @@ Array [
         "notes": undefined,
         "sex": undefined,
       },
-    },
-    Object {
-      "arrayPush": [Function],
-      "blur": [Function],
-      "change": [Function],
-      "changeSubmitted": [Function],
-      "focus": [Function],
-      "registerField": [Function],
-      "registerForm": [Function],
-      "removeField": [Function],
-      "removeForm": [Function],
-      "updateFormState": [Function],
-      "updateValidateAndWarningMessages": [Function],
-      "updateValidateMessage": [Function],
-      "updateValidateMessages": [Function],
-      "updateWarningMessage": [Function],
-      "updateWarningMessages": [Function],
+      "wizard": undefined,
     },
   ],
 ]

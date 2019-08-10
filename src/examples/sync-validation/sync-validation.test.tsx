@@ -52,11 +52,11 @@ describe('<SyncValidation />', () => {
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(onSubmit.mock.calls.length).toBe(1);
-    expect(onSubmit.mock.calls[0][0]).toEqual({firstName: 'test', lastName: undefined});
-    expect(onSubmit.mock.calls[0][1].form.hasErrors).toBeTruthy();
-    expect(onSubmit.mock.calls[0][1].form.hasWarnings).toBeFalsy();
-    expect(onSubmit.mock.calls[0][1].form.errorsMap).toEqual({lastName: 'Field required.'});
-    expect(onSubmit.mock.calls[0][1].form.warningsMap).toEqual({});
+    expect(onSubmit.mock.calls[0][0].values).toEqual({firstName: 'test', lastName: undefined});
+    expect(onSubmit.mock.calls[0][0].state.form.hasErrors).toBeTruthy();
+    expect(onSubmit.mock.calls[0][0].state.form.hasWarnings).toBeFalsy();
+    expect(onSubmit.mock.calls[0][0].state.form.errorsMap).toEqual({lastName: 'Field required.'});
+    expect(onSubmit.mock.calls[0][0].state.form.warningsMap).toEqual({});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
@@ -69,11 +69,11 @@ describe('<SyncValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(onSubmit.mock.calls.length).toBe(2);
-    expect(onSubmit.mock.calls[1][0]).toEqual({firstName: 'test', lastName: 'test'});
-    expect(onSubmit.mock.calls[1][1].form.hasErrors).toBeFalsy();
-    expect(onSubmit.mock.calls[1][1].form.hasWarnings).toBeFalsy();
-    expect(onSubmit.mock.calls[1][1].form.errorsMap).toEqual({});
-    expect(onSubmit.mock.calls[1][1].form.warningsMap).toEqual({});
+    expect(onSubmit.mock.calls[1][0].values).toEqual({firstName: 'test', lastName: 'test'});
+    expect(onSubmit.mock.calls[1][0].state.form.hasErrors).toBeFalsy();
+    expect(onSubmit.mock.calls[1][0].state.form.hasWarnings).toBeFalsy();
+    expect(onSubmit.mock.calls[1][0].state.form.errorsMap).toEqual({});
+    expect(onSubmit.mock.calls[1][0].state.form.warningsMap).toEqual({});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
@@ -106,13 +106,13 @@ describe('<SyncValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(onSubmit.mock.calls.length).toBe(1);
-    expect(onSubmit.mock.calls[0][0]).toEqual({firstName: 't', lastName: 'test'});
-    expect(onSubmit.mock.calls[0][1].form.hasErrors).toBeFalsy();
-    expect(onSubmit.mock.calls[0][1].form.hasWarnings).toBeTruthy();
-    expect(onSubmit.mock.calls[0][1].form.warningsMap).toEqual({
+    expect(onSubmit.mock.calls[0][0].values).toEqual({firstName: 't', lastName: 'test'});
+    expect(onSubmit.mock.calls[0][0].state.form.hasErrors).toBeFalsy();
+    expect(onSubmit.mock.calls[0][0].state.form.hasWarnings).toBeTruthy();
+    expect(onSubmit.mock.calls[0][0].state.form.warningsMap).toEqual({
       firstName: 'The minimum length of the value must be 2.',
     });
-    expect(onSubmit.mock.calls[0][1].form.errorsMap).toEqual({});
+    expect(onSubmit.mock.calls[0][0].state.form.errorsMap).toEqual({});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 
@@ -127,11 +127,11 @@ describe('<SyncValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(onSubmit.mock.calls.length).toBe(2);
-    expect(onSubmit.mock.calls[1][0]).toEqual({firstName: 'test', lastName: 'test'});
-    expect(onSubmit.mock.calls[1][1].form.hasErrors).toBeFalsy();
-    expect(onSubmit.mock.calls[1][1].form.hasWarnings).toBeFalsy();
-    expect(onSubmit.mock.calls[1][1].form.errorsMap).toEqual({});
-    expect(onSubmit.mock.calls[1][1].form.warningsMap).toEqual({});
+    expect(onSubmit.mock.calls[1][0].values).toEqual({firstName: 'test', lastName: 'test'});
+    expect(onSubmit.mock.calls[1][0].state.form.hasErrors).toBeFalsy();
+    expect(onSubmit.mock.calls[1][0].state.form.hasWarnings).toBeFalsy();
+    expect(onSubmit.mock.calls[1][0].state.form.errorsMap).toEqual({});
+    expect(onSubmit.mock.calls[1][0].state.form.warningsMap).toEqual({});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
   });
 });

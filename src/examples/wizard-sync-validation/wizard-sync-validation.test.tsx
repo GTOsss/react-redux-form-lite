@@ -6,7 +6,6 @@ import ReduxThunkTester from 'redux-thunk-tester';
 import Field from '../../field';
 import WizardSyncValidation from './wizard-sync-validation';
 import {reducer} from '../../index';
-import ReduxForm from '../../redux-form';
 
 interface IValuesForm1 {
   firstName?: string;
@@ -37,9 +36,9 @@ const renderComponent = (onSubmit?) => {
 
   return {
     reduxThunkTester,
-    getForm1: (): IReduxFormState<IValuesForm1> => store.getState().reduxForm.form1 as IReduxFormState<IValuesForm1>,
-    getForm2: (): IReduxFormState<IValuesForm2> => store.getState().reduxForm.form1 as IReduxFormState<IValuesForm2>,
-    getForm3: (): IReduxFormState<IValuesForm3> => store.getState().reduxForm.form1 as IReduxFormState<IValuesForm3>,
+    getStep1: (): IReduxFormState<IValuesForm1> => store.getState().reduxForm.step1 as IReduxFormState<IValuesForm1>,
+    getStep2: (): IReduxFormState<IValuesForm2> => store.getState().reduxForm.step2 as IReduxFormState<IValuesForm2>,
+    getStep3: (): IReduxFormState<IValuesForm3> => store.getState().reduxForm.step3 as IReduxFormState<IValuesForm3>,
     getWizardExample: (): IReduxFormWizard<IValuesForm1 & IValuesForm2 & IValuesForm3> =>
       store.getState().reduxForm.wizardExample as IReduxFormWizard<IValuesForm1 & IValuesForm2 & IValuesForm3>,
     component,
@@ -47,11 +46,6 @@ const renderComponent = (onSubmit?) => {
 };
 
 describe('<WizardSyncValidation />', () => {
-  test('Call reduxForm hoc with incorrect ', () => {
-    expect(ReduxForm({form: 'form', destroyOnUnmount: false, wizard: 'test'}))
-      .toThrow();
-  });
-
   test('Render WizardSyncValidation', () => {
     const {component} = renderComponent();
 
@@ -84,15 +78,15 @@ describe('<WizardSyncValidation />', () => {
   });
 
   test('submit failed on page 1 (store)', () => {
-    const {component, getForm1} = renderComponent();
+    const {component, getStep1} = renderComponent();
     component.find('form').simulate('submit');
-    expect(getForm1()).toMatchSnapshot();
+    expect(getStep1()).toMatchSnapshot();
   });
 
-  test('submit failed on page 1 (store of wizard)', () => {
-    const {component, getWizardExample, getForm1} = renderComponent();
+  test('submit failed on page 1 (errors in wizard === errors in step1)', () => {
+    const {component, getWizardExample, getStep1} = renderComponent();
     component.find('form').simulate('submit');
-    expect(getForm1().form.errorsMap).toStrictEqual(getWizardExample().wizard.errorsMap);
+    expect(getStep1().form.errorsMap).toStrictEqual(getWizardExample().wizard.errorsMap);
     expect(getWizardExample()).toMatchSnapshot();
   });
 
@@ -104,6 +98,14 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
+  test('submit success on page 1 (store of wizard)', () => {
+    const {component, getWizardExample} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    expect(getWizardExample()).toMatchSnapshot();
+  });
+
   test('submit success on page 1 (action history)', () => {
     const {component, reduxThunkTester} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
@@ -113,23 +115,19 @@ describe('<WizardSyncValidation />', () => {
   });
 
   test('submit success on page 1 (store of step1)', () => {
-    const {component, getForm1} = renderComponent();
+    const {component, getStep1} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
-    expect(getForm1()).toMatchSnapshot();
+    expect(getStep1()).toMatchSnapshot();
   });
 
   test('submit success on page 1 (store of step2)', () => {
-    const {component, getForm2} = renderComponent();
+    const {component, getStep2} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
-    expect(getForm2).toMatchSnapshot();
-  });
-
-  test('submit success on page 1 (store of wizard)', () => {
-
+    expect(getStep2()).toMatchSnapshot();
   });
 
   test('submit success on 1, failed on 2 (render inputs)', () => {
@@ -141,7 +139,78 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('submit failed on page 1, 2 (store)', () => {
+  test('submit success on 1, failed on 2, click prevent page (render inputs)', () => {
+    const {component} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('form').simulate('submit');
+    component.find('button').at(0).simulate('click');
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2, click prevent page, submit success on 1 (render inputs)', () => {
+    const {component} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('form').simulate('submit');
+    component.find('button').at(0).simulate('click');
+    component.find('form').simulate('submit');
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2, click prevent page (store of wizard)', () => {
+    const {component, getWizardExample} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('form').simulate('submit');
+    component.find('button').at(0).simulate('click');
+    expect(getWizardExample()).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2, click prevent page, submit success on 1 (store 2)', () => {
+    const {component, getStep2} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('form').simulate('submit');
+    component.find('button').at(0).simulate('click');
+    component.find('form').simulate('submit');
+    expect(getStep2()).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2, click prevent (render inputs)', () => {
+    const {component} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('button').at(0).simulate('click');
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2, click prevent (store of wizard)', () => {
+    const {component, getWizardExample} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('button').at(0).simulate('click');
+    expect(getWizardExample()).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2 (store 2)', () => {
+    const {component, getStep2} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('form').simulate('submit');
+    expect(getStep2()).toMatchSnapshot();
+  });
+
+  test('submit success on 1, failed on 2 (store of wizard)', () => {
     const {component, getWizardExample} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -150,7 +219,7 @@ describe('<WizardSyncValidation />', () => {
     expect(getWizardExample()).toMatchSnapshot();
   });
 
-  test('submit success on page 1, 2 (render inputs)', () => {
+  test('submit success on 1, 2 (render inputs)', () => {
     const {component} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -161,7 +230,7 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('submit success on page 1, 2 (store)', () => {
+  test('submit success on 1, 2 (store of wizard)', () => {
     const {component, getWizardExample} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -172,38 +241,7 @@ describe('<WizardSyncValidation />', () => {
     expect(getWizardExample()).toMatchSnapshot();
   });
 
-  test('submit success on page 1, 2 and click prevent (render inputs)', () => {
-    const {component} = renderComponent();
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('form').simulate('submit');
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('button').at(0).simulate('click');
-    expect(component.find('input')).toMatchSnapshot();
-  });
-
-  test('submit success on page 1, failed on 2 and click prevent (render inputs)', () => {
-    const {component} = renderComponent();
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('form').simulate('submit');
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('button').at(0).simulate('click');
-    expect(component.find('input')).toMatchSnapshot();
-  });
-
-  test('submit success on page 1, failed on 2 and click prevent (store)', () => {
-    const {component, getWizardExample} = renderComponent();
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('form').simulate('submit');
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('button').at(0).simulate('click');
-    expect(getWizardExample()).toMatchSnapshot();
-  });
-
-  test('submit success on page 1, failed on 2, success on 1 (render inputs)', () => {
+  test('submit success on 1, failed on 2, click prevent, success on 1 (render inputs)', () => {
     const {component} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -215,7 +253,7 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('submit success on page 1, failed on 2, success on 1 (render Fields)', () => {
+  test('submit success on 1, failed on 2, click prevent, success on 1 (render Fields)', () => {
     const {component} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -227,7 +265,7 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find(Field)).toMatchSnapshot();
   });
 
-  test('submit success on page 1, 2, 3 (store)', () => {
+  test('submit success on 1, 2, 3 (store of wizard)', () => {
     const {component, getWizardExample} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
@@ -239,6 +277,20 @@ describe('<WizardSyncValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(getWizardExample()).toMatchSnapshot();
+  });
+
+  test('submit success on 1, 2, 3 (store 3)', () => {
+    const {component, getStep3} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    expect(getStep3()).toMatchSnapshot();
   });
 
   test('submit success on page 1, 2, 3 (onSubmit)', () => {

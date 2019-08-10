@@ -40,6 +40,7 @@ const Step2 = reduxForm({
   wizard: 'wizardExample',
   validate,
   warn,
+  destroyOnUnmount: false,
 })(Step2Component);
 
 export default Step2;

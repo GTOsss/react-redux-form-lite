@@ -78,8 +78,8 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
         }
       }
     >
-      <InnerSyncValidation
-        formActions={
+      <ReduxFormClass
+        actions={
           Object {
             "arrayPush": [Function],
             "blur": [Function],
@@ -96,12 +96,6 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
             "updateValidateMessages": [Function],
             "updateWarningMessage": [Function],
             "updateWarningMessages": [Function],
-          }
-        }
-        formParams={
-          Object {
-            "destroyOnUnmount": true,
-            "form": "example",
           }
         }
         formState={
@@ -141,59 +135,102 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
             },
           }
         }
-        handleSubmit={[Function]}
+        ownProps={
+          Object {
+            "onSubmit": [Function],
+          }
+        }
+        store={
+          Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(observable): [Function],
+          }
+        }
       >
-        <form
-          onSubmit={[Function]}
+        <InnerSyncValidation
+          formActions={
+            Object {
+              "arrayPush": [Function],
+              "blur": [Function],
+              "change": [Function],
+              "changeSubmitted": [Function],
+              "focus": [Function],
+              "registerField": [Function],
+              "registerForm": [Function],
+              "removeField": [Function],
+              "removeForm": [Function],
+              "updateFormState": [Function],
+              "updateValidateAndWarningMessages": [Function],
+              "updateValidateMessage": [Function],
+              "updateValidateMessages": [Function],
+              "updateWarningMessage": [Function],
+              "updateWarningMessages": [Function],
+            }
+          }
+          formParams={
+            Object {
+              "destroyOnUnmount": true,
+              "form": "example",
+            }
+          }
+          formState={
+            Object {
+              "form": Object {
+                "activeField": "",
+                "blurred": false,
+                "changed": false,
+                "errorsMap": Object {},
+                "focused": false,
+                "hasErrors": false,
+                "hasWarnings": false,
+                "submitted": false,
+                "warningsMap": Object {},
+              },
+              "meta": Object {
+                "firstName": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+                "lastName": Object {
+                  "active": false,
+                  "blurred": false,
+                  "changed": false,
+                  "error": "",
+                  "focused": false,
+                  "warning": "",
+                },
+              },
+              "values": Object {
+                "firstName": undefined,
+                "lastName": undefined,
+              },
+            }
+          }
+          handleSubmit={[Function]}
         >
-          <div>
-            <label>
-              First Name
-            </label>
+          <form
+            onSubmit={[Function]}
+          >
             <div>
-              <FieldWithContext
-                component="input"
-                name="firstName"
-                placeholder="First Name"
-                type="text"
-              >
-                <Connect(Field)
+              <label>
+                First Name
+              </label>
+              <div>
+                <FieldWithContext
                   component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "example",
-                      "updateValidateAndWarnMap": [Function],
-                      "validate": [Function],
-                      "warn": [Function],
-                    }
-                  }
                   name="firstName"
                   placeholder="First Name"
                   type="text"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
+                  <Connect(Field)
                     component="input"
-                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -203,114 +240,114 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "warn": [Function],
                       }
                     }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "firstName": undefined,
-                          "lastName": undefined,
-                        },
-                      }
-                    }
                     name="firstName"
-                    ownProps={
-                      Object {
-                        "name": "firstName",
-                        "placeholder": "First Name",
-                        "type": "text",
-                      }
-                    }
+                    placeholder="First Name"
+                    type="text"
                   >
-                    <input
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="input"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "example",
+                          "updateValidateAndWarnMap": [Function],
+                          "validate": [Function],
+                          "warn": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "firstName": undefined,
+                            "lastName": undefined,
+                          },
+                        }
+                      }
                       name="firstName"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="First Name"
-                      type="text"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
+                      ownProps={
+                        Object {
+                          "name": "firstName",
+                          "placeholder": "First Name",
+                          "type": "text",
+                        }
+                      }
+                    >
+                      <input
+                        name="firstName"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="First Name"
+                        type="text"
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
             </div>
-          </div>
-          <div>
-            <label>
-              Last Name
-            </label>
             <div>
-              <FieldWithContext
-                component="input"
-                name="lastName"
-                placeholder="Last Name"
-                type="text"
-              >
-                <Connect(Field)
+              <label>
+                Last Name
+              </label>
+              <div>
+                <FieldWithContext
                   component="input"
-                  formContext={
-                    Object {
-                      "destroyOnUnmount": true,
-                      "form": "example",
-                      "updateValidateAndWarnMap": [Function],
-                      "validate": [Function],
-                      "warn": [Function],
-                    }
-                  }
                   name="lastName"
                   placeholder="Last Name"
                   type="text"
                 >
-                  <Field
-                    actions={
-                      Object {
-                        "arrayPush": [Function],
-                        "blur": [Function],
-                        "change": [Function],
-                        "changeSubmitted": [Function],
-                        "focus": [Function],
-                        "registerField": [Function],
-                        "registerForm": [Function],
-                        "removeField": [Function],
-                        "removeForm": [Function],
-                        "updateFormState": [Function],
-                        "updateValidateAndWarningMessages": [Function],
-                        "updateValidateMessage": [Function],
-                        "updateValidateMessages": [Function],
-                        "updateWarningMessage": [Function],
-                        "updateWarningMessages": [Function],
-                      }
-                    }
+                  <Connect(Field)
                     component="input"
-                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -320,75 +357,111 @@ exports[`<SyncValidation /> render sync validation form 1`] = `
                         "warn": [Function],
                       }
                     }
-                    formState={
-                      Object {
-                        "form": Object {
-                          "activeField": "",
-                          "blurred": false,
-                          "changed": false,
-                          "errorsMap": Object {},
-                          "focused": false,
-                          "hasErrors": false,
-                          "hasWarnings": false,
-                          "submitted": false,
-                          "warningsMap": Object {},
-                        },
-                        "meta": Object {
-                          "firstName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                          "lastName": Object {
-                            "active": false,
-                            "blurred": false,
-                            "changed": false,
-                            "error": "",
-                            "focused": false,
-                            "warning": "",
-                          },
-                        },
-                        "values": Object {
-                          "firstName": undefined,
-                          "lastName": undefined,
-                        },
-                      }
-                    }
                     name="lastName"
-                    ownProps={
-                      Object {
-                        "name": "lastName",
-                        "placeholder": "Last Name",
-                        "type": "text",
-                      }
-                    }
+                    placeholder="Last Name"
+                    type="text"
                   >
-                    <input
+                    <Field
+                      actions={
+                        Object {
+                          "arrayPush": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "changeSubmitted": [Function],
+                          "focus": [Function],
+                          "registerField": [Function],
+                          "registerForm": [Function],
+                          "removeField": [Function],
+                          "removeForm": [Function],
+                          "updateFormState": [Function],
+                          "updateValidateAndWarningMessages": [Function],
+                          "updateValidateMessage": [Function],
+                          "updateValidateMessages": [Function],
+                          "updateWarningMessage": [Function],
+                          "updateWarningMessages": [Function],
+                        }
+                      }
+                      component="input"
+                      fieldArrayContext={Object {}}
+                      formContext={
+                        Object {
+                          "destroyOnUnmount": true,
+                          "form": "example",
+                          "updateValidateAndWarnMap": [Function],
+                          "validate": [Function],
+                          "warn": [Function],
+                        }
+                      }
+                      formState={
+                        Object {
+                          "form": Object {
+                            "activeField": "",
+                            "blurred": false,
+                            "changed": false,
+                            "errorsMap": Object {},
+                            "focused": false,
+                            "hasErrors": false,
+                            "hasWarnings": false,
+                            "submitted": false,
+                            "warningsMap": Object {},
+                          },
+                          "meta": Object {
+                            "firstName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                            "lastName": Object {
+                              "active": false,
+                              "blurred": false,
+                              "changed": false,
+                              "error": "",
+                              "focused": false,
+                              "warning": "",
+                            },
+                          },
+                          "values": Object {
+                            "firstName": undefined,
+                            "lastName": undefined,
+                          },
+                        }
+                      }
                       name="lastName"
-                      onBlur={[Function]}
-                      onChange={[Function]}
-                      onFocus={[Function]}
-                      placeholder="Last Name"
-                      type="text"
-                      value=""
-                    />
-                  </Field>
-                </Connect(Field)>
-              </FieldWithContext>
+                      ownProps={
+                        Object {
+                          "name": "lastName",
+                          "placeholder": "Last Name",
+                          "type": "text",
+                        }
+                      }
+                    >
+                      <input
+                        name="lastName"
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onFocus={[Function]}
+                        placeholder="Last Name"
+                        type="text"
+                        value=""
+                      />
+                    </Field>
+                  </Connect(Field)>
+                </FieldWithContext>
+              </div>
             </div>
-          </div>
-          <div>
-            <button
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
-      </InnerSyncValidation>
+            <div>
+              <button
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </InnerSyncValidation>
+      </ReduxFormClass>
     </ReduxForm>
   </Connect(ReduxForm)>
 </Provider>

@@ -71,7 +71,7 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
   switch (type) {
     case REGISTER_FORM:
       newState = setIn(newState, pathForm, initialStateForm);
-      newState = wizard ? setIn(newState, wizard, initialStateWizard) : newState;
+      newState = wizard && !getIn(newState, wizard) ? setIn(newState, wizard, initialStateWizard) : newState;
       newState = setIn(newState, pathForm, initialStateForm);
       return newState;
     case REGISTER_FIELD:
@@ -89,6 +89,7 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       newState = setIn(newState, `${pathForm}.changed`, true);
       newState = setIn(newState, `${pathMeta}.changed`, true);
       newState = setIn(newState, `${pathValue}`, value);
+      newState = wizard ? setIn(newState, `${pathWizardValues}.${field}`, value) : newState;
       return newState;
     case BLUR:
       newState = setIn(newState, `${pathMeta}.active`, false);

@@ -230,6 +230,7 @@ const mergeProps = (stateProps, dispatchProps, ownPropsArg) => {
   };
 };
 
+// @ts-ignore
 const FieldConnected = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Field);
 
 const FieldWithContext = (props) => (
