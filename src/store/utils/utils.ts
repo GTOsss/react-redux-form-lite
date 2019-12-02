@@ -4,6 +4,7 @@ import {
   IValues,
   IMapSubmitValidate,
 } from '../types';
+import {object} from 'prop-types';
 
 /**
  *
@@ -137,30 +138,49 @@ const getMessageMap = (
   }
 };
 
+export const mergeMessages = (objectA, objectB) => {
+  const result = {};
+
+  Object.entries(objectA).forEach(([key, value]) => {
+    result[key] = value || objectB[key];
+  });
+
+  Object.entries(objectB).forEach(([key, value]) => {
+    result[key] = value || objectA[key];
+  });
+
+  return result;
+};
+
 export const validateFormByValues = (
   values: IValues,
   validateMap: IMapValidateErrorsAndWarnings = {},
   submitValidateMap: IMapSubmitValidate = {},
 ) => {
-  let resultErrors = {};
-  let resultWarnings = {};
+  const resultFieldLevelErrors = {};
+  const resultFieldLevelWarnings = {};
+  let resultSubmitErrors = {};
+  let resultSubmitWarnings = {};
 
   Object.entries(values).forEach(([key, value]) => {
     if (validateMap.validate) {
-      getMessageMap(key, value, validateMap.validate[key], resultErrors);
+      getMessageMap(key, value, validateMap.validate[key], resultFieldLevelErrors);
     }
     if (validateMap.warn) {
-      getMessageMap(key, value, validateMap.warn[key], resultWarnings);
+      getMessageMap(key, value, validateMap.warn[key], resultFieldLevelWarnings);
     }
   });
 
   if (submitValidateMap && typeof submitValidateMap.validate === 'function') {
-    resultErrors = {...resultErrors, ...submitValidateMap.validate(values)};
+    resultSubmitErrors = submitValidateMap.validate(values);
   }
 
   if (submitValidateMap && typeof submitValidateMap.warn === 'function') {
-    resultWarnings = {...resultWarnings, ...submitValidateMap.warn(values)};
+    resultSubmitWarnings = submitValidateMap.warn(values);
   }
+
+  const resultErrors = mergeMessages(resultFieldLevelErrors, resultSubmitErrors);
+  const resultWarnings = mergeMessages(resultFieldLevelWarnings, resultSubmitWarnings);
 
   return {errors: resultErrors, warnings: resultWarnings};
 };

@@ -1,4 +1,4 @@
-import {updateWarnings, updateErrors, updateErrorsAndWarnings} from './utils';
+import {updateWarnings, updateErrors, updateErrorsAndWarnings, mergeMessages} from './utils';
 
 interface IMockTwoFieldsValues {
   testField1: string;
@@ -308,5 +308,36 @@ describe('Store utils.', () => {
     // tslint:disable-next-line:no-console
     console.log(mockState);
     expect(updateWarnings(mockState, form, map2)).toMatchSnapshot();
+  });
+
+  test('mergeMessages 1', () => {
+    const objectA = {
+      field1: '1',
+      field2: '2',
+    };
+
+    const objectB = {
+      field1: undefined,
+    };
+
+    expect(mergeMessages(objectA, objectB)).toStrictEqual({field1: '1', field2: '2'});
+    expect(mergeMessages(objectB, objectA)).toStrictEqual({field1: '1', field2: '2'});
+  });
+
+  test('mergeMessages 2', () => {
+    const objectA = {
+      field1: '1',
+      field2: '2',
+    };
+
+    const objectB = {
+      field1: undefined,
+      field3: '3',
+    };
+
+    const result = {...objectA};
+
+    expect(mergeMessages(objectA, objectB)).toStrictEqual({field1: '1', field2: '2', field3: '3'});
+    expect(mergeMessages(objectB, objectA)).toStrictEqual({field1: '1', field2: '2', field3: '3'});
   });
 });

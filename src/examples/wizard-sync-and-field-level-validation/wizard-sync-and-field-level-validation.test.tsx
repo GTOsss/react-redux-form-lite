@@ -4,8 +4,9 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import ReduxThunkTester from 'redux-thunk-tester';
 import Field from '../../field';
-import WizardFieldLevelValidation from './wizard-field-level-validation';
+import WizardSyncAndFieldLevelValidation from './wizard-sync-and-field-level-validation';
 import {reducer} from '../../index';
+import get = Reflect.get;
 
 interface IValuesForm1 {
   firstName?: string;
@@ -31,7 +32,7 @@ const renderComponent = (onSubmit?) => {
   );
 
   const component = mount(
-    <Provider store={store}><WizardFieldLevelValidation onSubmit={onSubmit} /></Provider>,
+    <Provider store={store}><WizardSyncAndFieldLevelValidation onSubmit={onSubmit} /></Provider>,
   );
 
   return {
@@ -45,27 +46,27 @@ const renderComponent = (onSubmit?) => {
   };
 };
 
-describe('<WizardFieldLevelValidation />', () => {
-  test('Render WizardFieldLevelValidation', () => {
+describe('<WizardSyncAndFieldLevelValidation />', () => {
+  test('Render WizardSyncAndFieldLevelValidation', () => {
     const {component} = renderComponent();
 
     expect(component).toMatchSnapshot();
   });
 
-  test('Render WizardFieldLevelValidation: inputs', () => {
+  test('Render WizardSyncAndFieldLevelValidation: inputs', () => {
     const {component} = renderComponent();
 
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('Render WizardFieldLevelValidation: action history', () => {
+  test('Render WizardSyncAndFieldLevelValidation: action history', () => {
     const {reduxThunkTester: {getActionHistoryStringify}} = renderComponent();
 
     // @ts-ignore
     expect(getActionHistoryStringify()).toMatchSnapshot();
   });
 
-  test('Render WizardFieldLevelValidation: store of wizard', () => {
+  test('Render WizardSyncAndFieldLevelValidation: store of wizard', () => {
     const {getWizardExample} = renderComponent();
 
     expect(getWizardExample()).toMatchSnapshot();
@@ -79,6 +80,14 @@ describe('<WizardFieldLevelValidation />', () => {
 
   test('submit failed on page 1 (store)', () => {
     const {component, getStep1} = renderComponent();
+    component.find('form').simulate('submit');
+    expect(getStep1()).toMatchSnapshot();
+  });
+
+  test('submit failed on page 1, incorrect firstName (store)', () => {
+    const {component, getStep1, reduxThunkTester} = renderComponent();
+    reduxThunkTester.clearActionHistory();
+    component.find('input').at(0).simulate('change', {target: {value: 'te'}});
     component.find('form').simulate('submit');
     expect(getStep1()).toMatchSnapshot();
   });
@@ -139,6 +148,16 @@ describe('<WizardFieldLevelValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
+  test('submit success on 1, failed on 2 (errors in wizard === errors in step2)', () => {
+    const {component, getWizardExample, getStep2} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
+    component.find('form').simulate('submit');
+    expect(getStep2().form.errorsMap).toStrictEqual(getWizardExample().wizard.errorsMap);
+  });
+
   test('submit success on 1, failed on 2, click prevent page (render inputs)', () => {
     const {component} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
@@ -192,7 +211,7 @@ describe('<WizardFieldLevelValidation />', () => {
   });
 
   test('submit success on 1, failed on 2, click prevent (store of wizard)', () => {
-    const {component, getWizardExample, reduxThunkTester} = renderComponent();
+    const {component, getWizardExample} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
@@ -306,5 +325,13 @@ describe('<WizardFieldLevelValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(onSubmit.mock.calls).toMatchSnapshot();
+  });
+
+  test('submit field-level failed on 1', () => {
+    const {component, getWizardExample, getStep1, reduxThunkTester} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 't'}});
+    component.find('form').simulate('submit');
+    expect(getWizardExample().wizard.errorsMap).toStrictEqual(getStep1().form.errorsMap);
+    expect(getWizardExample()).toMatchSnapshot();
   });
 });
