@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InitialValuesWizard /> Render InitialValuesWizard: store of wizard 1`] = `
+Object {
+  "values": Object {
+    "firstName": "Timofey",
+    "lastName": "Goncharov",
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<InitialValuesWizard /> Render inputs form 1 1`] = `
+Array [
+  <input
+    name="firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="Timofey"
+  />,
+  <input
+    name="lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="Goncharov"
+  />,
+]
+`;
+
+exports[`<InitialValuesWizard /> submit on page 1: store of wizard 1`] = `
+Object {
+  "values": Object {
+    "email": "test@mail.ru",
+    "firstName": "Timofey",
+    "lastName": "Goncharov",
+    "phone": "+78889996655",
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;

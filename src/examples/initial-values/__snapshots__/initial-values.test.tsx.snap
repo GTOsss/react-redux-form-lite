@@ -1,0 +1,308 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InitialValues /> Render inputs (action history) 1`] = `
+Array [
+  Object {
+    "meta": Object {
+      "form": "simple",
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FORM",
+  },
+  Object {
+    "meta": Object {
+      "field": "firstName",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "lastName",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "email",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "sex",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "sex",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "favoriteColor",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "employed",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "field": "notes",
+      "form": "simple",
+    },
+    "payload": Object {
+      "value": undefined,
+    },
+    "type": "@@react-redux-form-lite/REGISTER_FIELD",
+  },
+  Object {
+    "meta": Object {
+      "form": "simple",
+      "wizard": undefined,
+    },
+    "payload": Object {
+      "initialValues": Object {
+        "email": "test@mail.ru",
+        "firstName": "Timofey",
+        "lastName": "Goncharov",
+      },
+    },
+    "type": "@@react-redux-form-lite/SET_INITIAL_VALUES",
+  },
+]
+`;
+
+exports[`<InitialValues /> Render inputs (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "initialValues": Object {
+    "email": "test@mail.ru",
+    "firstName": "Timofey",
+    "lastName": "Goncharov",
+  },
+  "meta": Object {
+    "email": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "employed": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "favoriteColor": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "firstName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "lastName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "notes": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "sex": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+  },
+  "values": Object {
+    "email": "test@mail.ru",
+    "employed": undefined,
+    "favoriteColor": undefined,
+    "firstName": "Timofey",
+    "lastName": "Goncharov",
+    "notes": undefined,
+    "sex": undefined,
+  },
+}
+`;
+
+exports[`<InitialValues /> Render inputs 1`] = `
+Array [
+  <input
+    name="firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="Timofey"
+  />,
+  <input
+    name="lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="Goncharov"
+  />,
+  <input
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
+
+exports[`<InitialValues /> Render inputs after change 1`] = `
+Array [
+  <input
+    name="firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="new value 0"
+  />,
+  <input
+    name="lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="new value 1"
+  />,
+  <input
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
