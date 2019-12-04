@@ -15,3 +15,4 @@ export const CHANGE_SUBMITTED = `${key}CHANGE_SUBMITTED`;
 export const UPDATE_FORM_STATE = `${key}UPDATE_FORM_STATE`;
 export const REMOVE_FIELD = `${key}REMOVE_FIELD`;
 export const REMOVE_FORM = `${key}REMOVE_FORM`;
+export const SET_INITIAL_VALUES = `${key}SET_INITIAL_VALUES`;

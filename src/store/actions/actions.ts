@@ -14,6 +14,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  SET_INITIAL_VALUES,
 } from '../constants';
 
 export const registerForm = (form: string, wizard?: string) => ({
@@ -121,6 +122,12 @@ export const removeField = (form: string, field: string) => ({
 export const removeForm = (form: string) => ({
   type: REMOVE_FORM,
   meta: {form},
+});
+
+export const setInitialValues = (form: string, initialValues, wizard) => ({
+  type: SET_INITIAL_VALUES,
+  meta: {form, wizard},
+  payload: {initialValues},
 });
 
 export const arrayPush = (form: string, field: string, value: any) => ({

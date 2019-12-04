@@ -9,12 +9,8 @@ import {bindActionCreators, Store} from 'redux';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
 import {
-  // updateErrorsAndWarnings as updateErrorsAndWarningsUtil,
   validateFormByState as validateFormByStateUtil,
 } from '../store/utils';
-// import ReduxFormException, {
-//   INVALIDE_WIZARD_FORM_PARAMS,
-// } from '../utils/redux-form-exception';
 
 const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
   || WrappedComponent.name || 'Component';
@@ -31,15 +27,11 @@ const getDisplayName = (WrappedComponent) => WrappedComponent.displayName
  * return warningsMap
  * @returns {function(Component<IWrappedComponentProps<any>>): React.ReactElement} Component
  */
-const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
+const reduxForm = <V extends {}>(paramsArg: IReduxFormParams<V>) => (WrappedComponent: any) => {
   const defaultParams = {
     destroyOnUnmount: true,
   };
   const params = {...defaultParams, ...paramsArg};
-
-  // if ((params.destroyOnUnmount === false) && params.wizard) {
-  //   throw new ReduxFormException(INVALIDE_WIZARD_FORM_PARAMS);
-  // }
 
   interface IProps {
     store: Store;
@@ -89,6 +81,14 @@ const reduxForm = (paramsArg: IReduxFormParams) => (WrappedComponent: any) => {
       const {actions: {registerForm}} = this.injected;
       const {wizard} = params;
       registerForm(params.form, wizard);
+    }
+
+    componentDidMount(): void {
+      const {initialValues, wizard, form} = params;
+      const {actions: {setInitialValues}} = this.injected;
+      if (initialValues) {
+        setInitialValues(form, initialValues, wizard);
+      }
     }
 
     componentWillUnmount() {

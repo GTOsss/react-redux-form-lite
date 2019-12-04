@@ -95,17 +95,20 @@ interface IReduxFormActions<Values> {
 
   removeForm(form: string): any;
 
+  setInitialValues(form: string, initialValues: any, wizard?: string): any;
+
   arrayPush(form: string, field: string, value: any): any;
 }
 
 type SubmitValidate<Values> = (values: Values) => MapMessages<Values>;
 
-interface IReduxFormParams {
+interface IReduxFormParams<Values = {}> {
   form: string;
   wizard?: string;
   destroyOnUnmount?: boolean;
   validate?: SubmitValidate<any>;
   warn?: SubmitValidate<any>;
+  initialValues?: Values;
 }
 
 interface IWizardState<Values> {

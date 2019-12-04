@@ -35,9 +35,9 @@ const renderComponent = (innerOnSubmit?) => {
 };
 
 describe('<FieldLevelValidation />', () => {
-  test('Render field-level-validation form.', () => {
+  test('Render field-level-validation form (inputs).', () => {
     const {component} = renderComponent();
-    expect(component).toMatchSnapshot();
+    expect(component.find('input')).toMatchSnapshot();
   });
 
   test('Register form and fields: action history.', () => {

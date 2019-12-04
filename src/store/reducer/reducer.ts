@@ -7,6 +7,7 @@ import {
   updateErrors,
   updateWarnings,
   updateErrorsAndWarnings,
+  mergeMessages,
 } from '../utils';
 import {
   REGISTER_FORM,
@@ -24,6 +25,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  SET_INITIAL_VALUES,
 } from '../constants';
 
 const initialState = {};
@@ -58,12 +60,12 @@ const initialMeta: IFieldMeta = {
 
 export default (state = initialState, {type, payload, meta}): IFullReduxFormState<any> => {
   const {form, field, wizard} = meta || {} as any;
-  const {value, submitted} = payload || {} as any;
+  const {value, submitted, initialValues} = payload || {} as any;
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
   const pathForm = `${form}.form`;
-  const pathWizardState = `${wizard}.wizard`;
+  // const pathWizardState = `${wizard}.wizard`;
   const pathWizardValues = `${wizard}.values`;
 
   let newState: IFullReduxFormState<any> = {...state};
@@ -134,6 +136,18 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
     }
     case REMOVE_FORM:
       return setIn(newState, `${form}`, {});
+    case SET_INITIAL_VALUES: {
+      const currentValues = getIn(newState, `${form}.values`);
+      const mergedInitialValues = mergeMessages(currentValues, initialValues);
+      newState = setIn(newState, `${form}.values`, mergedInitialValues);
+      newState = setIn(newState, `${form}.initialValues`, initialValues);
+      if (wizard) {
+        const currentValuesWizard = getIn(newState, pathWizardValues);
+        const mergedInitialValuesWizard = mergeMessages(currentValuesWizard, initialValues);
+        newState = setIn(newState, pathWizardValues, mergedInitialValuesWizard);
+      }
+      return newState;
+    }
     default:
       return state;
   }

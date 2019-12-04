@@ -22,10 +22,10 @@ const renderComponent = (onSubmit) => {
 };
 
 describe('<SyncValidation />', () => {
-  test('render sync validation form', () => {
+  test('render sync validation form (inputs)', () => {
     const {component} = renderComponent(() => {
     });
-    expect(component).toMatchSnapshot();
+    expect(component.find('input')).toMatchSnapshot();
   });
 
   test('validate only change', () => {

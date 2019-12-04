@@ -22,10 +22,9 @@ const renderComponent = () => {
 };
 
 describe('<UnmountForm />', () => {
-  test('Render UnmountForm', () => {
+  test('Render UnmountForm (inputs)', () => {
     const {component} = renderComponent();
-
-    expect(component).toMatchSnapshot();
+    expect(component.find('input')).toMatchSnapshot();
   });
 
   test('Render UnmountForm after unmount form', () => {
