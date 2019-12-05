@@ -152,6 +152,22 @@ export const mergeMessages = (objectA, objectB) => {
   return result;
 };
 
+export const setInitialValues = (state, form, wizard, pathWizardValues, initialValues?) => {
+  let newState = {...state};
+  const currentInitialValues = initialValues || getIn(newState, `${form}.initialValues`) || {};
+  const currentValues = getIn(newState, `${form}.values`);
+  const mergedInitialValues = mergeMessages(currentValues, currentInitialValues);
+  newState = setIn(newState, `${form}.values`, mergedInitialValues);
+  newState = setIn(newState, `${form}.initialValues`, currentInitialValues);
+  if (wizard) {
+    const currentValuesWizard = getIn(newState, pathWizardValues);
+    const mergedInitialValuesWizard = mergeMessages(currentValuesWizard, currentInitialValues);
+    newState = setIn(newState, pathWizardValues, mergedInitialValuesWizard);
+  }
+  return newState;
+};
+
+
 export const validateFormByValues = (
   values: IValues,
   validateMap: IMapValidateErrorsAndWarnings = {},

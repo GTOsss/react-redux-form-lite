@@ -61,4 +61,22 @@ describe('<InitialValuesWizard />', () => {
     component.find('form').simulate('submit');
     expect(getWizardExample()).toMatchSnapshot();
   });
+
+  test('submit on page 1, change step 2, reset step 2 (inputs)', () => {
+    const {component} = renderComponent();
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'some number'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'some email'}});
+    component.find('#resetButton').simulate('click');
+    expect(component.find('input')).toMatchSnapshot();
+  });
+
+  test('submit on page 1, change step 2, reset step 2 (wizard store)', () => {
+    const {getWizardExample, component} = renderComponent();
+    component.find('form').simulate('submit');
+    component.find('input').at(0).simulate('change', {target: {value: 'some number'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'some email'}});
+    component.find('#resetButton').simulate('click');
+    expect(getWizardExample()).toMatchSnapshot();
+  });
 });

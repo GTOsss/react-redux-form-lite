@@ -922,6 +922,7 @@ Object {
   "registerForm": [Function],
   "removeField": [Function],
   "removeForm": [Function],
+  "resetForm": [Function],
   "setInitialValues": [Function],
   "updateFormState": [Function],
   "updateValidateAndWarningMessages": [Function],

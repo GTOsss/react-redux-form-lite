@@ -6,7 +6,8 @@ const validationMinLength = (value) =>
   value && (value.length < 2) ? 'The minimum length of the value must be 2.' : undefined;
 
 const Step2Component = (props) => {
-  const {handleSubmit, prevPage} = props;
+  const {prevPage} = props;
+  const {handleSubmit, formActions: {resetForm}} = props as IReduxFormInjected<{}>;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -20,6 +21,7 @@ const Step2Component = (props) => {
         placeholder="Email"
       />
       <button type="button" onClick={prevPage}>Previous</button>
+      <button type="button" id="resetButton" onClick={() => resetForm('step2', 'wizardExample')}>Reset</button>
       <button type="submit">Next</button>
     </form>
   );

@@ -38,6 +38,46 @@ Array [
 ]
 `;
 
+exports[`<InitialValuesWizard /> submit on page 1, change step 2, reset step 2 (inputs) 1`] = `
+Array [
+  <input
+    name="phone"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Phone"
+    type="text"
+    value="+78889996655"
+  />,
+  <input
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="text"
+    value="test@mail.ru"
+  />,
+]
+`;
+
+exports[`<InitialValuesWizard /> submit on page 1, change step 2, reset step 2 (wizard store) 1`] = `
+Object {
+  "values": Object {
+    "email": "test@mail.ru",
+    "firstName": "Timofey",
+    "lastName": "Goncharov",
+    "phone": "+78889996655",
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
 exports[`<InitialValuesWizard /> submit on page 1: store of wizard 1`] = `
 Object {
   "values": Object {

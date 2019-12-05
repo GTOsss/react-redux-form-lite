@@ -42,29 +42,6 @@ exports[`<WizardSyncAndFieldLevelValidation /> Render WizardSyncAndFieldLevelVal
  payload: {value: undefined}"
 `;
 
-exports[`<WizardSyncAndFieldLevelValidation /> Render WizardSyncAndFieldLevelValidation: inputs 1`] = `
-Array [
-  <input
-    name="firstName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="First Name"
-    type="text"
-    value=""
-  />,
-  <input
-    name="lastName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="Last Name"
-    type="text"
-    value=""
-  />,
-]
-`;
-
 exports[`<WizardSyncAndFieldLevelValidation /> Render WizardSyncAndFieldLevelValidation: store of wizard 1`] = `
 Object {
   "values": Object {
@@ -818,6 +795,7 @@ Array [
         "registerForm": [Function],
         "removeField": [Function],
         "removeForm": [Function],
+        "resetForm": [Function],
         "setInitialValues": [Function],
         "updateFormState": [Function],
         "updateValidateAndWarningMessages": [Function],

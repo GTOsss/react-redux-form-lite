@@ -8,6 +8,7 @@ import {
   updateWarnings,
   updateErrorsAndWarnings,
   mergeMessages,
+  setInitialValues,
 } from '../utils';
 import {
   REGISTER_FORM,
@@ -25,6 +26,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  RESET_FORM,
   SET_INITIAL_VALUES,
 } from '../constants';
 
@@ -137,16 +139,10 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
     case REMOVE_FORM:
       return setIn(newState, `${form}`, {});
     case SET_INITIAL_VALUES: {
-      const currentValues = getIn(newState, `${form}.values`);
-      const mergedInitialValues = mergeMessages(currentValues, initialValues);
-      newState = setIn(newState, `${form}.values`, mergedInitialValues);
-      newState = setIn(newState, `${form}.initialValues`, initialValues);
-      if (wizard) {
-        const currentValuesWizard = getIn(newState, pathWizardValues);
-        const mergedInitialValuesWizard = mergeMessages(currentValuesWizard, initialValues);
-        newState = setIn(newState, pathWizardValues, mergedInitialValuesWizard);
-      }
-      return newState;
+      return setInitialValues(state, form, wizard, pathWizardValues, initialValues);
+    }
+    case RESET_FORM: {
+      return setInitialValues(state, form, wizard, pathWizardValues);
     }
     default:
       return state;

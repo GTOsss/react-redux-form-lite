@@ -59,4 +59,13 @@ describe('<InitialValues />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'new value 1'}});
     expect(component.find('input')).toMatchSnapshot();
   });
+
+  test('Reset form (render inputs)', () => {
+    const {component} = renderComponent();
+    component.find('input').at(0).simulate('change', {target: {value: 'some name'}});
+    component.find('input').at(1).simulate('change', {target: {value: 'some second name'}});
+    component.find('input').at(2).simulate('change', {target: {value: 'some email'}});
+    component.find('#resetForm').simulate('click');
+    expect(component.find('input')).toMatchSnapshot();
+  });
 });

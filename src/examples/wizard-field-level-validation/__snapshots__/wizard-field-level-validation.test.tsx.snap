@@ -42,29 +42,6 @@ exports[`<WizardFieldLevelValidation /> Render WizardFieldLevelValidation: actio
  payload: {value: undefined}"
 `;
 
-exports[`<WizardFieldLevelValidation /> Render WizardFieldLevelValidation: inputs 1`] = `
-Array [
-  <input
-    name="firstName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="First Name"
-    type="text"
-    value=""
-  />,
-  <input
-    name="lastName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="Last Name"
-    type="text"
-    value=""
-  />,
-]
-`;
-
 exports[`<WizardFieldLevelValidation /> Render WizardFieldLevelValidation: store of wizard 1`] = `
 Object {
   "values": Object {
@@ -751,6 +728,7 @@ Array [
         "registerForm": [Function],
         "removeField": [Function],
         "removeForm": [Function],
+        "resetForm": [Function],
         "setInitialValues": [Function],
         "updateFormState": [Function],
         "updateValidateAndWarningMessages": [Function],

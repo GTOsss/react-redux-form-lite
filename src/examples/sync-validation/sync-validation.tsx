@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from '../../index';
+import {Field, reduxForm} from '../../index';
 
 const validationIsRequired = (value) => !value ? 'Field required.' : undefined;
 const validationMinLength = (minLength) => (value) =>
@@ -24,7 +24,7 @@ const warn = (values) => {
 };
 
 const SyncValidation = (props) => {
-  const { handleSubmit} = props;
+  const {handleSubmit} = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>

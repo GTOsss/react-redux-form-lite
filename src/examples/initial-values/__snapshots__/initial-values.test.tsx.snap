@@ -306,3 +306,60 @@ Array [
   />,
 ]
 `;
+
+exports[`<InitialValues /> Reset form (render inputs) 1`] = `
+Array [
+  <input
+    name="firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="Timofey"
+  />,
+  <input
+    name="lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="Goncharov"
+  />,
+  <input
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;

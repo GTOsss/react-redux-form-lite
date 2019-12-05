@@ -97,6 +97,8 @@ interface IReduxFormActions<Values> {
 
   setInitialValues(form: string, initialValues: any, wizard?: string): any;
 
+  resetForm(form: string, wizard?: string);
+
   arrayPush(form: string, field: string, value: any): any;
 }
 
@@ -121,4 +123,12 @@ interface IWizardState<Values> {
 interface IReduxFormWizard<Values> {
   wizard: IWizardState<Values>;
   values: Values;
+}
+
+interface IReduxFormInjected<Values> {
+  handleSubmit(): void;
+
+  formParams: IReduxFormParams<Values>;
+  formActions: IReduxFormActions<Values>;
+  formState: IReduxFormState<Values>;
 }

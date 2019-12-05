@@ -42,29 +42,6 @@ exports[`<WizardSyncValidation /> Render WizardSyncValidation: action history 1`
  payload: {value: undefined}"
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: inputs 1`] = `
-Array [
-  <input
-    name="firstName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="First Name"
-    type="text"
-    value=""
-  />,
-  <input
-    name="lastName"
-    onBlur={[Function]}
-    onChange={[Function]}
-    onFocus={[Function]}
-    placeholder="Last Name"
-    type="text"
-    value=""
-  />,
-]
-`;
-
 exports[`<WizardSyncValidation /> Render WizardSyncValidation: store of wizard 1`] = `
 Object {
   "values": Object {
@@ -759,6 +736,7 @@ Array [
         "registerForm": [Function],
         "removeField": [Function],
         "removeForm": [Function],
+        "resetForm": [Function],
         "setInitialValues": [Function],
         "updateFormState": [Function],
         "updateValidateAndWarningMessages": [Function],

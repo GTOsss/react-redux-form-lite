@@ -14,6 +14,7 @@ import {
   UPDATE_FORM_STATE,
   REMOVE_FIELD,
   REMOVE_FORM,
+  RESET_FORM,
   SET_INITIAL_VALUES,
 } from '../constants';
 
@@ -124,10 +125,15 @@ export const removeForm = (form: string) => ({
   meta: {form},
 });
 
-export const setInitialValues = (form: string, initialValues, wizard) => ({
+export const setInitialValues = (form: string, initialValues, wizard?) => ({
   type: SET_INITIAL_VALUES,
   meta: {form, wizard},
   payload: {initialValues},
+});
+
+export const resetForm = (form: string, wizard?: string) => ({
+  type: RESET_FORM,
+  meta: {form, wizard},
 });
 
 export const arrayPush = (form: string, field: string, value: any) => ({
