@@ -1,4 +1,4 @@
-import {setIn, deleteIn, getIn} from '../../utils/object-manager';
+import {setIn, deleteIn, getIn, mergeDeep} from '../../utils/object-manager';
 import {
   IMapValidateErrorsAndWarnings,
   IValues,
@@ -42,25 +42,39 @@ const updateMessages = (
   };
 
   const messagesMapDefault = getIn(state, pathMap[type].messagesMap, {});
-  const currentMessagesMap = {...messagesMapDefault, ...map};
+  const currentMessagesMap = mergeDeep(messagesMapDefault, map);
   let newState = setIn(state, pathMap[type].messagesMap, currentMessagesMap);
   if (typeof submitted === 'boolean') {
     newState = setIn(newState, `${form}.form.submitted`, submitted);
   }
 
-  Object.entries(currentMessagesMap).forEach(([key, value]) => {
-    const isRegisteredField = Boolean(getIn(state, `${form}.meta.${key}`));
-    if (isRegisteredField) {
-      newState = setIn(newState, pathMap[type].meta(key), value || '');
+  const mapIn = (value, path = '') => {
+    if (typeof value === 'object') {
+      const currentPath = path ? `${path}.` : '';
+      Object.entries(value).forEach(([k, v]) => {
+        const fullPath = `${currentPath}${k}`;
+        if (typeof v !== 'object') {
+          const isRegisteredField = Boolean(getIn(state, `${form}.meta.${fullPath}`));
+          if (isRegisteredField) {
+            newState = setIn(newState, pathMap[type].meta(fullPath), v || '');
+          }
+          if (isRegisteredField && !(v || (v === 0))) {
+            let messages = getIn(newState, pathMap[type].messagesMap);
+            messages = deleteIn(messages, fullPath, true);
+            newState = setIn(newState, pathMap[type].messagesMap, messages);
+            newState = setIn(newState, pathMap[type].meta(fullPath), '');
+          }
+          if (!isRegisteredField) {
+            newState = deleteIn(newState, `${pathMap[type].messagesMap}.${fullPath}`);
+          }
+        } else {
+          mapIn(v, `${currentPath}${fullPath}`);
+        }
+      });
     }
-    if (isRegisteredField && !(value || (value === 0))) {
-      newState = deleteIn(newState, `${pathMap[type].messagesMap}.${key}`);
-      newState = setIn(newState, `${pathMap[type].meta(key)}`, '');
-    }
-    if (!isRegisteredField) {
-      newState = deleteIn(newState, `${pathMap[type].messagesMap}.${key}`);
-    }
-  });
+  };
+
+  mapIn(currentMessagesMap);
 
   const messagesMap = getIn(newState, pathMap[type].messagesMap);
   const hasMessages = Object.keys(messagesMap).length !== 0;
@@ -116,26 +130,26 @@ export const updateErrorsAndWarnings = (
 };
 
 const getMessageMap = (
+  messagesMap: MapMessages<any>,
   key: string,
   value: any,
   validate: ValidateProps,
-  targetMap: MapMessages<any>,
-): void => {
+): MapMessages<any> => {
   if (validate && (typeof validate === 'function')) {
-    targetMap[key] = validate(value);
+    return setIn(messagesMap, key, validate(value));
   } else if (validate && Array.isArray(validate)) {
     for (let i = 0; i < validate.length; i += 1) {
       const result = validate[i](value);
       if (result) {
-        targetMap[key] = result;
-        break;
+        return setIn(messagesMap, key, result);
       }
 
       if (i === (validate.length - 1)) {
-        targetMap[key] = undefined;
+        return setIn(messagesMap, key, undefined);
       }
     }
   }
+  return messagesMap;
 };
 
 export const mergeMessages = (objectA, objectB) => {
@@ -167,25 +181,42 @@ export const setInitialValues = (state, form, wizard, pathWizardValues, initialV
   return newState;
 };
 
+const mapValuesInDeepAndGetMessages = (messagesMap, handlersMap, values): MapMessages<any> => {
+  let result = messagesMap;
+  const mapIn = (value, path = '') => {
+    if (typeof value === 'object') {
+      const currentPath = path ? `${path}.` : '';
+      Object.entries(value).forEach(([k, v]) => {
+        if (typeof v !== 'object') {
+          const fullPath = `${currentPath}${k}`;
+          result = getMessageMap(result, fullPath, v, handlersMap[fullPath]);
+        } else {
+          mapIn(v, `${currentPath}${k}`);
+        }
+      });
+    }
+  };
+
+  mapIn(values);
+  return result;
+};
 
 export const validateFormByValues = (
   values: IValues,
   validateMap: IMapValidateErrorsAndWarnings = {},
   submitValidateMap: IMapSubmitValidate = {},
 ) => {
-  const resultFieldLevelErrors = {};
-  const resultFieldLevelWarnings = {};
+  let resultFieldLevelErrors = {};
+  let resultFieldLevelWarnings = {};
   let resultSubmitErrors = {};
   let resultSubmitWarnings = {};
 
-  Object.entries(values).forEach(([key, value]) => {
-    if (validateMap.validate) {
-      getMessageMap(key, value, validateMap.validate[key], resultFieldLevelErrors);
-    }
-    if (validateMap.warn) {
-      getMessageMap(key, value, validateMap.warn[key], resultFieldLevelWarnings);
-    }
-  });
+  if (validateMap.validate) {
+    resultFieldLevelErrors = mapValuesInDeepAndGetMessages(resultFieldLevelErrors, validateMap.validate, values);
+  }
+  if (validateMap.warn) {
+    resultFieldLevelWarnings = mapValuesInDeepAndGetMessages(resultFieldLevelWarnings, validateMap.warn, values);
+  }
 
   if (submitValidateMap && typeof submitValidateMap.validate === 'function') {
     resultSubmitErrors = submitValidateMap.validate(values);

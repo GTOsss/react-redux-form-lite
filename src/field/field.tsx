@@ -6,7 +6,7 @@ import * as actions from '../store/actions';
 import {getValue} from '../utils/dom-helper';
 import ReduxFormContext from '../redux-form/redux-form-context';
 import FieldArrayContext from '../field-array/field-array-context';
-import {getIn} from '../utils/object-manager';
+import {getIn, setIn} from '../utils/object-manager';
 import {
   validateFormByValues as validateFormByValuesUtil,
 } from '../store/utils';
@@ -116,10 +116,7 @@ class Field extends Component<IProps, IState> {
       validateMap.warn[name] = warn;
     }
 
-    const currentValues = {
-      ...values,
-      [name]: value,
-    };
+    const currentValues = setIn(values, name, value);
 
     const resultMap = validateFormByValuesUtil(currentValues, validateMap, submitValidateMap);
 

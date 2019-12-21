@@ -1,0 +1,431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleFormObjectModel /> Blur field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": true,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": true,
+        "changed": true,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": "t",
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> Changed field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "profile.firstName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": true,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": "t",
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> Failed validation: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "profile": Object {
+        "firstName": "Field required.",
+        "lastName": "Must be 2 characters or more.",
+      },
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "Must be 2 characters or more.",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": "t",
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> Focus field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "profile.firstName",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": true,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> Register form and fields: store. 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> Submit success: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "email": undefined,
+    },
+    "profile": Object {
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+}
+`;
+
+exports[`<SimpleFormObjectModel /> onSubmit 1`] = `
+Array [
+  Array [
+    Object {
+      "actions": Object {
+        "arrayPush": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "changeSubmitted": [Function],
+        "focus": [Function],
+        "registerField": [Function],
+        "registerForm": [Function],
+        "removeField": [Function],
+        "removeForm": [Function],
+        "resetForm": [Function],
+        "setInitialValues": [Function],
+        "updateFormState": [Function],
+        "updateValidateAndWarningMessages": [Function],
+        "updateValidateMessage": [Function],
+        "updateValidateMessages": [Function],
+        "updateWarningMessage": [Function],
+        "updateWarningMessages": [Function],
+      },
+      "state": Object {
+        "form": Object {
+          "activeField": "",
+          "blurred": false,
+          "changed": false,
+          "errorsMap": Object {
+            "profile": Object {
+              "firstName": "Field required.",
+              "lastName": "Field required.",
+            },
+          },
+          "focused": false,
+          "hasErrors": true,
+          "hasWarnings": false,
+          "submitted": true,
+          "warningsMap": Object {},
+        },
+        "meta": Object {
+          "contacts": Object {
+            "email": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+          "profile": Object {
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+            "lastName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+          },
+        },
+        "values": Object {
+          "contacts": Object {
+            "email": undefined,
+          },
+          "profile": Object {
+            "firstName": undefined,
+            "lastName": undefined,
+          },
+        },
+      },
+      "values": Object {
+        "contacts": Object {
+          "email": undefined,
+        },
+        "profile": Object {
+          "firstName": undefined,
+          "lastName": undefined,
+        },
+      },
+      "wizard": undefined,
+    },
+  ],
+]
+`;

@@ -72,75 +72,88 @@ export const getIn = (state, field, defaultValue?) => {
   return result;
 };
 
-const deleteInWithPath = (state, first, ...rest: Array<any>) => {
-  if (state === undefined || state === null || first === undefined || first === null) {
-    return state;
-  }
-
-  if (rest.length) {
-    if (Array.isArray(state)) {
-      if (isNaN(first)) {
-        throw new Error(
-          `Must access array elements with a number, not "${String(first)}".`,
-        );
-      }
-      const firstIndex = Number(first);
-      if (firstIndex < state.length) {
-        // @ts-ignore
-        const result = deleteInWithPath(state && state[firstIndex], ...rest);
-        if (result !== state[firstIndex]) {
-          const copy = [...state];
-          copy[firstIndex] = result;
-          return copy;
-        }
-      }
-      return state;
-    }
-    if (first in state) {
-      // @ts-ignore
-      const result = deleteInWithPath(state && state[first], ...rest);
-      return state[first] === result
-        ? state
-        : {
-          ...state,
-          [first]: result,
-        };
-    }
-    return state;
-  }
-
-  if (Array.isArray(state)) {
-    if (isNaN(first)) {
-      throw new Error(
-        `Cannot delete non-numerical index from an array. Given: "${String(
-          first,
-        )}`,
-      );
-    }
-    const firstIndex = Number(first);
-    if (firstIndex < state.length) {
-      const copy = [...state];
-      copy.splice(firstIndex, 1);
-      return copy;
-    }
-    return state;
-  }
-  if (first in state) {
-    const copy = { ...state };
-    // tslint:disable-next-line:no-dynamic-delete
-    delete copy[first];
-    return copy;
-  }
-  return state;
-};
-
 /**
  * @param {object} state Redux state
- * @param {string} field Path to field
+ * @param path
+ * @param removeEmpty
+ * @param index
  * @returns {object} State
  */
-export const deleteIn = (state, field) => {
+const deleteInByPath = (state, path: Array<string>, removeEmpty: boolean = false, index: number = 0) => {
+  const currentKey = path[index];
+
+  if (!state && (state !== 0)) {
+    return state;
+  }
+
+  const isEndPoint = (path.length - 1) === index;
+  const isArray = Array.isArray(state);
+  const isObject = !isArray && (typeof state === 'object');
+  const newState = isArray ? [...state] : {...state};
+
+  if (isObject) {
+    if (isEndPoint) {
+      // tslint:disable-next-line:no-dynamic-delete
+      delete newState[currentKey];
+      return newState;
+    } else {
+      const result = deleteInByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
+      if (isRemoveEmpty) {
+        // tslint:disable-next-line:no-dynamic-delete
+        delete newState[currentKey];
+      } else {
+        newState[currentKey] = result;
+      }
+      return newState;
+    }
+  } else if (isArray) {
+    if (isEndPoint) {
+      return newState.filter((el, i) => Number(currentKey) !== i);
+    } else {
+      const result = deleteInByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
+      if (isRemoveEmpty) {
+        return newState.filter((el, i) => Number(currentKey) !== i);
+      } else {
+        newState[currentKey] = result;
+      }
+      return newState;
+    }
+  }
+};
+
+export const deleteIn = (state, field, removeEmpty: boolean = false) => {
   const path = stringToPath(field);
-  // @ts-ignore
-  return deleteInWithPath(state, ...path);
+  return deleteInByPath(state, path, removeEmpty);
+};
+
+const isObject = (item: any): boolean =>
+  item && (typeof item === 'object') && !Array.isArray(item);
+
+/**
+ * Deep merge two objects.
+ * @param target
+ * @param sources
+ */
+export const mergeDeep = (target, ...sources) => {
+  if (!sources.length) {
+    return target;
+  }
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach((key) => {
+      if (isObject(source[key])) {
+        if (!target[key]) {
+          Object.assign(target, { [key]: {} });
+        }
+        mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    });
+  }
+
+  return mergeDeep(target, ...sources);
 };
