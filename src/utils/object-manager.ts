@@ -128,7 +128,7 @@ export const deleteIn = (state, field, removeEmpty: boolean = false) => {
   return deleteInByPath(state, path, removeEmpty);
 };
 
-const isObject = (item: any): boolean =>
+const checkIsObject = (item: object): boolean =>
   item && (typeof item === 'object') && !Array.isArray(item);
 
 /**
@@ -142,9 +142,9 @@ export const mergeDeep = (target, ...sources) => {
   }
   const source = sources.shift();
 
-  if (isObject(target) && isObject(source)) {
+  if (checkIsObject(target) && checkIsObject(source)) {
     Object.keys(source).forEach((key) => {
-      if (isObject(source[key])) {
+      if (checkIsObject(source[key])) {
         if (!target[key]) {
           Object.assign(target, { [key]: {} });
         }

@@ -42,18 +42,18 @@ const updateMessages = (
   };
 
   const messagesMapDefault = getIn(state, pathMap[type].messagesMap, {});
-  const currentMessagesMap = mergeDeep(messagesMapDefault, map);
+  const currentMessagesMap = mergeDeep({}, messagesMapDefault, map);
   let newState = setIn(state, pathMap[type].messagesMap, currentMessagesMap);
   if (typeof submitted === 'boolean') {
     newState = setIn(newState, `${form}.form.submitted`, submitted);
   }
 
   const mapIn = (value, path = '') => {
-    if (typeof value === 'object') {
+    if ((typeof value === 'object') && (value !== null)) {
       const currentPath = path ? `${path}.` : '';
       Object.entries(value).forEach(([k, v]) => {
         const fullPath = `${currentPath}${k}`;
-        if (typeof v !== 'object') {
+        if ((typeof v !== 'object') || (v === null)) {
           const isRegisteredField = Boolean(getIn(state, `${form}.meta.${fullPath}`));
           if (isRegisteredField) {
             newState = setIn(newState, pathMap[type].meta(fullPath), v || '');
@@ -184,7 +184,7 @@ export const setInitialValues = (state, form, wizard, pathWizardValues, initialV
 const mapValuesInDeepAndGetMessages = (messagesMap, handlersMap, values): MapMessages<any> => {
   let result = messagesMap;
   const mapIn = (value, path = '') => {
-    if (typeof value === 'object') {
+    if ((typeof value === 'object') && (value !== null)) {
       const currentPath = path ? `${path}.` : '';
       Object.entries(value).forEach(([k, v]) => {
         if (typeof v !== 'object') {
