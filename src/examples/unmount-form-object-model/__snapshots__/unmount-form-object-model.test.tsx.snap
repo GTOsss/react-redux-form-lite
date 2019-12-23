@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UnmountFormObjectModel /> Render UnmountForm (inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<UnmountFormObjectModel /> Render UnmountForm (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<UnmountFormObjectModel /> Render UnmountForm after unmount form 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <UnmountForm>
+    <div>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Toggle show form
+      </button>
+    </div>
+  </UnmountForm>
+</Provider>
+`;
+
+exports[`<UnmountFormObjectModel /> Unmount form (store) 1`] = `Object {}`;
+
+exports[`<UnmountFormObjectModel /> Unmount form and mount form (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;

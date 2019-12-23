@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UnmountFieldObjectModel /> Render UnmountField: inputs 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="onlyForFront.noRequest.withLastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
+
+exports[`<UnmountFieldObjectModel /> Render UnmountField: inputs after change 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="onlyForFront.noRequest.withLastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value={true}
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<UnmountFieldObjectModel /> Render UnmountField: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": undefined,
+      },
+    },
+    "profile": Object {
+      "firstName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<UnmountFieldObjectModel /> UnmountField: mount field (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": true,
+      },
+    },
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<UnmountFieldObjectModel /> UnmountField: mount field, add error and then remove it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": false,
+      },
+    },
+    "profile": Object {
+      "firstName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<UnmountFieldObjectModel /> UnmountField: mount field, add warning and then remove it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": false,
+      },
+    },
+    "profile": Object {
+      "firstName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<UnmountFieldObjectModel /> UnmountField: render with field and then remove it (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "onlyForFront": Object {
+      "noRequest": Object {
+        "withLastName": false,
+      },
+    },
+    "profile": Object {
+      "firstName": undefined,
+    },
+  },
+}
+`;

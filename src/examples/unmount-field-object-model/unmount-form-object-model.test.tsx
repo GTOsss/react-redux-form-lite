@@ -3,7 +3,7 @@ import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import ReduxThunkTester from 'redux-thunk-tester';
-import UnmountForm from './unmount-form';
+import UnmountForm from './unmount-form-object-model';
 import {reducer} from '../../index';
 
 const renderComponent = () => {
@@ -21,7 +21,7 @@ const renderComponent = () => {
   return {reduxThunkTester, store, component};
 };
 
-describe('<UnmountField />', () => {
+describe('<UnmountFieldObjectModel />', () => {
   test('Render UnmountField: inputs', () => {
     const {component} = renderComponent();
     expect(component.find('input')).toMatchSnapshot();
@@ -38,23 +38,10 @@ describe('<UnmountField />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('UnmountField: mount field (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
-  });
-
   test('UnmountField: mount field (store)', () => {
     const {component, store} = renderComponent();
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
-  });
-
-  test('UnmountField: render with field and then remove it (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
   test('UnmountField: render with field and then remove it (store)', () => {

@@ -153,15 +153,24 @@ const getMessageMap = (
 };
 
 export const mergeMessages = (objectA, objectB) => {
-  const result = {};
+  let result = {};
 
-  Object.entries(objectA).forEach(([key, value]) => {
-    result[key] = value || objectB[key];
-  });
+  const mapIn = (value, objectForAdditionValue, path = '') => {
+    if ((typeof value === 'object') && (value !== null)) {
+      const currentPath = path ? `${path}.` : '';
+      Object.entries(value).forEach(([k, v]) => {
+        if (typeof v !== 'object') {
+          const fullPath = `${currentPath}${k}`;
+          result = setIn(result, fullPath, v || getIn(objectForAdditionValue, fullPath));
+        } else {
+          mapIn(v, objectForAdditionValue, `${currentPath}${k}`);
+        }
+      });
+    }
+  };
 
-  Object.entries(objectB).forEach(([key, value]) => {
-    result[key] = value || objectA[key];
-  });
+  mapIn(objectA, objectB);
+  mapIn(objectB, objectA);
 
   return result;
 };

@@ -1,0 +1,839 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> Render WizardSyncAndFieldLevelValidation (inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> Render WizardSyncAndFieldLevelValidation: store of wizard 1`] = `
+Object {
+  "values": Object {
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit failed on page 1 (errors in wizard === errors in step1) 1`] = `
+Object {
+  "values": Object {
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {
+      "profile": Object {
+        "firstName": "Field required.",
+        "lastName": "Field required.",
+      },
+    },
+    "hasErrors": true,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit failed on page 1 (render inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit failed on page 1 (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {
+      "profile": Object {
+        "firstName": "Field required.",
+        "lastName": "Field required.",
+      },
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "profile": Object {
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit failed on page 1, incorrect firstName (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "profile": Object {
+        "firstName": "The minimum length of the value must be 3.",
+        "lastName": "Field required.",
+      },
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "The minimum length of the value must be 3.",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "profile": Object {
+      "firstName": "te",
+      "lastName": undefined,
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit field-level failed on 1 1`] = `
+Object {
+  "values": Object {
+    "profile": Object {
+      "firstName": "t",
+      "lastName": undefined,
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {
+      "profile": Object {
+        "firstName": "The minimum length of the value must be 3.",
+        "lastName": "Field required.",
+      },
+    },
+    "hasErrors": true,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, 2 (render inputs) 1`] = `
+Array [
+  <input
+    name="additionInfo.dob"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Date of birthday"
+    type="text"
+    value=""
+  />,
+  <input
+    name="additionInfo.hobby"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Hobby"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, 2 (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "additionInfo": Object {
+      "dob": undefined,
+      "hobby": undefined,
+    },
+    "contacts": Object {
+      "phone": "test",
+    },
+    "profile": Object {
+      "email": "test",
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, 2, 3 (store 3) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "additionInfo": Object {
+      "dob": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "hobby": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "additionInfo": Object {
+      "dob": "test",
+      "hobby": "test",
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, 2, 3 (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "additionInfo": Object {
+      "dob": "test",
+      "hobby": "test",
+    },
+    "contacts": Object {
+      "phone": "test",
+    },
+    "profile": Object {
+      "email": "test",
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2 (render inputs) 1`] = `
+Array [
+  <input
+    name="contacts.phone"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Phone"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2 (store 2) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {
+      "contacts": Object {
+        "phone": "Field required.",
+      },
+      "profile": Object {
+        "email": "Field required.",
+      },
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "phone": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "Field required.",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2 (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {
+      "contacts": Object {
+        "phone": "Field required.",
+      },
+      "profile": Object {
+        "email": "Field required.",
+      },
+    },
+    "hasErrors": true,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent (render inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="test"
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="test"
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "contacts": Object {
+      "phone": "test",
+    },
+    "profile": Object {
+      "email": undefined,
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {
+      "profile": Object {
+        "email": "Field required.",
+      },
+    },
+    "hasErrors": true,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent page (render inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="test"
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="test"
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent page (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {
+      "contacts": Object {
+        "phone": "Field required.",
+      },
+      "profile": Object {
+        "email": "Field required.",
+      },
+    },
+    "hasErrors": true,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent page, submit success on 1 (render inputs) 1`] = `
+Array [
+  <input
+    name="contacts.phone"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Phone"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent page, submit success on 1 (store 2) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "phone": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on 1, failed on 2, click prevent, success on 1 (render inputs) 1`] = `
+Array [
+  <input
+    name="contacts.phone"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Phone"
+    type="text"
+    value="test"
+  />,
+  <input
+    name="profile.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on page 1 (render inputs) 1`] = `
+Array [
+  <input
+    name="contacts.phone"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Phone"
+    type="text"
+    value=""
+  />,
+  <input
+    name="profile.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on page 1 (store of step1) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "profile": Object {
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on page 1 (store of step2) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "contacts": Object {
+      "phone": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "profile": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+    },
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on page 1 (store of wizard) 1`] = `
+Object {
+  "values": Object {
+    "contacts": Object {
+      "phone": undefined,
+    },
+    "profile": Object {
+      "email": undefined,
+      "firstName": "test",
+      "lastName": "test",
+    },
+  },
+  "wizard": Object {
+    "errorsMap": Object {},
+    "hasErrors": false,
+    "hasWarnings": false,
+    "warningsMap": Object {},
+  },
+}
+`;
+
+exports[`<WizardSyncAndFieldLevelValidationObjectModel /> submit success on page 1, 2, 3 (onSubmit) 1`] = `
+Array [
+  Array [
+    Object {
+      "actions": Object {
+        "arrayPush": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "changeSubmitted": [Function],
+        "focus": [Function],
+        "registerField": [Function],
+        "registerForm": [Function],
+        "removeField": [Function],
+        "removeForm": [Function],
+        "resetForm": [Function],
+        "setInitialValues": [Function],
+        "updateFormState": [Function],
+        "updateValidateAndWarningMessages": [Function],
+        "updateValidateMessage": [Function],
+        "updateValidateMessages": [Function],
+        "updateWarningMessage": [Function],
+        "updateWarningMessages": [Function],
+      },
+      "state": Object {
+        "form": Object {
+          "activeField": "",
+          "blurred": false,
+          "changed": true,
+          "errorsMap": Object {},
+          "focused": false,
+          "hasErrors": false,
+          "hasWarnings": false,
+          "submitted": true,
+          "warningsMap": Object {},
+        },
+        "meta": Object {
+          "additionInfo": Object {
+            "dob": Object {
+              "active": false,
+              "blurred": false,
+              "changed": true,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "hobby": Object {
+              "active": false,
+              "blurred": false,
+              "changed": true,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+        },
+        "values": Object {
+          "additionInfo": Object {
+            "dob": "test",
+            "hobby": "test",
+          },
+        },
+      },
+      "values": Object {
+        "additionInfo": Object {
+          "dob": "test",
+          "hobby": "test",
+        },
+      },
+      "wizard": Object {
+        "values": Object {
+          "additionInfo": Object {
+            "dob": "test",
+            "hobby": "test",
+          },
+          "contacts": Object {
+            "phone": "test",
+          },
+          "profile": Object {
+            "email": "test",
+            "firstName": "test",
+            "lastName": "test",
+          },
+        },
+        "wizard": Object {
+          "errorsMap": Object {},
+          "hasErrors": false,
+          "hasWarnings": false,
+          "warningsMap": Object {},
+        },
+      },
+    },
+  ],
+]
+`;
