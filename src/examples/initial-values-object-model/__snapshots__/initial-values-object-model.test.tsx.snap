@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InitialValuesObjectModel /> Render inputs (store) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "initialValues": Object {
+    "additionalInfo": Object {
+      "employed": true,
+      "favoriteColor": "ff0000",
+      "more": Object {
+        "notes": "text for notes",
+      },
+    },
+    "contacts": Object {
+      "email": "test@mail.ru",
+    },
+    "profile": Object {
+      "firstName": "Timofey",
+      "lastName": "Goncharov",
+    },
+  },
+  "meta": Object {
+    "additionalInfo": Object {
+      "favoriteColor": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "more": Object {
+        "notes": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    },
+    "contacts": Object {
+      "email": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+    "employed": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "profile": Object {
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "sex": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "additionalInfo": Object {
+      "employed": true,
+      "favoriteColor": "ff0000",
+      "more": Object {
+        "notes": "text for notes",
+      },
+    },
+    "contacts": Object {
+      "email": "test@mail.ru",
+    },
+    "employed": undefined,
+    "profile": Object {
+      "firstName": "Timofey",
+      "lastName": "Goncharov",
+      "sex": undefined,
+    },
+  },
+}
+`;
+
+exports[`<InitialValuesObjectModel /> Render inputs 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="Timofey"
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="Goncharov"
+  />,
+  <input
+    name="contacts.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
+
+exports[`<InitialValuesObjectModel /> Render inputs after change 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="new value 0"
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="new value 1"
+  />,
+  <input
+    name="contacts.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
+
+exports[`<InitialValuesObjectModel /> Reset form (render inputs) 1`] = `
+Array [
+  <input
+    name="profile.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value="Timofey"
+  />,
+  <input
+    name="profile.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value="Goncharov"
+  />,
+  <input
+    name="contacts.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value="test@mail.ru"
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    name="profile.sex"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="radio"
+    value=""
+  />,
+  <input
+    id="employed"
+    name="employed"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="checkbox"
+    value=""
+  />,
+]
+`;
