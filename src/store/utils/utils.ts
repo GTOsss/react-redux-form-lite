@@ -1,10 +1,9 @@
-import {setIn, deleteIn, getIn, mergeDeep} from '../../utils/object-manager';
+import {setIn, deleteInMessages, getIn, mergeDeep} from '../../utils/object-manager';
 import {
   IMapValidateErrorsAndWarnings,
   IValues,
   IMapSubmitValidate,
 } from '../types';
-import {object} from 'prop-types';
 
 /**
  *
@@ -58,17 +57,17 @@ const updateMessages = (
           if (isRegisteredField) {
             newState = setIn(newState, pathMap[type].meta(fullPath), v || '');
           }
-          if (isRegisteredField && !(v || (v === 0))) {
+          if (isRegisteredField && (!v && (v !== 0))) {
             let messages = getIn(newState, pathMap[type].messagesMap);
-            messages = deleteIn(messages, fullPath, true);
+            messages = deleteInMessages(messages, fullPath, true);
             newState = setIn(newState, pathMap[type].messagesMap, messages);
-            newState = setIn(newState, pathMap[type].meta(fullPath), '');
+            // newState = setIn(newState, pathMap[type].meta(fullPath), ''); // need remove
           }
           if (!isRegisteredField) {
-            newState = deleteIn(newState, `${pathMap[type].messagesMap}.${fullPath}`);
+            newState = deleteInMessages(newState, `${pathMap[type].messagesMap}.${fullPath}`);
           }
         } else {
-          mapIn(v, `${currentPath}${fullPath}`);
+          mapIn(v, fullPath);
         }
       });
     }
@@ -196,7 +195,7 @@ const mapValuesInDeepAndGetMessages = (messagesMap, handlersMap, values): MapMes
     if ((typeof value === 'object') && (value !== null)) {
       const currentPath = path ? `${path}.` : '';
       Object.entries(value).forEach(([k, v]) => {
-        if (typeof v !== 'object') {
+        if ((typeof v !== 'object') || (v === null)) {
           const fullPath = `${currentPath}${k}`;
           result = getMessageMap(result, fullPath, v, handlersMap[fullPath]);
         } else {

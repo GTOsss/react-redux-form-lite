@@ -34,13 +34,6 @@ describe('<UnmountForm />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  test('Render UnmountForm (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-
-    component.find('button').at(1).simulate('click');
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
-  });
-
   test('Render UnmountForm (store)', () => {
     const {store} = renderComponent();
 
@@ -52,14 +45,6 @@ describe('<UnmountForm />', () => {
 
     component.find('button').at(1).simulate('click');
     expect(store.getState().reduxForm.example).toMatchSnapshot();
-  });
-
-  test('Unmount form and mount form (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-
-    component.find('button').at(1).simulate('click');
-    component.find('button').at(0).simulate('click');
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
   test('Unmount form and mount form (store)', () => {

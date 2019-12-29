@@ -1,13 +1,12 @@
 import {
   getIn,
-  deleteIn,
+  deleteInMessages,
   setIn,
 } from '../../utils/object-manager';
 import {
   updateErrors,
   updateWarnings,
   updateErrorsAndWarnings,
-  mergeMessages,
   setInitialValues,
 } from '../utils';
 import {
@@ -16,7 +15,7 @@ import {
   CHANGE,
   FOCUS,
   BLUR,
-  // ARRAY_PUSH,
+  ARRAY_PUSH,
   UPDATE_WARNING_MESSAGE,
   UPDATE_WARNING_MESSAGES,
   UPDATE_VALIDATE_MESSAGE,
@@ -61,7 +60,7 @@ const initialMeta: IFieldMeta = {
 };
 
 export default (state = initialState, {type, payload, meta}): IFullReduxFormState<any> => {
-  const {form, field, wizard} = meta || {} as any;
+  const {form, field, wizard, noMeta} = meta || {} as any;
   const {value, submitted, initialValues} = payload || {} as any;
 
   const pathValue = `${form}.values.${field}`;
@@ -80,7 +79,7 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       return newState;
     case REGISTER_FIELD:
       newState = setIn(newState, pathValue, value);
-      newState = setIn(newState, pathMeta, initialMeta);
+      newState = noMeta ? newState : setIn(newState, pathMeta, initialMeta);
       newState = wizard ? setIn(newState, `${pathWizardValues}.${field}`, value) : newState;
       return newState;
     case FOCUS:
@@ -120,20 +119,20 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
       const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
       if (getIn(errorsMap, field) !== undefined) {
-        newState = deleteIn(newState, `${pathForm}.errorsMap.${field}`);
+        newState = deleteInMessages(newState, `${pathForm}.errorsMap.${field}`);
         const hasErrors = Object.keys(getIn(newState, `${pathForm}.errorsMap`)).length !== 0;
         newState = setIn(newState, `${pathForm}.hasErrors`, hasErrors);
       }
       if (getIn(warningsMap, field) !== undefined) {
-        newState = deleteIn(newState, `${pathForm}.warningsMap.${field}`);
+        newState = deleteInMessages(newState, `${pathForm}.warningsMap.${field}`);
         const hasWarnings = Object.keys(getIn(newState, `${pathForm}.warningsMap`)).length !== 0;
         newState = setIn(newState, `${pathForm}.hasWarnings`, hasWarnings);
       }
       if (getIn(newState, `${pathForm}.activeField`) === field) {
         setIn(newState, `${pathForm}.activeField`, '');
       }
-      newState = deleteIn(newState, `${form}.meta.${field}`);
-      newState = deleteIn(newState, `${form}.values.${field}`);
+      newState = deleteInMessages(newState, `${form}.meta.${field}`);
+      newState = deleteInMessages(newState, `${form}.values.${field}`);
       return newState;
     }
     case REMOVE_FORM:
@@ -143,6 +142,10 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
     }
     case RESET_FORM: {
       return setInitialValues(state, form, wizard, pathWizardValues);
+    }
+    case ARRAY_PUSH: {
+      const fields = getIn(state, pathValue);
+      return setIn(newState, pathValue, [...fields, value]);
     }
     default:
       return state;

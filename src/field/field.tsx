@@ -2,6 +2,7 @@ import React, {Component, FunctionComponent, ComponentClass, createElement} from
 import omit from 'lodash.omit';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import stringToPath from 'lodash.topath';
 import * as actions from '../store/actions';
 import {getValue} from '../utils/dom-helper';
 import ReduxFormContext from '../redux-form/redux-form-context';
@@ -108,12 +109,15 @@ class Field extends Component<IProps, IState> {
     const submitValidateMap = {validate: validateSubmit, warn: warnSubmit};
     const validateMap = {validate: {}, warn: {}};
 
+    const path = stringToPath(name);
+    const formattedName = path.join('.');
+
     if (validate) {
-      validateMap.validate[name] = validate;
+      validateMap.validate[formattedName] = validate;
     }
 
     if (warn) {
-      validateMap.warn[name] = warn;
+      validateMap.warn[formattedName] = warn;
     }
 
     const currentValues = setIn(values, name, value);

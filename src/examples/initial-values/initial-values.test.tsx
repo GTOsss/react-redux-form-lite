@@ -43,11 +43,6 @@ describe('<InitialValues />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('Render inputs (action history)', () => {
-    const {reduxThunkTester: {getActionHistory}} = renderComponent();
-    expect(getActionHistory()).toMatchSnapshot();
-  });
-
   test('Render inputs (store)', () => {
     const {getFormState} = renderComponent();
     expect(getFormState()).toMatchSnapshot();

@@ -1,5 +1,5 @@
 import React from 'react';
 
-const FieldArrayContext = React.createContext();
+const FieldArrayContext = React.createContext({});
 
 export default FieldArrayContext;

@@ -3,7 +3,6 @@ import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import ReduxThunkTester from 'redux-thunk-tester';
-import Field from '../../field';
 import WizardFieldLevelValidation from './wizard-field-level-validation';
 import {reducer} from '../../index';
 
@@ -51,12 +50,6 @@ describe('<WizardFieldLevelValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('Render WizardFieldLevelValidation: action history', () => {
-    const {reduxThunkTester: {getActionHistoryStringify}} = renderComponent();
-    // @ts-ignore
-    expect(getActionHistoryStringify()).toMatchSnapshot();
-  });
-
   test('Render WizardFieldLevelValidation: store of wizard', () => {
     const {getWizardExample} = renderComponent();
     expect(getWizardExample()).toMatchSnapshot();
@@ -95,14 +88,6 @@ describe('<WizardFieldLevelValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(getWizardExample()).toMatchSnapshot();
-  });
-
-  test('submit success on page 1 (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('form').simulate('submit');
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
   test('submit success on page 1 (store of step1)', () => {
@@ -183,7 +168,7 @@ describe('<WizardFieldLevelValidation />', () => {
   });
 
   test('submit success on 1, failed on 2, click prevent (store of wizard)', () => {
-    const {component, getWizardExample, reduxThunkTester} = renderComponent();
+    const {component, getWizardExample} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
@@ -259,7 +244,7 @@ describe('<WizardFieldLevelValidation />', () => {
   });
 
   test('submit success on 1, 2, 3 (store 3)', () => {
-    const {component, getStep3, reduxThunkTester} = renderComponent();
+    const {component, getStep3} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');

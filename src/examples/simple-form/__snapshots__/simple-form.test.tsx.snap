@@ -281,97 +281,6 @@ Object {
 }
 `;
 
-exports[`<SimpleForm /> Register form and fields: action history. 1`] = `
-Array [
-  Object {
-    "meta": Object {
-      "form": "simple",
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FORM",
-  },
-  Object {
-    "meta": Object {
-      "field": "firstName",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "lastName",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "email",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "sex",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "sex",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "favoriteColor",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "employed",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-  Object {
-    "meta": Object {
-      "field": "notes",
-      "form": "simple",
-    },
-    "payload": Object {
-      "value": undefined,
-    },
-    "type": "@@react-redux-form-lite/REGISTER_FIELD",
-  },
-]
-`;
-
 exports[`<SimpleForm /> Register form and fields: store. 1`] = `
 Object {
   "form": Object {
@@ -825,6 +734,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="input"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -985,6 +895,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="input"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -1145,6 +1056,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="input"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -1306,6 +1218,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   >
                     <Connect(Field)
                       component="input"
+                      fieldArrayContext={Object {}}
                       formContext={
                         Object {
                           "destroyOnUnmount": true,
@@ -1461,6 +1374,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                   >
                     <Connect(Field)
                       component="input"
+                      fieldArrayContext={Object {}}
                       formContext={
                         Object {
                           "destroyOnUnmount": true,
@@ -1620,6 +1534,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="select"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -1811,6 +1726,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="input"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,
@@ -1969,6 +1885,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                 >
                   <Connect(Field)
                     component="textarea"
+                    fieldArrayContext={Object {}}
                     formContext={
                       Object {
                         "destroyOnUnmount": true,

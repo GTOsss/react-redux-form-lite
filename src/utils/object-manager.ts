@@ -79,7 +79,7 @@ export const getIn = (state, field, defaultValue?) => {
  * @param index
  * @returns {object} State
  */
-const deleteInByPath = (state, path: Array<string>, removeEmpty: boolean = false, index: number = 0) => {
+const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean = false, index: number = 0) => {
   const currentKey = path[index];
 
   if (!state && (state !== 0)) {
@@ -97,7 +97,7 @@ const deleteInByPath = (state, path: Array<string>, removeEmpty: boolean = false
       delete newState[currentKey];
       return newState;
     } else {
-      const result = deleteInByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, index + 1);
       const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
       if (isRemoveEmpty) {
         // tslint:disable-next-line:no-dynamic-delete
@@ -109,12 +109,29 @@ const deleteInByPath = (state, path: Array<string>, removeEmpty: boolean = false
     }
   } else if (isArray) {
     if (isEndPoint) {
-      return newState.filter((el, i) => Number(currentKey) !== i);
+      return newState.map((el, i) => Number(currentKey) !== i ? el : undefined);
     } else {
-      const result = deleteInByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, index + 1);
       const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
+
       if (isRemoveEmpty) {
-        return newState.filter((el, i) => Number(currentKey) !== i);
+        let countEmpty = 0;
+        let isAllEmpty = false;
+        const filteredArray = [];
+        newState.forEach((el, i, array) => {
+          const isTargetElement = i === Number(currentKey);
+          if (!el || isTargetElement) {
+            countEmpty += 1;
+            // @ts-ignore
+            filteredArray.push(undefined);
+          } else {
+            // @ts-ignore
+            filteredArray.push(el);
+          }
+
+          isAllEmpty = countEmpty === array.length;
+        });
+        return isAllEmpty ? [] : filteredArray;
       } else {
         newState[currentKey] = result;
       }
@@ -123,9 +140,9 @@ const deleteInByPath = (state, path: Array<string>, removeEmpty: boolean = false
   }
 };
 
-export const deleteIn = (state, field, removeEmpty: boolean = false) => {
+export const deleteInMessages = (state, field, removeEmpty: boolean = false) => {
   const path = stringToPath(field);
-  return deleteInByPath(state, path, removeEmpty);
+  return deleteInMessagesByPath(state, path, removeEmpty);
 };
 
 const checkIsObject = (item: object): boolean =>

@@ -40,11 +40,6 @@ describe('<FieldLevelValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('Register form and fields: action history.', () => {
-    const {reduxThunkTester: {getActionHistory}} = renderComponent();
-    expect(getActionHistory()).toMatchSnapshot();
-  });
-
   test('Register form and fields: store.', () => {
     const {getFormState} = renderComponent();
 

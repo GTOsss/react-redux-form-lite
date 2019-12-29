@@ -23,9 +23,9 @@ export const registerForm = (form: string, wizard?: string) => ({
   meta: wizard ? {form, wizard} : {form},
 });
 
-export const registerField = (form: string, field: string, value: any, wizard?: string) => ({
+export const registerField = (form: string, field: string, value: any, wizard?: string, noMeta?: boolean) => ({
   type: REGISTER_FIELD,
-  meta: wizard ? {form, field, wizard} : {form, field},
+  meta: wizard ? {form, field, wizard, noMeta} : {form, field, noMeta},
   payload: {value},
 });
 

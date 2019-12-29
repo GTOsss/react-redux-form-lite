@@ -3,7 +3,6 @@ import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import ReduxThunkTester from 'redux-thunk-tester';
-import Field from '../../field';
 import WizardSyncValidation from './wizard-sync-validation';
 import {reducer} from '../../index';
 
@@ -51,12 +50,6 @@ describe('<WizardSyncValidation />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('Render WizardSyncValidation: action history', () => {
-    const {reduxThunkTester: {getActionHistoryStringify}} = renderComponent();
-    // @ts-ignore
-    expect(getActionHistoryStringify()).toMatchSnapshot();
-  });
-
   test('Render WizardSyncValidation: store of wizard', () => {
     const {getWizardExample} = renderComponent();
     expect(getWizardExample()).toMatchSnapshot();
@@ -95,14 +88,6 @@ describe('<WizardSyncValidation />', () => {
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');
     expect(getWizardExample()).toMatchSnapshot();
-  });
-
-  test('submit success on page 1 (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(0).simulate('change', {target: {value: 'test'}});
-    component.find('input').at(1).simulate('change', {target: {value: 'test'}});
-    component.find('form').simulate('submit');
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
   test('submit success on page 1 (store of step1)', () => {
@@ -259,7 +244,7 @@ describe('<WizardSyncValidation />', () => {
   });
 
   test('submit success on 1, 2, 3 (store 3)', () => {
-    const {component, getStep3, reduxThunkTester} = renderComponent();
+    const {component, getStep3} = renderComponent();
     component.find('input').at(0).simulate('change', {target: {value: 'test'}});
     component.find('input').at(1).simulate('change', {target: {value: 'test'}});
     component.find('form').simulate('submit');

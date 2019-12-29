@@ -38,23 +38,10 @@ describe('<UnmountField />', () => {
     expect(component.find('input')).toMatchSnapshot();
   });
 
-  test('UnmountField: mount field (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
-  });
-
   test('UnmountField: mount field (store)', () => {
     const {component, store} = renderComponent();
     component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
     expect(store.getState().reduxForm.example).toMatchSnapshot();
-  });
-
-  test('UnmountField: render with field and then remove it (action history)', () => {
-    const {component, reduxThunkTester} = renderComponent();
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: true}});
-    component.find('input').at(1).simulate('change', {target: {type: 'checkbox', checked: false}});
-    expect(reduxThunkTester.getActionHistoryStringify()).toMatchSnapshot();
   });
 
   test('UnmountField: render with field and then remove it (store)', () => {

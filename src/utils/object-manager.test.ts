@@ -1,4 +1,4 @@
-import { setIn, getIn, deleteIn, mergeDeep } from './object-manager';
+import { setIn, getIn, deleteInMessages, mergeDeep } from './object-manager';
 
 describe('object-manager', () => {
   test('setIn', () => {
@@ -65,6 +65,14 @@ describe('object-manager', () => {
         values: {},
       },
     });
+
+    resultWithArray = setIn(state, 'testForm.meta.testArray.0', 'first');
+    expect(resultWithArray).toEqual({
+      testForm: {
+        meta: { testArray: ['first'] },
+        values: {},
+      },
+    });
   });
 
   test('getIn', () => {
@@ -114,7 +122,7 @@ describe('object-manager', () => {
     expect(getIn(state, 'formTest.none', 'test')).toEqual('test');
   });
 
-  test('deleteIn', () => {
+  test('deleteInMessages', () => {
     const state = {
       formTest: {
         meta: {
@@ -139,23 +147,27 @@ describe('object-manager', () => {
       },
     };
 
-    expect(deleteIn({}, 'a.b')).toEqual({});
+    expect(deleteInMessages({}, 'a.b')).toEqual({});
 
-    expect(deleteIn({a: {b: undefined}}, 'a.b')).toEqual({a: {}});
+    expect(deleteInMessages({a: {b: undefined}}, 'a.b')).toEqual({a: {}});
 
-    expect(deleteIn({a: {b: undefined}}, 'a.b.c')).toEqual({a: {}});
+    expect(deleteInMessages({a: {b: undefined}}, 'a.b.c')).toEqual({a: {}});
 
-    expect(deleteIn({a: {b: undefined}}, 'a.b.c', true)).toEqual({});
+    expect(deleteInMessages({a: {b: undefined}}, 'a.b.c', true)).toEqual({});
 
-    expect(deleteIn({a: [[[undefined]]]}, 'a[0][0][0][0]', true)).toEqual({});
+    expect(deleteInMessages({a: [[[undefined]]]}, 'a[0][0][0][0]', true)).toEqual({});
 
-    expect(deleteIn({a: [[[undefined]], 1]}, 'a[0][0][0][0]', true)).toEqual({a: [1]});
+    expect(deleteInMessages({a: [[[undefined]], 1]}, 'a[0][0][0][0]', true))
+      .toEqual({a: [undefined, 1]});
 
-    expect(deleteIn({a: [[[undefined]], 1]}, 'a[0][0][0][0]')).toEqual({a: [[[]], 1]});
+    expect(deleteInMessages({a: [[[undefined]], 1]}, 'a[0][0][0][0]')).toEqual({a: [[[]], 1]});
 
-    expect(deleteIn(state, 'formTest')).toEqual({});
+    expect(deleteInMessages({array: [{id: '0'}, {id: '1'}]}, 'array[0].id', true))
+      .toEqual({array: [undefined, {id: '1'}]});
 
-    expect(deleteIn(state, 'formTest.meta')).toEqual({
+    expect(deleteInMessages(state, 'formTest')).toEqual({});
+
+    expect(deleteInMessages(state, 'formTest.meta')).toEqual({
       formTest: {
         values: {
           value: [{ a: 'a' }],
@@ -163,23 +175,23 @@ describe('object-manager', () => {
       },
     });
 
-    expect(deleteIn({a: {b: {c: 'c'}}}, 'a.b.c', true)).toEqual({});
+    expect(deleteInMessages({a: {b: {c: 'c'}}}, 'a.b.c', true)).toEqual({});
 
-    expect(deleteIn({a: {b: {c: 'c'}}}, 'a.b.c')).toEqual({a: {b: {}}});
+    expect(deleteInMessages({a: {b: {c: 'c'}}}, 'a.b.c')).toEqual({a: {b: {}}});
 
-    expect(deleteIn(state, 'formTest.values.value[0]')).toEqual({
+    expect(deleteInMessages(state, 'formTest.values.value[0]')).toEqual({
       formTest: {
         meta: {
           metaField: 'meta field',
           metaArray: [1, 2, 3],
         },
         values: {
-          value: [],
+          value: [undefined],
         },
       },
     });
 
-    expect(deleteIn(state, 'formTest.values.value[0].a')).toEqual({
+    expect(deleteInMessages(state, 'formTest.values.value[0].a')).toEqual({
       formTest: {
         meta: {
           metaField: 'meta field',
@@ -191,7 +203,7 @@ describe('object-manager', () => {
       },
     });
 
-    expect(deleteIn(state, 'formTest.values.value[0].a', true)).toEqual({
+    expect(deleteInMessages(state, 'formTest.values.value[0].a', true)).toEqual({
       formTest: {
         meta: {
           metaField: 'meta field',
@@ -200,7 +212,7 @@ describe('object-manager', () => {
       },
     });
 
-    expect(deleteIn(state, 'formTest.values.value[0].b')).toEqual({
+    expect(deleteInMessages(state, 'formTest.values.value[0].b')).toEqual({
       formTest: {
         meta: {
           metaField: 'meta field',
@@ -214,9 +226,9 @@ describe('object-manager', () => {
 
     const stateWithArray = { array: [1, 2, 3] };
 
-    expect(deleteIn(stateWithArray, 'array[1]')).toEqual({ array: [1, 3] });
+    expect(deleteInMessages(stateWithArray, 'array[1]')).toEqual({ array: [1, undefined, 3] });
 
-    expect(deleteIn([1, 2, 3], '[1]')).toEqual([1, 3]);
+    expect(deleteInMessages([1, 2, 3], '[1]')).toEqual([1, undefined, 3]);
 
     expect(state).toEqual(copy);
   });

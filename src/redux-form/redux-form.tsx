@@ -6,6 +6,7 @@ import {
 } from './types';
 import {connect, ReactReduxContext} from 'react-redux';
 import {bindActionCreators, Store} from 'redux';
+import stringToPath from 'lodash.topath';
 import ReduxFormContext from './redux-form-context';
 import * as actions from '../store/actions';
 import {
@@ -100,12 +101,14 @@ const reduxForm = <V extends {}>(paramsArg: IReduxFormParams<V>) => (WrappedComp
     }
 
     updateValidateAndWarnMap: updateValidateAndWarnMap = (field, validate, warning) => {
-      if (validate) {
-        this.validateMap[field] = validate;
-      }
+      const path = stringToPath(field);
+      const currentField = path.join('.');
 
+      if (validate) {
+        this.validateMap[currentField] = validate;
+      }
       if (warning) {
-        this.warnMap[field] = warning;
+        this.warnMap[currentField] = warning;
       }
     };
 
