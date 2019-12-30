@@ -129,4 +129,39 @@ describe('<FieldArray />', () => {
     component.find('form').simulate('submit');
     expect(getFormState()).toMatchSnapshot();
   });
+
+  test('Store field-array after 3 push, failed change first name third user (should be length 10)', () => {
+    const {component, getFormState} = renderComponent();
+    component.find('#addUser').simulate('click');
+    component.find('#addUser').simulate('click');
+    component.find('#addUser').simulate('click');
+    component.find({name: 'users[2].firstName'}).at(0)
+      .simulate('change', {target: {value: 'test 2'}});
+    expect(getFormState()).toMatchSnapshot();
+  });
+
+  test('Store field-array after 3 push, failed change first name third user (should be length 10), submit', () => {
+    const {component, getFormState} = renderComponent();
+    component.find('#addUser').simulate('click');
+    component.find('#addUser').simulate('click');
+    component.find('#addUser').simulate('click');
+    component.find({name: 'users[2].firstName'}).at(0)
+      .simulate('change', {target: {value: 'test 2'}});
+    component.find('form').simulate('submit');
+    expect(getFormState()).toMatchSnapshot();
+  });
+
+  test('Store field-array after 3 push, push 2 friends for first user, submit', () => {
+    const {component, getFormState} = renderComponent();
+    component.find('#addUser').simulate('click');
+    component.find('#addUser').simulate('click');
+    component.find('#addFriendToUser').at(0).simulate('click');
+    component.find('#addFriendToUser').at(0).simulate('click');
+    component.find({name: 'users[0].friends[0].firstName'}).at(0)
+      .simulate('change', {target: {value: 'test first name'}});
+    component.find({name: 'users[0].friends[0].contacts.phone'}).at(0)
+      .simulate('change', {target: {value: 'test friend phone'}});
+    component.find('form').simulate('submit');
+    expect(getFormState()).toMatchSnapshot();
+  });
 });

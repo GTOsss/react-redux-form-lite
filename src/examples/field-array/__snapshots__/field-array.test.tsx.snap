@@ -704,6 +704,539 @@ Object {
 }
 `;
 
+exports[`<FieldArray /> Store field-array after 3 push, failed change first name third user (should be length 10) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "users": Array [
+        undefined,
+        undefined,
+        Object {
+          "firstName": "Min length should be 10",
+        },
+      ],
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "groupName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "",
+      "focused": false,
+      "warning": "",
+    },
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "Min length should be 10",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "groupName": undefined,
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 0,
+        "secondName": undefined,
+      },
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 1,
+        "secondName": undefined,
+      },
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": "test 2",
+        "friends": Array [],
+        "id": 2,
+        "secondName": undefined,
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FieldArray /> Store field-array after 3 push, failed change first name third user (should be length 10), submit 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "groupName": "Field required.",
+      "users": Array [
+        Object {
+          "about": Object {
+            "hobby": "Field required.",
+          },
+          "firstName": "Field required.",
+          "secondName": "Field required.",
+        },
+        Object {
+          "about": Object {
+            "hobby": "Field required.",
+          },
+          "firstName": "Field required.",
+          "secondName": "Field required.",
+        },
+        Object {
+          "about": Object {
+            "hobby": "Field required.",
+          },
+          "firstName": "Min length should be 10",
+          "secondName": "Field required.",
+        },
+      ],
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "groupName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "Field required.",
+      "focused": false,
+      "warning": "",
+    },
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "Field required.",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "Field required.",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "Field required.",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "Min length should be 10",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "groupName": undefined,
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 0,
+        "secondName": undefined,
+      },
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 1,
+        "secondName": undefined,
+      },
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": "test 2",
+        "friends": Array [],
+        "id": 2,
+        "secondName": undefined,
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FieldArray /> Store field-array after 3 push, push 2 friends for first user, submit 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "groupName": "Field required.",
+      "users": Array [
+        Object {
+          "about": Object {
+            "hobby": "Field required.",
+          },
+          "firstName": "Field required.",
+          "friends": Array [
+            Object {
+              "secondName": "Field required.",
+            },
+            Object {
+              "contacts": Object {
+                "phone": "Field required.",
+              },
+              "firstName": "Field required.",
+              "secondName": "Field required.",
+            },
+          ],
+          "secondName": "Field required.",
+        },
+        Object {
+          "about": Object {
+            "hobby": "Field required.",
+          },
+          "firstName": "Field required.",
+          "secondName": "Field required.",
+        },
+      ],
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "groupName": Object {
+      "active": false,
+      "blurred": false,
+      "changed": false,
+      "error": "Field required.",
+      "focused": false,
+      "warning": "",
+    },
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "Field required.",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+        "friends": Array [
+          Object {
+            "contacts": Object {
+              "phone": Object {
+                "active": false,
+                "blurred": false,
+                "changed": true,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": true,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+            "secondName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+          },
+          Object {
+            "contacts": Object {
+              "phone": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "Field required.",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+            "secondName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+          },
+        ],
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "Field required.",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "Field required.",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "groupName": undefined,
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [
+          Object {
+            "contacts": Object {
+              "phone": "test friend phone",
+            },
+            "firstName": "test first name",
+            "id": 2,
+            "secondName": undefined,
+          },
+          Object {
+            "contacts": Object {
+              "phone": undefined,
+            },
+            "firstName": undefined,
+            "id": 3,
+            "secondName": undefined,
+          },
+        ],
+        "id": 0,
+        "secondName": undefined,
+      },
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 1,
+        "secondName": undefined,
+      },
+    ],
+  },
+}
+`;
+
 exports[`<FieldArray /> Store field-array after push user (store) 1`] = `
 Object {
   "form": Object {

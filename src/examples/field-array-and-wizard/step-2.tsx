@@ -67,7 +67,8 @@ const FieldArrayExample = (props) => {
     <form onSubmit={handleSubmit}>
       <Field validate={validateIsRequired} name="groupName" component="input" type="text" />
       <FieldArray name="users" component={Users} />
-      <button type="submit">Submit</button>
+      <button type="button">Previous</button>
+      <button type="submit">Next</button>
     </form>
   );
 };
@@ -75,7 +76,9 @@ const FieldArrayExample = (props) => {
 export default () => {
   id = 0;
   return reduxForm({
-    form: 'fieldArrayExample',
+    form: 'step2',
+    destroyOnUnmount: false,
+    wizard: 'fieldArrayWizard',
     validate: submitValidate,
   })(FieldArrayExample);
 };
