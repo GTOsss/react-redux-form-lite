@@ -1,5 +1,6 @@
 import React, {Component, createElement} from 'react';
 import {connect} from 'react-redux';
+import omit from 'lodash.omit';
 import FieldArrayContext from './field-array-context';
 import ReduxFormContext from '../redux-form/redux-form-context';
 import {arrayPush, registerField} from '../store/actions';
@@ -67,6 +68,7 @@ class FieldArray extends Component<IProps, IState> {
 
   render() {
     const {component, name, ...props} = this.props;
+    const {ownProps} = this.injected;
     const meta = {};
     const fieldArrayContext = {
       fieldName: name,
@@ -74,7 +76,7 @@ class FieldArray extends Component<IProps, IState> {
     const fields = this.createFields();
     return (
       <FieldArrayContext.Provider value={fieldArrayContext}>
-        {createElement<any>(component, {...props, meta, fields})}
+        {createElement<any>(component, {...omit(props, 'ownProps'), ...ownProps, meta, fields})}
       </FieldArrayContext.Provider>
     );
   }
@@ -102,7 +104,7 @@ const mergeProps = (stateProps, {dispatch}: any, ownPropsArg) => {
 
 const FieldArrayConnected = connect(mapStateToProps, null, mergeProps)(FieldArray);
 
-const FieldArrayWithContext = (props: Omit<IProps, 'formContext'>) => (
+const FieldArrayWithContext = (props: Omit<IProps, 'formContext'> | Record<string, unknown>) => (
   <ReduxFormContext.Consumer>
     {(formContext) => (
       <FieldArrayConnected {...props} formContext={formContext} />

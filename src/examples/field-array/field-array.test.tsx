@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import getFieldArray from './field-array';
 import React from 'react';
 
-const renderComponent = (innerOnSubmit?) => {
+const renderComponent = (pushUser?) => {
   const reduxThunkTester = new ReduxThunkTester();
   const FieldArray = getFieldArray();
 
@@ -17,7 +17,7 @@ const renderComponent = (innerOnSubmit?) => {
 
   const component = mount(
     <Provider store={store}>
-      <FieldArray innerOnSubmit={innerOnSubmit} />
+      <FieldArray pushUser={pushUser} />
     </Provider>,
   );
 
@@ -161,6 +161,14 @@ describe('<FieldArray />', () => {
       .simulate('change', {target: {value: 'test first name'}});
     component.find({name: 'users[0].friends[0].contacts.phone'}).at(0)
       .simulate('change', {target: {value: 'test friend phone'}});
+    component.find('form').simulate('submit');
+    expect(getFormState()).toMatchSnapshot();
+  });
+
+  test('Store field-array after push user with filled fields', () => {
+    const user = {firstName: 'test fist name'};
+    const {component, getFormState} = renderComponent((fields) => fields.push(user));
+    component.find('#addUser').simulate('click');
     component.find('form').simulate('submit');
     expect(getFormState()).toMatchSnapshot();
   });

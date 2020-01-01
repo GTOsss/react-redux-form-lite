@@ -41,7 +41,15 @@ const Friends = (props) => {
 };
 
 const Users = (props) => {
-  const {fields} = props;
+  const {fields, pushUser} = props;
+
+  const push = () => {
+    if (pushUser) {
+      pushUser(fields);
+    } else {
+      fields.push({id: getId()});
+    }
+  };
 
   return (
     <div>
@@ -55,18 +63,18 @@ const Users = (props) => {
           </li>
         ))}
       </ul>
-      <button id="addUser" onClick={() => fields.push({id: getId()})}>Add user</button>
+      <button id="addUser" onClick={push}>Add user</button>
     </div>
   );
 };
 
 const FieldArrayExample = (props) => {
-  const {handleSubmit} = props;
+  const {handleSubmit, pushUser} = props;
 
   return (
     <form onSubmit={handleSubmit}>
       <Field validate={validateIsRequired} name="groupName" component="input" type="text" />
-      <FieldArray name="users" component={Users} />
+      <FieldArray name="users" component={Users} pushUser={pushUser} />
       <button type="submit">Submit</button>
     </form>
   );
