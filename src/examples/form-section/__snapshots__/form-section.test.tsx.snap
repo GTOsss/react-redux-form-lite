@@ -1,0 +1,470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormSection /> Blur field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": true,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "firstName": Object {
+        "active": false,
+        "blurred": true,
+        "changed": true,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": undefined,
+      },
+      "firstName": "test",
+      "lastName": undefined,
+    },
+    "users": Array [],
+  },
+}
+`;
+
+exports[`<FormSection /> Changed field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "userFormSection.firstName",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "firstName": Object {
+        "active": true,
+        "blurred": false,
+        "changed": true,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": undefined,
+      },
+      "firstName": "test",
+      "lastName": undefined,
+    },
+    "users": Array [],
+  },
+}
+`;
+
+exports[`<FormSection /> Focus field: store 1`] = `
+Object {
+  "form": Object {
+    "activeField": "userFormSection.firstName",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": true,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "firstName": Object {
+        "active": true,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": true,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": undefined,
+      },
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+    "users": Array [],
+  },
+}
+`;
+
+exports[`<FormSection /> Register form and fields: store. 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+    },
+  },
+  "values": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": undefined,
+      },
+      "firstName": undefined,
+      "lastName": undefined,
+    },
+    "users": Array [],
+  },
+}
+`;
+
+exports[`<FormSection /> Render simple form (inputs). 1`] = `
+Array [
+  <input
+    name="userFormSection.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="userFormSection.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="userFormSection.contacts.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value=""
+  />,
+]
+`;
+
+exports[`<FormSection /> Render simple form after push user (inputs). 1`] = `
+Array [
+  <input
+    name="userFormSection.firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="First Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="userFormSection.lastName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Last Name"
+    type="text"
+    value=""
+  />,
+  <input
+    name="userFormSection.contacts.email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Email"
+    type="email"
+    value=""
+  />,
+  <input
+    name="userFormSection.users[0].firstName"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    type="text"
+    value=""
+  />,
+]
+`;
+
+exports[`<FormSection /> Render simple form after push user (store). 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      "firstName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "lastName": Object {
+        "active": false,
+        "blurred": false,
+        "changed": false,
+        "error": "",
+        "focused": false,
+        "warning": "",
+      },
+      "users": Array [
+        Object {
+          "firstName": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+      ],
+    },
+  },
+  "values": Object {
+    "userFormSection": Object {
+      "contacts": Object {
+        "email": undefined,
+      },
+      "firstName": undefined,
+      "lastName": undefined,
+      "users": Array [
+        Object {
+          "firstName": undefined,
+        },
+      ],
+    },
+    "users": Array [
+      Object {
+        "id": 0,
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FormSection /> onSubmit 1`] = `
+Array [
+  Array [
+    Object {
+      "actions": Object {
+        "arrayPush": [Function],
+        "blur": [Function],
+        "change": [Function],
+        "changeSubmitted": [Function],
+        "focus": [Function],
+        "registerField": [Function],
+        "registerForm": [Function],
+        "removeField": [Function],
+        "removeForm": [Function],
+        "resetForm": [Function],
+        "setInitialValues": [Function],
+        "updateFormState": [Function],
+        "updateValidateAndWarningMessages": [Function],
+        "updateValidateMessage": [Function],
+        "updateValidateMessages": [Function],
+        "updateWarningMessage": [Function],
+        "updateWarningMessages": [Function],
+      },
+      "state": Object {
+        "form": Object {
+          "activeField": "",
+          "blurred": false,
+          "changed": false,
+          "errorsMap": Object {
+            "userFormSection": Object {
+              "firstName": "Field required.",
+            },
+          },
+          "focused": false,
+          "hasErrors": true,
+          "hasWarnings": false,
+          "submitted": true,
+          "warningsMap": Object {},
+        },
+        "meta": Object {
+          "userFormSection": Object {
+            "contacts": Object {
+              "email": Object {
+                "active": false,
+                "blurred": false,
+                "changed": false,
+                "error": "",
+                "focused": false,
+                "warning": "",
+              },
+            },
+            "firstName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "Field required.",
+              "focused": false,
+              "warning": "",
+            },
+            "lastName": Object {
+              "active": false,
+              "blurred": false,
+              "changed": false,
+              "error": "",
+              "focused": false,
+              "warning": "",
+            },
+          },
+        },
+        "values": Object {
+          "userFormSection": Object {
+            "contacts": Object {
+              "email": undefined,
+            },
+            "firstName": undefined,
+            "lastName": undefined,
+          },
+          "users": Array [],
+        },
+      },
+      "values": Object {
+        "userFormSection": Object {
+          "contacts": Object {
+            "email": undefined,
+          },
+          "firstName": undefined,
+          "lastName": undefined,
+        },
+        "users": Array [],
+      },
+      "wizard": undefined,
+    },
+  ],
+]
+`;

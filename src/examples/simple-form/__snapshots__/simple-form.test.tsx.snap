@@ -742,6 +742,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     name="firstName"
                     placeholder="First Name"
                     type="text"
@@ -775,6 +780,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={
@@ -903,6 +913,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     name="lastName"
                     placeholder="Last Name"
                     type="text"
@@ -936,6 +951,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={
@@ -1064,6 +1084,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     name="email"
                     placeholder="Email"
                     type="email"
@@ -1097,6 +1122,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={
@@ -1226,6 +1256,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "updateValidateAndWarnMap": [Function],
                         }
                       }
+                      formSectionContext={
+                        Object {
+                          "name": "",
+                        }
+                      }
                       name="sex"
                       type="radio"
                       value="male"
@@ -1259,6 +1294,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                             "destroyOnUnmount": true,
                             "form": "simple",
                             "updateValidateAndWarnMap": [Function],
+                          }
+                        }
+                        formSectionContext={
+                          Object {
+                            "name": "",
                           }
                         }
                         formState={
@@ -1382,6 +1422,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "updateValidateAndWarnMap": [Function],
                         }
                       }
+                      formSectionContext={
+                        Object {
+                          "name": "",
+                        }
+                      }
                       name="sex"
                       type="radio"
                       value="female"
@@ -1415,6 +1460,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                             "destroyOnUnmount": true,
                             "form": "simple",
                             "updateValidateAndWarnMap": [Function],
+                          }
+                        }
+                        formSectionContext={
+                          Object {
+                            "name": "",
                           }
                         }
                         formState={
@@ -1542,6 +1592,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     name="favoriteColor"
                   >
                     <Field
@@ -1573,6 +1628,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={
@@ -1734,6 +1794,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     id="employed"
                     name="employed"
                     type="checkbox"
@@ -1767,6 +1832,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={
@@ -1893,6 +1963,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         "updateValidateAndWarnMap": [Function],
                       }
                     }
+                    formSectionContext={
+                      Object {
+                        "name": "",
+                      }
+                    }
                     name="notes"
                   >
                     <Field
@@ -1924,6 +1999,11 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                           "destroyOnUnmount": true,
                           "form": "simple",
                           "updateValidateAndWarnMap": [Function],
+                        }
+                      }
+                      formSectionContext={
+                        Object {
+                          "name": "",
                         }
                       }
                       formState={

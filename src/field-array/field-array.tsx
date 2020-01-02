@@ -6,6 +6,7 @@ import ReduxFormContext from '../redux-form/redux-form-context';
 import {arrayPush, registerField} from '../store/actions';
 import {getIn} from '../utils/object-manager';
 import {IFormContext} from '../redux-form/types';
+import FormSectionContext from '../form-section/form-section-context';
 
 interface IProps {
   component: React.ComponentType;
@@ -90,7 +91,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mergeProps = (stateProps, {dispatch}: any, ownPropsArg) => {
-  const {name, component, formContext, ...ownProps} = ownPropsArg;
+  const {name, component, formContext, formSectionContext, ...ownProps} = ownPropsArg;
 
   return {
     ...stateProps,
@@ -98,6 +99,7 @@ const mergeProps = (stateProps, {dispatch}: any, ownPropsArg) => {
     name,
     component,
     formContext,
+    formSectionContext,
     ownProps,
   };
 };
@@ -105,11 +107,15 @@ const mergeProps = (stateProps, {dispatch}: any, ownPropsArg) => {
 const FieldArrayConnected = connect(mapStateToProps, null, mergeProps)(FieldArray);
 
 const FieldArrayWithContext = (props: Omit<IProps, 'formContext'> | Record<string, unknown>) => (
-  <ReduxFormContext.Consumer>
-    {(formContext) => (
-      <FieldArrayConnected {...props} formContext={formContext} />
+  <FormSectionContext.Consumer>
+    {(formSectionContext) => (
+      <ReduxFormContext.Consumer>
+        {(formContext) => (
+          <FieldArrayConnected {...props} formContext={formContext} formSectionContext={formSectionContext} />
+        )}
+      </ReduxFormContext.Consumer>
     )}
-  </ReduxFormContext.Consumer>
+  </FormSectionContext.Consumer>
 );
 
 export default FieldArrayWithContext;

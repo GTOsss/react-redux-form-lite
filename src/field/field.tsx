@@ -14,6 +14,7 @@ import {
 import {
   IFormContext,
 } from '../redux-form/types';
+import FormSectionContext from '../form-section/form-section-context';
 
 interface IProps {
   name: string;
@@ -216,13 +217,19 @@ const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
 
 const mergeProps = (stateProps, dispatchProps, ownPropsArg) => {
   const {
-    name, component, formContext, fieldArrayContext, warn, validate, ...ownProps
+    name: fieldName, component, formContext, formSectionContext, fieldArrayContext, warn, validate, ...ownProps
   } = ownPropsArg;
+  let name = fieldName;
+
+  if (formSectionContext.name) {
+    name = `${formSectionContext.name}.${fieldName}`;
+  }
 
   return {
     name,
     component,
     formContext,
+    formSectionContext,
     warn,
     validate,
     ownProps: {...ownProps, name},
@@ -237,15 +244,20 @@ const FieldConnected = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
 const FieldWithContext = (props) => (
   <ReduxFormContext.Consumer>
     {(formContext) => (
-      <FieldArrayContext.Consumer>
-        {(fieldArrayContext) => (
-          <FieldConnected
-            {...props}
-            formContext={formContext}
-            fieldArrayContext={fieldArrayContext}
-          />
+      <FormSectionContext.Consumer>
+        {(formSectionContext) => (
+          <FieldArrayContext.Consumer>
+            {(fieldArrayContext) => (
+              <FieldConnected
+                {...props}
+                formContext={formContext}
+                fieldArrayContext={fieldArrayContext}
+                formSectionContext={formSectionContext}
+              />
+            )}
+          </FieldArrayContext.Consumer>
         )}
-      </FieldArrayContext.Consumer>
+      </FormSectionContext.Consumer>
     )}
   </ReduxFormContext.Consumer>
 );
