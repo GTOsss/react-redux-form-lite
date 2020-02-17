@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const configResolve = require('./resolve');
 
 const defainePlugin = new webpack.DefinePlugin({
@@ -9,16 +8,20 @@ const defainePlugin = new webpack.DefinePlugin({
 
 module.exports = options => ({
   devtool: options.devtool,
-  entry: ['@babel/polyfill', path.join(__dirname, '../src/index.js')],
+  entry: [path.join(__dirname, '../src/index.ts')],
   output: options.output,
-  devServer: {
-    contentBase: path.join(__dirname, '../public'),
-    port: 3000,
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       ...options.module.rules,
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "ts-loader"
+          }
+        ]
+      },
       {
         test: /\.js$|\.jsx$/,
         exclude: /(node_modules|bower_components)/,
@@ -31,28 +34,9 @@ module.exports = options => ({
           },
         ],
       },
-      {
-        test: /\.woff2?$|\.ttf$|\.eot$/,
-        loader: 'file-loader',
-        options: {
-          name: '../fonts/[name].[ext]',
-        },
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '../images/[name].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
   plugins: [
-    ...options.plugins,
     defainePlugin,
   ],
   resolve: configResolve.resolve,

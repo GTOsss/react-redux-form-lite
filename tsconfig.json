@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // "types": [],
     "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
@@ -7,6 +8,9 @@
     "allowJs": true,
     "jsx": "react",
     "baseUrl": ".",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "paths": {
       "@api/*": ["./app/api/*"],
       "@assets/*": ["./app/assets/*"],

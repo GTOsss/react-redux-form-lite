@@ -1,4 +1,4 @@
-interface IFieldMeta {
+export interface IFieldMeta {
   focused: boolean;
   active: boolean;
   blurred: boolean;
@@ -7,15 +7,15 @@ interface IFieldMeta {
   error: string;
 }
 
-type MetaState<Values> = {
+export type MetaState<Values> = {
   [key in keyof Values]?: Values[key] extends object ? MetaState<Values[key]> : IFieldMeta;
 };
 
-type MapMessages<Values> = {
+export type MapMessages<Values> = {
   [key in keyof Values]?: Values[key] extends object ? MapMessages<Values[key]> : string | null;
 };
 
-interface IFormState<Values> {
+export interface IFormState<Values> {
   submitted: boolean;
   focused: boolean;
   blurred: boolean;
@@ -27,36 +27,36 @@ interface IFormState<Values> {
   activeField: string;
 }
 
-interface IReduxFormState<Values> {
+export interface IReduxFormState<Values> {
   form: IFormState<Values>;
   meta: MetaState<Values>;
   values: Values;
 }
 
-type ValidateMethod = (value?: any) => string | undefined | null;
-type ValidateProps = Array<ValidateMethod> | ValidateMethod;
+export type ValidateMethod = (value?: any) => string | undefined | null;
+export type ValidateProps = Array<ValidateMethod> | ValidateMethod;
 
-interface IFullReduxFormState<Values> {
+export interface IFullReduxFormState<Values> {
   [key: string]: IReduxFormState<Values> | IReduxFormWizard<Values> | undefined;
 }
 
-interface IMapValidate {
+export interface IMapValidate {
   [key: string]: ValidateProps;
 }
 
-interface IMapErrorsAndWarningsMessages<Values> {
+export interface IMapErrorsAndWarningsMessages<Values> {
   errors?: MapMessages<Values>;
   warnings?: MapMessages<Values>;
 }
 
-interface IReduxFormSubmitEvent<Values> {
+export interface IReduxFormSubmitEvent<Values> {
   values: Values;
   actions: IReduxFormActions<Values>;
   state: IReduxFormState<Values>;
   wizard?: IReduxFormWizard<Values>;
 }
 
-interface IReduxFormActions<Values> {
+export interface IReduxFormActions<Values> {
   registerForm(form: string, wizard?: string): any;
 
   registerField(form: string, field: string, value: any, wizard?: string): any;
@@ -102,9 +102,9 @@ interface IReduxFormActions<Values> {
   arrayPush(form: string, field: string, value: any): any;
 }
 
-type SubmitValidate<Values> = (values: Values) => MapMessages<Values>;
+export type SubmitValidate<Values> = (values: Values) => MapMessages<Values>;
 
-interface IReduxFormParams<Values = {}> {
+export interface IReduxFormParams<Values = {}> {
   form: string;
   wizard?: string;
   destroyOnUnmount?: boolean;
@@ -113,19 +113,19 @@ interface IReduxFormParams<Values = {}> {
   initialValues?: Values;
 }
 
-interface IWizardState<Values> {
+export interface IWizardState<Values> {
   errorsMap: MapMessages<Values>;
   hasErrors: boolean;
   warningsMap: MapMessages<Values>;
   hasWarnings: boolean;
 }
 
-interface IReduxFormWizard<Values> {
+export interface IReduxFormWizard<Values> {
   wizard: IWizardState<Values>;
   values: Values;
 }
 
-interface IReduxFormInjected<Values> {
+export interface IReduxFormInjected<Values> {
   handleSubmit(): void;
 
   formParams: IReduxFormParams<Values>;
