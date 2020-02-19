@@ -6,6 +6,9 @@
 /public-prod-build
 # Dependencies
 /node_modules
+/lib
+/es
+/dist
 
 # IDEs and editors
 .idea/*
