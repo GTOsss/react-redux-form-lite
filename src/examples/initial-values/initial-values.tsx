@@ -3,7 +3,7 @@ import {Field, reduxForm} from '../../index';
 import {IValues} from './initial-values.test';
 
 const SimpleForm = (props) => {
-  const {handleSubmit, formActions: {resetForm}} = props as IReduxFormInjected<{}>;
+  const {handleSubmit, formActions: {resetForm}} = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
