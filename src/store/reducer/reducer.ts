@@ -15,7 +15,6 @@ import {
   CHANGE,
   FOCUS,
   BLUR,
-  ARRAY_PUSH,
   UPDATE_WARNING_MESSAGE,
   UPDATE_WARNING_MESSAGES,
   UPDATE_VALIDATE_MESSAGE,
@@ -27,6 +26,8 @@ import {
   REMOVE_FORM,
   RESET_FORM,
   SET_INITIAL_VALUES,
+  ARRAY_PUSH,
+  ARRAY_REMOVE,
 } from '../constants';
 
 const initialState = {};
@@ -61,7 +62,7 @@ const initialMeta: IFieldMeta = {
 
 export default (state = initialState, {type, payload, meta}): IFullReduxFormState<any> => {
   const {form, field, wizard, noMeta} = meta || {} as any;
-  const {value, submitted, initialValues} = payload || {} as any;
+  const {value, submitted, initialValues, id, keyOfId} = payload || {} as any;
 
   const pathValue = `${form}.values.${field}`;
   const pathMeta = `${form}.meta.${field}`;
@@ -131,9 +132,10 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       if (getIn(newState, `${pathForm}.activeField`) === field) {
         setIn(newState, `${pathForm}.activeField`, '');
       }
-      newState = deleteInMessages(newState, `${form}.meta.${field}`);
-      newState = deleteInMessages(newState, `${form}.values.${field}`);
-      return newState;
+      let currentFormInState = getIn(newState, form);
+      currentFormInState = deleteInMessages(currentFormInState, `meta.${field}`, true, true);
+      currentFormInState = deleteInMessages(currentFormInState, `values.${field}`, true ,true)
+      return setIn(newState, form, currentFormInState);
     }
     case REMOVE_FORM:
       return setIn(newState, `${form}`, {});
@@ -146,6 +148,10 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
     case ARRAY_PUSH: {
       const fields = getIn(state, pathValue);
       return setIn(newState, pathValue, [...fields, value]);
+    }
+    case ARRAY_REMOVE: {
+      const fields = getIn(state, pathValue);
+      return setIn(state, pathValue, fields.filter((el) => el[keyOfId] !== id));
     }
     default:
       return state;

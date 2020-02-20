@@ -21,7 +21,7 @@ export const setIn = (state, path, value, pathIndex = 0) => {
 
   if (!state) {
     if (isNaN(first)) {
-      return { [first]: next };
+      return {[first]: next};
     }
     const initialized = [];
     // @ts-ignore
@@ -55,7 +55,7 @@ export const getIn = (state, field, defaultValue?) => {
   }
 
   const path = stringToPath(field);
-  const { length } = path;
+  const {length} = path;
   if (!length) {
     return defaultValue;
   }
@@ -76,10 +76,17 @@ export const getIn = (state, field, defaultValue?) => {
  * @param {object} state Redux state
  * @param path
  * @param removeEmpty
+ * @param removeArrayElements
  * @param index
  * @returns {object} State
  */
-const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean = false, index: number = 0) => {
+const deleteInMessagesByPath = (
+  state,
+  path: Array<string>,
+  removeEmpty: boolean = false,
+  removeArrayElements: boolean = false,
+  index: number = 0,
+) => {
   const currentKey = path[index];
 
   if (!state && (state !== 0)) {
@@ -97,7 +104,7 @@ const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean
       delete newState[currentKey];
       return newState;
     } else {
-      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, removeArrayElements, index + 1);
       const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
       if (isRemoveEmpty) {
         // tslint:disable-next-line:no-dynamic-delete
@@ -111,7 +118,7 @@ const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean
     if (isEndPoint) {
       return newState.map((el, i) => Number(currentKey) !== i ? el : undefined);
     } else {
-      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, index + 1);
+      const result = deleteInMessagesByPath(newState[currentKey], path, removeEmpty, removeArrayElements, index + 1);
       const isRemoveEmpty = !result || (removeEmpty && (!result || !Object.keys(result).length));
 
       if (isRemoveEmpty) {
@@ -122,8 +129,10 @@ const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean
           const isTargetElement = i === Number(currentKey);
           if (!el || isTargetElement) {
             countEmpty += 1;
-            // @ts-ignore
-            filteredArray.push(undefined);
+            if (!removeArrayElements) {
+              // @ts-ignore
+              filteredArray.push(undefined);
+            }
           } else {
             // @ts-ignore
             filteredArray.push(el);
@@ -140,9 +149,9 @@ const deleteInMessagesByPath = (state, path: Array<string>, removeEmpty: boolean
   }
 };
 
-export const deleteInMessages = (state, field, removeEmpty: boolean = false) => {
+export const deleteInMessages = (state, field, removeEmpty: boolean = false, removeEmptyArrayElements = false) => {
   const path = stringToPath(field);
-  return deleteInMessagesByPath(state, path, removeEmpty);
+  return deleteInMessagesByPath(state, path, removeEmpty, removeEmptyArrayElements);
 };
 
 const checkIsObject = (item: object): boolean =>
@@ -163,11 +172,11 @@ export const mergeDeep = (target, ...sources) => {
     Object.keys(source).forEach((key) => {
       if (checkIsObject(source[key])) {
         if (!target[key]) {
-          Object.assign(target, { [key]: {} });
+          Object.assign(target, {[key]: {}});
         }
         mergeDeep(target[key], source[key]);
       } else {
-        Object.assign(target, { [key]: source[key] });
+        Object.assign(target, {[key]: source[key]});
       }
     });
   }

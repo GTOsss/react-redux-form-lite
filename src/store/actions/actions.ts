@@ -1,7 +1,6 @@
 import {
   REGISTER_FORM,
   REGISTER_FIELD,
-  ARRAY_PUSH,
   BLUR,
   FOCUS,
   CHANGE,
@@ -16,6 +15,8 @@ import {
   REMOVE_FORM,
   RESET_FORM,
   SET_INITIAL_VALUES,
+  ARRAY_PUSH,
+  ARRAY_REMOVE,
 } from '../constants';
 
 export const registerForm = (form: string, wizard?: string) => ({
@@ -140,4 +141,10 @@ export const arrayPush = (form: string, field: string, value: any) => ({
   type: ARRAY_PUSH,
   meta: {form, field},
   payload: {value},
+});
+
+export const arrayRemove = (form: string, field: string, id: string | number, keyOfId: string) => ({
+  type: ARRAY_REMOVE,
+  meta: {form, field},
+  payload: {id, keyOfId},
 });

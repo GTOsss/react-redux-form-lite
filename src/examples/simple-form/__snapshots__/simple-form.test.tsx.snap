@@ -381,6 +381,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
       actions={
         Object {
           "arrayPush": [Function],
+          "arrayRemove": [Function],
           "blur": [Function],
           "change": [Function],
           "changeSubmitted": [Function],
@@ -491,6 +492,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
         actions={
           Object {
             "arrayPush": [Function],
+            "arrayRemove": [Function],
             "blur": [Function],
             "change": [Function],
             "changeSubmitted": [Function],
@@ -610,6 +612,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
           formActions={
             Object {
               "arrayPush": [Function],
+              "arrayRemove": [Function],
               "blur": [Function],
               "change": [Function],
               "changeSubmitted": [Function],
@@ -755,6 +758,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -926,6 +930,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -1097,6 +1102,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -1269,6 +1275,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         actions={
                           Object {
                             "arrayPush": [Function],
+                            "arrayRemove": [Function],
                             "blur": [Function],
                             "change": [Function],
                             "changeSubmitted": [Function],
@@ -1435,6 +1442,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                         actions={
                           Object {
                             "arrayPush": [Function],
+                            "arrayRemove": [Function],
                             "blur": [Function],
                             "change": [Function],
                             "changeSubmitted": [Function],
@@ -1603,6 +1611,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -1807,6 +1816,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -1974,6 +1984,7 @@ exports[`<SimpleForm /> Render simple form. 1`] = `
                       actions={
                         Object {
                           "arrayPush": [Function],
+                          "arrayRemove": [Function],
                           "blur": [Function],
                           "change": [Function],
                           "changeSubmitted": [Function],
@@ -2128,6 +2139,7 @@ Array [
     Object {
       "actions": Object {
         "arrayPush": [Function],
+        "arrayRemove": [Function],
         "blur": [Function],
         "change": [Function],
         "changeSubmitted": [Function],

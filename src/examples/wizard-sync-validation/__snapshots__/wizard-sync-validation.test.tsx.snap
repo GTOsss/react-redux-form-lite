@@ -23,25 +23,6 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> Render WizardSyncValidation: action history 1`] = `
-"@@react-redux-form-lite/REGISTER_FORM
- meta: {form: 'step1', wizard: 'wizardExample'},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step1',
-	field: 'firstName',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step1',
-	field: 'lastName',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined}"
-`;
-
 exports[`<WizardSyncValidation /> Render WizardSyncValidation: store of wizard 1`] = `
 Object {
   "values": Object {
@@ -491,121 +472,6 @@ Array [
 ]
 `;
 
-exports[`<WizardSyncValidation /> submit success on page 1 (action history) 1`] = `
-"@@react-redux-form-lite/REGISTER_FORM
- meta: {form: 'step1', wizard: 'wizardExample'},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step1',
-	field: 'firstName',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step1',
-	field: 'lastName',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined},
-@@react-redux-form-lite/CHANGE
- meta: {
-	form: 'step1',
-	field: 'firstName',
-	wizard: 'wizardExample'
-}
- payload: {value: 'test'},
-@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
- meta: {form: 'step1', wizard: 'wizardExample'}
- payload: {
-	value: {
-		errors: {
-			firstName: undefined,
-			lastName: 'Field required.'
-		},
-		warnings: {lastName: undefined}
-	},
-	submitted: undefined
-},
-@@react-redux-form-lite/CHANGE
- meta: {
-	form: 'step1',
-	field: 'lastName',
-	wizard: 'wizardExample'
-}
- payload: {value: 'test'},
-@@react-redux-form-lite/UPDATE_VALIDATE_AND_WARNING_MESSAGES
- meta: {form: 'step1', wizard: 'wizardExample'}
- payload: {
-	value: {
-		errors: {firstName: undefined, lastName: undefined},
-		warnings: {lastName: undefined}
-	},
-	submitted: undefined
-},
-@@react-redux-form-lite/UPDATE_FORM_STATE
- meta: {form: 'step1', wizard: 'wizardExample'}
- payload: {
-	value: {
-		form: {
-			submitted: true,
-			focused: false,
-			blurred: false,
-			changed: true,
-			errorsMap: {},
-			hasErrors: false,
-			hasWarnings: false,
-			warningsMap: {},
-			activeField: ''
-		},
-		values: {firstName: 'test', lastName: 'test'},
-		meta: {
-			firstName: {
-				focused: false,
-				active: false,
-				blurred: false,
-				changed: true,
-				warning: '',
-				error: ''
-			},
-			lastName: {
-				focused: false,
-				active: false,
-				blurred: false,
-				changed: true,
-				warning: '',
-				error: ''
-			}
-		}
-	},
-	wizardState: {
-		wizard: {
-			errorsMap: {},
-			hasErrors: false,
-			warningsMap: {},
-			hasWarnings: false
-		},
-		values: {firstName: 'test', lastName: 'test'}
-	}
-},
-@@react-redux-form-lite/REGISTER_FORM
- meta: {form: 'step2', wizard: 'wizardExample'},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step2',
-	field: 'phone',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined},
-@@react-redux-form-lite/REGISTER_FIELD
- meta: {
-	form: 'step2',
-	field: 'email',
-	wizard: 'wizardExample'
-}
- payload: {value: undefined}"
-`;
-
 exports[`<WizardSyncValidation /> submit success on page 1 (render inputs) 1`] = `
 Array [
   <input
@@ -728,6 +594,7 @@ Array [
     Object {
       "actions": Object {
         "arrayPush": [Function],
+        "arrayRemove": [Function],
         "blur": [Function],
         "change": [Function],
         "changeSubmitted": [Function],

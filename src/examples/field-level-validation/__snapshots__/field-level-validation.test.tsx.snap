@@ -914,6 +914,7 @@ Object {
 exports[`<FieldLevelValidation /> handleSubmit(onSubmit) inside form-component (not valid): thirdArg 1`] = `
 Object {
   "arrayPush": [Function],
+  "arrayRemove": [Function],
   "blur": [Function],
   "change": [Function],
   "changeSubmitted": [Function],

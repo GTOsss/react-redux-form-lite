@@ -3,7 +3,7 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import {reducer} from '../../index';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
-import getFieldArray from './field-array';
+import getFieldArray from './field-array-custom-key-of-id';
 import React from 'react';
 
 const renderComponent = (pushUser?) => {
@@ -28,7 +28,7 @@ const renderComponent = (pushUser?) => {
   };
 };
 
-describe('<FieldArray />', () => {
+describe('<FieldArrayCustomKeyOfId />', () => {
   test('Render field-array form (inputs).', () => {
     const {component} = renderComponent();
     expect(component.find('input')).toMatchSnapshot();

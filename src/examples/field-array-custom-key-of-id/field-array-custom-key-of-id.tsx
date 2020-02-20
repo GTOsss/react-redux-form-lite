@@ -35,14 +35,14 @@ const Friends = (props) => {
             <button
               id="removeFriend"
               type="button"
-              onClick={() => fields.remove(fieldArray[i].id)}
+              onClick={() => fields.remove(fieldArray[i]._offlineId)}
             >
               Remove friend
             </button>
           </li>
         ))}
       </ul>
-      <button id="addFriendToUser" onClick={() => fields.push({id: getId()})}>Add friend</button>
+      <button id="addFriendToUser" onClick={() => fields.push({_offlineId: getId()})}>Add friend</button>
     </div>
   );
 };
@@ -66,7 +66,7 @@ const Users = (props) => {
             <Field validate={validateIsRequired} name={`${user}.firstName`} component="input" type="text" />
             <Field validate={validateIsRequired} name={`${user}.secondName`} component="input" type="text" />
             <Field validate={validateIsRequired} name={`${user}.about.hobby`} component="input" type="text" />
-            <FieldArray name={`${user}.friends`} component={Friends} />
+            <FieldArray keyOfId="_offlineId" name={`${user}.friends`} component={Friends} />
           </li>
         ))}
       </ul>

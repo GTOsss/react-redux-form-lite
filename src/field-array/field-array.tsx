@@ -3,14 +3,15 @@ import {connect} from 'react-redux';
 import omit from 'lodash.omit';
 import FieldArrayContext from './field-array-context';
 import ReduxFormContext from '../redux-form/redux-form-context';
-import {arrayPush, registerField} from '../store/actions';
-import {getIn} from '../utils/object-manager';
+import {arrayPush, arrayRemove, registerField} from '../store/actions';
+import {getIn} from '..';
 import {IFormContext} from '../redux-form/types';
 import FormSectionContext from '../form-section/form-section-context';
 
 interface IProps {
   component: React.ComponentType;
   name: string;
+  keyOfId: string;
   formContext: IFormContext;
 }
 
@@ -28,6 +29,7 @@ interface IState {
 class FieldArray extends Component<IProps, IState> {
   static defaultProps = {
     name: '',
+    keyOfId: 'id',
   };
 
   state = {
@@ -53,6 +55,7 @@ class FieldArray extends Component<IProps, IState> {
   createFields = () => {
     const {
       name,
+      keyOfId,
     } = this.props;
     const {
       formContext: {form},
@@ -62,7 +65,8 @@ class FieldArray extends Component<IProps, IState> {
 
     return {
       map: (callback) => fieldArray.map((el, i) => callback(`${name}[${i}]`, i, fieldArray)),
-      push: (value) => dispatch(arrayPush(form, `${name}`, value)),
+      push: (value) => dispatch(arrayPush(form, name, value)),
+      remove: (id) => dispatch(arrayRemove(form, name, id, keyOfId)),
       length: fieldArray.length,
     };
   };
@@ -91,12 +95,13 @@ const mapStateToProps = (state, props) => {
 };
 
 const mergeProps = (stateProps, {dispatch}: any, ownPropsArg) => {
-  const {name, component, formContext, formSectionContext, ...ownProps} = ownPropsArg;
+  const {name, keyOfId, component, formContext, formSectionContext, ...ownProps} = ownPropsArg;
 
   return {
     ...stateProps,
     dispatch,
     name,
+    keyOfId,
     component,
     formContext,
     formSectionContext,

@@ -341,6 +341,7 @@ Array [
     Object {
       "actions": Object {
         "arrayPush": [Function],
+        "arrayRemove": [Function],
         "blur": [Function],
         "change": [Function],
         "changeSubmitted": [Function],
