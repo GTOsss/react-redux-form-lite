@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import FormSectionContext from './form-section-context';
-
-export interface IProps {
-  name: string;
-  children: React.ReactNode;
-}
+import {IPropsFormSection as IProps} from '../../index';
 
 class FormSection extends Component<IProps> {
   static defaultProps = {};

@@ -5,15 +5,8 @@ import FieldArrayContext from './field-array-context';
 import ReduxFormContext from '../redux-form/redux-form-context';
 import {arrayPush, arrayRemove, registerField} from '../store/actions';
 import {getIn} from '..';
-import {IFormContext} from '../redux-form/types';
 import FormSectionContext from '../form-section/form-section-context';
-
-export interface IProps {
-  component: React.ComponentType;
-  name: string;
-  keyOfId: string;
-  formContext: IFormContext;
-}
+import {IPropsFieldArray as IProps} from '../../index';
 
 interface IInjectedProps extends IProps {
   dispatch(action: any): any;

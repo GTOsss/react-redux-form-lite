@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {IProps as IPropsField} from './src/field';
-import {IProps as IPropsFieldArray} from './src/field-array';
 import * as objectManager from './src/utils/object-manager';
-import {IProps as IPropsFormSection} from './src/form-section/form-section';
+import {FunctionComponent} from 'react';
+import {ComponentClass} from 'react';
+import {IFormContext} from './src/redux-form/types';
 
 export interface IFieldMeta {
   focused: boolean;
@@ -153,11 +153,38 @@ export interface IReduxForm<Values = {}> {
 
 declare const reduxForm: IReduxForm;
 
+export interface IPropsField {
+  name: string;
+  component: FunctionComponent | ComponentClass | string;
+  formContext: IFormContext;
+  fieldArrayContext: object;
+  warn: ValidateProps;
+  validate: ValidateProps;
+
+  onChange(event: any): void;
+
+  onBlur(event: any): void;
+
+  onFocus(event: any): void;
+}
+
 declare const Field: React.ComponentType<IPropsField>;
+
+export interface IPropsFieldArray {
+  component: React.ComponentType;
+  name: string;
+  keyOfId: string;
+  formContext: IFormContext;
+}
 
 declare const FieldArray: React.ComponentType<IPropsFieldArray>;
 
-declare const FormSection: React.ComponentType<IPropsFieldArray>;
+export interface IPropsFormSection {
+  name: string;
+  children: React.ReactNode;
+}
+
+declare const FormSection: React.ComponentType<IPropsFormSection>;
 
 declare const setIn: typeof objectManager.setIn;
 

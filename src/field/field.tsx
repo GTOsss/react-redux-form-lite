@@ -11,25 +11,8 @@ import {getIn, setIn} from '..';
 import {
   validateFormByValues as validateFormByValuesUtil,
 } from '../store/utils';
-import {
-  IFormContext,
-} from '../redux-form/types';
 import FormSectionContext from '../form-section/form-section-context';
-
-export interface IProps {
-  name: string;
-  component: FunctionComponent | ComponentClass | string;
-  formContext: IFormContext;
-  fieldArrayContext: object;
-  warn: ValidateProps;
-  validate: ValidateProps;
-
-  onChange(event: any): void;
-
-  onBlur(event: any): void;
-
-  onFocus(event: any): void;
-}
+import {IPropsField as IProps} from '../../index';
 
 interface IState {
 }
