@@ -8,7 +8,7 @@ import {getIn} from '..';
 import {IFormContext} from '../redux-form/types';
 import FormSectionContext from '../form-section/form-section-context';
 
-interface IProps {
+export interface IProps {
   component: React.ComponentType;
   name: string;
   keyOfId: string;

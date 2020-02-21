@@ -4,7 +4,7 @@ import {reducer} from '../../index';
 import {mount} from 'enzyme';
 import {Provider} from 'react-redux';
 import getFieldArray from './field-array';
-import React from 'react';
+import * as React from 'react';
 
 const renderComponent = (pushUser?) => {
   const reduxThunkTester = new ReduxThunkTester();

@@ -1,3 +1,9 @@
+import * as React from 'react';
+import {IProps as IPropsField} from './src/field';
+import {IProps as IPropsFieldArray} from './src/field-array';
+import * as objectManager from './src/utils/object-manager';
+import {IProps as IPropsFormSection} from './src/form-section/form-section';
+
 export interface IFieldMeta {
   focused: boolean;
   active: boolean;
@@ -134,4 +140,25 @@ export interface IReduxFormInjected<Values> {
 }
 
 declare const reducer: () => IFullReduxFormState<any>;
-// declare const reduxForm: ()
+
+///
+
+interface IReduxFormReturnedMethod {
+  (component: React.ComponentType): React.ElementType,
+}
+
+export interface IReduxForm<Values = {}> {
+  (params: IReduxFormParams<Values>): IReduxFormReturnedMethod,
+}
+
+declare const reduxForm: IReduxForm;
+
+declare const Field: React.ComponentType<IPropsField>;
+
+declare const FieldArray: React.ComponentType<IPropsFieldArray>;
+
+declare const FormSection: React.ComponentType<IPropsFieldArray>;
+
+declare const setIn: typeof objectManager.setIn;
+
+declare const getIn: typeof objectManager.getIn;

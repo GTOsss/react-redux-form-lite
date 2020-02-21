@@ -1,3 +1,1 @@
-import Component from './field';
-
-export default Component;
+export * from './field';

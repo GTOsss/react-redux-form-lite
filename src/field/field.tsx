@@ -16,7 +16,7 @@ import {
 } from '../redux-form/types';
 import FormSectionContext from '../form-section/form-section-context';
 
-interface IProps {
+export interface IProps {
   name: string;
   component: FunctionComponent | ComponentClass | string;
   formContext: IFormContext;

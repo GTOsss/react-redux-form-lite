@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FormSectionContext from './form-section-context';
 
-interface IProps {
+export interface IProps {
   name: string;
   children: React.ReactNode;
 }
