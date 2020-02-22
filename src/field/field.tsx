@@ -14,11 +14,14 @@ import {
 import FormSectionContext from '../form-section/form-section-context';
 import {IPropsField as IProps} from '../../index';
 import {IPropInput} from '../../index';
+import {IFormContext} from '../redux-form/types';
 
 interface IState {
 }
 
 interface IInjected {
+  formContext: IFormContext;
+  fieldArrayContext: object;
   actions: IReduxFormActions<any>;
   formState: IReduxFormState<any>;
   ownProps: any;

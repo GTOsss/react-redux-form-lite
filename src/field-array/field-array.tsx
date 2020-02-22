@@ -7,9 +7,12 @@ import {arrayPush, arrayRemove, registerField} from '../store/actions';
 import {getIn} from '..';
 import FormSectionContext from '../form-section/form-section-context';
 import {IPropsFieldArray as IProps} from '../../index';
+import {IFormContext} from '../redux-form/types';
 
 interface IInjectedProps extends IProps {
   dispatch(action: any): any;
+
+  formContext: IFormContext;
 
   fieldArray: Array<any>;
   ownProps: {};
@@ -59,7 +62,7 @@ class FieldArray extends Component<IProps, IState> {
     return {
       map: (callback) => fieldArray.map((el, i) => callback(`${name}[${i}]`, i, fieldArray)),
       push: (value) => dispatch(arrayPush(form, name, value)),
-      remove: (id) => dispatch(arrayRemove(form, name, id, keyOfId)),
+      remove: (id) => dispatch(arrayRemove(form, name, id, keyOfId!)),
       length: fieldArray.length,
     };
   };

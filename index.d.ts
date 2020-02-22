@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as objectManager from './src/utils/object-manager';
 import {FunctionComponent} from 'react';
 import {ComponentClass} from 'react';
-import {IFormContext} from './src/redux-form/types';
 
 export interface IFieldMeta {
   focused: boolean;
@@ -168,13 +167,11 @@ export interface IPropsCustomField {
   meta: IFieldMeta;
 }
 
-export interface IPropsField extends Omit<IPropInput, 'value'> {
+export interface IPropsField extends Partial<Omit<IPropInput, 'value'>> {
   name: string;
-  component: FunctionComponent | ComponentClass | string;
-  formContext: IFormContext;
-  fieldArrayContext: object;
-  warn: ValidateProps;
-  validate: ValidateProps;
+  component: FunctionComponent<any> | ComponentClass<any> | string;
+  warn?: ValidateProps;
+  validate?: ValidateProps;
 
   [key: string]: any;
 }
@@ -182,10 +179,9 @@ export interface IPropsField extends Omit<IPropInput, 'value'> {
 declare const Field: React.ComponentType<IPropsField>;
 
 export interface IPropsFieldArray {
-  component: React.ComponentType;
+  component: React.ComponentType<any>;
   name: string;
-  keyOfId: string;
-  formContext: IFormContext;
+  keyOfId?: string;
 
   [key: string]: any;
 }
