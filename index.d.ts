@@ -153,7 +153,22 @@ export interface IReduxForm<Values = {}> {
 
 declare const reduxForm: IReduxForm;
 
-export interface IPropsField {
+export interface IPropInput {
+  value: any;
+
+  onChange(event: React.ChangeEvent): void;
+
+  onBlur(event: React.SyntheticEvent): void;
+
+  onFocus(event: React.SyntheticEvent): void;
+}
+
+export interface IPropsCustomField {
+  input: IPropInput;
+  meta: IFieldMeta;
+}
+
+export interface IPropsField extends Omit<IPropInput, 'value'> {
   name: string;
   component: FunctionComponent | ComponentClass | string;
   formContext: IFormContext;
@@ -161,11 +176,7 @@ export interface IPropsField {
   warn: ValidateProps;
   validate: ValidateProps;
 
-  onChange(event: any): void;
-
-  onBlur(event: any): void;
-
-  onFocus(event: any): void;
+  [key: string]: any;
 }
 
 declare const Field: React.ComponentType<IPropsField>;
@@ -175,6 +186,8 @@ export interface IPropsFieldArray {
   name: string;
   keyOfId: string;
   formContext: IFormContext;
+
+  [key: string]: any;
 }
 
 declare const FieldArray: React.ComponentType<IPropsFieldArray>;

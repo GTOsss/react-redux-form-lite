@@ -1,4 +1,4 @@
-import React, {Component, FunctionComponent, ComponentClass, createElement} from 'react';
+import React, {Component, createElement} from 'react';
 import omit from 'lodash.omit';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -13,6 +13,7 @@ import {
 } from '../store/utils';
 import FormSectionContext from '../form-section/form-section-context';
 import {IPropsField as IProps} from '../../index';
+import {IPropInput} from '../../index';
 
 interface IState {
 }
@@ -28,11 +29,6 @@ class Field extends Component<IProps, IState> {
     actions: {},
     formContext: {},
     fieldArrayContext: {},
-    onChange: undefined,
-    onBlur: undefined,
-    onFocus: undefined,
-    warn: undefined,
-    validate: undefined,
     formState: {},
     ownProps: {},
   };
@@ -171,7 +167,7 @@ class Field extends Component<IProps, IState> {
     const {component, formContext, fieldArrayContext, ...props} = this.props;
 
     const meta = getIn(formState, `meta.${props.name}`, {});
-    const input = {
+    const input: IPropInput = {
       value: getIn(formState, `values.${props.name}`, ''),
       onChange: this.onChange,
       onFocus: this.onFocus,
