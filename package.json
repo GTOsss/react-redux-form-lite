@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-lite",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "React redux form lite",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -78,7 +78,7 @@
     "rimraf": "^3.0.1",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.2.1",
-    "typescript": "^3.5.3",
+    "typescript": "^3.8.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.2"
   }

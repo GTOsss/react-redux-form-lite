@@ -1,1 +1,3 @@
-export * from './field-array';
+import Component from './field-array';
+
+export default Component;
