@@ -142,7 +142,7 @@ declare const reducer: () => IFullReduxFormState<any>;
 
 ///
 
-interface IPropsConnectedForm<Values = any> {
+interface IPropsInjectedForm<Values = any> {
   [key: string]: any;
 
   formParams: IReduxFormParams;
@@ -194,6 +194,22 @@ export interface IPropsFieldArray {
   keyOfId?: string;
 
   [key: string]: any;
+}
+
+export interface IFields {
+  length: number;
+
+  map(callback: (name: string, index: number, fieldArray: Array<any>) => any): Array<any>;
+  push(value: any): void;
+  remove(id: string | number): void;
+}
+
+export interface IPropsInjectedFieldArray<FieldArray = any> {
+  keyOfId: string;
+  fields: IFields;
+  fieldArray: Array<FieldArray>;
+
+  dispatch(actions: any): any;
 }
 
 declare const FieldArray: React.ComponentType<IPropsFieldArray>;

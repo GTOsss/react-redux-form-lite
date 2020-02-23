@@ -60,24 +60,25 @@ class FieldArray extends Component<IProps, IState> {
     } = this.injected;
 
     return {
+      length: fieldArray.length,
       map: (callback) => fieldArray.map((el, i) => callback(`${name}[${i}]`, i, fieldArray)),
       push: (value) => dispatch(arrayPush(form, name, value)),
       remove: (id) => dispatch(arrayRemove(form, name, id, keyOfId!)),
-      length: fieldArray.length,
     };
   };
 
   render() {
     const {component, name, ...props} = this.props;
     const {ownProps} = this.injected;
-    const meta = {};
     const fieldArrayContext = {
       fieldName: name,
     };
     const fields = this.createFields();
+    const injectedProps = omit(props, 'ownProps', 'formContext', 'formSectionContext');
+
     return (
       <FieldArrayContext.Provider value={fieldArrayContext}>
-        {createElement<any>(component, {...omit(props, 'ownProps'), ...ownProps, meta, fields})}
+        {createElement<any>(component, {...injectedProps, ...ownProps, fields})}
       </FieldArrayContext.Provider>
     );
   }
