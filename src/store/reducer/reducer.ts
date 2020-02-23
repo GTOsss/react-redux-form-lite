@@ -132,10 +132,9 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       if (getIn(newState, `${pathForm}.activeField`) === field) {
         setIn(newState, `${pathForm}.activeField`, '');
       }
-      let currentFormInState = getIn(newState, form);
-      currentFormInState = deleteInMessages(currentFormInState, `meta.${field}`, true, true);
-      currentFormInState = deleteInMessages(currentFormInState, `values.${field}`, true ,true)
-      return setIn(newState, form, currentFormInState);
+      newState = deleteInMessages(newState, pathMeta);
+      newState = deleteInMessages(newState, pathValue);
+      return newState;
     }
     case REMOVE_FORM:
       return setIn(newState, `${form}`, {});
@@ -150,8 +149,16 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       return setIn(newState, pathValue, [...fields, value]);
     }
     case ARRAY_REMOVE: {
-      const fields = getIn(state, pathValue);
-      return setIn(state, pathValue, fields.filter((el) => el[keyOfId] !== id));
+      const valuesFieldArray = getIn(state, pathValue);
+      let targetIndex = -1;
+      const metaFieldsArray = getIn(newState, pathMeta);
+      newState = setIn(state, pathValue, valuesFieldArray.filter((el, i) => {
+        if (el[keyOfId] === id) {
+          targetIndex = i;
+        }
+        return el[keyOfId] !== id;
+      }));
+      return setIn(newState, pathMeta, metaFieldsArray.filter((el, i) => i !== targetIndex));
     }
     default:
       return state;

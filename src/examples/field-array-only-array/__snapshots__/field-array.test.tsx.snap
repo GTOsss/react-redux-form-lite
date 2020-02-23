@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FieldArrayOnlyArray /> Store field-array after 1 push 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": false,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": false,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": undefined,
+        },
+        "firstName": undefined,
+        "friends": Array [],
+        "id": 0,
+        "secondName": undefined,
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FieldArrayOnlyArray /> Store field-array after 1 push, remove 1 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": false,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "users": Array [],
+  },
+  "values": Object {
+    "users": Array [],
+  },
+}
+`;

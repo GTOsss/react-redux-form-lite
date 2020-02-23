@@ -177,7 +177,7 @@ export interface IPropsCustomField {
   meta: IFieldMeta;
 }
 
-export interface IPropsField extends Partial<Omit<IPropInput, 'value'>> {
+interface IPropsField extends Partial<Omit<IPropInput, 'value'>> {
   name: string;
   component: FunctionComponent<any> | ComponentClass<any> | string;
   warn?: ValidateProps;
@@ -188,7 +188,7 @@ export interface IPropsField extends Partial<Omit<IPropInput, 'value'>> {
 
 declare const Field: React.ComponentType<IPropsField>;
 
-export interface IPropsFieldArray {
+interface IPropsFieldArray {
   component: React.ComponentType<any>;
   name: string;
   keyOfId?: string;
@@ -214,7 +214,7 @@ export interface IPropsInjectedFieldArray<FieldArray = any> {
 
 declare const FieldArray: React.ComponentType<IPropsFieldArray>;
 
-export interface IPropsFormSection {
+interface IPropsFormSection {
   name: string;
   children: React.ReactNode;
 }

@@ -87,7 +87,6 @@ const FieldArrayExample = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Field validate={validateIsRequired} name="groupName" component="input" type="text" />
       <FieldArray name="users" component={Users} pushUser={pushUser} />
       <button type="submit">Submit</button>
     </form>
