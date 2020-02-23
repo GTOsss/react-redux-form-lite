@@ -71,7 +71,7 @@ class FieldArray extends Component<IProps, IState> {
     const {component, name, ...props} = this.props;
     const {ownProps} = this.injected;
     const fieldArrayContext = {
-      fieldName: name,
+      fieldArray: name,
     };
     const fields = this.createFields();
     const injectedProps = omit(props, 'ownProps', 'formContext', 'formSectionContext');

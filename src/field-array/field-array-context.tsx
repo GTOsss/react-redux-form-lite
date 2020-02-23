@@ -5,5 +5,5 @@ const FieldArrayContext = React.createContext({});
 export default FieldArrayContext;
 
 export interface IFieldArrayContext {
-  name: string;
+  fieldArray: string;
 }

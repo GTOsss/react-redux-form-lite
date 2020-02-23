@@ -43,7 +43,7 @@ describe('<FieldArrayOnlyArray />', () => {
   });
 
   test('Store field-array after 3 push, remove 2 (remove middle)', () => {
-    const {component, getFormState} = renderComponent();
+    const {component, getFormState, reduxThunkTester} = renderComponent();
     component.find('#addUser').simulate('click');
     component.find('input').at(0).simulate('change', {target: {value: '1'}});
     component.find('input').at(1).simulate('change', {target: {value: '1'}});
@@ -58,6 +58,7 @@ describe('<FieldArrayOnlyArray />', () => {
     component.find('input').at(8).simulate('change', {target: {value: '3'}});
     component.find('#removeUser').at(1).simulate('click');
     expect(getFormState()).toMatchSnapshot();
+    console.log(reduxThunkTester.getActionHistoryStringify({withColor: true}));
   });
 
   test('Store field-array after 4 push, remove 2 (remove middle), submit', () => {

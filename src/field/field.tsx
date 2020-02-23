@@ -50,7 +50,6 @@ class Field extends Component<IProps, IState> {
     const {
       name,
       formContext: {form, updateValidateAndWarnMap, wizard},
-      // fieldArrayContext: {fieldName: fieldArrayName},
       validate,
       warn,
     } = this.props;
@@ -63,12 +62,12 @@ class Field extends Component<IProps, IState> {
     const {
       actions: {removeField},
       formContext: {form, destroyOnUnmount},
-      fieldArrayContext: {name: fieldArrayName},
+      fieldArrayContext: {fieldArray},
     } = this.injected;
     const {
       name,
     } = this.props;
-    if (destroyOnUnmount && !fieldArrayName) {
+    if (destroyOnUnmount && !fieldArray) {
       removeField(form, name);
     }
   }
@@ -213,6 +212,7 @@ const mergeProps = (stateProps, dispatchProps, ownPropsArg) => {
     component,
     formContext,
     formSectionContext,
+    fieldArrayContext,
     warn,
     validate,
     ownProps: {...ownProps, name},
