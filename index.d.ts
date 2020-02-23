@@ -142,6 +142,16 @@ declare const reducer: () => IFullReduxFormState<any>;
 
 ///
 
+interface IPropsConnectedForm<Values = any> {
+  [key: string]: any;
+
+  formParams: IReduxFormParams;
+  formActions: IReduxFormActions<Values>;
+  formState: IReduxFormState<Values>;
+
+  handleSubmit(arg: React.SyntheticEvent | ((submitEvent?: IReduxFormSubmitEvent<Values>) => void)): () => void;
+}
+
 interface IReduxFormReturnedMethod {
   (component: React.ComponentType): React.ElementType,
 }
