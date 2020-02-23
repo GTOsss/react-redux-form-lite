@@ -82,3 +82,342 @@ Object {
   },
 }
 `;
+
+exports[`<FieldArrayOnlyArray /> Store field-array after 3 push, remove 2 (remove middle) 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": false,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "Min length should be 10",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": "1",
+        },
+        "firstName": "1",
+        "friends": Array [],
+        "id": 0,
+        "secondName": "1",
+      },
+      Object {
+        "about": Object {
+          "hobby": "3",
+        },
+        "firstName": "3",
+        "friends": Array [],
+        "id": 2,
+        "secondName": "3",
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FieldArrayOnlyArray /> Store field-array after 3 push, remove 2 (remove middle), submit 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {},
+    "focused": false,
+    "hasErrors": false,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": "1",
+        },
+        "firstName": "1",
+        "friends": Array [],
+        "id": 0,
+        "secondName": "1",
+      },
+      Object {
+        "about": Object {
+          "hobby": "3",
+        },
+        "firstName": "3",
+        "friends": Array [],
+        "id": 2,
+        "secondName": "3",
+      },
+    ],
+  },
+}
+`;
+
+exports[`<FieldArrayOnlyArray /> Store field-array after 4 push, remove 2 (remove middle), submit 1`] = `
+Object {
+  "form": Object {
+    "activeField": "",
+    "blurred": false,
+    "changed": true,
+    "errorsMap": Object {
+      "users": Array [
+        undefined,
+        undefined,
+        Object {
+          "firstName": "Min length should be 10",
+        },
+      ],
+    },
+    "focused": false,
+    "hasErrors": true,
+    "hasWarnings": false,
+    "submitted": true,
+    "warningsMap": Object {},
+  },
+  "meta": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+      Object {
+        "about": Object {
+          "hobby": Object {
+            "active": false,
+            "blurred": false,
+            "changed": true,
+            "error": "",
+            "focused": false,
+            "warning": "",
+          },
+        },
+        "firstName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "Min length should be 10",
+          "focused": false,
+          "warning": "",
+        },
+        "secondName": Object {
+          "active": false,
+          "blurred": false,
+          "changed": true,
+          "error": "",
+          "focused": false,
+          "warning": "",
+        },
+      },
+    ],
+  },
+  "values": Object {
+    "users": Array [
+      Object {
+        "about": Object {
+          "hobby": "1",
+        },
+        "firstName": "1",
+        "friends": Array [],
+        "id": 0,
+        "secondName": "1",
+      },
+      Object {
+        "about": Object {
+          "hobby": "2",
+        },
+        "firstName": "2",
+        "friends": Array [],
+        "id": 1,
+        "secondName": "2",
+      },
+      Object {
+        "about": Object {
+          "hobby": "4",
+        },
+        "firstName": "4",
+        "friends": Array [],
+        "id": 3,
+        "secondName": "4",
+      },
+    ],
+  },
+}
+`;

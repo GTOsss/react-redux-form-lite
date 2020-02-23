@@ -1,6 +1,6 @@
 {
   "name": "react-redux-form-lite",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "React redux form lite",
   "main": "lib/index.js",
   "module": "es/index.js",

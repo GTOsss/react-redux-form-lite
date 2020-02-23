@@ -6,7 +6,7 @@ import stringToPath from 'lodash.topath';
 import * as actions from '../store/actions';
 import {getValue} from '../utils/dom-helper';
 import ReduxFormContext from '../redux-form/redux-form-context';
-import FieldArrayContext from '../field-array/field-array-context';
+import FieldArrayContext, {IFieldArrayContext} from '../field-array/field-array-context';
 import {getIn, setIn} from '..';
 import {
   validateFormByValues as validateFormByValuesUtil,
@@ -21,7 +21,7 @@ interface IState {
 
 interface IInjected {
   formContext: IFormContext;
-  fieldArrayContext: object;
+  fieldArrayContext: IFieldArrayContext;
   actions: IReduxFormActions<any>;
   formState: IReduxFormState<any>;
   ownProps: any;
@@ -62,12 +62,13 @@ class Field extends Component<IProps, IState> {
   componentWillUnmount() {
     const {
       actions: {removeField},
+      formContext: {form, destroyOnUnmount},
+      fieldArrayContext: {name: fieldArrayName},
     } = this.injected;
     const {
       name,
-      formContext: {form, destroyOnUnmount},
     } = this.props;
-    if (destroyOnUnmount) {
+    if (destroyOnUnmount && !fieldArrayName) {
       removeField(form, name);
     }
   }

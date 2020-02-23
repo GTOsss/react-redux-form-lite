@@ -154,6 +154,26 @@ export const deleteInMessages = (state, field, removeEmpty: boolean = false, rem
   return deleteInMessagesByPath(state, path, removeEmpty, removeEmptyArrayElements);
 };
 
+export const deleteMessagesFromStateForm = (newState, pathForm, field) => {
+  const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
+  const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
+  if (getIn(errorsMap, field) !== undefined) {
+    newState = deleteInMessages(newState, `${pathForm}.errorsMap.${field}`);
+    const hasErrors = Object.keys(getIn(newState, `${pathForm}.errorsMap`)).length !== 0;
+    newState = setIn(newState, `${pathForm}.hasErrors`, hasErrors);
+  }
+  if (getIn(warningsMap, field) !== undefined) {
+    newState = deleteInMessages(newState, `${pathForm}.warningsMap.${field}`);
+    const hasWarnings = Object.keys(getIn(newState, `${pathForm}.warningsMap`)).length !== 0;
+    newState = setIn(newState, `${pathForm}.hasWarnings`, hasWarnings);
+  }
+  if (getIn(newState, `${pathForm}.activeField`) === field) {
+    setIn(newState, `${pathForm}.activeField`, '');
+  }
+
+  return newState;
+};
+
 const checkIsObject = (item: object): boolean =>
   item && (typeof item === 'object') && !Array.isArray(item);
 

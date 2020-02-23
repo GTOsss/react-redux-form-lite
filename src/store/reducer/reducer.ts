@@ -1,5 +1,6 @@
 import {
   getIn,
+  deleteMessagesFromStateForm,
   deleteInMessages,
   setIn,
 } from '../../utils/object-manager';
@@ -117,24 +118,9 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
       newState = wizard && payload.wizardState ? setIn(newState, wizard, payload.wizardState) : newState;
       return setIn(newState, form, value);
     case REMOVE_FIELD: {
-      const errorsMap = getIn(newState, `${pathForm}.errorsMap`);
-      const warningsMap = getIn(newState, `${pathForm}.warningsMap`);
-      if (getIn(errorsMap, field) !== undefined) {
-        newState = deleteInMessages(newState, `${pathForm}.errorsMap.${field}`);
-        const hasErrors = Object.keys(getIn(newState, `${pathForm}.errorsMap`)).length !== 0;
-        newState = setIn(newState, `${pathForm}.hasErrors`, hasErrors);
-      }
-      if (getIn(warningsMap, field) !== undefined) {
-        newState = deleteInMessages(newState, `${pathForm}.warningsMap.${field}`);
-        const hasWarnings = Object.keys(getIn(newState, `${pathForm}.warningsMap`)).length !== 0;
-        newState = setIn(newState, `${pathForm}.hasWarnings`, hasWarnings);
-      }
-      if (getIn(newState, `${pathForm}.activeField`) === field) {
-        setIn(newState, `${pathForm}.activeField`, '');
-      }
       newState = deleteInMessages(newState, pathMeta);
       newState = deleteInMessages(newState, pathValue);
-      return newState;
+      return deleteMessagesFromStateForm(newState, pathForm, field);
     }
     case REMOVE_FORM:
       return setIn(newState, `${form}`, {});
@@ -158,7 +144,8 @@ export default (state = initialState, {type, payload, meta}): IFullReduxFormStat
         }
         return el[keyOfId] !== id;
       }));
-      return setIn(newState, pathMeta, metaFieldsArray.filter((el, i) => i !== targetIndex));
+      newState = setIn(newState, pathMeta, metaFieldsArray.filter((el, i) => i !== targetIndex));
+      return deleteMessagesFromStateForm(newState, pathForm, field);
     }
     default:
       return state;
