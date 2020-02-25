@@ -152,12 +152,12 @@ interface IPropsInjectedForm<Values = any> {
   handleSubmit(arg: React.SyntheticEvent | ((submitEvent?: IReduxFormSubmitEvent<Values>) => void)): () => void;
 }
 
-interface IReduxFormReturnedMethod {
-  (component: React.ComponentType): React.ElementType,
+interface IReduxFormReturnedMethod<Props> {
+  (component: React.ComponentType<Props>): React.ElementType<Props & IPropsInjectedForm>;
 }
 
-export interface IReduxForm<Values = {}> {
-  (params: IReduxFormParams<Values>): IReduxFormReturnedMethod,
+export interface IReduxForm<Values = {}, Props = any> {
+  (params: IReduxFormParams<Values>): IReduxFormReturnedMethod<Props>,
 }
 
 declare const reduxForm: IReduxForm;
